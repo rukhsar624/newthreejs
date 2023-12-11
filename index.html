@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>3D Cube Animation | Home-Page</title>
+</head>
+
+<body>
+    <!--======== mouse cursor open ====== -->
+    <div id="cursor" class="cursor">
+        <div class="ring">
+            <div><!--Border--></div>
+        </div>
+        <div class="ring">
+            <div><!--Pointer--></div>
+        </div>
+    </div>
+    <!-- =====mouse cursor closed ======== -->
+    <section id="banner" class="floatingCarousel">
+        <div class="star1"></div>
+        <div class="star2"></div>
+        <div class="star3"></div>
+        <div id="canvas"></div>
+        <div class="buttons">
+            <button class="left-box-btn"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="original-btn"><i class="fa-solid fa-xmark"></i></button>
+            <button class="right-box-btn"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </section>
+
+    <!-- jquery  -->
+    <script src="./assets/js/jquery.min.js"></script>
+    <!-- bootstrap js  -->
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <!-- script  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <!-- custom js  -->
+    <script type="module" src="./assets/js/main.js"></script>
+</body>
+
+</html>
