@@ -89,34 +89,14 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.outputEncoding = THREE.sRGBEncoding;
 canvas.appendChild(renderer.domElement);
-
-// const zoomInTimeline = (x, y, z, zoomOutFactor = 0) => {
-//     let tl = gsap
-//         .timeline({ defaults: { duration: 1.5, ease: "expo.out" } })
-//         .to(controls.target, { x, y, z })
-//         .to(camera.position, { x, y, z: z + zoomOutFactor }, 0)
-//         .to(group.rotation, { x: 0, y: 0 }, 0);
-// };
-// leftZoomBtn.addEventListener("click", () => {
-//     zoomInTimeline(plane1.position.x, plane1.position.y, plane1.position.z, 5,);
-//     rotateAroundGroup = false;
-// });
-
-// originalBtn.addEventListener("click", () => {
-//     zoomInTimeline(0, 0, 0, 15);
-//     rotateAroundGroup = true;
-// });
-// rightZoomBtn.addEventListener("click", () => {
-//     zoomInTimeline(plane2.position.x, plane2.position.y, plane2.position.z, 5);
-//     rotateAroundGroup = false;
-// });
-const rotateAndZoom = (plane, x, y, z, zoomOutFactor = 0, rotateY = 0) => {
+const rotateAndZoom = (plane, x, y, z, zoomOutFactor = 0, rotateY = 0 ,) => {
     let tl = gsap
         .timeline({ defaults: { duration: 1.5, ease: "expo.out" } })
         .to(controls.target, { x, y, z })
         .to(camera.position, { x, y, z: z + zoomOutFactor }, 0);
 
     tl.to(plane.position, { x, y, z }, 0);
+    tl.to(plane.rotation, { y: rotateY }, 0); // Rotate around Y axis
     tl.to(plane.rotation, { y: rotateY }, 0); // Rotate around Y axis
 
     tl.to(group.rotation, { x: 0, y: 0 }, 0);
@@ -143,6 +123,7 @@ originalBtn.addEventListener("click", () => {
         rotateAndZoom(planes, 0, 0, 0, 15); // Reset each plane to original position
     
 });
+
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableRotate = false;
 const onWindowResize = () => {
