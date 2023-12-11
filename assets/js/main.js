@@ -135,7 +135,7 @@ window.addEventListener("resize", onWindowResize, false);
 const clock = new THREE.Clock();
 const animate = () => {
     const elapsedTime = clock.getElapsedTime();
-    // plane1.position.y = Math.sin(elapsedTime * 0.3) * 1;  // Adjust the amplitude and speed
+    // plane1.position.y = Math.sin(elapsedTime * 0.5) * 1;  // Adjust the amplitude and speed
     // plane2.position.y = Math.sin(elapsedTime * 0.5) * 1;  // Adjust the amplitude and speed
     // plane3.position.y = Math.sin(elapsedTime * 0.5) * 1;  // Adjust the amplitude and speed
     // plane4.position.y = Math.sin(elapsedTime * 0.5) * 1;  // Adjust the amplitude and speed
