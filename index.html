@@ -86,9 +86,9 @@
     <!-- ===============================Embrace Marketing Closed========================== -->
     <!-- ===============================camera zoom effect Open========================== -->
     <section id="banner" class="floatingCarousel">
-        <!-- <div class="star1"></div>
+        <div class="star1"></div>
         <div class="star2"></div>
-        <div class="star3"></div> -->
+        <div class="star3"></div>
         <div id="canvas"></div>
         <div class="buttons">
             <button class="left-box-btn"><i class="fa-solid fa-arrow-left"></i></button>
@@ -116,11 +116,17 @@
         document.body.appendChild(renderer.domElement);
 
         var textureLoader = new THREE.TextureLoader();
-        var spiderTexture = textureLoader.load('./assets/images/SVG/spider.svg', function (texture) {
-            // Adjust the aspect ratio of the plane to match the aspect ratio of the loaded texture
-            var aspectRatio = texture.image.width / texture.image.height;
-            spiderPlane.scale.set(aspectRatio, 1, 1);
-        });
+        var spiderTexture = textureLoader.load(
+            './assets/images/SVG/spider.svg',
+            function (texture) {
+                var aspectRatio = texture.image.width / texture.image.height;
+                spiderPlane.scale.set(aspectRatio, 1, 1);
+            },
+            undefined,
+            function (error) {
+                console.error('Error loading texture:', error);
+            }
+        );
 
         var geometry = new THREE.PlaneGeometry(1, 1);
         var material = new THREE.MeshBasicMaterial({ map: spiderTexture, transparent: true });
@@ -132,7 +138,6 @@
         var scrollAmount = 0;
 
         function handleScroll(event) {
-            // Adjust the spider's position based on mouse scroll
             scrollAmount += event.deltaY * 0.01; // Adjust the factor based on the desired scroll speed
         }
 
@@ -149,7 +154,6 @@
 
         animate();
     </script>
-    
 </body>
 
 </html>
