@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- custom css -->
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>3D Cube Animation | Home-Page</title>
+    <title>3D Cube Animation | BUG-HOME</title>
 </head>
 
-<body>
+<body class="position-relative">
     <!--======== mouse cursor open ====== -->
     <div id="cursor" class="cursor">
         <div class="ring">
@@ -24,10 +24,71 @@
         </div>
     </div>
     <!-- =====mouse cursor closed ======== -->
+    <div class="spider-div">
+        <div class="spider-div-img">
+           <img src="./assets/images/SVG/spider.svg" alt=""> 
+        </div>
+    </div>
+    <!-- ===============================Header Open=================================== -->
+    <div class="hamburger-menu">
+        <div class="container">
+            <div class="d-flex">
+                <div class="logo-div">
+                    <div class="logo-div-img">
+                        <img src="./assets/images/2x/logo@2x.png" alt="">
+                    </div>
+                </div>
+                <div><input id="menu__toggle" type="checkbox" />
+                    <label class="menu__btn" for="menu__toggle">
+                        <span></span>
+                    </label></div>
+            </div>
+        </div>
+
+        <ul class="menu__box">
+            <li><a class="menu__item" href="#">Главная</a></li>
+            <li><a class="menu__item" href="#">Проекты</a></li>
+            <li><a class="menu__item" href="#">Команда</a></li>
+            <li><a class="menu__item" href="#">Блог</a></li>
+            <li><a class="menu__item" href="#">Контакты</a></li>
+        </ul>
+    </div>
+    <!-- ===============================Header Closed================================= -->
+    <!-- ===============================Banner Open=================================== -->
+    <section class="banner-section">
+        <div class="straight-line">
+            <div class="straight-line-img-div">
+                <img src="./assets/images/SVG/line.svg" alt="">
+            </div>
+        </div>
+        <div class="container">
+        </div>
+    </section>
+    <!-- ===============================Banner Closed================================= -->
+    <!-- ===============================What We Offer Open============================ -->
+    <div class="what-we-offer">
+        <div class="straight-line-we">
+            <div class="straight-line-img-div-we">
+                <img src="./assets/images/SVG/line.svg" alt="">
+            </div>
+        </div>
+        <div class="circle-div">
+        </div>
+        <div class="container">
+
+        </div>
+    </div>
+    <!-- ===============================What We Offer Closed========================== -->
+    <!-- ===============================Embrace Marketing Open========================== -->
+    <section class="Embrace-Marketing">
+
+    </section>
+    <!-- ===============================Embrace Marketing Closed========================== -->
+    <!-- ===============================camera zoom effect Open========================== -->
     <section id="banner" class="floatingCarousel">
-        <div class="star1"></div>
+        <!-- <div class="star1"></div>
         <div class="star2"></div>
-        <div class="star3"></div>
+        <div class="star3"></div> -->
         <div id="canvas"></div>
         <div class="buttons">
             <button class="left-box-btn"><i class="fa-solid fa-arrow-left"></i></button>
@@ -35,6 +96,7 @@
             <button class="right-box-btn"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </section>
+    <!-- ===============================camera zoom effect Closed========================== -->
 
     <!-- jquery  -->
     <script src="./assets/js/jquery.min.js"></script>
@@ -45,6 +107,49 @@
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
     <!-- custom js  -->
     <script type="module" src="./assets/js/main.js"></script>
+    <script src="https://threejs.org/build/three.js"></script>
+    <script>
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        var textureLoader = new THREE.TextureLoader();
+        var spiderTexture = textureLoader.load('./assets/images/SVG/spider.svg', function (texture) {
+            // Adjust the aspect ratio of the plane to match the aspect ratio of the loaded texture
+            var aspectRatio = texture.image.width / texture.image.height;
+            spiderPlane.scale.set(aspectRatio, 1, 1);
+        });
+
+        var geometry = new THREE.PlaneGeometry(1, 1);
+        var material = new THREE.MeshBasicMaterial({ map: spiderTexture, transparent: true });
+        var spiderPlane = new THREE.Mesh(geometry, material);
+        scene.add(spiderPlane);
+
+        camera.position.z = 5;
+
+        var scrollAmount = 0;
+
+        function handleScroll(event) {
+            // Adjust the spider's position based on mouse scroll
+            scrollAmount += event.deltaY * 0.01; // Adjust the factor based on the desired scroll speed
+        }
+
+        window.addEventListener('wheel', handleScroll);
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Update the spider's position based on scroll
+            spiderPlane.position.y = -scrollAmount;
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+    
 </body>
 
 </html>

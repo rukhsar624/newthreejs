@@ -6,7 +6,7 @@
 
 body {
     font-family: sans-serif;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 #banner {
@@ -15,6 +15,7 @@ body {
     height: 100vh;
     background-color: #000e41;
     position: relative;
+    overflow: hidden
 }
 
 img {
@@ -222,3 +223,250 @@ button {
 
 
 
+/* Remaining Css */
+/* Header Css */
+.hamburger-menu {
+    position: fixed;
+    z-index: 1;
+    padding-top: 20px;
+}
+
+#menu__toggle {
+    opacity: 0;
+}
+
+#menu__toggle:checked~.menu__btn>span {
+    transform: rotate(45deg);
+}
+
+#menu__toggle:checked~.menu__btn>span::before {
+    top: 0;
+    transform: rotate(0);
+}
+
+#menu__toggle:checked~.menu__btn>span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+#menu__toggle:checked~.menu__box {
+    visibility: visible;
+    right: 0;
+    /* Change left to right */
+}
+
+.menu__btn {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 60px;
+    right: 100px;
+    /* Change left to right */
+    width: 40px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.menu__btn>span,
+.menu__btn>span::before,
+.menu__btn>span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff91;
+    transition-duration: 0.25s;
+}
+
+.menu__btn>span::before {
+    content: '';
+    top: -8px;
+}
+
+.menu__btn>span::after {
+    content: '';
+    top: 8px;
+}
+
+.menu__box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    right: -100%;
+    /* Change left to right */
+
+    width: 300px;
+    height: 100%;
+
+    margin: 0;
+    padding: 80px 0;
+
+    list-style: none;
+
+    background-color: #ECEFF1;
+    box-shadow: -1px 0px 6px rgba(0, 0, 0, 0.2);
+    /* Change the x-value to -1 for right shadow */
+
+    transition-duration: 0.25s;
+}
+
+.menu__item {
+    display: block;
+    padding: 12px 24px;
+
+    color: #333;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition-duration: 0.25s;
+}
+
+.menu__item:hover {
+    background-color: #CFD8DC;
+}
+
+.logo-div {
+    width: 300px;
+    height: 100px;
+}
+
+.logo-div-img {
+    width: 100%;
+    height: 100%;
+}
+
+.logo-div-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Header Css */
+/* Banner css open */
+.banner-section {
+    width: 100%;
+    height: 850px;
+    position: relative;
+    overflow: hidden;
+}
+.banner-section::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: #000;
+    background-image: url('../images/2x/banner@2x.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.straight-line{
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 432px;
+    bottom: 0px;
+    right: 432px;
+}
+.straight-line-img-div{
+    width: 100%;
+    height: 100%;
+}
+.straight-line-img-div img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.spider-div{
+    position: absolute;
+    top: 50px;
+    top: 100px;
+    right: 210px;
+    height: 500px;
+    z-index: 1;
+    transition: transform 0.3s ease-out;
+}
+.spider-div-img{
+    width: 100%;
+    height: 100%;
+}
+.spider-div-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.what-we-offer{
+    width: 100%;
+    height: 850px;
+    position: relative;
+}
+.what-we-offer::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    bottom:0px;
+    right:0px;
+    background-color: #0000008f;
+    background-image: url('../images/overlay.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.circle-div{
+    position: absolute;
+    content: "";
+    width: 250px;
+    height: 250px;
+    top: 130px;
+    right: 320px;
+    background-color: #fba81a1a;
+    background-image: linear-gradient(#fba81a7a, #000);
+    border-radius: 130px;
+}
+.straight-line-we{
+    z-index: 1;
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 202px;
+    top: 0px;
+    right: 435px;
+}
+.straight-line-img-div-we{
+    width: 100%;
+    height: 100%;
+}
+.straight-line-img-div-we img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.Embrace-Marketing{
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+.Embrace-Marketing::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    bottom:0px;
+    right:0px;
+    background-color: #0000008f;
+    background-image: url('../images/2x/EmbraceMarketing.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/* Banner Css Closed */
+/* Remaining Css */

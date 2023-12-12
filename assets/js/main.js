@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-
 import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.124.0/examples/jsm/controls/OrbitControls.js";
 // mouse cursor js open
 $(window).mousemove(function (e) {
@@ -14,14 +13,10 @@ const canvas = document.querySelector("#canvas");
 const leftZoomBtn = document.querySelector(".left-box-btn");
 const originalBtn = document.querySelector(".original-btn");
 const rightZoomBtn = document.querySelector(".right-box-btn");
-
 let scene, camera, renderer;
-
 let rotateAroundGroup = true;
-
 scene = new THREE.Scene();
 scene.background = new THREE.Color("#000e41");
-
 camera = new THREE.PerspectiveCamera(
     45,
     canvas.clientWidth / canvas.clientHeight,
@@ -29,12 +24,9 @@ camera = new THREE.PerspectiveCamera(
     100
 );
 camera.position.set(0, 0, 15);
-
 const light = new THREE.HemisphereLight(0xffffff, "cornflowerblue", 1);
 scene.add(light);
-
 const group = new THREE.Group();
-
 // Load textures
 const textureLoader = new THREE.TextureLoader();
 const texture1 = textureLoader.load('./assets/images/airpods.png');
@@ -44,8 +36,6 @@ const texture4 = textureLoader.load('./assets/images/plants.png');
 const texture5 = textureLoader.load('./assets/images/puzzel-game.png');
 const texture6 = textureLoader.load('./assets/images/bitcoin.webp');
 const texture7 = textureLoader.load('./assets/images/infinity.png');
-
-
 // Create planes with textures
 const planeGeometry = new THREE.PlaneGeometry(2, 2); // Adjust the size as needed
 // first image
@@ -101,14 +91,12 @@ const rotateAndZoom = (plane, x, y, z, zoomOutFactor = 0, rotateY = 0 ,) => {
 
     tl.to(group.rotation, { x: 0, y: 0 }, 0);
 };
-
 let currentIndex = 0;
 const planes = [plane1, plane2, plane3,plane4,plane5,plane6,plane7 /* Add more planes as needed */];
 
 leftZoomBtn.addEventListener("click", () => {
     rotateAndZoom(planes[currentIndex], planes[currentIndex].position.x, planes[currentIndex].position.y, planes[currentIndex].position.z, 5);
     rotateAroundGroup = false;
-
     currentIndex = (currentIndex - 1 + planes.length) % planes.length; // Move to the previous plane
 });
 
@@ -123,7 +111,6 @@ originalBtn.addEventListener("click", () => {
         rotateAndZoom(planes, 0, 0, 0, 15); // Reset each plane to original position
     
 });
-
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableRotate = false;
 const onWindowResize = () => {
@@ -142,9 +129,6 @@ const animate = () => {
     // plane5.position.y = Math.sin(elapsedTime * 0.5) * 1;  // Adjust the amplitude and speed
     // plane6.position.y = Math.sin(elapsedTime * 0.5) * 1;  // Adjust the amplitude and speed
     // plane7.position.y = Math.sin(elapsedTime * 0.5) * 1;  // Adjust the amplitude and speed
-
-
-
     if (rotateAroundGroup) {
         group.rotation.y = Math.cos(elapsedTime * 0.5) *0;
         group.rotation.x = Math.sin(elapsedTime * 0.5) *0;
@@ -154,6 +138,7 @@ const animate = () => {
 };
 animate();
 // three js camera zoom into Image Closed 
+
 
 
 
