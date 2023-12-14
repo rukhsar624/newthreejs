@@ -82,7 +82,39 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.outputEncoding = THREE.sRGBEncoding;
 canvas.appendChild(renderer.domElement);
-const rotateAndZoom = (plane, x, y, z, zoomOutFactor = 0, rotateY = 0 ,) => {
+// const rotateAndZoom = (plane, x, y, z, zoomOutFactor = 0, rotateY = 0 ,) => {
+//     let tl = gsap
+//         .timeline({ defaults: { duration: 1.5, ease: "expo.out" } })
+//         .to(controls.target, { x, y, z })
+//         .to(camera.position, { x, y, z: z + zoomOutFactor }, 0);
+
+//     tl.to(plane.position, { x, y, z }, 0);
+//     tl.to(plane.rotation, { y: rotateY }, 0); // Rotate around Y axis
+//     tl.to(plane.rotation, { y: rotateY }, 0); // Rotate around Y axis
+
+//     tl.to(group.rotation, { x: 0, y: 0 }, 0);
+// };
+// let currentIndex = 0;
+// const planes = [plane1, plane2, plane3,plane4,plane5,plane6,plane7 /* Add more planes as needed */];
+
+// leftZoomBtn.addEventListener("click", () => {
+//     rotateAndZoom(planes[currentIndex], planes[currentIndex].position.x, planes[currentIndex].position.y, planes[currentIndex].position.z, 5);
+//     rotateAroundGroup = false;
+//     currentIndex = (currentIndex - 1 + planes.length) % planes.length; // Move to the previous plane
+// });
+
+// rightZoomBtn.addEventListener("click", () => {
+//     rotateAndZoom(planes[currentIndex], planes[currentIndex].position.x, planes[currentIndex].position.y, planes[currentIndex].position.z, 5);
+//     rotateAroundGroup = false;
+
+//     currentIndex = (currentIndex + 1) % planes.length; // Move to the next plane
+// });
+// originalBtn.addEventListener("click", () => {
+//     rotateAroundGroup = true;
+//         rotateAndZoom(planes, 0, 0, 0, 15); // Reset each plane to original position
+    
+// });
+const rotateAndZoom = (plane, x, y, z, zoomOutFactor = 0, rotateY = 0, zoomFactor = 1, backgroundZoomFactor = 1) => {
     let tl = gsap
         .timeline({ defaults: { duration: 1.5, ease: "expo.out" } })
         .to(controls.target, { x, y, z })
@@ -93,27 +125,34 @@ const rotateAndZoom = (plane, x, y, z, zoomOutFactor = 0, rotateY = 0 ,) => {
     tl.to(plane.rotation, { y: rotateY }, 0); // Rotate around Y axis
 
     tl.to(group.rotation, { x: 0, y: 0 }, 0);
+
+    const zoomedCameraPosition = new THREE.Vector3(x * zoomFactor, y * zoomFactor, z * zoomFactor);
+    tl.to(camera.position, { x: zoomedCameraPosition.x, y: zoomedCameraPosition.y, z: zoomedCameraPosition.z }, 0);
+
+    const zoomedBackgroundScale = new THREE.Vector3(backgroundZoomFactor, backgroundZoomFactor, 1);
+    tl.to(backgroundImage.scale, { x: zoomedBackgroundScale.x, y: zoomedBackgroundScale.y, z: zoomedBackgroundScale.z }, 0);
 };
+
 let currentIndex = 0;
-const planes = [plane1, plane2, plane3,plane4,plane5,plane6,plane7 /* Add more planes as needed */];
+const planes = [plane1, plane2, plane3, plane4, plane5, plane6, plane7 /* Add more planes as needed */];
 
 leftZoomBtn.addEventListener("click", () => {
-    rotateAndZoom(planes[currentIndex], planes[currentIndex].position.x, planes[currentIndex].position.y, planes[currentIndex].position.z, 5);
+    rotateAndZoom(planes[currentIndex], planes[currentIndex].position.x, planes[currentIndex].position.y, planes[currentIndex].position.z, 5, 0, 0.8, 1.2);
     rotateAroundGroup = false;
     currentIndex = (currentIndex - 1 + planes.length) % planes.length; // Move to the previous plane
 });
 
 rightZoomBtn.addEventListener("click", () => {
-    rotateAndZoom(planes[currentIndex], planes[currentIndex].position.x, planes[currentIndex].position.y, planes[currentIndex].position.z, 5);
+    rotateAndZoom(planes[currentIndex], planes[currentIndex].position.x, planes[currentIndex].position.y, planes[currentIndex].position.z, 5, 0, 0.8, 1.2);
     rotateAroundGroup = false;
-
     currentIndex = (currentIndex + 1) % planes.length; // Move to the next plane
 });
+
 originalBtn.addEventListener("click", () => {
     rotateAroundGroup = true;
-        rotateAndZoom(planes, 0, 0, 0, 15); // Reset each plane to original position
-    
+    rotateAndZoom(planes, 0, 0, 0, 15, 0, 1, 1); // Reset each plane to the original position
 });
+
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableRotate = false;
 const onWindowResize = () => {
