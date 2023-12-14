@@ -13,10 +13,13 @@ const canvas = document.querySelector("#canvas");
 const leftZoomBtn = document.querySelector(".left-box-btn");
 const originalBtn = document.querySelector(".original-btn");
 const rightZoomBtn = document.querySelector(".right-box-btn");
+var textureLoaderbg = new THREE.TextureLoader();
+var backgroundImage = textureLoaderbg.load('./assets/images/2x/spiderbg-with-net.png');
 let scene, camera, renderer;
 let rotateAroundGroup = true;
 scene = new THREE.Scene();
-scene.background = new THREE.Color("#000e41");
+// scene.background = new THREE.Color("#000e41");
+scene.background = backgroundImage;
 camera = new THREE.PerspectiveCamera(
     45,
     canvas.clientWidth / canvas.clientHeight,
@@ -29,7 +32,7 @@ scene.add(light);
 const group = new THREE.Group();
 // Load textures
 const textureLoader = new THREE.TextureLoader();
-const texture1 = textureLoader.load('./assets/images/airpods.png');
+const texture1 = textureLoader.load('./assets/images/2x/game.png');
 const texture2 = textureLoader.load('./assets/images/car.png');
 const texture3 = textureLoader.load('./assets/images/remote.png');
 const texture4 = textureLoader.load('./assets/images/plants.png');
@@ -138,6 +141,11 @@ const animate = () => {
 };
 animate();
 // three js camera zoom into Image Closed 
+
+
+// three js spider crawling on mouse scroll open
+// three js spider crawling on mouse scroll closed
+
 
 
 

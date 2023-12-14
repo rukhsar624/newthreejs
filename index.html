@@ -24,39 +24,40 @@
         </div>
     </div>
     <!-- =====mouse cursor closed ======== -->
-    <div class="s
-    pider-div">
-        <div class="spider-div-img">
-           <img src="./assets/images/SVG/spider.svg" alt=""> 
-        </div>
-    </div>
     <!-- ===============================Header Open=================================== -->
     <div class="hamburger-menu">
         <div class="container">
             <div class="d-flex">
                 <div class="logo-div">
                     <div class="logo-div-img">
-                        <img src="./assets/images/2x/logo@2x.png" alt="">
+                        <img src="./assets/images/2x/logo.png" alt="">
                     </div>
                 </div>
                 <div><input id="menu__toggle" type="checkbox" />
                     <label class="menu__btn" for="menu__toggle">
                         <span></span>
-                    </label></div>
+                    </label>
+                </div>
             </div>
         </div>
 
         <ul class="menu__box">
-            <li><a class="menu__item" href="#">Главная</a></li>
-            <li><a class="menu__item" href="#">Проекты</a></li>
-            <li><a class="menu__item" href="#">Команда</a></li>
-            <li><a class="menu__item" href="#">Блог</a></li>
-            <li><a class="menu__item" href="#">Контакты</a></li>
+            <li><a class="menu__item" href="#">Home</a></li>
+            <li><a class="menu__item" href="#">About</a></li>
+            <li><a class="menu__item" href="#">Services</a></li>
+            <li><a class="menu__item" href="#">Contact US</a></li>
         </ul>
     </div>
     <!-- ===============================Header Closed================================= -->
     <!-- ===============================Banner Open=================================== -->
     <section class="banner-section">
+        <div id="spider-section">
+            <div class="spider-div">
+                <div class="spider-div-img">
+                    <img src="./assets/images/SVG/spider.svg" alt="">
+                </div>
+            </div>
+        </div>
         <div class="straight-line">
             <div class="straight-line-img-div">
                 <img src="./assets/images/SVG/line.svg" alt="">
@@ -76,17 +77,24 @@
         <div class="circle-div">
         </div>
         <div class="container">
-
         </div>
     </div>
     <!-- ===============================What We Offer Closed========================== -->
     <!-- ===============================Embrace Marketing Open========================== -->
     <section class="Embrace-Marketing">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Embrace Marketing <br> for the Digital Era</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
 
+                </div>
+            </div>
+        </div>
     </section>
     <!-- ===============================Embrace Marketing Closed========================== -->
     <!-- ===============================camera zoom effect Open========================== -->
-    <section id="banner" class="floatingCarousel">
+    <section id="banner">
         <div class="star1"></div>
         <div class="star2"></div>
         <div class="star3"></div>
@@ -98,6 +106,8 @@
         </div>
     </section>
     <!-- ===============================camera zoom effect Closed========================== -->
+    <!-- ===============================footer Open========================== -->
+    <!-- ===============================footer Closed======================== -->
 
     <!-- jquery  -->
     <script src="./assets/js/jquery.min.js"></script>
@@ -109,52 +119,74 @@
     <!-- custom js  -->
     <script type="module" src="./assets/js/main.js"></script>
     <script src="https://threejs.org/build/three.js"></script>
-    <script>
-        var scene = new THREE.Scene();
-        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        var renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
+    <!-- <script>
+        var scene, camera, renderer;
+        var spider, legs = [];
 
-        var textureLoader = new THREE.TextureLoader();
-        var spiderTexture = textureLoader.load(
-            './assets/images/SVG/spider.svg',
-            function (texture) {
-                var aspectRatio = texture.image.width / texture.image.height;
-                spiderPlane.scale.set(aspectRatio, 1, 1);
-            },
-            undefined,
-            function (error) {
-                console.error('Error loading texture:', error);
+        init();
+        animate();
+
+        function init() {
+                scene = new THREE.Scene();
+                camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                renderer = new THREE.WebGLRenderer();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                document.getElementById('spider-section').appendChild(renderer.domElement);
+
+                // Get the image element by class
+                var spiderImageElement = document.querySelector('.spider-image');
+                console.log(spiderImageElement);
+                // Check if the image element exists
+                if (spiderImageElement) {
+                    // Load spider texture using the image source
+                    var textureLoader = new THREE.TextureLoader();
+                    var spiderTexture = textureLoader.load(spiderImageElement.src);
+                    console.log(spiderImageElement);
+                    // Create spider body
+                        var spiderGeometry = new THREE.PlaneGeometry(5, 5);
+                        var spiderMaterial = new THREE.MeshBasicMaterial({
+                            map: spiderTexture,
+                            transparent: true,
+                            alphaTest: 0.5,
+                            side: THREE.FrontSide
+                        });
+
+                    spider = new THREE.Mesh(spiderGeometry, spiderMaterial);
+                    scene.add(spider);
+
+                    // Create spider legs
+                    var legMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+                    var legGeometry = new THREE.CylinderGeometry(0.02, 0.02, 0.5, 32);
+
+                    for (var i = 0; i < 8; i++) {
+                        var leg = new THREE.Mesh(legGeometry, legMaterial);
+                        leg.position.set(0, -0.5, 0);
+                        leg.rotation.y = (i / 8) * Math.PI * 2;
+                        scene.add(leg);
+                        legs.push(leg);
+                    }
+
+                    camera.position.z = 5;
+
+                    window.addEventListener('wheel', handleScroll);
+                }
             }
-        );
 
-        var geometry = new THREE.PlaneGeometry(1, 1);
-        var material = new THREE.MeshBasicMaterial({ map: spiderTexture, transparent: true });
-        var spiderPlane = new THREE.Mesh(geometry, material);
-        scene.add(spiderPlane);
-
-        camera.position.z = 5;
-
-        var scrollAmount = 0;
 
         function handleScroll(event) {
-            scrollAmount += event.deltaY * 0.01; // Adjust the factor based on the desired scroll speed
+            spider.position.y += event.deltaY * 0.01;
         }
-
-        window.addEventListener('wheel', handleScroll);
 
         function animate() {
             requestAnimationFrame(animate);
 
-            // Update the spider's position based on scroll
-            spiderPlane.position.y = -scrollAmount;
+            legs.forEach(function (leg, index) {
+                leg.rotation.z = Math.sin(spider.position.y + index * 0.5) * 0.5;
+            });
 
             renderer.render(scene, camera);
         }
-
-        animate();
-    </script>
+    </script> -->
 </body>
 
 </html>

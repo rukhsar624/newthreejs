@@ -3,69 +3,20 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-body {
-    font-family: sans-serif;
-    /* overflow: hidden; */
+/* font  */
+@font-face {
+    font-family: 'Aonthrax';
+    src: url("../font/conthrax-sb.otf");
 }
-
-#banner {
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    background-color: #000e41;
-    position: relative;
-    overflow: hidden
+@font-face {
+    font-family: 'Gilroy-Light';
+    src: url("../font/Gilroy/Gilroy-Light.ttf");
 }
-
-img {
-    cursor: pointer;
+@font-face {
+    font-family: 'Gilroy-Bold';
+    src: url("../font/Gilroy/Gilroy-Bold.ttf");
 }
-
-#canvas {
-    height: 100vh;
-    width: 100vw;
-}
-
-canvas {
-    outline: none;
-}
-
-.buttons {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-}
-
-.left-box-btn {
-    bottom: 30px;
-    left: 10px;
-    position: absolute;
-}
-
-.right-box-btn {
-    bottom: 30px;
-    left: 60px;
-    position: absolute;
-}
-
-.original-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-button {
-    cursor: pointer;
-    padding: 15px;
-    border: none;
-    background-color: #563fad;
-    color: #FFF;
-
-}
-
+/* font  */
 /* mouse cursor css open */
 .cursor {
     position: fixed;
@@ -76,26 +27,22 @@ button {
     z-index: 2;
     pointer-events: none;
 }
-
 .cursor div {
     position: absolute;
     display: grid;
     place-items: center;
 }
-
 .cursor div div {
     background-color: #6f57c7;
     border-radius: 50%;
     animation: pulse 2.5s linear infinite;
     box-shadow: 0 0 50px 5px #d7abff6e;
 }
-
 .cursor div:nth-child(1),
 .cursor div:nth-child(2) {
     width: 100%;
     height: 100%;
 }
-
 /* mouse cursor css Closed */
 /* star animation */
 .star1,
@@ -107,7 +54,6 @@ button {
     left: 0;
     overflow: hidden;
 }
-
 .star1 {
     width: 1px;
     height: 1px;
@@ -130,7 +76,6 @@ button {
     -webkit-animation: star-rotate 200s linear infinite;
     overflow: hidden;
 }
-
 .star2 {
     width: 2px;
     height: 2px;
@@ -156,7 +101,6 @@ button {
     -webkit-animation: star-rotate 150s linear infinite;
     overflow: hidden;
 }
-
 .star3 {
     width: 3px;
     height: 3px;
@@ -178,7 +122,6 @@ button {
     overflow: hidden;
 }
 
-
 @keyframes star-rotate {
     0% {
         transform: rotate(0)
@@ -188,7 +131,6 @@ button {
         transform: rotate(-360deg)
     }
 }
-
 @-webkit-keyframes star-rotate {
     0% {
         transform: rotate(0)
@@ -198,7 +140,6 @@ button {
         transform: rotate(-360deg)
     }
 }
-
 @-moz-keyframes star-rotate {
     0% {
         transform: rotate(0)
@@ -208,7 +149,6 @@ button {
         transform: rotate(-360deg)
     }
 }
-
 @-ms-keyframes star-rotate {
     0% {
         transform: rotate(0)
@@ -218,43 +158,32 @@ button {
         transform: rotate(-360deg)
     }
 }
-
 /* star css closed */
-
-
-
-/* Remaining Css */
 /* Header Css */
 .hamburger-menu {
     position: fixed;
     z-index: 1;
     padding-top: 20px;
 }
-
 #menu__toggle {
     opacity: 0;
 }
-
 #menu__toggle:checked~.menu__btn>span {
     transform: rotate(45deg);
 }
-
 #menu__toggle:checked~.menu__btn>span::before {
     top: 0;
     transform: rotate(0);
 }
-
 #menu__toggle:checked~.menu__btn>span::after {
     top: 0;
     transform: rotate(90deg);
 }
-
 #menu__toggle:checked~.menu__box {
     visibility: visible;
     right: 0;
     /* Change left to right */
 }
-
 .menu__btn {
     display: flex;
     align-items: center;
@@ -267,7 +196,6 @@ button {
     cursor: pointer;
     z-index: 1;
 }
-
 .menu__btn>span,
 .menu__btn>span::before,
 .menu__btn>span::after {
@@ -278,17 +206,14 @@ button {
     background-color: #ffffff91;
     transition-duration: 0.25s;
 }
-
 .menu__btn>span::before {
     content: '';
     top: -8px;
 }
-
 .menu__btn>span::after {
     content: '';
     top: 8px;
 }
-
 .menu__box {
     display: block;
     position: fixed;
@@ -311,7 +236,6 @@ button {
 
     transition-duration: 0.25s;
 }
-
 .menu__item {
     display: block;
     padding: 12px 24px;
@@ -326,30 +250,25 @@ button {
 
     transition-duration: 0.25s;
 }
-
 .menu__item:hover {
     background-color: #CFD8DC;
 }
-
 .logo-div {
     width: 300px;
     height: 100px;
 }
-
 .logo-div-img {
     width: 100%;
     height: 100%;
 }
-
 .logo-div-img img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
-
 /* Header Css */
 /* Banner css open */
-.banner-section {
+ .banner-section {
     width: 100%;
     height: 850px;
     position: relative;
@@ -363,7 +282,7 @@ button {
     top: 0px;
     left: 0px;
     background-color: #000;
-    background-image: url('../images/2x/banner@2x.png');
+    background-image: url('../images/2x/banner.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -402,7 +321,15 @@ button {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}  
+canvas .spider-image{
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   background-color: #000e41;
 }
+/* Banner css Closed */
+/* what-we-offer css open */
 .what-we-offer{
     width: 100%;
     height: 850px;
@@ -415,7 +342,7 @@ button {
     height: 100%;
     bottom:0px;
     right:0px;
-    background-color: #0000008f;
+    background-color: #000000f0;
     background-image: url('../images/overlay.webp');
     background-position: center;
     background-size: cover;
@@ -429,7 +356,10 @@ button {
     top: 130px;
     right: 320px;
     background-color: #fba81a1a;
-    background-image: linear-gradient(#fba81a7a, #000);
+    background-image: url('../images/2x/circle.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     border-radius: 130px;
 }
 .straight-line-we{
@@ -450,10 +380,14 @@ button {
     height: 100%;
     object-fit: cover;
 }
+/* what-we-offer css open */
+/* Embrace-Marketing css open */
 .Embrace-Marketing{
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 540px;
+    background-color: #000;
+    z-index: 0;
 }
 .Embrace-Marketing::before{
     position: absolute;
@@ -462,11 +396,201 @@ button {
     height: 100%;
     bottom:0px;
     right:0px;
-    background-color: #0000008f;
-    background-image: url('../images/2x/EmbraceMarketing.png');
+    background-image: url('../images/2x/embrace-overlay.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    z-index: -1;
 }
-/* Banner Css Closed */
-/* Remaining Css */
+.Embrace-Marketing h1{
+    color: #fff;
+    font-family:'Aonthrax';
+    text-align: center;
+    padding-top:4.5rem;
+}
+.Embrace-Marketing p{
+    color: #fff;
+    font-family:'Gilroy-Light';
+    text-align: center;
+    padding-top:2rem;
+    width: 70%;
+    margin: auto;
+}
+/* Embrace-Marketing css closed */
+/* camera zoom effect css open */
+#banner {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+img {
+    cursor: pointer;
+}
+
+#canvas {
+    height: 100vh;
+    width: 100vw;
+}
+
+canvas {
+    outline: none;
+    width: 100% !important;
+    height: 850px !important;
+}
+
+.buttons {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.left-box-btn {
+    bottom: 30px;
+    left: 10px;
+    position: absolute;
+}
+
+.right-box-btn {
+    bottom: 30px;
+    left: 60px;
+    position: absolute;
+}
+
+.original-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+button {
+    cursor: pointer;
+    padding: 15px;
+    border: none;
+    background-color: #563fad;
+    color: #FFF;
+
+}
+/* camera zoom effect css open */
+/* footer css open */
+
+/* footer css closed */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================= */
+/* MEDIA QUERY  */
+/* ========================================= */
+@media (min-width:1600px) and (min-width:1920px) and (min-width:2560px) and (max-width:1366px) and (max-width:1280px) and (max-width:1024px) {
+    
+}
+
+/* ================= Min Media Queries============================= */
+@media only screen and (min-width:1600px) {
+    
+}
+
+@media only screen and (min-width:1400px) {
+    
+}
+
+@media only screen and (min-width:1440px) {
+    
+}
+
+@media only screen and (min-width:1920px) {
+    
+}
+
+@media only screen and (min-width:2550px) {
+    
+}
+
+/* ===================  Max Media Queries ======================== */
+@media only screen and (max-width:1366px) {
+    
+}
+
+@media only screen and (max-width:1280px) {
+    
+}
+
+@media only screen and (max-width:1024px) {
+    
+}
+
+@media only screen and (max-width:820px) {
+    
+
+}
+
+@media only screen and (max-width:768px) {
+   
+
+}
+
+@media only screen and (max-width:600px) {}
+
+@media only screen and (max-width:540px) {}
+
+@media only screen and (max-width:414px) {
+
+}
+
+@media only screen and (max-width:390px) {
+   
+}
+
+@media only screen and (max-width:375px) {
+  
+}
+
+@media only screen and (max-width:360px) {}
+
+@media only screen and (max-width:320px) {
+    
+}
+
+@media only screen and (max-width:280px) {}
+
+
+@media only screen and (max-width: 820px) {
+
+}
+@media only screen and (max-width: 540px) {
+
+}
+
+@media only screen and (max-width: 428px) {
+
+}
+
