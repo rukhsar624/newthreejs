@@ -188,7 +188,7 @@ animateDotsUpDown();
 
 // ... rest of your code  
 let currentIndex = 0;
-// let activePlane = null;
+let activePlane = null;
 
 const planes = [plane1, plane2, plane3, plane5, plane7 /* Add more planes as needed */];
 leftZoomBtn.addEventListener("click", () => {
