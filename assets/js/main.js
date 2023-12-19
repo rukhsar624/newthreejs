@@ -147,7 +147,7 @@ const rotateAndZoom = (plane, x, y, z, zoomOutFactor = 0, rotateY = 0) => {
     tl.to(plane.rotation, { y: rotateY }, 0); // Rotate around Y axis
     tl.to(group.rotation, { x: 0, y: 0 }, 0);
     // Set the current plane as the active plane
-    // activePlane = plane;
+    activePlane = plane;
 };
 // Create dots
 const dotsGeometry = new THREE.SphereGeometry(0.01, 2, 3);
