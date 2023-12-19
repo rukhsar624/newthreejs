@@ -129,13 +129,15 @@ window.addEventListener("resize", onWindowResize, false);
 const clock = new THREE.Clock();
 const animate = () => {
     const elapsedTime = clock.getElapsedTime();
-    // plane1.position.y = Math.sin(elapsedTime * 0.5) * 1;  // Adjust the amplitude and speed
-    // plane2.position.y = Math.sin(elapsedTime * 0.5) * 1;  // Adjust the amplitude and speed
-    // plane3.position.y = Math.sin(elapsedTime * 0.5) * 1;  // Adjust the amplitude and speed
-    // plane4.position.y = Math.sin(elapsedTime * 0.5) * 1;  // Adjust the amplitude and speed
-    // plane5.position.y = Math.sin(elapsedTime * 0.5) * 1;  // Adjust the amplitude and speed
-    // plane6.position.y = Math.sin(elapsedTime * 0.5) * 1;  // Adjust the amplitude and speed
-    // plane7.position.y = Math.sin(elapsedTime * 0.5) * 1;  // Adjust the amplitude and speed
+    
+    // plane1.position.y = Math.sin(elapsedTime * 0.3) + 2;  // Adjust the amplitude and speed
+    // plane2.position.y = Math.sin(elapsedTime * 0.3) + 2;  // Adjust the amplitude and speed
+    // plane3.position.y = Math.sin(elapsedTime * 0.3) + (-2);  // Adjust the amplitude and speed
+    // plane4.position.y = Math.sin(elapsedTime * 0.3) + (2);  // Adjust the amplitude and speed
+    // plane5.position.y = Math.sin(elapsedTime * 0.3) + (-2.1);  // Adjust the amplitude and speed
+    // plane6.position.y = Math.sin(elapsedTime * 0.3) + (2);  // Adjust the amplitude and speed
+    // plane7.position.y = Math.sin(elapsedTime * 0.3) + (-2);  // Adjust the amplitude and speed
+    // plane8.position.y = Math.sin(elapsedTime * 0.3) + (4);  // Adjust the amplitude and speed
     if (rotateAroundGroup) {
         group.rotation.y = Math.cos(elapsedTime * 0.5) * 0;
         group.rotation.x = Math.sin(elapsedTime * 0.5) * 0;
