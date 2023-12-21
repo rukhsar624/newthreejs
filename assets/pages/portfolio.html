@@ -1,104 +1,150 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- bootstrap css -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <!-- font awesome cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- custom css -->
     <link rel="stylesheet" href="../css/style.css">
-    <title>BUG-HOME | Contact-Us</title>
+    <!-- fancybox -->
+    <link rel='stylesheet prefetch'
+        href='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css'>
+    <!-- magnific-popup -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
 </head>
 
 <body>
-    <!--======== mouse cursor open ====== -->
-    <div id="cursor" class="cursor">
-        <div class="ring">
-            <div><!--Border--></div>
-        </div>
-        <div class="ring">
-            <div><!--Pointer--></div>
-        </div>
-    </div>
-    <!-- =====mouse cursor closed ======== -->
     <!-- ===============================Header Open=================================== -->
-    <div class="hamburger-menu">
+    <header class="header" id="navbar-fixed-top">
         <div class="container">
-            <div class="d-flex">
-                <div class="logo-div">
-                    <div class="logo-div-img">
-                        <img src="../images/2x/logo.png" alt="">
-                    </div>
-                </div>
-                <div><input id="menu__toggle" type="checkbox" />
-                    <label class="menu__btn" for="menu__toggle">
-                        <span></span>
-                    </label>
+            <div id="main-content">
+                <div id="title"><a href="../../index.html"><img src="../images/2x/logo.png" alt=""></a></div>
+            </div>
+            <div id="btn" class="">
+                <div id="top"></div>
+                <div id="middle"></div>
+                <div id="bottom"></div>
+            </div>
+            <div id="box" class="">
+                <div id="items">
+                    <div class="imglogo"><a href="../../index.html"><img src="../images/2x/logo.png" alt=""></a></div>
+                    <div class="item1"><a href="../../index.html" class="header_links active">Home</a></div>
+                    <div class="item1"><a href="../pages/about.html" class="header_links">About US</a></div>
+                    <div class="item1"><a href="../pages/portfolio.html" class="header_links">Portfolio</a></div>
+                    <div class="item1"><a href="../pages/contact-us.html" class="header_links">Contact Us</a></div>
                 </div>
             </div>
         </div>
+        </div>
 
-        <ul class="menu__box">
-            <li><a class="menu__item" href="../../index.html">Home</a></li>
-            <li><a class="menu__item" href="../pages/about.html">About</a></li>
-            <li><a class="menu__item" href="#">Services</a></li>
-            <li><a class="menu__item" href="#">Contact US</a></li>
-        </ul>
-    </div>
+    </header>
     <!-- ===============================Header Closed================================= -->
     <!-- ===============================Banner Open=================================== -->
     <section class="about-banner d-flex justify-content-center align-item-center">
         <h1>Portfolio</h1>
     </section>
     <!-- ===============================Banner Closed================================= -->
-    <!-- ============================================================================= -->
-    <section>
-        <ul>
-          <li class="list active" data-filter="all-items">All</li>
-          <li class="list " data-filter="item1"> Cats</li>
-          <li class="list " data-filter="item2"> Pets</li>
-          <li class="list " data-filter="item3">kitten</li>
-          <li class="list " data-filter="item4"> cute Cats</li>
-          <li class="list " data-filter="item5">Pets</li>
-          <li class="list " data-filter="item6"> Aninamls</li>
-        </ul>
-        
-        <div class="products">
-          <div class="item item1"><img src="https://loremflickr.com/300/300?random=1"></div>
-          <div class="item item2"><img src="https://loremflickr.com/300/300?random=2"></div>
-          <div class="item item3"><img src="https://loremflickr.com/300/300?random=3"></div>
-          <div class="item item4"><img src="https://loremflickr.com/300/300?random=4"></div>
-          <div class="item item5"><img src="https://loremflickr.com/300/300?random=5"></div>
-          <div class="item item6"><img src="https://loremflickr.com/300/300?random=6"></div>
-          <div class="item item1"><img src="https://loremflickr.com/300/300?random=7"></div>
-          <div class="item item2"><img src="https://loremflickr.com/300/300?random=8"></div>
-          <div class="item item3"><img src="https://loremflickr.com/300/300?random=9"></div>
-          <div class="item item4"><img src="https://loremflickr.com/300/300?random=10"></div>
-          <div class="item item5"><img src="https://loremflickr.com/300/300?random=11"></div>
-          <div class="item item6"><img src="https://loremflickr.com/300/300?random=12"></div> <div class="item item1"><img src="https://loremflickr.com/300/300?random=13"></div>
-          <div class="item item2"><img src="https://loremflickr.com/300/300?random=15"></div>
-          <div class="item item3"><img src="https://loremflickr.com/300/300?random=16"></div>
-          <div class="item item4"><img src="https://loremflickr.com/300/300?random=17"></div>
-          <div class="item item5"><img src="https://loremflickr.com/300/300?random=18"></div>
-          <div class="item item6"><img src="https://loremflickr.com/300/300?random=19"></div>
-          <div class="item item1"><img src="https://loremflickr.com/300/300?random=20"></div>
-          <div class="item item2"><img src="https://loremflickr.com/300/300?random=21"></div>
-          <div class="item item3"><img src="https://loremflickr.com/300/300?random=25"></div>
-          <div class="item item4"><img src="https://loremflickr.com/300/300?random=26"></div>
-          <div class="item item5"><img src="https://loremflickr.com/300/300?random=23"></div>
-          <div class="item item6"><img src="https://loremflickr.com/300/300?random=24"></div>
+    <section class="portfolio-section" id="portfolio">
+        <div class="container">
+            <div class="portfolio-menu mt-2 mb-4">
+                <nav class="controls">
+                    <button type="button" class="control outline" data-filter="all">All</button>
+                    <button type="button" class="control outline" data-filter=".brand">Branding</button>
+                    <button type="button" class="control outline" data-filter=".social">Social Media</button>
+                    <button type="button" class="control outline" data-filter=".logos">Logos</button>
+                    <button type="button" class="control outline" data-filter=".websites">Websites</button>
+                    <button type="button" class="control outline" data-filter=".app">Applications</button>
+                </nav>
+            </div>
+            <ul class="row portfolio-item">
+                <li class="mix social col-xl-3 col-md-4 col-12 col-sm-6 pd">
+                    <img src="../images/2x/image1.png"
+                        itemprop="thumbnail" alt="Image description" />
+                    <div class="portfolio-overlay">
+                        <p class="text-center position pb-4">Branding</p>
+                        <h5 class="text-center">Business App</h5>
+                    </div>
+                </li>
+                <li class="mix brand col-xl-3 col-lg-3 col-12 col-sm-6 pd">
+                    <img src="https://images.unsplash.com/photo-1562813733-b31f71025d54?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80"
+                        itemprop="thumbnail" alt="Image description" />
+                </li>
+                <li class="mix logos col-xl-3 col-lg-3 col-md-4 col-12 col-sm-6 pd">
+                    <img src="https://images.unsplash.com/photo-1520085601670-ee14aa5fa3e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        itemprop="thumbnail" alt="Image description" />
+                </li>
+                <li class="mix websites col-xl-3 col-lg-3 col-md-4 col-12 col-sm-6 pd">
+                    <img src="https://images.unsplash.com/photo-1520085601670-ee14aa5fa3e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        itemprop="thumbnail" alt="Image description" />
+                </li>
+                <li class="mix social col-xl-3 col-md-4 col-12 col-sm-6 pd ">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        itemprop="thumbnail" alt="Image description" />
+                </li>
+                <li class="mix brand col-xl-3 col-md-4 col-12 col-sm-6 pd ">
+                    <img src="https://images.unsplash.com/photo-1534665482403-a909d0d97c67?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        itemprop="thumbnail" alt="Image description" />
+                </li>
+                <li class="mix logos col-xl-3 col-md-4 col-12 col-sm-6 pd ">
+                    <img src="https://images.unsplash.com/photo-1581472723648-909f4851d4ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        itemprop="thumbnail" alt="Image description" />
+                </li>
+                <li class="mix app col-xl-3 col-md-4 col-12 col-sm-6 pd ">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        itemprop="thumbnail" alt="Image description" />
+                </li>
+                <li class="mix social col-xl-3 col-md-4 col-12 col-sm-6 pd">
+                    <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80"
+                        itemprop="thumbnail" alt="Image description" />
+                </li>
+                <li class="mix websites col-xl-3 col-md-4 col-12 col-sm-6 pd">
+                    <img src="https://images.unsplash.com/photo-1520085601670-ee14aa5fa3e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        itemprop="thumbnail" alt="Image description" />
+                </li>
+                <li class="mix brand col-xl-3 col-md-4 col-12 col-sm-6 pd">
+                    <img src="https://images.unsplash.com/photo-1605379399843-5870eea9b74e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=898&q=80"
+                        itemprop="thumbnail" alt="Image description" />
+                </li>
+                <li class="mix logos col-xl-3 col-md-4 col-12 col-sm-6 pd">
+                    <img src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        itemprop="thumbnail" alt="Image description" />
+                </li>
+                <li class="mix app col-xl-3 col-md-4 col-12 col-sm-6 pd">
+                    <img src="https://images.unsplash.com/photo-1520085601670-ee14aa5fa3e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        itemprop="thumbnail" alt="Image description" />
+                </li>
+                <li class="mix brand col-xl-3 col-md-4 col-12 col-sm-6 pd">
+                    <img src="https://images.unsplash.com/photo-1605379399843-5870eea9b74e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=898&q=80"
+                        itemprop="thumbnail" alt="Image description" />
+                </li>
+                <li class="mix social col-xl-3 col-md-4 col-12 col-sm-6 pd">
+                    <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+                        itemprop="thumbnail" alt="Image description" />
+                </li>
+                <li class="mix brand col-xl-3 col-md-4 col-12 col-sm-6 pd">
+                    <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"
+                        itemprop="thumbnail" alt="Image description" />
+                </li>
+                <li class="mix logos col-xl-3 col-md-4 col-12 col-sm-6 pd">
+                    <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1031&q=80"
+                        itemprop="thumbnail" alt="Image description" />
+                </li>
+                <li class="mix websites col-xl-3 col-md-4 col-12 col-sm-6 pd">
+                    <img src="https://images.unsplash.com/photo-1520085601670-ee14aa5fa3e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        itemprop="thumbnail" alt="Image description" />
+                </li>
+            </ul>
         </div>
-      </section>
-    <!-- ============================================================================= -->
+    </section>
     <!-- ===============================Footer Open================================= -->
     <section class="footer pt-5">
         <div class="container">
             <div class="row">
                 <nav class="footer-navbar">
-                    <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center footer-small-dev">
                         <div class="footer-logo">
                             <a href="../../index.html">
                                 <img src="../images/2x/logo.png" alt="img">
@@ -118,17 +164,20 @@
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
                         ut laoreet dolore</p>
                 </div>
-                <div class="col-lg-6 d-flex justify-content-end mt-5">
+                <div class="col-lg-6 d-flex justify-content-end footer-icons">
                     <div class="d-flex links">
                         <div><a href=""><i class="fa-brands fa-facebook-f"></i></a></div>
                         <div class="padding"><a href=""><i class="fa-brands fa-instagram"></i></a></div>
                         <div class="padding"><a href=""><i class="fa-brands fa-linkedin-in"></i></a></div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <button class="Btn csmt-btn">Get In Touch</button>
+                <div class="col-lg-6 footer-icons">
+                    <a href="../pages/contact-us.html" class="csmt-btn">
+                        Get In Touch
+                        <div class="arrow"></div>
+                    </a>
                 </div>
-                <div class="col-lg-6 d-flex justify-content-end">
+                <div class="col-lg-6 d-flex justify-content-end footer-icons">
                     <a href="">
                         <p>Copyrightsby@BugDigit.com</p>
                     </a>
@@ -137,7 +186,7 @@
         </div>
     </section>
     <!-- ===============================footer Closed================================= -->
-
+    <!-- JS Links -->
     <!-- jquery  -->
     <script src="../js/jquery.min.js"></script>
     <!-- bootstrap js  -->
@@ -150,6 +199,32 @@
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     <!-- custom js  -->
     <script type="module" src="../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <!-- Mixitup -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.2.2/mixitup.min.js'></script>
+    <!-- fancybox -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js'></script>
+    <!-- Fancybox js -->
+    <script>
+        var containerEl = document.querySelector(".portfolio-item");
+        var mixer = mixitup(containerEl, {
+            animation: {
+                effects: "fade translateZ(-100px)",
+                effectsIn: "fade translateY(-100%)",
+                easing: "cubic-bezier(0.645, 0.045, 0.355, 1)"
+            }
+        });
+        $("[data-fancybox]").fancybox({
+            loop: true,
+            hash: true,
+            transitionEffect: "slide",
+            clickContent: function (current, event) {
+                return current.type === "image" ? "next" : false;
+            }
+        });
+    </script>
 </body>
 
 </html>

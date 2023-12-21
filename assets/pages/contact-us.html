@@ -14,40 +14,30 @@
 </head>
 
 <body>
-    <!--======== mouse cursor open ====== -->
-    <div id="cursor" class="cursor">
-        <div class="ring">
-            <div><!--Border--></div>
-        </div>
-        <div class="ring">
-            <div><!--Pointer--></div>
-        </div>
-    </div>
-    <!-- =====mouse cursor closed ======== -->
     <!-- ===============================Header Open=================================== -->
-    <div class="hamburger-menu">
+    <header class="header" id="navbar-fixed-top">
         <div class="container">
-            <div class="d-flex">
-                <div class="logo-div">
-                    <div class="logo-div-img">
-                        <img src="../images/2x/logo.png" alt="">
+            <div id="main-content">
+                <div id="title"><a href="../../index.html"><img src="../images/2x/logo.png" alt=""></a></div>
+            </div>
+            <div id="btn" class="">
+                <div id="top"></div>
+                <div id="middle"></div>
+                <div id="bottom"></div>
+            </div>
+            <div id="box" class="">
+                <div id="items">
+                    <div class="imglogo"><a href="../../index.html"><img src="../images/2x/logo.png" alt=""></a></div>
+                    <div class="item1"><a href="../../index.html" class="header_links active">Home</a></div>
+                    <div class="item1"><a href="../pages/about.html" class="header_links">About US</a></div>
+                    <div class="item1"><a href="../pages/portfolio.html" class="header_links">Portfolio</a></div>
+                    <div class="item1"><a href="../pages/contact-us.html" class="header_links">Contact Us</a></div>
                     </div>
-                </div>
-                <div><input id="menu__toggle" type="checkbox" />
-                    <label class="menu__btn" for="menu__toggle">
-                        <span></span>
-                    </label>
                 </div>
             </div>
         </div>
-
-        <ul class="menu__box">
-            <li><a class="menu__item" href="../../index.html">Home</a></li>
-            <li><a class="menu__item" href="../pages/about.html">About</a></li>
-            <li><a class="menu__item" href="#">Services</a></li>
-            <li><a class="menu__item" href="#">Contact US</a></li>
-        </ul>
-    </div>
+        
+    </header>
     <!-- ===============================Header Closed================================= -->
     <!-- ===============================Banner Open=================================== -->
     <section class="about-banner d-flex justify-content-center align-item-center">
@@ -116,9 +106,12 @@
                                             placeholder="Message"></textarea>
                                     </div>
                                 </div>
-
-                                <a href=""><button class="btn csmt-btn-get" data-wow-duration="1s"
-                                        data-wow-delay="0.5s">Submit</button></a>
+                                <div>
+                                <a href="../pages/contact-us.html" class="csmt-btn-contact">
+                                    submit
+                                     <div class="arrow"></div>
+                                   </a>
+                                </div>
                             </div>
                         </form>
                 </div>
@@ -149,7 +142,7 @@
         <div class="container">
             <div class="row">
                 <nav class="footer-navbar">
-                    <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center footer-small-dev">
                         <div class="footer-logo">
                             <a href="../../index.html">
                                 <img src="../images/2x/logo.png" alt="img">
@@ -169,17 +162,20 @@
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
                         ut laoreet dolore</p>
                 </div>
-                <div class="col-lg-6 d-flex justify-content-end mt-5">
+                <div class="col-lg-6 d-flex justify-content-end footer-icons">
                     <div class="d-flex links">
                         <div><a href=""><i class="fa-brands fa-facebook-f"></i></a></div>
                         <div class="padding"><a href=""><i class="fa-brands fa-instagram"></i></a></div>
                         <div class="padding"><a href=""><i class="fa-brands fa-linkedin-in"></i></a></div>
                     </div>
                 </div>
-                    <div class="col-lg-6">
-                        <button class="Btn csmt-btn">Get In Touch</button>
+                    <div class="col-lg-6 footer-icons">
+                          <a href="../pages/contact-us.html" class="csmt-btn">
+                            Get In Touch
+                            <div class="arrow"></div>
+                          </a>
                     </div>
-                    <div class="col-lg-6 d-flex justify-content-end">
+                    <div class="col-lg-6 d-flex justify-content-end footer-icons">
                         <a href="">
                             <p>Copyrightsby@BugDigit.com</p>
                         </a>
