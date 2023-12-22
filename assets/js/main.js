@@ -351,7 +351,8 @@ var swiper = new Swiper(".mySwiper1", {
       slidesPerView: 3,
       spaceBetween: 20
     }
-  }
+  }, 
+  
 
 });
 // 
