@@ -1,85 +1,60 @@
 import * as THREE from 'three';
 import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.124.0/examples/jsm/controls/OrbitControls.js";
-// mouse cursor js open
-// $(window).mousemove(function (e) {
-//     $(".ring").css(
-//         "transform",
-//         `translateX(calc(${e.clientX}px - 1.25rem)) translateY(calc(${e.clientY}px - 1.25rem))`
-//     );
-// });
-// (() => {
-//     const hamburger = document.getElementById("hamburger");
-//     const menu = document.getElementById("overlay");
-//     let closed = true;
-  
-//     const change = () => {
-//       if (closed) {
-//         hamburger.classList.add("open");
-//         menu.classList.add("menu");
-//       } else {
-//         hamburger.classList.remove("open");
-//         menu.classList.remove("menu");
-//       }
-//       closed = !closed;
-//     };
-  
-//     hamburger.addEventListener("click", change);
-//   })();
 // scroll navbar
 $(window).scroll(function () {
-	var scroll = $(window).scrollTop();
-	if (scroll > 90) {
-		$("#navbar-fixed-top").css("background", "#000");
-		$("#navbar-fixed-top").css("box-shadow", "rgb(0 0 0 / 46%) 8px 8px 33px")
-	}
-	else {
-		$("#navbar-fixed-top").css("background", "none");
-		$("#navbar-fixed-top").css("box-shadow", "none")
+  var scroll = $(window).scrollTop();
+  if (scroll > 90) {
+    $("#navbar-fixed-top").css("background", "#000");
+    $("#navbar-fixed-top").css("box-shadow", "rgb(0 0 0 / 46%) 8px 8px 33px")
+  }
+  else {
+    $("#navbar-fixed-top").css("background", "none");
+    $("#navbar-fixed-top").css("box-shadow", "none")
 
-	}
+  }
 })
-  // MOBILE SCREEN SIDE NAV
+// MOBILE SCREEN SIDE NAV
 var sidebarBox = document.querySelector('#box');
 var sidebarBtn = document.querySelector('#btn');
 var pageWrapper = document.querySelector('#main-content');
 
 sidebarBtn.addEventListener('click', function (event) {
 
-	if (this.classList.contains('active')) {
-		this.classList.remove('active');
-		sidebarBox.classList.remove('active');
-	} else {
-		this.classList.add('active');
-		sidebarBox.classList.add('active');
-	}
+  if (this.classList.contains('active')) {
+    this.classList.remove('active');
+    sidebarBox.classList.remove('active');
+  } else {
+    this.classList.add('active');
+    sidebarBox.classList.add('active');
+  }
 });
 
 pageWrapper.addEventListener('click', function (event) {
 
-	if (sidebarBox.classList.contains('active')) {
-		sidebarBtn.classList.remove('active');
-		sidebarBox.classList.remove('active');
-	}
+  if (sidebarBox.classList.contains('active')) {
+    sidebarBtn.classList.remove('active');
+    sidebarBox.classList.remove('active');
+  }
 });
 window.addEventListener('keydown', function (event) {
 
-	if (sidebarBox.classList.contains('active') && event.keyCode === 27) {
-		sidebarBtn.classList.remove('active');
-		sidebarBox.classList.remove('active');
-	}
+  if (sidebarBox.classList.contains('active') && event.keyCode === 27) {
+    sidebarBtn.classList.remove('active');
+    sidebarBox.classList.remove('active');
+  }
 });
 
 
-function displayDiv(target){
-	
-	let display = document.getElementById(target).style.display;
-	if( display==='block'){
-		document.getElementById(target).style.display ='none';
-	}else{
-		document.getElementById(target).style.display ='block';
-		document.getElementById(target).style.display ='transform-active';
-	}
-	console.log(display);
+function displayDiv(target) {
+
+  let display = document.getElementById(target).style.display;
+  if (display === 'block') {
+    document.getElementById(target).style.display = 'none';
+  } else {
+    document.getElementById(target).style.display = 'block';
+    document.getElementById(target).style.display = 'transform-active';
+  }
+  console.log(display);
 
 }
 //  mouse cursor js closed 
@@ -95,17 +70,17 @@ let canvasHeight = window.innerHeight;
 
 // Update canvas size on window resize
 window.addEventListener('resize', () => {
-    canvasWidth = window.innerWidth;
-    canvasHeight = window.innerHeight;
+  canvasWidth = window.innerWidth;
+  canvasHeight = window.innerHeight;
 
-    // Adjust camera aspect ratio and renderer size
-    camera.aspect = canvasWidth / canvasHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(canvasWidth, canvasHeight);
-    // Adjust plane positions based on window size
-    plane1.position.set(-canvasWidth / 10, canvasHeight / 20, 2);
-    plane2.position.set(canvasWidth / 10, canvasHeight / 40, 1);
-    // Adjust positions for other planes accordingly...
+  // Adjust camera aspect ratio and renderer size
+  camera.aspect = canvasWidth / canvasHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(canvasWidth, canvasHeight);
+  // Adjust plane positions based on window size
+  plane1.position.set(-canvasWidth / 10, canvasHeight / 20, 2);
+  plane2.position.set(canvasWidth / 10, canvasHeight / 40, 1);
+  // Adjust positions for other planes accordingly...
 });
 var textureLoaderbg = new THREE.TextureLoader();
 var backgroundImage = textureLoaderbg.load('./assets/images/2x/spiderbg-with-net.png');
@@ -115,10 +90,10 @@ let rotateAroundGroup = true;
 scene = new THREE.Scene();
 // scene.background = backgroundImage;
 camera = new THREE.PerspectiveCamera(
-    45,
-    canvas.clientWidth / canvas.clientHeight,
-    0.1,
-    100
+  45,
+  canvas.clientWidth / canvas.clientHeight,
+  0.1,
+  100
 );
 camera.position.set(0, 0, 15);
 const light = new THREE.HemisphereLight(0xffffff, "cornflowerblue", 1);
@@ -210,19 +185,19 @@ backgroundPlane.material.transparent = true;
 backgroundPlane.material.opacity = 0.9;
 
 const rotateAndZoom = (plane, x, y, z, zoomOutFactor = 0, rotateY = 0) => {
-    let tl = gsap
-        .timeline({ defaults: { duration: 1.5, ease: "expo.out" } })
-        .to(controls.target, { x, y, z })
-        .to(camera.position, { x, y, z: z + zoomOutFactor }, 0);
-    // Zoom the background
-    tl.to(backgroundPlane.scale, { x: 2, y: 2, z: 1 }, 0)
-    // Zoom the target plane
-    tl.to(plane.scale, { x: 1.5, y: 1.5, z: 1 }, 0);
-    tl.to(plane.position, { x, y, z }, 0);
-    tl.to(plane.rotation, { y: rotateY }, 0); // Rotate around Y axis
-    tl.to(group.rotation, { x: 0, y: 0 }, 0);
-    // Set the current plane as the active plane
-    activePlane = plane;
+  let tl = gsap
+    .timeline({ defaults: { duration: 1.5, ease: "expo.out" } })
+    .to(controls.target, { x, y, z })
+    .to(camera.position, { x, y, z: z + zoomOutFactor }, 0);
+  // Zoom the background
+  tl.to(backgroundPlane.scale, { x: 2, y: 2, z: 1 }, 0)
+  // Zoom the target plane
+  tl.to(plane.scale, { x: 1.5, y: 1.5, z: 1 }, 0);
+  tl.to(plane.position, { x, y, z }, 0);
+  tl.to(plane.rotation, { y: rotateY }, 0); // Rotate around Y axis
+  tl.to(group.rotation, { x: 0, y: 0 }, 0);
+  // Set the current plane as the active plane
+  activePlane = plane;
 };
 // Create dots
 const dotsGeometry = new THREE.SphereGeometry(0.01, 2, 3);
@@ -235,26 +210,26 @@ const dots = [];
 const numDots = 300;
 
 for (let i = 1; i <= numDots; i++) {
-    const dot = new THREE.Mesh(dotsGeometry, dotsMaterial);
+  const dot = new THREE.Mesh(dotsGeometry, dotsMaterial);
 
-    // Calculate positions dynamically
-    const x = Math.random() * 18 - 9; // Random x position between -5 and 5
-    const y = Math.random() * 13 - 5; // Random y position between -5 and 5
-    const z = Math.random() * 2 + 1;  // Random z position between 1 and 3
+  // Calculate positions dynamically
+  const x = Math.random() * 18 - 9; // Random x position between -5 and 5
+  const y = Math.random() * 13 - 5; // Random y position between -5 and 5
+  const z = Math.random() * 2 + 1;  // Random z position between 1 and 3
 
-    dot.position.set(x, y, z);
-    scene.add(dot);
-    dots.push(dot);
+  dot.position.set(x, y, z);
+  scene.add(dot);
+  dots.push(dot);
 }
 
 // Function to animate dots up and down
 const animateDotsUpDown = () => {
-    const tl = gsap.timeline({ repeat: -1, defaults: { duration: 1, ease: 'power1.inOut' } });
+  const tl = gsap.timeline({ repeat: -1, defaults: { duration: 1, ease: 'power1.inOut' } });
 
-    dots.forEach(dot => {
-        // tl.to(dot.position, { y: dot.position.y + 0.1, yoyo: true, repeat: -1 }, 'start'); // Move up and down smoothly
-        tl.to(dot.position, { y: dot.position.y + 0.1, x: dot.position.x + 0.1, yoyo: true, repeat: -1 }, 'start');
-    });
+  dots.forEach(dot => {
+    // tl.to(dot.position, { y: dot.position.y + 0.1, yoyo: true, repeat: -1 }, 'start'); // Move up and down smoothly
+    tl.to(dot.position, { y: dot.position.y + 0.1, x: dot.position.x + 0.1, yoyo: true, repeat: -1 }, 'start');
+  });
 };
 
 // Call the animateDotsUpDown function to start the animation
@@ -267,48 +242,119 @@ let activePlane = null;
 
 const planes = [plane1, plane2, plane3, plane5, plane7 /* Add more planes as needed */];
 leftZoomBtn.addEventListener("click", () => {
-    rotateAndZoom(planes[currentIndex], planes[currentIndex].position.x, planes[currentIndex].position.y, planes[currentIndex].position.z, 5);
-    rotateAroundGroup = false;
-    currentIndex = (currentIndex - 1 + planes.length) % planes.length; // Move to the previous plane
-    zoomOutDots();
-    // // Change the color of the active plane
-    // if (activePlane) {
-    //     activePlane.material.color.set(0xFF9D00); // Set color to red (replace with your desired color)
-    // }
+  rotateAndZoom(planes[currentIndex], planes[currentIndex].position.x, planes[currentIndex].position.y, planes[currentIndex].position.z, 5);
+  rotateAroundGroup = false;
+  currentIndex = (currentIndex - 1 + planes.length) % planes.length; // Move to the previous plane
+  zoomOutDots();
+  // // Change the color of the active plane
+  // if (activePlane) {
+  //     activePlane.material.color.set(0xFF9D00); // Set color to red (replace with your desired color)
+  // }
 });
 rightZoomBtn.addEventListener("click", () => {
-    rotateAndZoom(planes[currentIndex], planes[currentIndex].position.x, planes[currentIndex].position.y, planes[currentIndex].position.z, 5);
-    rotateAroundGroup = false;
-    currentIndex = (currentIndex + 1) % planes.length; // Move to the next plane
-    // // Change the color of the active plane
-    //     if (activePlane) {
-    //         activePlane.material.color.set(0xFF9D00); // Set color to red (replace with your desired color)
-    //     }
+  rotateAndZoom(planes[currentIndex], planes[currentIndex].position.x, planes[currentIndex].position.y, planes[currentIndex].position.z, 5);
+  rotateAroundGroup = false;
+  currentIndex = (currentIndex + 1) % planes.length; // Move to the next plane
+  // // Change the color of the active plane
+  //     if (activePlane) {
+  //         activePlane.material.color.set(0xFF9D00); // Set color to red (replace with your desired color)
+  //     }
 });
 originalBtn.addEventListener("click", () => {
-    rotateAroundGroup = true;
-    rotateAndZoom(planes, 0, 0, 0, 15); // Reset each plane to original position
+  rotateAroundGroup = true;
+  rotateAndZoom(planes, 0, 0, 0, 15); // Reset each plane to original position
 });
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableRotate = false;
 const onWindowResize = () => {
-    camera.aspect = canvas.clientWidth / canvas.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+  camera.aspect = canvas.clientWidth / canvas.clientHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 };
 window.addEventListener("resize", onWindowResize, false);
 const clock = new THREE.Clock();
 const animate = () => {
-    const elapsedTime = clock.getElapsedTime();
-    renderer.render(scene, camera);
-    requestAnimationFrame(animate);
+  const elapsedTime = clock.getElapsedTime();
+  renderer.render(scene, camera);
+  requestAnimationFrame(animate);
 };
 animate();
-// three js camera zoom into Image Closed
+// three js camera zoom into Image Close
 
 
+// Swiper Slider2
+var swiper = new Swiper(".mySwiper1", {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    // when window width is >= 320px
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 20
+    },
+    375: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    280: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    414: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    1920: {
+      slidesPerView: 5,
+      spaceBetween: 20
+    },
+    1600: {
+      slidesPerView: 3,
+      spaceBetween: 20
 
+    },
+    1366: {
+      slidesPerView: 3,
+      spaceBetween: 10
+    },
+    1400: {
+      slidesPerView: 5,
+      spaceBetween: 10
+    },
+    1366: {
+      slidesPerView: 5,
+      spaceBetween: 10
+    },
+    1366: {
+      slidesPerView: 5,
+      spaceBetween: 10
+    },
+    2560: {
+      slidesPerView: 5,
+      spaceBetween: 20
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 20
+    }
+  }
+
+});
+// 
 
 
 
