@@ -1,523 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://md-aqil.github.io/images/swiper.min.css">
+	<title>Document</title>
 </head>
 <style>
-    @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
-#testimonial-area {
-  .section-heading h2 {
-    font-size: 48px;
-    line-height: 58px;
-  }
+  	body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Lato', sans-serif;
+
+		}
+		:root {
+			--dark-green: #9cc675;
+      --dark-yellow: #e89a3d;
+      --extra-light-brown:#fdf0d7;
+      --light-brown: #ecd5ab;
+      --dark-brown:#915b40;
+      --light-yellow:#f8e3a8;
+      --light-red:#f3ac99;
+      --light-teal:#a6c8cc;
+      --light-gray:#ddd5d6;
+			--theme-color2: #e89a3d;
+		}
+
+
+ .site-logo {
+	 width: 218.33px !important;
+	 margin-right: 50px;
+}
+ .btn {
+	 border-radius: 5px;
+	 font-weight: normal;
+	 font-size: 15px;
+	 letter-spacing: 0.02em;
+	 line-height: 12px;
+	 text-align: center;
+	 font-weight: 600;
+	 font-size: 14px;
+	 padding: 14px 30px;
+	 cursor: pointer;
+}
+ .btn-theme {
+	 background: var(--theme-color1);
+	 color: #212121;
 }
 
-.testi-wrap {
-  position: relative;
-  height: 725px;
-  margin-top: -80px;
-}
-
-.client-single {
-  margin-top: 20px;
-  text-align: center;
-  position: absolute;
-  -webkit-transition: all 1s ease;
-  transition: all 1s ease;
-}
-
-.client-info,
-.client-comment {
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-.client-single {
-  &.inactive {
-    .client-comment,
-    .client-info {
-      display: none;
-    }
-    .client-comment,
-    .client-info {
-      opacity: 0;
-      visibility: hidden;
-    }
-  }
-  &.position-1 {
-    -webkit-transform: scale(0.65);
-    transform: scale(0.65);
-  }
-  &.position-2 {
-    left: -40px;
-    top: 105px;
-  }
-  &.position-3 {
-    left: -60px;
-    top: 240px;
-    -webkit-transform: scale(0.4) !important;
-    transform: scale(0.4) !important;
-  }
-  &.position-4 {
-    left: 55px;
-    top: 380px;
-  }
-  &.position-5 {
-    top: 30px;
-    right: 55px;
-  }
-  &.position-6 {
-    top: 225px;
-    right: -40px;
-  }
-  &.position-7 {
-    top: 400px;
-    right: 45px;
-    -webkit-transform: scale(0.4) !important;
-    transform: scale(0.4) !important;
-  }
-  &.active {
-    top: 10%;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    z-index: 10;
-    width: 70%;
-    .client-comment,
-    .client-info {
-      -webkit-transition-delay: 0.6s;
-      transition-delay: 0.6s;
-    }
-  }
-  &:not(.active) {
-    -webkit-transform: scale(0.55);
-    transform: scale(0.55);
-    z-index: 99;
-  }
-  &.active .client-img {
-    width: 160px;
-    height: 160px;
-    margin: 0 auto 24px;
+.c-container {
+    margin: auto;
+    width: 93%;
     position: relative;
-    &:before {
-      border-radius: 100%;
-      content: "";
-      background-image: -webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        from(rgb(157, 91, 254)),
-        to(rgb(56, 144, 254))
-      );
-      background-image: linear-gradient(
-        180deg,
-        rgb(157, 91, 254) 0%,
-        rgb(56, 144, 254) 100%
-      );
-      padding: 5px;
-      width: 160px;
-      height: 160px;
-      top: -4px;
-      left: 0px;
-      position: absolute;
-      z-index: -1;
-    }
-  }
-  .client-img img {
-    width: 150px;
-    border-radius: 50%;
-    border: 8px solid #d1e9ff;
-    cursor: pointer;
-  }
-  &.active .client-img img {
-    max-width: 160px;
-    margin: 0 auto 24px;
-    border: 0;
-  }
+    z-index: 1;
 }
 
-.client-comment {
-  padding: 0 30px;
-  h3 {
-    font-size: 22px;
-    line-height: 32px;
-    color: #505b6d;
-  }
-  span i {
-    font-size: 60px;
-    color: #0084ff;
-    margin: 40px 0 24px;
-    display: inline-block;
-  }
+.btn-outline-white {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    background-image: none;
+    border-width: 2px;
+    border-color: #fff;
+    font-weight: 500;
+    -webkit-transition: all .2s;
+    transition: all .2s;
 }
-
-.client-info {
-  h3 {
-    color: #000;
+.btn {
+    border-radius: 5px;
+    font-weight: normal;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    line-height: 12px;
+    text-align: center;
     font-weight: 600;
-    margin-bottom: 4px;
-  }
-  p {
-    color: #0084ff;
-    text-transform: uppercase;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  #testimonial-area .section-heading h2 {
-    font-size: 30px;
-  }
-  .client-comment h3 {
-    font-size: 18px;
-    line-height: 28px;
-  }
-  .client-single.active {
-    width: 60%;
-  }
-  .client-single:not(.active) {
-    -webkit-transform: scale(0.55);
-    transform: scale(0.35);
-  }
-  .client-single.position-3,
-  .client-single.position-7 {
-    -webkit-transform: scale(0.3) !important;
-    transform: scale(0.3) !important;
-  }
-  .client-single.active .client-img img {
-    max-width: 100px;
-  }
-  .client-single.active .client-img::before {
-    padding: 5px;
-    width: 108px;
-    height: 108px;
-    top: -4px;
-    left: 6px;
-  }
-  .client-single.active .client-img {
-    width: 120px;
-    height: 100px;
-  }
-  .testi-wrap {
-    height: 580px;
-  }
-  #testimonial-area {
-    padding: 100px 0 0;
-  }
-}
-
-@media only screen and (min-width: 480px) and (max-width: 767px) {
-  #testimonial-area .section-heading h2 {
-    font-size: 30px;
-  }
-  .client-comment h3 {
     font-size: 14px;
-    line-height: 26px;
-  }
-  .client-single.active {
-    width: 60%;
-  }
-  .client-comment span i {
-    font-size: 40px;
-  }
-  .client-single:not(.active) {
-    -webkit-transform: scale(0.55);
-    transform: scale(0.35);
-  }
-  .client-single.position-5,
-  .client-single.position-7 {
-    right: 0;
-  }
-  .client-single.position-4 {
-    left: 0;
-  }
-  .client-single.position-3,
-  .client-single.position-7 {
-    -webkit-transform: scale(0.3) !important;
-    transform: scale(0.3) !important;
-  }
-  .client-single.active .client-img img {
-    max-width: 80px;
-  }
-  .client-single.active .client-img::before {
-    padding: 5px;
-    width: 88px;
-    height: 88px;
-    top: -4px;
-    left: 16px;
-  }
-  .client-single.active .client-img {
-    width: 120px;
-    height: 100px;
-  }
-  .testi-wrap {
-    height: 630px;
-  }
+    padding: 14px 30px;
+    cursor: pointer;
+}
+.btn-outline-white:hover {
+    background-color: #fff;
+    color: var(--text-dark);
+}
+/* common css up */
+
+.testimonial p {
+	 font-size: 28px;
+	 letter-spacing: 0.02em;
+	 line-height: 35px;
+}
+ .testimonial .name {
+	 font-weight: bold;
+	 font-size: 18px;
+	 letter-spacing: 0.04em;
+	 line-height: 35px;
+	 text-align: left;
+}
+ .testimonial .designation {
+	 font-size: 14px;
+	 letter-spacing: 0.04em;
+	 text-align: left;
+	 color: #fff;
+	 opacity: 0.65;
+}
+ .unt {
+	 margin-bottom: 20px;
+	 margin-top: 60px;
+}
+ .hero-text {
+	 font-size: 30px;
+	 letter-spacing: 0.02em;
+	 color: #fff;
+}
+ .gallery-thumbs {
+	 height: 100%;
+}
+ .gallery-thumbs .swiper-wrapper {
+	 align-items: center;
+}
+ .gallery-thumbs .swiper-slide {
+	 background-position: center;
+	 background-size: cover;
+	 width: 250px !important;
+	 height: 330px;
+	 position: relative;
+}
+ .gallery-thumbs .swiper-slide img {
+	 filter: contrast(0.5) blur(1px);
+	 width: 100%;
+	 height: 100%;
+	 object-fit: cover;
+	 border-radius: 10px;
+}
+ .gallery-thumbs .swiper-slide-active img {
+	 filter: contrast(1) blur(0px) !important;
+}
+ .flex-row {
+	 display: -webkit-box;
+	 display: -ms-flexbox;
+	 display: flex;
+	 -ms-flex-wrap: wrap;
+	 flex-wrap: wrap;
+	 margin-right: -15px;
+	 margin-left: -15px;
+}
+ .flex-row .flex-col {
+	 -ms-flex-preferred-size: 0;
+	 flex-basis: 0;
+	 -webkit-box-flex: 1;
+	 -ms-flex-positive: 1;
+	 flex-grow: 1;
+	 max-width: 100%;
+	 position: relative;
+	 width: 100%;
+	 min-height: 1px;
+	 padding-right: 15px;
+	 padding-left: 15px;
 }
 
-@media only screen and (min-width: 360px) and (max-width: 479px) {
-  #testimonial-area .section-heading h2 {
-    font-size: 30px;
-    line-height: 40px;
-  }
-  .client-comment h3 {
-    font-size: 14px;
-    line-height: 26px;
-  }
-  .client-single.active {
-    width: 80%;
-  }
-  .client-comment span i {
-    font-size: 40px;
-  }
-  .client-single:not(.active) {
-    -webkit-transform: scale(0.25);
-    transform: scale(0.25);
-  }
-  .client-single.position-5,
-  .client-single.position-7,
-  .client-single.position-6 {
-    right: -70px;
-  }
-  .client-single.position-4 {
-    left: -60px;
-  }
-  .client-single.position-3 {
-    left: -75px;
-  }
-  .client-single.position-3,
-  .client-single.position-7 {
-    -webkit-transform: scale(0.25) !important;
-    transform: scale(0.25) !important;
-  }
-  .client-single.active .client-img img {
-    max-width: 80px;
-  }
-  .client-single.active .client-img::before {
-    padding: 5px;
-    width: 88px;
-    height: 88px;
-    top: -4px;
-    left: 16px;
-  }
-  .client-single.active .client-img {
-    width: 120px;
-    height: 100px;
-  }
-  .testi-wrap {
-    height: 600px;
-  }
+.gallery-thumbs .swiper-wrapper {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 359px) {
-  #testimonial-area .section-heading h2 {
-    font-size: 30px;
-  }
-  .client-comment h3 {
-    font-size: 14px;
-    line-height: 26px;
-  }
-  .client-single.active {
-    width: 80%;
-  }
-  .client-comment span i {
-    font-size: 40px;
-  }
-  .client-single:not(.active) {
-    -webkit-transform: scale(0.25);
-    transform: scale(0.25);
-  }
-  .client-single.position-5,
-  .client-single.position-7,
-  .client-single.position-6 {
-    right: -70px;
-  }
-  .client-single.position-4 {
-    left: -60px;
-  }
-  .client-single.position-3 {
-    left: -75px;
-  }
-  .client-single.position-3,
-  .client-single.position-7 {
-    -webkit-transform: scale(0.25) !important;
-    transform: scale(0.25) !important;
-  }
-  .client-single.active .client-img img {
-    max-width: 80px;
-  }
-  .client-single.active .client-img::before {
-    padding: 5px;
-    width: 88px;
-    height: 88px;
-    top: -4px;
-    left: 16px;
-  }
-  .client-single.active .client-img {
-    width: 120px;
-    height: 100px;
-  }
-  .testi-wrap {
-    height: 550px;
-  }
-}
 
+.testimonial-section .quote {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.swiper-container.testimonial {
+    height: 100vh;
+}
+.testimonial-section .user-saying {
+    background: var(--theme-color2);
+    width: 100%;
+    color: #fff;
+    height: 100%;
+}
+.testi-user-img {
+    width: 100%;
+}
+.testimonial-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.testimonial-section .quote p {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.8;
+    font-style: italic;
+    margin: 0;
+}
+.quote-icon {
+    width: 38px;
+    display: block;
+    margin-bottom: 30px;
+}
 </style>
 <body>
-    <section id="testimonial-area">
-        <div class="container">
-          <div class="row">
-      
-            <div class="col-md-8 offset-md-2">
-              <div class="section-heading text-center">
-                <h5>Testimonial Design </h5>
-                <h2>A Word From Our Customers</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. </p>
+  <section class="spacer">
+			
+    <div class="testimonial-section">
+      <div class="testi-user-img">
+      <div class="swiper-container gallery-thumbs">
+          <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="u3" src="https://md-aqil.github.io/images/2091127763_1_1_1.jpg" alt="">
               </div>
-            </div>
-      
+          <div class="swiper-slide">
+            <img class="u1" src="https://md-aqil.github.io/images/beautiful-beauty-face-2657838.jpg" alt="">
           </div>
-          <div class="testi-wrap">
-      
-            <div class="client-single active position-1" data-position="position-1">
-              <div class="client-img">
-                <img src="https://cdn.dribbble.com/users/2132253/avatars/small/1799e2c9badff08058551384763e284c.jpg?1568268299" alt="">
-              </div>
-              <div class="client-comment">
-                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </h3>
-                <span><i class="fa fa-quote-left"></i></span>
-              </div>
-              <div class="client-info">
-                <h3>Design By</h3>
-                <p><a href="https://manjaygupta.com">Manjay Gupta</a></p>
-              </div>
-            </div>
-      
-            <div class="client-single inactive position-2" data-position="position-2">
-              <div class="client-img">
-                <img src="https://cdn.dribbble.com/users/2132253/avatars/small/1799e2c9badff08058551384763e284c.jpg?1568268299" alt="">
-              </div>
-              <div class="client-comment">
-                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </h3>
-                <span><i class="fa fa-quote-left"></i></span>
-              </div>
-              <div class="client-info">
-                <h3>Design By</h3>
-                <p><a href="https://manjaygupta.com">Manjay Gupta</a></p>
-              </div>
-            </div>
-      
-            <div class="client-single inactive position-3" data-position="position-3">
-              <div class="client-img">
-                <img src="https://cdn.dribbble.com/users/2132253/avatars/small/1799e2c9badff08058551384763e284c.jpg?1568268299" alt="">
-              </div>
-              <div class="client-comment">
-                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </h3>
-                <span><i class="fa fa-quote-left"></i></span>
-              </div>
-              <div class="client-info">
-                <h3>Design By</h3>
-                <p><a href="https://manjaygupta.com">Manjay Gupta</a></p>
-              </div>
-            </div>
-      
-            <div class="client-single inactive position-4" data-position="position-4">
-              <div class="client-img">
-                <img src="https://media.licdn.com/dms/image/C4E03AQFbvYtvSeyw-g/profile-displayphoto-shrink_100_100/0?e=1574294400&v=beta&t=49_VH9HRvqymP-VLETlFhFt4idmunZPhIQfALwaTrmA" alt="">
-              </div>
-              <div class="client-comment">
-                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </h3>
-                <span><i class="fa fa-quote-left"></i></span>
-              </div>
-              <div class="client-info">
-                <h3>Design By</h3>
-                <p><a href="https://manjaygupta.com">Manjay Gupta</a></p>
-              </div>
-            </div>
-      
-            <div class="client-single inactive position-5" data-position="position-5">
-              <div class="client-img">
-                <img src="https://cdn.dribbble.com/users/2132253/avatars/small/1799e2c9badff08058551384763e284c.jpg?1568268299" alt="">
-              </div>
-              <div class="client-comment">
-                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </h3>
-                <span><i class="fa fa-quote-left"></i></span>
-              </div>
-              <div class="client-info">
-                <h3>Design By</h3>
-                <p><a href="https://manjaygupta.com">Manjay Gupta</a></p>
-              </div>
-            </div>
-      
-            <div class="client-single inactive position-6" data-position="position-6">
-              <div class="client-img">
-                <img src="https://cdn.dribbble.com/users/2132253/avatars/small/1799e2c9badff08058551384763e284c.jpg?1568268299" alt="">
-              </div>
-              <div class="client-comment">
-                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </h3>
-                <span><i class="fa fa-quote-left"></i></span>
-              </div>
-              <div class="client-info">
-                <h3>Design By</h3>
-                <p><a href="https://manjaygupta.com">Manjay Gupta</a></p>
-              </div>
-            </div>
-      
-            <div class="client-single inactive position-7" data-position="position-7">
-              <div class="client-img">
-                <img src="https://cdn.dribbble.com/users/2132253/avatars/small/1799e2c9badff08058551384763e284c.jpg?1568268299" width="40px" alt="">
-              </div>
-              <div class="client-comment">
-                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </h3>
-                <span><i class="fa fa-quote-left"></i></span>
-              </div>
-              <div class="client-info">
-                <h3>Design By</h3>
-                <p><a href="https://manjaygupta.com">Manjay Gupta</a></p>
-              </div>
-            </div>
-      
+          <div class="swiper-slide">
+          <img class="u2" src="https://md-aqil.github.io/images/attractive-beautiful-beauty-1986684.jpg" alt="">
+          </div>
+        
+          <div class="swiper-slide">
+          <img class="u4" src="https://md-aqil.github.io/images/beautiful-beauty-face-2657838.jpg" alt="">
+          </div>
+          
           </div>
         </div>
-      </section>
-      <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-      <script>
-        $(document).ready(
-  (function () {
-    $(".client-single").on("click", function (event) {
-      event.preventDefault();
-
-      var active = $(this).hasClass("active");
-
-      var parent = $(this).parents(".testi-wrap");
-
-      if (!active) {
-        var activeBlock = parent.find(".client-single.active");
-
-        var currentPos = $(this).attr("data-position");
-
-        var newPos = activeBlock.attr("data-position");
-
-        activeBlock
-          .removeClass("active")
-          .removeClass(newPos)
-          .addClass("inactive")
-          .addClass(currentPos);
-        activeBlock.attr("data-position", currentPos);
-
-        $(this)
-          .addClass("active")
-          .removeClass("inactive")
-          .removeClass(currentPos)
-          .addClass(newPos);
-        $(this).attr("data-position", newPos);
-      }
-    });
-  })(jQuery)
-);
-
-      </script>
+      </div>
+      <div class="user-saying">
+          <div class="swiper-container testimonial">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper ">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <div class="quote">
+                      <img class="quote-icon" src="https://md-aqil.github.io/images/quote.png" alt="">
+                    <p>
+                        “This is best and biggest unified platform
+                    for instant online admission. We can easily
+                    take admission for any course in any institute..“
+                    </p>
+                    <div class="name">-Ramkishor Verma-</div>
+                    <div class="designation">University Student</div>
+                    
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="quote">
+                    <img class="quote-icon" src="https://md-aqil.github.io/images/quote.png" alt="">
+                  
+                    <p>
+                        “This is best and biggest unified platform
+                    for instant online admission. We can easily
+                    take admission for any course in any institute..“
+                    </p>
+                    <div class="name">-Ramkishor Verma-</div>
+                    <div class="designation">University Student</div>
+                    
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="quote">
+                    <img class="quote-icon" src="https://md-aqil.github.io/images/quote.png" alt="">
+                      
+                    <p>
+                        “This is best and biggest unified platform
+                    for instant online admission. We can easily
+                    take admission for any course in any institute..“
+                    </p>
+                    <div class="name">-Ramkishor Verma-</div>
+                    <div class="designation">University Student</div>
+                    
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="quote">
+                      <img class="quote-icon" src="https://md-aqil.github.io/images/quote.png" alt="">
+                     
+                      <p>
+                          “This is best and biggest unified platform
+                      for instant online admission. We can easily
+                      take admission for any course in any institute..“
+                      </p>
+                      <div class="name">-Ramkishor Verma-</div>
+                      <div class="designation">University Student</div>
+                      
+                    </div>
+                  </div>
+                
+              </div>
+              <!-- If we need pagination -->
+              <div class="swiper-pagination swiper-pagination-white"></div>
+            
+            </div>
+      </div>
+    </div>
+  </section>
+<script src="https://md-aqil.github.io/images/swiper.min.js"></script>
+<script>
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+	effect: 'coverflow',
+	grabCursor: true,
+	centeredSlides: true,
+	slidesPerView: '2',
+	// coverflowEffect: {
+	//   rotate: 50,
+	//   stretch: 0,
+	//   depth: 100,
+	//   modifier: 1,
+	//   slideShadows : true,
+	// },
+	
+	coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 50,
+        modifier: 6,
+        slideShadows : false,
+	  },
+	  
+  });
+  
+  
+var galleryTop = new Swiper('.swiper-container.testimonial', {
+	speed: 400,
+	spaceBetween: 50,
+  autoplay: false,
+	// autoplay: {
+	//   delay: 3000,
+	//   disableOnInteraction: true,
+	// },
+	direction: 'horizontal',
+	pagination: {
+	  clickable: true,
+	  el: '.swiper-pagination',
+	  type: 'bullets',
+	},
+	thumbs: {
+		swiper: galleryThumbs
+	  }
+  });
+  
+</script>
 </body>
 </html>
