@@ -17,6 +17,7 @@
     <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
     <title>BUG-HOME | Home</title>
 </head>
+
 <body class="position-relative">
     <!-- ===============================Header Open=================================== -->
     <header class="header" id="navbar-fixed-top">
@@ -54,6 +55,12 @@
                 </div>
             </div>
         </div>
+        <!-- <div class="spider-div">
+            <div class="spider-div-img">
+                <canvas id="spider-canvas"></canvas>
+            </div>
+        </div> -->
+
         <div class="straight-line">
             <div class="straight-line-img-div">
                 <img src="./assets/images/SVG/line.svg" alt="">
@@ -204,39 +211,99 @@
         <div class="container text-center swiper mySwiper2">
             <div class="swiper-wrapper">
                 <div class="slider__contents__img swiper-slide">
-                    <div class="text-start"><quote>&#x275D;</quote></div>
-                  <p class="slider__txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam tincidunt is ut <br> tincidunt ut laoreet dolore magna aliquam erat volutpat.tincidunt ut laoreet dolore magna aliquam tincidunt ut laoreet dolore magna aliquam Ut wisi enim<br> ad minim venulla facilisi.</p>
-                  </div>
-                  <div class="slider__contents__img swiper-slide">
-                    <div class="text-start"><quote>&#x275D;</quote></div>
-                  <p class="slider__txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam tincidunt is ut <br> tincidunt ut laoreet dolore magna aliquam erat volutpat.tincidunt ut laoreet dolore magna aliquam tincidunt ut laoreet dolore magna aliquam Ut wisi enim<br> ad minim venulla facilisi.</p>
-                  </div>
-                  <div class="slider__contents__img swiper-slide">
-                    <div class="text-start"><quote>&#x275D;</quote></div>
-                  <p class="slider__txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam tincidunt is ut <br> tincidunt ut laoreet dolore magna aliquam erat volutpat.tincidunt ut laoreet dolore magna aliquam tincidunt ut laoreet dolore magna aliquam Ut wisi enim<br> ad minim venulla facilisi.</p>
-                  </div>
-                  <div class="slider__contents__img swiper-slide">
-                    <div class="text-start"><quote>&#x275D;</quote></div>
-                  <p class="slider__txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam tincidunt is ut <br> tincidunt ut laoreet dolore magna aliquam erat volutpat.tincidunt ut laoreet dolore magna aliquam tincidunt ut laoreet dolore magna aliquam Ut wisi enim<br> ad minim venulla facilisi.</p>
-                  </div>
-                  <div class="slider__contents__img swiper-slide">
-                    <div class="text-start"><quote>&#x275D;</quote></div>
-                  <p class="slider__txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam tincidunt is ut <br> tincidunt ut laoreet dolore magna aliquam erat volutpat.tincidunt ut laoreet dolore magna aliquam tincidunt ut laoreet dolore magna aliquam Ut wisi enim<br> ad minim venulla facilisi.</p>
-                  </div>
-                  
+                    <div class="quote-img">
+                        <div class="quote-img-div">
+                            <img src="./assets/images/2x/quote.png" alt="">
+                        </div>
+                    </div>
+                    <!-- <div class="text-start"><quote>&#x275D;</quote></div> -->
+                    <p class="slider__txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+                        nibh euismod tincidunt ut laoreet dolore magna aliquam tincidunt is ut <br> tincidunt ut laoreet
+                        dolore magna aliquam erat volutpat.tincidunt ut laoreet dolore magna aliquam tincidunt ut
+                        laoreet dolore magna aliquam Ut wisi enim<br> ad minim venulla facilisi.</p>
+                </div>
+                <div class="slider__contents__img swiper-slide">
+                    <div class="quote-img">
+                        <div class="quote-img-div">
+                            <img src="./assets/images/2x/quote.png" alt="">
+                        </div>
+                    </div>
+                    <!-- <div class="text-start"><quote>&#x275D;</quote></div> -->
+                    <p class="slider__txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+                        nibh euismod tincidunt ut laoreet dolore magna aliquam tincidunt is ut <br> tincidunt ut laoreet
+                        dolore magna aliquam erat volutpat.tincidunt ut laoreet dolore magna aliquam tincidunt ut
+                        laoreet dolore magna aliquam Ut wisi enim<br> ad minim venulla facilisi.</p>
+                </div>
+                <div class="slider__contents__img swiper-slide">
+                    <div class="quote-img">
+                        <div class="quote-img-div">
+                            <img src="./assets/images/2x/quote.png" alt="">
+                        </div>
+                    </div>
+                    <!-- <div class="text-start"><quote>&#x275D;</quote></div> -->
+                    <p class="slider__txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+                        nibh euismod tincidunt ut laoreet dolore magna aliquam tincidunt is ut <br> tincidunt ut laoreet
+                        dolore magna aliquam erat volutpat.tincidunt ut laoreet dolore magna aliquam tincidunt ut
+                        laoreet dolore magna aliquam Ut wisi enim<br> ad minim venulla facilisi.</p>
+                </div>
+                <div class="slider__contents__img swiper-slide">
+                    <div class="quote-img">
+                        <div class="quote-img-div">
+                            <img src="./assets/images/2x/quote.png" alt="">
+                        </div>
+                    </div>
+                    <!-- <div class="text-start"><quote>&#x275D;</quote></div> -->
+                    <p class="slider__txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+                        nibh euismod tincidunt ut laoreet dolore magna aliquam tincidunt is ut <br> tincidunt ut laoreet
+                        dolore magna aliquam erat volutpat.tincidunt ut laoreet dolore magna aliquam tincidunt ut
+                        laoreet dolore magna aliquam Ut wisi enim<br> ad minim venulla facilisi.</p>
+                </div>
+                <div class="slider__contents__img swiper-slide">
+                    <div class="quote-img">
+                        <div class="quote-img-div">
+                            <img src="./assets/images/2x/quote.png" alt="">
+                        </div>
+                    </div>
+                    <!-- <div class="text-start"><quote>&#x275D;</quote></div> -->
+                    <p class="slider__txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+                        nibh euismod tincidunt ut laoreet dolore magna aliquam tincidunt is ut <br> tincidunt ut laoreet
+                        dolore magna aliquam erat volutpat.tincidunt ut laoreet dolore magna aliquam tincidunt ut
+                        laoreet dolore magna aliquam Ut wisi enim<br> ad minim venulla facilisi.</p>
+                </div>
+
             </div>
         </div>
-            <div class="container">
-                <div class="row  pt-5 pb-5">
-                    <div class="swiper mySwiper1">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+        <div class="container">
+            <div class="row  pt-5 pb-5">
+                <div class="swiper mySwiper1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <div class="cardCstm">
+                                <div class="cardDiv">
+                                    <div class="d-flex align-items-center" style="width: 220px;">
+                                        <div class="slider-text">
+                                            <div class="cardDivImg">
+                                                <img class="card-img-top" src="./assets/images/2x/sliderimg1.png"
+                                                    alt="">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h4>John Smith</h4>
+                                            <span>Marketing Manager</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <div class="swiper-slide wow animated fadeInLeft" data-wow-duration="1s"
+                                data-wow-delay="0.5s">
                                 <div class="cardCstm">
                                     <div class="cardDiv">
                                         <div class="d-flex align-items-center" style="width: 220px;">
                                             <div class="slider-text">
                                                 <div class="cardDivImg">
-                                                    <img class="card-img-top" src="./assets/images/2x/sliderimg1.png"
+                                                    <img class="card-img-top" src="./assets/images/2x/sliderimg4.png"
                                                         alt="">
                                                 </div>
                                             </div>
@@ -248,55 +315,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
-                                <div class="swiper-slide wow animated fadeInLeft" data-wow-duration="1s"
-                                    data-wow-delay="0.5s">
-                                    <div class="cardCstm">
-                                        <div class="cardDiv">
-                                            <div class="d-flex align-items-center" style="width: 220px;">
-                                                <div class="slider-text">
-                                                    <div class="cardDivImg">
-                                                        <img class="card-img-top" src="./assets/images/2x/sliderimg4.png"
-                                                            alt="">
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h4>John Smith</h4>
-                                                    <span>Marketing Manager</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
-                                <div class="swiper-slide wow animated fadeInLeft" data-wow-duration="1s"
-                                    data-wow-delay="0.5s">
-                                    <div class="cardCstm">
-                                        <div class="cardDiv">
-                                            <div class="d-flex align-items-center" style="width: 220px;">
-                                                <div class="slider-text">
-                                                    <div class="cardDivImg">
-                                                        <img class="card-img-top" src="./assets/images/2x/sliderimg3.png"
-                                                            alt="">
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h4>John Smith</h4>
-                                                    <span>Marketing Manager</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+                        </div>
+                        <div class="swiper-slide wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <div class="swiper-slide wow animated fadeInLeft" data-wow-duration="1s"
+                                data-wow-delay="0.5s">
                                 <div class="cardCstm">
                                     <div class="cardDiv">
                                         <div class="d-flex align-items-center" style="width: 220px;">
                                             <div class="slider-text">
                                                 <div class="cardDivImg">
-                                                    <img class="card-img-top" src="./assets/images/2x/sliderimg1.png"
+                                                    <img class="card-img-top" src="./assets/images/2x/sliderimg3.png"
                                                         alt="">
                                                 </div>
                                             </div>
@@ -308,43 +336,61 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
-                                <div class="swiper-slide wow animated fadeInLeft" data-wow-duration="1s"
-                                    data-wow-delay="0.5s">
-                                    <div class="cardCstm">
-                                        <div class="cardDiv">
-                                            <div class="d-flex align-items-center" style="width: 220px;">
-                                                <div class="slider-text">
-                                                    <div class="cardDivImg">
-                                                        <img class="card-img-top" src="./assets/images/2x/sliderimg4.png"
-                                                            alt="">
-                                                    </div>
+                        </div>
+                        <div class="swiper-slide wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <div class="cardCstm">
+                                <div class="cardDiv">
+                                    <div class="d-flex align-items-center" style="width: 220px;">
+                                        <div class="slider-text">
+                                            <div class="cardDivImg">
+                                                <img class="card-img-top" src="./assets/images/2x/sliderimg1.png"
+                                                    alt="">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h4>John Smith</h4>
+                                            <span>Marketing Manager</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <div class="swiper-slide wow animated fadeInLeft" data-wow-duration="1s"
+                                data-wow-delay="0.5s">
+                                <div class="cardCstm">
+                                    <div class="cardDiv">
+                                        <div class="d-flex align-items-center" style="width: 220px;">
+                                            <div class="slider-text">
+                                                <div class="cardDivImg">
+                                                    <img class="card-img-top" src="./assets/images/2x/sliderimg4.png"
+                                                        alt="">
                                                 </div>
-                                                <div>
-                                                    <h4>John Smith</h4>
-                                                    <span>Marketing Manager</span>
-                                                </div>
+                                            </div>
+                                            <div>
+                                                <h4>John Smith</h4>
+                                                <span>Marketing Manager</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
-                                <div class="swiper-slide wow animated fadeInLeft" data-wow-duration="1s"
-                                    data-wow-delay="0.5s">
-                                    <div class="cardCstm">
-                                        <div class="cardDiv">
-                                            <div class="d-flex align-items-center" style="width: 220px;">
-                                                <div class="slider-text">
-                                                    <div class="cardDivImg">
-                                                        <img class="card-img-top" src="./assets/images/2x/sliderimg3.png"
-                                                            alt="">
-                                                    </div>
+                        </div>
+                        <div class="swiper-slide wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <div class="swiper-slide wow animated fadeInLeft" data-wow-duration="1s"
+                                data-wow-delay="0.5s">
+                                <div class="cardCstm">
+                                    <div class="cardDiv">
+                                        <div class="d-flex align-items-center" style="width: 220px;">
+                                            <div class="slider-text">
+                                                <div class="cardDivImg">
+                                                    <img class="card-img-top" src="./assets/images/2x/sliderimg3.png"
+                                                        alt="">
                                                 </div>
-                                                <div>
-                                                    <h4>John Smith</h4>
-                                                    <span>Marketing Manager</span>
-                                                </div>
+                                            </div>
+                                            <div>
+                                                <h4>John Smith</h4>
+                                                <span>Marketing Manager</span>
                                             </div>
                                         </div>
                                     </div>
@@ -354,6 +400,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         <!-- </div> -->
     </section>
     <!-- ===============================Slider Closed========================== -->
@@ -413,56 +460,87 @@
     <!-- slider js -->
     <script src="./assets/js/swiper-bundle.min.js"></script>
     <!-- script  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <!-- <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loader/GLTFLoader.js"></script> -->
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
     <!-- custom js  -->
     <script type="module" src="./assets/js/main.js"></script>
     <script src="https://threejs.org/build/three.js"></script>
     <script type="module">
-        window.addEventListener('DOMContentLoaded', () => {
-            const spiderDiv = document.querySelector('.spider-div-img img');
+        import * as THREE from "https://cdn.skypack.dev/three@0.128.0/build/three.module.js";
+        import { SVGLoader } from "https://cdn.skypack.dev/three@0.128.0/examples/jsm/loaders/SVGLoader.js";
 
-            // Set up Three.js scene
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            document.body.appendChild(renderer.domElement);
+        const spiderDiv = document.querySelector('.spider-div');
+        const canvas = document.createElement('canvas');
+        document.body.appendChild(canvas);
 
-            // Load spider texture
-            const loader = new THREE.TextureLoader();
-            const spiderTexture = loader.load('./assets/images/SVG/spider.svg');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas });
+        renderer.setSize(window.innerWidth, window.innerHeight);
 
-            // Create a plane with the spider texture
-            const geometry = new THREE.PlaneGeometry(1, 1); // Adjust the size as needed
-            const material = new THREE.MeshBasicMaterial({ map: spiderTexture, transparent: true });
-            const spiderMesh = new THREE.Mesh(geometry, material);
-            scene.add(spiderMesh);
+        const loader = new SVGLoader();
+        let spiderModel;
+        let isCrawling = false;
 
-            // Set up camera position
-            camera.position.z = 5;
+        loader.load('./assets/images/SVG/spider.svg', function (data) {
+            console.log(data);
+            const paths = data.paths;
 
-            // Set up scroll event listener
-            let scrollY = window.scrollY;
-
-            window.addEventListener('scroll', () => {
-                const newScrollY = window.scrollY;
-                const deltaY = newScrollY - scrollY;
-
-                // Adjust the spider's position or animation based on scroll
-                spiderMesh.position.y += deltaY * 0.01; // Adjust the factor as needed
-
-                scrollY = newScrollY;
+            const group = new THREE.Group();
+            const material = new THREE.MeshBasicMaterial({
+                color: 0xffffff,
+                side: THREE.DoubleSide,
+                depthWrite: false,
             });
 
-            // Animation loop
-            const animate = () => {
-                requestAnimationFrame(animate);
-                renderer.render(scene, camera);
-            };
+            for (let i = 0; i < paths.length; i++) {
+                const path = paths[i];
+                const shapes = path.toShapes(true);
 
+                for (let j = 0; j < shapes.length; j++) {
+                    const shape = shapes[j];
+                    const geometry = new THREE.ShapeGeometry(shape);
+                    const mesh = new THREE.Mesh(geometry, material);
+                    group.add(mesh);
+                }
+            }
+
+            group.scale.multiplyScalar(0.1);
+            scene.add(group);
+            spiderModel = group;
             animate();
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            if (isCrawling && spiderModel) {
+                const scrollPosition = window.scrollY;
+                spiderModel.position.y = -scrollPosition * 0.1; // Adjust the crawling speed
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        window.addEventListener('resize', () => {
+            const newWidth = window.innerWidth;
+            const newHeight = window.innerHeight;
+
+            camera.aspect = newWidth / newHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(newWidth, newHeight);
+        });
+
+        // Mouse wheel event
+        window.addEventListener('wheel', () => {
+            isCrawling = true;
+            setTimeout(() => {
+                isCrawling = false;
+            }, 500); // Adjust the duration of crawling animation
         });
     </script>
 </body>
+
 </html>

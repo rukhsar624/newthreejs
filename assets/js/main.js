@@ -45,19 +45,19 @@ window.addEventListener('keydown', function (event) {
 });
 
 
-function displayDiv(target) {
+// function displayDiv(target) {
 
-  let display = document.getElementById(target).style.display;
-  if (display === 'block') {
-    document.getElementById(target).style.display = 'none';
-  } else {
-    document.getElementById(target).style.display = 'block';
-    document.getElementById(target).style.display = 'transform-active';
-  }
-  console.log(display);
+//   let display = document.getElementById(target).style.display;
+//   if (display === 'block') {
+//     document.getElementById(target).style.display = 'none';
+//   } else {
+//     document.getElementById(target).style.display = 'block';
+//     document.getElementById(target).style.display = 'transform-active';
+//   }
+//   console.log(display);
 
-}
-//  mouse cursor js closed 
+// }
+//  MOBILE SCREEN SIDE NAV
 const canvas = document.querySelector("#canvas");
 const leftZoomBtn = document.querySelector(".left-box-btn");
 const originalBtn = document.querySelector(".original-btn");
@@ -289,8 +289,8 @@ var swiper = new Swiper(".mySwiper2", {
   spaceBetween: 30,
   autoplay: true,
   loop: true,
-  autoplay: {     //add
-    delay: 3000,   //add
+  autoplay: {
+    delay: 4000,
   },
   navigation: {
     nextEl: ".swiper-button-next",
@@ -362,8 +362,8 @@ var swiper = new Swiper(".mySwiper1", {
   spaceBetween: 30,
   autoplay: true,
   loop: true,
-  autoplay: {     //add
-    delay: 3000,   //add
+  autoplay: {
+    delay: 4000,
   },
   breakpoints: {
     // when window width is >= 320px
@@ -423,7 +423,19 @@ var swiper = new Swiper(".mySwiper1", {
   },
 });
 // 
+// var window_width = $(window).width() - $('.spider-div-img img').width();
 
+// var document_height = $(document).height() - $(window).height();
+
+// $(function () {
+//     $(window).scroll(function () {
+//         var scroll_position = $(window).scrollTop();
+//         var object_position_left = window_width * (scroll_position / document_height);
+//         $('.spider-div-img img').css({
+//             'top': object_position_left
+//         });
+//     });
+// });
 
 
 

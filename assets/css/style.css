@@ -267,7 +267,7 @@
 
 #title {
     width: 28%;
-    left:0px;
+    left: 0px;
     position: absolute;
     top: 0px;
 }
@@ -489,6 +489,7 @@
     z-index: -1;
 }
 
+
 .banner-text h1 {
     color: #fff;
     font-family: 'Aonthrax';
@@ -520,15 +521,13 @@
 }
 
 .spider-div {
-    position: absolute;
-    top: 50px;
+    position: fixed;
     top: 100px;
     right: 255px;
     height: 400px;
-    z-index: 1;
+    z-index: 2;
     transition: transform 0.3s ease-out;
 }
-
 .spider-div-img {
     width: 100%;
     height: 100%;
@@ -1013,7 +1012,8 @@ quote {
     text-align: center;
     font-family: 'Aonthrax';
     font-size: 2rem;
-    padding-top: 2rem;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
 }
 
 .docSecttion p {
@@ -1035,9 +1035,27 @@ quote {
 }
 
 .swiper-slide-duplicate-prev .cardCstm {
-    transform: scale(1.0);
-    border-radius: 10px;
-    color: #fff;
+    transform: scale(1.0) !important;
+    border-radius: 10px !important;
+    color: #fff !important;
+}
+
+.quote-img {
+    width: 100px;
+    height: 100px;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.quote-img-div {
+    width: 100%;
+    height: 100%;
+}
+
+.quote-img-div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .cardCstm {
@@ -1187,9 +1205,8 @@ img {
 canvas {
     outline: none;
     width: 100% !important;
-    height: 850px !important;
+    /* height: 850px !important; */
 }
-
 .buttons {
     position: absolute;
     top: 0px;
