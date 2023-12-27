@@ -43,20 +43,57 @@ window.addEventListener('keydown', function (event) {
     sidebarBox.classList.remove('active');
   }
 });
+// =================mouse zoom Effect================//
+// Add these lines to the beginning of your code
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
 
+// Add this event listener to handle mouse movement
+document.addEventListener('mousemove', onMouseMove);
 
-// function displayDiv(target) {
+function onMouseMove(event) {
+  // Calculate normalized device coordinates
+  mouse.x = (event.clientX / canvasWidth) * 2 - 1;
+  mouse.y = -(event.clientY / canvasHeight) * 2 + 1;
 
-//   let display = document.getElementById(target).style.display;
-//   if (display === 'block') {
-//     document.getElementById(target).style.display = 'none';
-//   } else {
-//     document.getElementById(target).style.display = 'block';
-//     document.getElementById(target).style.display = 'transform-active';
-//   }
-//   console.log(display);
+  // Update the raycaster with the mouse coordinates
+  raycaster.setFromCamera(mouse, camera);
 
-// }
+  // Check for intersections
+  const intersects = raycaster.intersectObjects(planes);
+
+  // If the mouse is over a plane, apply the zoom effect
+  if (intersects.length > 0) {
+    const plane = intersects[0].object;
+    const index = planes.indexOf(plane);
+
+    // Adjust the zoom based on the mouse position
+    const zoomFactor = 1.5;
+    const zoomOutFactor = 5;
+    // const rotateY = Math.PI / 4;
+
+    rotateAndZoom(plane, plane.position.x, plane.position.y, plane.position.z, zoomOutFactor);
+
+    // Change the color of the active plane (optional)
+    if (activePlane) {
+      activePlane.material.color.set(0xFFFFFF); // Set color to white (replace with your desired color)
+    }
+
+    // Set the current plane as the active plane
+    activePlane = plane;
+    currentIndex = index;
+    // Move the mouse circle to the mouse cursor position
+    mouseCircle.position.x = intersects[0].point.x;
+    mouseCircle.position.y = intersects[0].point.y;
+    mouseCircle.position.z = intersects[0].point.z + 0.1; // Move slightly above the plane
+  } else {
+    // If the mouse is not over any plane, hide the mouse circle
+    mouseCircle.position.set(0, 0, -10); // Move the circle out of the visible area
+  }
+  }
+
+// =================mouse zoom Effect================//
+
 //  MOBILE SCREEN SIDE NAV
 const canvas = document.querySelector("#canvas");
 const leftZoomBtn = document.querySelector(".left-box-btn");
@@ -65,14 +102,10 @@ const rightZoomBtn = document.querySelector(".right-box-btn");
 // Set initial size
 let canvasWidth = window.innerWidth;
 let canvasHeight = window.innerHeight;
-
-// ...
-
 // Update canvas size on window resize
 window.addEventListener('resize', () => {
   canvasWidth = window.innerWidth;
   canvasHeight = window.innerHeight;
-
   // Adjust camera aspect ratio and renderer size
   camera.aspect = canvasWidth / canvasHeight;
   camera.updateProjectionMatrix();
@@ -423,20 +456,4 @@ var swiper = new Swiper(".mySwiper1", {
   },
 });
 // 
-// var window_width = $(window).width() - $('.spider-div-img img').width();
-
-// var document_height = $(document).height() - $(window).height();
-
-// $(function () {
-//     $(window).scroll(function () {
-//         var scroll_position = $(window).scrollTop();
-//         var object_position_left = window_width * (scroll_position / document_height);
-//         $('.spider-div-img img').css({
-//             'top': object_position_left
-//         });
-//     });
-// });
-
-
-
 

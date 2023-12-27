@@ -31,38 +31,6 @@
 }
 
 /* font  */
-/* mouse cursor css open */
-/* .cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 1.5rem;
-    height: 1.5rem;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.cursor div {
-    position: absolute;
-    display: grid;
-    place-items: center;
-}
-
-.cursor div div {
-    background-color: #6f57c7;
-    border-radius: 50%;
-    animation: pulse 2.5s linear infinite;
-    box-shadow: 0 0 50px 5px #d7abff6e;
-}
-
-.cursor div:nth-child(1),
-.cursor div:nth-child(2) {
-    width: 100%;
-    height: 100%;
-} */
-
-
-/* mouse cursor css Closed */
 /* star animation */
 .star1,
 .star2,
@@ -520,8 +488,8 @@
     object-fit: cover;
 }
 
-.spider-div {
-    position: fixed;
+/* .spider-div {
+    position: absolute;
     top: 100px;
     right: 255px;
     height: 400px;
@@ -537,14 +505,14 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+} */
 
-canvas .spider-image {
+/* canvas .spider-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     background-color: #000e41;
-}
+} */
 
 .inner-div {
     position: absolute;
@@ -1219,12 +1187,14 @@ canvas {
     bottom: 30px;
     left: 10px;
     position: absolute;
+    /* display: none; */
 }
 
 .right-box-btn {
     bottom: 30px;
     left: 60px;
     position: absolute;
+    /* display: none; */
 }
 
 .original-btn {
@@ -1232,6 +1202,7 @@ canvas {
     /* top: 190px; */
     top: 10px;
     right: 10px;
+    /* display: none; */
 }
 
 button {
@@ -1831,9 +1802,9 @@ ul {
         right: 200px;
     }
 
-    .spider-div {
+    /* .spider-div {
         right: 25px;
-    }
+    } */
 
     .straight-line {
         right: 200px;
@@ -1859,9 +1830,9 @@ ul {
         right: 200px;
     }
 
-    .spider-div {
+    /* .spider-div {
         right: 25px;
-    }
+    } */
 
     .straight-line {
         right: 200px;
@@ -1963,11 +1934,11 @@ ul {
         width: 100%;
     }
 
-    .spider-div {
+    /* .spider-div {
         height: 200px;
         top: 100px;
         right: 10px;
-    }
+    } */
 
     .straight-line {
         width: 6px;
@@ -2089,11 +2060,11 @@ ul {
         width: 100%;
     }
 
-    .spider-div {
+    /* .spider-div {
         height: 200px;
         top: 100px;
         right: 10px;
-    }
+    } */
 
     .straight-line {
         width: 6px;
