@@ -13,6 +13,14 @@ $(window).scroll(function () {
 
   }
 })
+// mouse cursor animations
+$(window).mousemove(function (e) {
+  $(".ring").css(
+    "transform",
+    `translateX(calc(${e.clientX}px - 1.25rem)) translateY(calc(${e.clientY}px - 1.25rem))`
+  );
+});
+// mouse cursor animations
 // MOBILE SCREEN SIDE NAV
 var sidebarBox = document.querySelector('#box');
 var sidebarBtn = document.querySelector('#btn');
@@ -47,7 +55,7 @@ window.addEventListener('keydown', function (event) {
 // Add these lines to the beginning of your code
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
-
+let isZoomed = false;
 // Add this event listener to handle mouse movement
 document.addEventListener('mousemove', onMouseMove);
 
@@ -72,8 +80,15 @@ function onMouseMove(event) {
     const zoomOutFactor = 5;
     // const rotateY = Math.PI / 4;
 
-    rotateAndZoom(plane, plane.position.x, plane.position.y, plane.position.z, zoomOutFactor);
-
+    // rotateAndZoom(plane, plane.position.x, plane.position.y, plane.position.z, zoomOutFactor);
+    // Perform zoom only if not already zoomed
+    if (!isZoomed) {
+      rotateAndZoom(plane, plane.position.x, plane.position.y, plane.position.z, zoomOutFactor);
+      isZoomed = true; // Set the zoomed status to true
+      rotateAroundGroup = false; // Reset the rotation flag
+      // Show the buttons during the zoom effect
+      document.querySelector('.buttons').style.display = 'block';
+    }
     // Change the color of the active plane (optional)
     if (activePlane) {
       activePlane.material.color.set(0xFFFFFF); // Set color to white (replace with your desired color)
@@ -89,9 +104,29 @@ function onMouseMove(event) {
   } else {
     // If the mouse is not over any plane, hide the mouse circle
     mouseCircle.position.set(0, 0, -10); // Move the circle out of the visible area
+    document.querySelector('.buttons').style.display = 'none';
+    // Reset the zoomed status
+    isZoomed = false;
   }
-  }
+}
+// Add these functions to your JavaScript code
+function zoom(direction) {
+  isZoomed = true; // Set the zoomed status to true
+}
 
+function resetZoom() {
+  // Implement your logic to reset the zoom to the original state
+  // You may need to adjust the camera position, rotation, or other properties
+  isZoomed = false; // Reset the zoomed status
+  // Hide the buttons when zoom is reset
+  document.querySelector('.buttons').style.display = 'none';
+
+}
+// Add the click event listener for originalBtn
+document.querySelector('.original-btn').addEventListener("click", () => {
+  resetZoom(); // Reset zoom when originalBtn is clicked
+  rotateAroundGroup = true; // Set the rotation flag to true
+});
 // =================mouse zoom Effect================//
 
 //  MOBILE SCREEN SIDE NAV
@@ -216,7 +251,6 @@ backgroundPlane.scale.set(0.9, 0.9, 1); // Adjust the scale values as needed
 const backgroundClassName = backgroundPlane.userData.className;
 backgroundPlane.material.transparent = true;
 backgroundPlane.material.opacity = 0.9;
-
 const rotateAndZoom = (plane, x, y, z, zoomOutFactor = 0, rotateY = 0) => {
   let tl = gsap
     .timeline({ defaults: { duration: 1.5, ease: "expo.out" } })
@@ -273,7 +307,7 @@ animateDotsUpDown();
 let currentIndex = 0;
 let activePlane = null;
 
-const planes = [plane1, plane2, plane3, plane5, plane7 /* Add more planes as needed */];
+const planes = [plane1, plane2, plane3, plane5, plane7, /* Add more planes as needed */];
 leftZoomBtn.addEventListener("click", () => {
   rotateAndZoom(planes[currentIndex], planes[currentIndex].position.x, planes[currentIndex].position.y, planes[currentIndex].position.z, 5);
   rotateAroundGroup = false;
@@ -289,9 +323,9 @@ rightZoomBtn.addEventListener("click", () => {
   rotateAroundGroup = false;
   currentIndex = (currentIndex + 1) % planes.length; // Move to the next plane
   // // Change the color of the active plane
-  //     if (activePlane) {
-  //         activePlane.material.color.set(0xFF9D00); // Set color to red (replace with your desired color)
-  //     }
+  // if (activePlane) {
+  //     activePlane.material.color.set(0xFF9D00); // Set color to red (replace with your desired color)
+  // }
 });
 originalBtn.addEventListener("click", () => {
   rotateAroundGroup = true;

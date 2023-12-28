@@ -42,8 +42,16 @@
 </style>
 
 <body>
+    <div id="cursor" class="cursor">
+        <div class="ring">
+            <div><!--Border--></div>
+        </div>
+        <div class="ring">
+            <div><!--Pointer--></div>
+        </div>
+    </div>
     <!-- ===========================spider-div============================== -->
-     <div class="spider" id="spider">
+    <div class="spider" id="spider">
         <img src="./assets/images/SVG/spider-animated.svg" alt="" id="spiderimg">
         <svg id="eeBJI2rPH0Y1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 500 500" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
@@ -1426,7 +1434,7 @@
                 ]]>
             </script>
         </svg>
-    </div>  
+    </div>
     <!-- ===========================spider-div============================== -->
     <!-- ===============================Header Open=================================== -->
     <header class="header" id="navbar-fixed-top">
@@ -1443,7 +1451,7 @@
                 <div id="items">
                     <div class="imglogo"><a href="../index.html"><img src="./assets/images/2x/logo.png" alt=""></a>
                     </div>
-                    <div class="item1"><a href="../index.html" class="header_links active">Home</a></div>
+                    <div class="item1"><a href="../index.html" class="header_links active-header">Home</a></div>
                     <div class="item1"><a href="./assets/pages/about.html" class="header_links">About US</a></div>
                     <div class="item1"><a href="./assets/pages/portfolio.html" class="header_links">Portfolio</a></div>
                     <div class="item1"><a href="./assets/pages/contact-us.html" class="header_links">Contact Us</a>
@@ -1510,7 +1518,7 @@
                     </p>
                     <div>
                         <a href="./assets/pages/contact-us.html" class="csmt-btn-about">
-                            Contact
+                            Contact Now
                             <div class="arrow"></div>
                         </a>
                     </div>
@@ -1592,10 +1600,14 @@
             <div class="dots-4 dots"></div>
         </div>
         <div id="canvas"></div>
-        <div class="buttons">
-            <button class="left-box-btn"><i class="fa-solid fa-arrow-left"></i></button>
+        <div class="buttons" style="display: none;">
             <button class="original-btn"><i class="fa-solid fa-xmark"></i></button>
-            <button class="right-box-btn"><i class="fa-solid fa-arrow-right"></i></button>
+            <div class="left-right-button-divs">
+                <div class="d-flex justify-content-around">
+                    <button class="left-box-btn"><i class="fa-solid fa-arrow-left"></i></button>
+                    <button class="right-box-btn"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
         </div>
     </section>
     <!-- ===============================camera zoom effect Closed========================== -->
@@ -1862,7 +1874,7 @@
     <script src="https://threejs.org/build/three.js"></script>
     <!-- custom js  -->
     <script type="module" src="./assets/js/main.js"></script>
-    <script>
+     <script>
         const spider = document.getElementById('spider');
         const spiderimg = document.getElementById('spiderimg');
         const svgEl = document.getElementById('eeBJI2rPH0Y1');
@@ -1880,7 +1892,6 @@
             setTimeout(() => {
                 const scrollPosition = window.scrollY;
                 spider.style.transform = `translateY(${scrollPosition + 70}px)`;
-
                 setTimeout(() => {
                     spiderimg.style.opacity = 1;
                     svgEl.style.opacity = 0;
@@ -1891,7 +1902,7 @@
 
             }, 3000);
         });
-    </script>
+    </script> 
 </body>
 
 </html>
