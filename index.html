@@ -1874,35 +1874,101 @@
     <script src="https://threejs.org/build/three.js"></script>
     <!-- custom js  -->
     <script type="module" src="./assets/js/main.js"></script>
-     <script>
+    <script>
+        // const spider = document.getElementById('spider');
+        // const spiderimg = document.getElementById('spiderimg');
+        // const svgEl = document.getElementById('eeBJI2rPH0Y1');
+        // let scrollTimeout;
+
+        // window.addEventListener('scroll', function () {
+        //     clearTimeout(scrollTimeout);
+
+        //     // Show the spider when scrolling
+        //     spiderimg.style.opacity = 0;
+
+        //     // Show the text element when scrolling stops
+        //     svgEl.style.opacity = 1;
+
+        //     setTimeout(() => {
+        //         const scrollPosition = window.scrollY;
+        //         spider.style.transform = `translateY(${scrollPosition + 70}px)`;
+        //         setTimeout(() => {
+        //             spiderimg.style.opacity = 1;
+        //             svgEl.style.opacity = 0;
+        //         }, 6000);
+        //     }, 1000);
+        //     // Hide the spider image after some seconds
+        //     scrollTimeout = setTimeout(() => {
+
+        //     }, 3000);
+        // });
+
         const spider = document.getElementById('spider');
-        const spiderimg = document.getElementById('spiderimg');
-        const svgEl = document.getElementById('eeBJI2rPH0Y1');
-        let scrollTimeout;
+const spiderimg = document.getElementById('spiderimg');
+const svgEl = document.getElementById('eeBJI2rPH0Y1');
+const whatWeOfferSection = document.querySelector('.what-we-offer');
 
-        window.addEventListener('scroll', function () {
-            clearTimeout(scrollTimeout);
+let scrollTimeout;
+let isPaused = false;
 
-            // Show the spider when scrolling
-            spiderimg.style.opacity = 0;
+window.addEventListener('scroll', function () {
+    clearTimeout(scrollTimeout);
 
-            // Show the text element when scrolling stops
-            svgEl.style.opacity = 1;
+    // Show the spider when scrolling
+    spiderimg.style.opacity = 0;
 
-            setTimeout(() => {
-                const scrollPosition = window.scrollY;
-                spider.style.transform = `translateY(${scrollPosition + 70}px)`;
-                setTimeout(() => {
-                    spiderimg.style.opacity = 1;
-                    svgEl.style.opacity = 0;
-                }, 6000);
-            }, 1000);
-            // Hide the spider image after some seconds
-            scrollTimeout = setTimeout(() => {
+    // Show the text element when scrolling stops
+    svgEl.style.opacity = 1;
 
-            }, 3000);
-        });
-    </script> 
+    const scrollPosition = window.scrollY;
+
+    // Get the top position and height of the what-we-offer section
+    const whatWeOfferTop = whatWeOfferSection.offsetTop;
+    const whatWeOfferHeight = whatWeOfferSection.offsetHeight;
+
+    // Check if the spider is in the what-we-offer section
+    if (!isPaused && scrollPosition > whatWeOfferTop && scrollPosition < whatWeOfferTop + whatWeOfferHeight) {
+        // Spider crawls from left to right in the what-we-offer section
+        spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
+        // Add width and height to the spider
+        spider.style.width = '400px';
+        spider.style.height = '400px';
+        spider.style.left='100px'
+
+        // Pause for 2 minutes
+        isPaused = true;
+        setTimeout(() => {
+            isPaused = false;
+            // Reset width and height after 2 minutes
+            spider.style.width = '400px';
+            spider.style.height = '400px';
+
+            spiderimg.style.opacity = 1;
+            svgEl.style.opacity = 0;
+        }, 120000); // 2 minutes in milliseconds
+
+        return;
+    }
+
+    // Continue with your existing code for other sections
+
+    setTimeout(() => {
+        const newScrollPosition = window.scrollY;
+        spider.style.transform = `translateY(${newScrollPosition + 70}px)`;
+        setTimeout(() => {
+            spiderimg.style.opacity = 1;
+            svgEl.style.opacity = 0;
+        }, 6000);
+    }, 1000);
+
+    // Hide the spider image after some seconds
+    scrollTimeout = setTimeout(() => {
+        // Add any additional actions to be performed after the spider has stopped
+    }, 3000);
+});
+
+
+    </script>
 </body>
 
 </html>
