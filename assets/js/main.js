@@ -13,6 +13,7 @@ $(window).scroll(function () {
 
   }
 })
+// scroll navbar
 // mouse cursor animations
 $(window).mousemove(function (e) {
   $(".ring").css(
@@ -51,6 +52,7 @@ window.addEventListener('keydown', function (event) {
     sidebarBox.classList.remove('active');
   }
 });
+// MOBILE SCREEN SIDE NAV
 // =================mouse zoom Effect================//
 // Add these lines to the beginning of your code
 const raycaster = new THREE.Raycaster();
@@ -112,8 +114,12 @@ function onMouseMove(event) {
   }
 }
 // Add these functions to your JavaScript code
+const zoomFactor = 0.02; // Decrease the zoom effect by reducing the factor
 function zoom(direction) {
   isZoomed = true; // Set the zoomed status to true
+  const zoomAmount = direction === 'in' ? 1 + zoomFactor : 1 - zoomFactor;
+  camera.zoom *= zoomAmount;
+  camera.updateProjectionMatrix();
 }
 
 function resetZoom() {
@@ -134,7 +140,6 @@ document.querySelector('.original-btn').addEventListener("click", () => {
 });
 // =================mouse zoom Effect================//
 
-//  MOBILE SCREEN SIDE NAV
 const canvas = document.querySelector("#canvas");
 const leftZoomBtn = document.querySelector(".left-box-btn");
 const originalBtn = document.querySelector(".original-btn");
@@ -178,13 +183,13 @@ const texture1 = textureLoader.load('./assets/images/2x/game.png');
 const texture11 = textureLoader.load('./assets/images/2x/non-active.png');
 const texture2 = textureLoader.load('./assets/images/2x/camera-roll.png');
 const texture22 = textureLoader.load('./assets/images/2x/non-active.png');
-const texture3 = textureLoader.load('./assets/images/2x/mobile.png');
+const texture3 = textureLoader.load('./assets/images/2x/mobile11.png');
 const texture33 = textureLoader.load('./assets/images/2x/non-active.png');
 const texture4 = textureLoader.load('./assets/images/2x/speaker.png');
 const texture5 = textureLoader.load('./assets/images/2x/laptop.png');
 const texture55 = textureLoader.load('./assets/images/2x/non-active.png');
 const texture6 = textureLoader.load('./assets/images/2x/dollar.png');
-const texture7 = textureLoader.load('./assets/images/2x/remote1.png');
+const texture7 = textureLoader.load('./assets/images/2x/remote11.png');
 const texture77 = textureLoader.load('./assets/images/2x/non-active.png');
 const texture8 = textureLoader.load('./assets/images/2x/stars.png');
 
@@ -271,13 +276,13 @@ plane7.position.set(7, -3.5, 1);
 plane7.scale.set(1.3, 1, 2); // Adjust the scale values as needed
 scene.add(plane7);
 // fifth plate 
-// const planeGeometry77 = new THREE.PlaneGeometry(1, 1); // Adjust the size as needed
-// const material77 = new THREE.MeshBasicMaterial({ map: texture77, transparent: true ,depthTest: false, depthWrite: false});
-// const plane77 = new THREE.Mesh(planeGeometry77, material77);
-// plane77.position.set(-7, -4, 1);
-// plane77.scale.set(2.5, 0.6, 1); // Adjust the scale values as needed
-// plane77.rotation.x = Math.PI / 4;
-// scene.add(plane77);
+const planeGeometry77 = new THREE.PlaneGeometry(1, 1); // Adjust the size as needed
+const material77 = new THREE.MeshBasicMaterial({ map: texture77, transparent: true ,depthTest: false, depthWrite: false});
+const plane77 = new THREE.Mesh(planeGeometry77, material77);
+plane77.position.set(7, -5.1, 1);
+plane77.scale.set(2.5, 0.6, 1); // Adjust the scale values as needed
+plane77.rotation.x = Math.PI / 4;
+scene.add(plane77);
 // 
 // Eight image
 const material8 = new THREE.MeshBasicMaterial({ map: texture8, transparent: true, encoding: THREE.sRGBEncoding });
@@ -297,7 +302,7 @@ canvas.appendChild(renderer.domElement);
 //
 const textureLoaderBackground = new THREE.TextureLoader();
 // const backgroundTexture = textureLoaderBackground.load('./assets/images/2x/spiderbg-with-net.png');
-const backgroundTexture = textureLoaderBackground.load('./assets/images/2x/bg.png');
+const backgroundTexture = textureLoaderBackground.load('./assets/images/2x/bg-web.png');
 // Create a plane for the background
 const backgroundGeometry = new THREE.PlaneGeometry(24, 15); // Adjust the size as needed
 const backgroundMaterial = new THREE.MeshBasicMaterial({ map: backgroundTexture, transparent: true });
@@ -314,7 +319,7 @@ const rotateAndZoom = (plane, x, y, z, zoomOutFactor = 0, rotateY = 0) => {
     .to(controls.target, { x, y, z })
     .to(camera.position, { x, y, z: z + zoomOutFactor }, 0);
   // Zoom the background
-  tl.to(backgroundPlane.scale, { x: 2, y: 2, z: 1 }, 0)
+  // tl.to(backgroundPlane.scale, { x: 2, y: 2, z: 1 }, 0)
   // Zoom the target plane
   tl.to(plane.scale, { x: 1.5, y: 1.5, z: 1 }, 0);
   tl.to(plane.position, { x, y, z }, 0);
@@ -359,57 +364,11 @@ const animateDotsUpDown = () => {
 // Call the animateDotsUpDown function to start the animation
 animateDotsUpDown();
 
-
-// // ... rest of your code  
-// let currentIndex = 0;
-// let activePlane = null;
-
-
-// const planes = [plane1, plane2, plane3, plane5, plane7, /* Add more planes as needed */];
-// const planesplate=[plane11,plane22,plane33,plane55,plane7]
-// leftZoomBtn.addEventListener("click", () => {
-//   rotateAndZoom(planes[currentIndex], planes[currentIndex].position.x, planes[currentIndex].position.y, planes[currentIndex].position.z, 5);
-//   rotateAroundGroup = false;
-//   currentIndex = (currentIndex - 1 + planes.length) % planes.length; // Move to the previous plane
-//   zoomOutDots();
-//   // // Change the color of the active plane
-//   // if (activePlane) {
-//   //     activePlane.material.color.set(0xFF9D00); // Set color to red (replace with your desired color)
-//   // }
-// });
-// rightZoomBtn.addEventListener("click", () => {
-//   changePlaneColor(planesplate[currentIndex]); // Change color of the current plane
-//   rotateAndZoom(planes[currentIndex], planes[currentIndex].position.x, planes[currentIndex].position.y, planes[currentIndex].position.z, 5);
-//   rotateAroundGroup = false;
-//   currentIndex = (currentIndex + 1) % planes.length; // Move to the next plane
-//   // // Change the color of the active plane
-//   // if (activePlane) {
-//   //     activePlane.material.color.set(0xFF9D00); // Set color to red (replace with your desired color)
-//   // }
-// });
-// originalBtn.addEventListener("click", () => {
-//   // planesplate.forEach(plane => {
-//   //   resetPlaneColor(plane); // Reset color for each plane
-//   // });
-//   rotateAroundGroup = true;
-//   rotateAndZoom(planes, 0, 0, 0, 15); // Reset each plane to original position
-// });
-// function changePlaneColor(plane) {
-//   if (activePlane) {
-//     resetPlaneColor(activePlane); // Reset color of the previously active plane
-//   }
-//   plane.material.color.set(0xFFA910); // Set color to your desired color
-//   activePlane = plane; // Set the current plane as the active plane
-// }
-
-// function resetPlaneColor(plane) {
-//   plane.material.color.copy(originalColors[planes.indexOf(plane)]); // Reset color for the plane
-// }
 let currentIndex = 0;
 let activePlane = null;
 
 const planes = [plane1, plane2, plane3, plane5, plane7, /* Add more planes as needed */];
-const planesplate = [plane11, plane22, plane33, plane55, plane7];
+const planesplate = [plane11, plane22, plane33, plane55, plane77];
 const originalColors = []; // Store original colors for each plane
 
 // Store the original colors of the planes
@@ -453,10 +412,15 @@ function resetPlaneColor(plane, originalColor) {
 }
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableRotate = false;
+const aspectRatio = window.innerWidth / window.innerHeight;
 const onWindowResize = () => {
   camera.aspect = canvas.clientWidth / canvas.clientHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
 };
 window.addEventListener("resize", onWindowResize, false);
 const clock = new THREE.Clock();
@@ -467,6 +431,8 @@ const animate = () => {
 };
 animate();
 // three js camera zoom into Image Close
+
+
 
 
 // Swiper Slider2

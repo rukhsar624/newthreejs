@@ -2154,6 +2154,52 @@ ul {
     .we-offer-about::after {
         background-position: left;
     }
+    .quote-img {
+        width: 60px;
+        height: 60px;
+        margin-left: 50px;
+        margin-top: 20px;
+    }
+    .quote-img-div img {
+        object-fit: contain;
+    }
+    .left-box-btn {
+        bottom: 5px;
+        left: 40px;
+        position: absolute;
+        background-color: transparent;
+        background-color: #00000038;
+    }
+    
+    .right-box-btn {
+        bottom: 5px;
+        right: 40px;
+        position: absolute;
+        background-color: transparent;
+        background-color: #00000038;
+    }
+    
+    .left-right-button-divs {
+        bottom: 0px;
+        position: absolute;
+        width: 20%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 40%;
+        z-index: 2;
+    }
+    
+    .original-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: transparent;
+        background-color: #00000038;
+        z-index: 2;
+    }
+    
 }
 
 @media only screen and (max-width:390px) {
