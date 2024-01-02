@@ -148,17 +148,29 @@ const rightZoomBtn = document.querySelector(".right-box-btn");
 let canvasWidth = window.innerWidth;
 let canvasHeight = window.innerHeight;
 // Update canvas size on window resize
+// window.addEventListener('resize', () => {
+//   canvasWidth = window.innerWidth;
+//   canvasHeight = window.innerHeight;
+//   // Adjust camera aspect ratio and renderer size
+//   camera.aspect = canvasWidth / canvasHeight;
+//   camera.updateProjectionMatrix();
+//   renderer.setSize(canvasWidth, canvasHeight);
+//   // Adjust plane positions based on window size
+//   plane1.position.set(-canvasWidth / 10, canvasHeight / 20, 2);
+//   plane2.position.set(canvasWidth / 10, canvasHeight / 40, 1);
+//   // Adjust positions for other planes accordingly...
+// });
 window.addEventListener('resize', () => {
-  canvasWidth = window.innerWidth;
-  canvasHeight = window.innerHeight;
-  // Adjust camera aspect ratio and renderer size
-  camera.aspect = canvasWidth / canvasHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(canvasWidth, canvasHeight);
-  // Adjust plane positions based on window size
-  plane1.position.set(-canvasWidth / 10, canvasHeight / 20, 2);
-  plane2.position.set(canvasWidth / 10, canvasHeight / 40, 1);
-  // Adjust positions for other planes accordingly...
+    sizes.width = window.innerWidth;
+    sizes.height = window.innerHeight;
+
+    camera.aspect = sizes.width / sizes.height;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(sizes.width, sizes.height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    
+    // renderer.render(scene, camera); // -> Not needed since it is called in animate()
 });
 var textureLoaderbg = new THREE.TextureLoader();
 var backgroundImage = textureLoaderbg.load('./assets/images/2x/spiderbg-with-net.png');
@@ -413,16 +425,16 @@ function resetPlaneColor(plane, originalColor) {
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableRotate = false;
 const aspectRatio = window.innerWidth / window.innerHeight;
-const onWindowResize = () => {
-  camera.aspect = canvas.clientWidth / canvas.clientHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+// const onWindowResize = () => {
+//   camera.aspect = canvas.clientWidth / canvas.clientHeight;
+//   camera.updateProjectionMatrix();
+//   renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-};
-window.addEventListener("resize", onWindowResize, false);
+//   camera.aspect = window.innerWidth / window.innerHeight;
+//   camera.updateProjectionMatrix();
+//   renderer.setSize(window.innerWidth, window.innerHeight);
+// };
+// window.addEventListener("resize", onWindowResize, false);
 const clock = new THREE.Clock();
 const animate = () => {
   const elapsedTime = clock.getElapsedTime();

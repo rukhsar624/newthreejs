@@ -3,7 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+body::-webkit-scrollbar {
+    width: 8px;
+    height: 5px;
+    background-color: #b1a9a9;
+    border-radius: 10px;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: #FF9D00;
+    border-radius: 10px;
+  }
 /* font  */
 @font-face {
     font-family: 'Aonthrax';
@@ -1286,6 +1296,7 @@ button {
     align-items: center;
     font-size: 1rem;
     font-family: 'Gilroy-Light';
+    transition: 0.5s all ease-in-out;
 }
 
 .footer h2 {
@@ -1297,7 +1308,9 @@ button {
     color: #FFF;
     font-family: 'Gilroy-Light';
 }
-
+.footer p:hover{
+    color: #FF9D00;
+}
 .csmt-btn {
     width: 170px;
     text-decoration: none;
@@ -1636,7 +1649,9 @@ ul {
     color: #fff;
     font-size: 3rem;
 }
-
+.links i:hover{
+    color: #FFA910;
+}
 .padding {
     padding-left: 10px;
 }

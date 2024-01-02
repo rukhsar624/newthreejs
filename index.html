@@ -51,7 +51,7 @@
         </div>
     </div>
     <!-- ===========================spider-div============================== -->
-    <!-- <div class="spider" id="spider">
+      <div class="spider" id="spider">
         <img src="./assets/images/SVG/spider-animated.svg" alt="" id="spiderimg">
         <svg id="eeBJI2rPH0Y1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 500 500" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
@@ -1434,7 +1434,7 @@
                 ]]>
             </script>
         </svg>
-    </div> -->
+    </div> 
     <!-- ===========================spider-div============================== -->
     <!-- ===============================Header Open=================================== -->
     <header class="header" id="navbar-fixed-top">
@@ -1513,11 +1513,11 @@
         <div class="container banner-text">
             <div class="row">
                 <div class="col-lg-12 position-relative">
-                    <h1>The magic of<br>Digital marketing</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam <br>nonummy nibh euismod tin
+                    <h1 class="wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">The magic of<br>Digital marketing</h1>
+                    <p class="wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam <br>nonummy nibh euismod tin
                     </p>
                     <div>
-                        <a href="./assets/pages/contact-us.html" class="csmt-btn-about">
+                        <a href="./assets/pages/contact-us.html" class="csmt-btn-about wow animated bounceIn" data-wow-duration="1s" data-wow-delay="0.5s">
                             Contact Now
                             <div class="arrow"></div>
                         </a>
@@ -1539,12 +1539,12 @@
         <div class="container what-we pt-5">
             <div class="row pt-5">
                 <div class="col-lg-12">
-                    <h2>What We Offer</h2>
-                    <h3>Our solutions are <br>specific to your<br> issues, and we love<br> to create<br> customized<br>
+                    <h2 class="wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">What We Offer</h2>
+                    <h3 class="wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">Our solutions are <br>specific to your<br> issues, and we love<br> to create<br> customized<br>
                         methods.</h3>
                 </div>
                 <div class="col-lg-6 offset-lg-6 circle-div-p">
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                    <p class="wow animated fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
                         ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
                         tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
@@ -1578,8 +1578,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Embrace Marketing <br> for the Digital Era</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                    <h1 class="wow animated bounceIn" data-wow-duration="1s" data-wow-delay="0.5s">Embrace Marketing <br> for the Digital Era</h1>
+                    <p class="wow animated bounceIn" data-wow-duration="1s" data-wow-delay="0.5s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
                         ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
                         tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
 
@@ -1913,102 +1913,102 @@
         //     }, 3000);
         // });
 
-//        const spider = document.getElementById('spider');
-// const spiderimg = document.getElementById('spiderimg');
-// const svgEl = document.getElementById('eeBJI2rPH0Y1');
-// const whatWeOfferSection = document.querySelector('.what-we-offer');
-// const embraceMarketingSection = document.querySelector('.Embrace-Marketing');
-// let scrollTimeout;
-// let isPaused = false;
-// let originalSpiderPosition = 0;
+       const spider = document.getElementById('spider');
+const spiderimg = document.getElementById('spiderimg');
+const svgEl = document.getElementById('eeBJI2rPH0Y1');
+const whatWeOfferSection = document.querySelector('.what-we-offer');
+const embraceMarketingSection = document.querySelector('.Embrace-Marketing');
+let scrollTimeout;
+let isPaused = false;
+let originalSpiderPosition = 0;
 
-// window.addEventListener('scroll', function () {
-//     clearTimeout(scrollTimeout);
+window.addEventListener('scroll', function () {
+    clearTimeout(scrollTimeout);
 
-//     // Show the spider when scrolling
-//     spiderimg.style.opacity = 0;
+    // Show the spider when scrolling
+    spiderimg.style.opacity = 0;
 
-//     // Show the text element when scrolling stops
-//     svgEl.style.opacity = 1;
+    // Show the text element when scrolling stops
+    svgEl.style.opacity = 1;
 
-//     const scrollPosition = window.scrollY;
+    const scrollPosition = window.scrollY;
 
-//     // Get the top position and height of the what-we-offer section
-//     const whatWeOfferTop = whatWeOfferSection.offsetTop;
-//     const whatWeOfferHeight = whatWeOfferSection.offsetHeight;
+    // Get the top position and height of the what-we-offer section
+    const whatWeOfferTop = whatWeOfferSection.offsetTop;
+    const whatWeOfferHeight = whatWeOfferSection.offsetHeight;
 
-//     // Check if the spider is in the what-we-offer section
-//     if (!isPaused && scrollPosition > whatWeOfferTop && scrollPosition < whatWeOfferTop + whatWeOfferHeight) {
-//         // Spider crawls from left to right in the what-we-offer section
-//         spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
-//         spider.style.transform = `translateY(${scrollPosition + 70}px)`;
-//         // Add width and height to the spider
-//         spider.style.width = '400px';
-//         spider.style.height = '400px';
-//         spider.style.left = '-50px';
+    // Check if the spider is in the what-we-offer section
+    if (!isPaused && scrollPosition > whatWeOfferTop && scrollPosition < whatWeOfferTop + whatWeOfferHeight) {
+        // Spider crawls from left to right in the what-we-offer section
+        spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
+        spider.style.transform = `translateY(${scrollPosition + 70}px)`;
+        // Add width and height to the spider
+        spider.style.width = '400px';
+        spider.style.height = '400px';
+        spider.style.left = '-50px';
 
-//         // Pause for 2 minutes
-//         isPaused = true;
-//         setTimeout(() => {
-//             isPaused = false;
-//             // Reset width and height after 2 minutes
-//             spider.style.width = '400px';
-//             spider.style.height = '400px';
-//             spider.style.right = '-50px'
-//             spiderimg.style.opacity = 1;
-//             svgEl.style.opacity = 0;
-//         }, 120000); // 2 minutes in milliseconds
+        // Pause for 2 minutes
+        isPaused = true;
+        setTimeout(() => {
+            isPaused = false;
+            // Reset width and height after 2 minutes
+            spider.style.width = '400px';
+            spider.style.height = '400px';
+            spider.style.right = '-50px'
+            spiderimg.style.opacity = 1;
+            svgEl.style.opacity = 0;
+        }, 120000); // 2 minutes in milliseconds
 
-//         return;
-//     }
+        return;
+    }
 
-//     // Check if the spider is in the Embrace-Marketing section
-//     const embraceMarketingTop = embraceMarketingSection.offsetTop;
-//     const embraceMarketingBottom = embraceMarketingTop + embraceMarketingSection.offsetHeight;
+    // Check if the spider is in the Embrace-Marketing section
+    const embraceMarketingTop = embraceMarketingSection.offsetTop;
+    const embraceMarketingBottom = embraceMarketingTop + embraceMarketingSection.offsetHeight;
 
-//     if (!isPaused && scrollPosition > embraceMarketingTop && scrollPosition < embraceMarketingBottom) {
-//         // Save the original position if not paused
-//         if (!isPaused) {
-//             originalSpiderPosition = scrollPosition + 70;
-//         }
+    if (!isPaused && scrollPosition > embraceMarketingTop && scrollPosition < embraceMarketingBottom) {
+        // Save the original position if not paused
+        if (!isPaused) {
+            originalSpiderPosition = scrollPosition + 70;
+        }
 
-//         // Spider pauses when it reaches the Embrace-Marketing section
-//         isPaused = true;
-//         return;
-//     }
+        // Spider pauses when it reaches the Embrace-Marketing section
+        isPaused = true;
+        return;
+    }
 
-//     // Handle scrolling back
-//     if (isPaused && scrollPosition <= originalSpiderPosition) {
-//         // Reset the spider position to the original position
-//         spider.style.transform = `translateY(${originalSpiderPosition}px)`;
-//         spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
-//         spider.style.left = '630px'; // Reset left offset when scrolling back
-//         spider.style.width='600px';
-//         spider.style.height='600px';
-//         spider.style.position='absolute';
-//         spider.style.top='100px';
-//         spider.style.transition='ease-in-out';
+    // Handle scrolling back
+    if (isPaused && scrollPosition <= originalSpiderPosition) {
+        // Reset the spider position to the original position
+        spider.style.transform = `translateY(${originalSpiderPosition}px)`;
+        spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
+        spider.style.left = '630px'; // Reset left offset when scrolling back
+        spider.style.width='600px';
+        spider.style.height='600px';
+        spider.style.position='absolute';
+        spider.style.top='100px';
+        spider.style.transition='ease-in-out';
 
-//         isPaused = false;
+        isPaused = false;
         
-//     }
+    }
 
-//     setTimeout(() => {
-//         const newScrollPosition = window.scrollY;
-//         spider.style.transform = `translateY(${newScrollPosition + 70}px)`;
+    setTimeout(() => {
+        const newScrollPosition = window.scrollY;
+        spider.style.transform = `translateY(${newScrollPosition + 70}px)`;
 
-//         setTimeout(() => {
-//             spiderimg.style.opacity = 1;
-//             svgEl.style.opacity = 0;
+        setTimeout(() => {
+            spiderimg.style.opacity = 1;
+            svgEl.style.opacity = 0;
             
-//         }, 6000);
-//     }, 1000);
+        }, 6000);
+    }, 1000);
 
-//     // Hide the spider image after some seconds
-//     scrollTimeout = setTimeout(() => {
-//         // Add any additional actions to be performed after the spider has stopped
-//     }, 3000);
-// });
+    // Hide the spider image after some seconds
+    scrollTimeout = setTimeout(() => {
+        // Add any additional actions to be performed after the spider has stopped
+    }, 3000);
+});
 
 
     </script>
