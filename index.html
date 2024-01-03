@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,7 +39,6 @@
         transition: 5s all ease-in-out;
     }
 </style>
-
 <body>
     <div id="cursor" class="cursor">
         <div class="ring">
@@ -1889,7 +1887,6 @@
     <!-- custom js  -->
     <script type="module" src="./assets/js/main.js"></script>
     <script>
-
         const spider = document.getElementById('spider');
         const spiderimg = document.getElementById('spiderimg');
         const svgEl = document.getElementById('eeBJI2rPH0Y1');
@@ -1898,18 +1895,13 @@
         let scrollTimeout;
         let isPaused = false;
         let originalSpiderPosition = 0;
-
         window.addEventListener('scroll', function () {
             clearTimeout(scrollTimeout);
-
             // Show the spider when scrolling
             spiderimg.style.opacity = 0;
-
             // Show the text element when scrolling stops
             svgEl.style.opacity = 1;
-
             const scrollPosition = window.scrollY;
-
             // Get the top position and height of the what-we-offer section
             const whatWeOfferTop = whatWeOfferSection.offsetTop;
             const whatWeOfferHeight = whatWeOfferSection.offsetHeight;
@@ -1936,7 +1928,6 @@
                     spiderimg.style.opacity = 1;
                     svgEl.style.opacity = 0;
                 }, 120000); // 2 minutes in milliseconds
-
                 return;
             }
             const embraceMarketingTop = embraceMarketingSection.offsetTop;
@@ -1950,7 +1941,6 @@
                 isPaused = true;
                 return;
             }
-
             // Handle scrolling back
             if (isPaused && scrollPosition <= originalSpiderPosition) {
                 // Reset the spider position to the original position
@@ -1962,7 +1952,6 @@
                 spider.style.position = 'absolute';
                 spider.style.top = '100px';
                 spider.style.transition = '5s ease-in-out';
-
                 isPaused = false;
                 // Clear transition after a short delay to allow smooth scrolling
                 setTimeout(() => {
@@ -1970,10 +1959,10 @@
                     // Adjust left position for mobile devices
                     if (window.innerWidth < 414) {
                         spider.style.left = '175px';
-                    } 
+                    }
                     else if (window.innerWidth < 375) {
                         spider.style.left = '213px'; // Smaller screens
-                    } 
+                    }
                     else if (window.innerWidth >= 1366) {
                         spider.style.left = '630px'; // larger screens
                     }
@@ -1986,7 +1975,6 @@
 
                 }, 500); // Adjust the delay as needed
             }
-
             setTimeout(() => {
                 const newScrollPosition = window.scrollY;
                 spider.style.transform = `translateY(${newScrollPosition + 70}px)`;
@@ -1997,7 +1985,6 @@
 
                 }, 6000);
             }, 1000);
-
             // Hide the spider image after some seconds
             scrollTimeout = setTimeout(() => {
                 // Add any additional actions to be performed after the spider has stopped

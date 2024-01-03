@@ -1,5 +1,13 @@
 import * as THREE from 'three';
 import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.124.0/examples/jsm/controls/OrbitControls.js";
+// mouse cursor animations
+$(window).mousemove(function (e) {
+  $(".ring").css(
+    "transform",
+    `translateX(calc(${e.clientX}px - 1.25rem)) translateY(calc(${e.clientY}px - 1.25rem))`
+  );
+});
+// mouse cursor animations
 // scroll navbar
 $(window).scroll(function () {
   var scroll = $(window).scrollTop();
@@ -14,14 +22,6 @@ $(window).scroll(function () {
   }
 })
 // scroll navbar
-// mouse cursor animations
-$(window).mousemove(function (e) {
-  $(".ring").css(
-    "transform",
-    `translateX(calc(${e.clientX}px - 1.25rem)) translateY(calc(${e.clientY}px - 1.25rem))`
-  );
-});
-// mouse cursor animations
 // MOBILE SCREEN SIDE NAV
 var sidebarBox = document.querySelector('#box');
 var sidebarBtn = document.querySelector('#btn');
@@ -58,11 +58,8 @@ window.addEventListener('keydown', function (event) {
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 let isZoomed = false;
-
-
 // Add this event listener to handle mouse movement
 document.addEventListener('mousemove', onMouseMove);
-
 function onMouseMove(event) {
   // Calculate normalized device coordinates
   mouse.x = (event.clientX / canvasWidth) * 2 - 1;
@@ -121,17 +118,14 @@ function zoom(direction) {
   camera.zoom *= zoomAmount;
   camera.updateProjectionMatrix();
 }
-
 function resetZoom() {
-  // Implement your logic to reset the zoom to the original state
-  // You may need to adjust the camera position, rotation, or other properties
   isZoomed = false; // Reset the zoomed status
   // Hide the buttons when zoom is reset
   document.querySelector('.buttons').style.display = 'none';
-// Change the color of the active plane back to original (optional)
-// if (activePlane) {
-//   activePlane.material.color.set(0xFFFFFF); // Set color to white (replace with your desired color)
-// }
+  // Change the color of the active plane back to original (optional)
+  // if (activePlane) {
+  //   activePlane.material.color.set(0xFFFFFF); // Set color to white (replace with your desired color)
+  // }
 }
 // Add the click event listener for originalBtn
 document.querySelector('.original-btn').addEventListener("click", () => {
@@ -139,7 +133,6 @@ document.querySelector('.original-btn').addEventListener("click", () => {
   rotateAroundGroup = true; // Set the rotation flag to true
 });
 // =================mouse zoom Effect================//
-
 const canvas = document.querySelector("#canvas");
 const leftZoomBtn = document.querySelector(".left-box-btn");
 const originalBtn = document.querySelector(".original-btn");
@@ -161,23 +154,19 @@ let canvasHeight = window.innerHeight;
 //   // Adjust positions for other planes accordingly...
 // });
 window.addEventListener('resize', () => {
-    sizes.width = window.innerWidth;
-    sizes.height = window.innerHeight;
-
-    camera.aspect = sizes.width / sizes.height;
-    camera.updateProjectionMatrix();
-
-    renderer.setSize(sizes.width, sizes.height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-    if (intersects.length > 0) {
+  sizes.width = window.innerWidth;
+  sizes.height = window.innerHeight;
+  camera.aspect = sizes.width / sizes.height;
+  camera.updateProjectionMatrix();
+  renderer.setSize(sizes.width, sizes.height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  if (intersects.length > 0) {
     const plane = intersects[0].object;
     const index = planes.indexOf(plane);
-
     // Adjust the zoom based on the mouse position
     const zoomFactor = 1.5;
     const zoomOutFactor = 5;
     // const rotateY = Math.PI / 4;
-
     // rotateAndZoom(plane, plane.position.x, plane.position.y, plane.position.z, zoomOutFactor);
     // Perform zoom only if not already zoomed
     if (!isZoomed) {
@@ -206,8 +195,7 @@ window.addEventListener('resize', () => {
     // Reset the zoomed status
     isZoomed = false;
   }
-    
-    // renderer.render(scene, camera); // -> Not needed since it is called in animate()
+  // renderer.render(scene, camera); // -> Not needed since it is called in animate()
 });
 var textureLoaderbg = new THREE.TextureLoader();
 var backgroundImage = textureLoaderbg.load('./assets/images/2x/spiderbg-with-net.png');
@@ -253,7 +241,7 @@ scene.add(plane1);
 // 
 // first plate 
 const planeGeometry1 = new THREE.PlaneGeometry(1, 1); // Adjust the size as needed
-const material11 = new THREE.MeshBasicMaterial({ map: texture11, transparent: true ,depthTest: false, depthWrite: false});
+const material11 = new THREE.MeshBasicMaterial({ map: texture11, transparent: true, depthTest: false, depthWrite: false });
 const plane11 = new THREE.Mesh(planeGeometry1, material11);
 plane11.position.set(-6, 0.9, 2); // Adjust Y position slightly upwards to compensate for the tilt
 plane11.scale.set(2.3, 0.3, 1); // Adjust the scale values as needed/
@@ -269,7 +257,7 @@ scene.add(plane2);
 // 
 // second plate 
 const planeGeometry22 = new THREE.PlaneGeometry(1, 1); // Adjust the size as needed
-const material22 = new THREE.MeshBasicMaterial({ map: texture22, transparent: true ,depthTest: false, depthWrite: false});
+const material22 = new THREE.MeshBasicMaterial({ map: texture22, transparent: true, depthTest: false, depthWrite: false });
 const plane22 = new THREE.Mesh(planeGeometry22, material22);
 plane22.position.set(5, -0.9, 1);
 plane22.scale.set(2.5, 0.6, 1); // Adjust the scale values as needed
@@ -284,7 +272,7 @@ plane3.scale.set(1, 1, 1); // Adjust the scale values as needed
 scene.add(plane3);
 // third plate 
 const planeGeometry33 = new THREE.PlaneGeometry(1, 1); // Adjust the size as needed
-const material33 = new THREE.MeshBasicMaterial({ map: texture33, transparent: true ,depthTest: false, depthWrite: false});
+const material33 = new THREE.MeshBasicMaterial({ map: texture33, transparent: true, depthTest: false, depthWrite: false });
 const plane33 = new THREE.Mesh(planeGeometry33, material33);
 plane33.position.set(-7, -4, 1);
 plane33.scale.set(2.5, 0.6, 1); // Adjust the scale values as needed
@@ -305,7 +293,7 @@ plane5.scale.set(1.5, 1.5, 2); // Adjust the scale values as needed
 scene.add(plane5);
 // forth plate 
 const planeGeometry55 = new THREE.PlaneGeometry(1, 1); // Adjust the size as needed
-const material55 = new THREE.MeshBasicMaterial({ map: texture55, transparent: true ,depthTest: false, depthWrite: false});
+const material55 = new THREE.MeshBasicMaterial({ map: texture55, transparent: true, depthTest: false, depthWrite: false });
 const plane55 = new THREE.Mesh(planeGeometry55, material55);
 plane55.position.set(-1, -4, 2);
 plane55.scale.set(3, 0.6, 1); // Adjust the scale values as needed
@@ -326,7 +314,7 @@ plane7.scale.set(1.3, 1, 2); // Adjust the scale values as needed
 scene.add(plane7);
 // fifth plate 
 const planeGeometry77 = new THREE.PlaneGeometry(1, 1); // Adjust the size as needed
-const material77 = new THREE.MeshBasicMaterial({ map: texture77, transparent: true ,depthTest: false, depthWrite: false});
+const material77 = new THREE.MeshBasicMaterial({ map: texture77, transparent: true, depthTest: false, depthWrite: false });
 const plane77 = new THREE.Mesh(planeGeometry77, material77);
 plane77.position.set(7, -5.1, 1);
 plane77.scale.set(2.5, 0.6, 1); // Adjust the scale values as needed
@@ -351,7 +339,7 @@ canvas.appendChild(renderer.domElement);
 //
 const textureLoaderBackground = new THREE.TextureLoader();
 // const backgroundTexture = textureLoaderBackground.load('./assets/images/2x/spiderbg-with-net.png');
-const backgroundTexture = textureLoaderBackground.load('./assets/images/2x/bg-web.png');
+const backgroundTexture = textureLoaderBackground.load('./assets/images/2x/bg.png');
 // Create a plane for the background
 const backgroundGeometry = new THREE.PlaneGeometry(24, 15); // Adjust the size as needed
 const backgroundMaterial = new THREE.MeshBasicMaterial({ map: backgroundTexture, transparent: true });
@@ -384,34 +372,34 @@ const dotsMaterial = new THREE.MeshBasicMaterial({ color: 0xFFE358 }); // White 
 // Assuming dotsGeometry and dotsMaterial are defined earlier
 
 // Create an array of dots
-const dots = [];
-const numDots = 300;
+// const dots = [];
+// const numDots = 300;
 
-for (let i = 1; i <= numDots; i++) {
-  const dot = new THREE.Mesh(dotsGeometry, dotsMaterial);
+// for (let i = 1; i <= numDots; i++) {
+//   const dot = new THREE.Mesh(dotsGeometry, dotsMaterial);
 
-  // Calculate positions dynamically
-  const x = Math.random() * 18 - 9; // Random x position between -5 and 5
-  const y = Math.random() * 13 - 5; // Random y position between -5 and 5
-  const z = Math.random() * 2 + 1;  // Random z position between 1 and 3
+//   // Calculate positions dynamically
+//   const x = Math.random() * 18 - 9; // Random x position between -5 and 5
+//   const y = Math.random() * 13 - 5; // Random y position between -5 and 5
+//   const z = Math.random() * 2 + 1;  // Random z position between 1 and 3
 
-  dot.position.set(x, y, z);
-  scene.add(dot);
-  dots.push(dot);
-}
+//   dot.position.set(x, y, z);
+//   scene.add(dot);
+//   dots.push(dot);
+// }
 
-// Function to animate dots up and down
-const animateDotsUpDown = () => {
-  const tl = gsap.timeline({ repeat: -1, defaults: { duration: 1, ease: 'power1.inOut' } });
+// // Function to animate dots up and down
+// const animateDotsUpDown = () => {
+//   const tl = gsap.timeline({ repeat: -1, defaults: { duration: 1, ease: 'power1.inOut' } });
 
-  dots.forEach(dot => {
-    // tl.to(dot.position, { y: dot.position.y + 0.1, yoyo: true, repeat: -1 }, 'start'); // Move up and down smoothly
-    tl.to(dot.position, { y: dot.position.y + 0.1, x: dot.position.x + 0.1, yoyo: true, repeat: -1 }, 'start');
-  });
-};
+//   dots.forEach(dot => {
+//     tl.to(dot.position, { y: dot.position.y + 0.1, yoyo: true, repeat: -1 }, 'start'); // Move up and down smoothly
+//     tl.to(dot.position, { y: dot.position.y + 0.1, x: dot.position.x + 0.1, yoyo: true, repeat: -1 }, 'start');
+//   });
+// };
 
 // Call the animateDotsUpDown function to start the animation
-animateDotsUpDown();
+// animateDotsUpDown();
 
 let currentIndex = 0;
 let activePlane = null;
@@ -477,13 +465,19 @@ const animate = () => {
   const elapsedTime = clock.getElapsedTime();
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
+  plane1.position.y = Math.max(0, 0.5 * Math.cos(elapsedTime / 4) + 0 + 2.5);
+  plane2.position.y = Math.max(0, 0.5 * Math.cos(elapsedTime / 4) + 1 + 2.5);
+
+  if (rotateAroundGroup) {
+    group.rotation.y = Math.cos(elapsedTime) * 0.75;
+    group.rotation.x = Math.sin(elapsedTime) * 0.5;
+  }
+
+  // Bouncing animation for the planes
+  // gsap.to(plane1.position, {
 };
 animate();
 // three js camera zoom into Image Close
-
-
-
-
 // Swiper Slider2
 var swiper = new Swiper(".mySwiper2", {
   slidesPerView: 3,
