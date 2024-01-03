@@ -51,7 +51,7 @@
         </div>
     </div>
     <!-- ===========================spider-div============================== -->
-      <div class="spider" id="spider">
+    <!-- <div class="spider" id="spider">
         <img src="./assets/images/SVG/spider-animated.svg" alt="" id="spiderimg">
         <svg id="eeBJI2rPH0Y1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 500 500" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
@@ -1434,7 +1434,7 @@
                 ]]>
             </script>
         </svg>
-    </div> 
+    </div> -->
     <!-- ===========================spider-div============================== -->
     <!-- ===============================Header Open=================================== -->
     <header class="header" id="navbar-fixed-top">
@@ -1513,11 +1513,13 @@
         <div class="container banner-text">
             <div class="row">
                 <div class="col-lg-12 position-relative">
-                    <h1 class="wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">The magic of<br>Digital marketing</h1>
-                    <p class="wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam <br>nonummy nibh euismod tin
+                    <h1 class="">The magic of<br>Digital marketing</h1>
+                    <p class="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam <br>nonummy nibh
+                        euismod tin
                     </p>
                     <div>
-                        <a href="./assets/pages/contact-us.html" class="csmt-btn-about wow animated bounceIn" data-wow-duration="1s" data-wow-delay="0.5s">
+                        <a href="./assets/pages/contact-us.html" class="csmt-btn-about wow animated bounceIn"
+                            data-wow-duration="1s" data-wow-delay="0.5s">
                             Contact Now
                             <div class="arrow"></div>
                         </a>
@@ -1539,12 +1541,14 @@
         <div class="container what-we pt-5">
             <div class="row pt-5">
                 <div class="col-lg-12">
-                    <h2 class="wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">What We Offer</h2>
-                    <h3 class="wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">Our solutions are <br>specific to your<br> issues, and we love<br> to create<br> customized<br>
+                    <h2 class="">What We Offer</h2>
+                    <h3 class="">Our solutions are <br>specific to your<br> issues, and we love<br> to create<br>
+                        customized<br>
                         methods.</h3>
                 </div>
                 <div class="col-lg-6 offset-lg-6 circle-div-p">
-                    <p class="wow animated fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                    <p class="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+                        tincidunt
                         ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
                         tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
@@ -1573,13 +1577,13 @@
             </div>
         </div>
         <div class="Embrace-Marketing-line">
-
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="wow animated bounceIn" data-wow-duration="1s" data-wow-delay="0.5s">Embrace Marketing <br> for the Digital Era</h1>
-                    <p class="wow animated bounceIn" data-wow-duration="1s" data-wow-delay="0.5s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                    <h1 class="">Embrace Marketing <br> for the Digital Era</h1>
+                    <p class="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+                        tincidunt
                         ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
                         tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
 
@@ -1885,132 +1889,120 @@
     <!-- custom js  -->
     <script type="module" src="./assets/js/main.js"></script>
     <script>
-        // const spider = document.getElementById('spider');
-        // const spiderimg = document.getElementById('spiderimg');
-        // const svgEl = document.getElementById('eeBJI2rPH0Y1');
-        // let scrollTimeout;
 
-        // window.addEventListener('scroll', function () {
-        //     clearTimeout(scrollTimeout);
+        const spider = document.getElementById('spider');
+        const spiderimg = document.getElementById('spiderimg');
+        const svgEl = document.getElementById('eeBJI2rPH0Y1');
+        const whatWeOfferSection = document.querySelector('.what-we-offer');
+        const embraceMarketingSection = document.querySelector('.Embrace-Marketing');
+        let scrollTimeout;
+        let isPaused = false;
+        let originalSpiderPosition = 0;
 
-        //     // Show the spider when scrolling
-        //     spiderimg.style.opacity = 0;
+        window.addEventListener('scroll', function () {
+            clearTimeout(scrollTimeout);
 
-        //     // Show the text element when scrolling stops
-        //     svgEl.style.opacity = 1;
+            // Show the spider when scrolling
+            spiderimg.style.opacity = 0;
 
-        //     setTimeout(() => {
-        //         const scrollPosition = window.scrollY;
-        //         spider.style.transform = `translateY(${scrollPosition + 70}px)`;
-        //         setTimeout(() => {
-        //             spiderimg.style.opacity = 1;
-        //             svgEl.style.opacity = 0;
-        //         }, 6000);
-        //     }, 1000);
-        //     // Hide the spider image after some seconds
-        //     scrollTimeout = setTimeout(() => {
+            // Show the text element when scrolling stops
+            svgEl.style.opacity = 1;
 
-        //     }, 3000);
-        // });
+            const scrollPosition = window.scrollY;
 
-       const spider = document.getElementById('spider');
-const spiderimg = document.getElementById('spiderimg');
-const svgEl = document.getElementById('eeBJI2rPH0Y1');
-const whatWeOfferSection = document.querySelector('.what-we-offer');
-const embraceMarketingSection = document.querySelector('.Embrace-Marketing');
-let scrollTimeout;
-let isPaused = false;
-let originalSpiderPosition = 0;
+            // Get the top position and height of the what-we-offer section
+            const whatWeOfferTop = whatWeOfferSection.offsetTop;
+            const whatWeOfferHeight = whatWeOfferSection.offsetHeight;
+            // Check if the spider is in the what-we-offer section
+            if (!isPaused && scrollPosition > whatWeOfferTop && scrollPosition < whatWeOfferTop + whatWeOfferHeight) {
+                // Spider crawls from left to right in the what-we-offer section
+                spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
+                spider.style.transform = `translateY(${scrollPosition + 70}px)`;
+                // Add width and height to the spider
+                spider.style.width = '400px';
+                spider.style.height = '400px';
+                spider.style.left = '-50px';
+                //        // Set left position based on screen width
+                // const screenWidth = window.innerWidth;
+                // spider.style.left = `${Math.min(0, -(screenWidth / 2 - 200))}px`;
+                // Pause for 2 minutes
+                isPaused = true;
+                setTimeout(() => {
+                    isPaused = false;
+                    // Reset width and height after 2 minutes
+                    spider.style.width = '400px';
+                    spider.style.height = '400px';
+                    spider.style.right = '-50px'
+                    spiderimg.style.opacity = 1;
+                    svgEl.style.opacity = 0;
+                }, 120000); // 2 minutes in milliseconds
 
-window.addEventListener('scroll', function () {
-    clearTimeout(scrollTimeout);
+                return;
+            }
+            const embraceMarketingTop = embraceMarketingSection.offsetTop;
+            const embraceMarketingHeight = embraceMarketingSection.offsetHeight;
+            if (!isPaused && scrollPosition > embraceMarketingTop && scrollPosition < embraceMarketingTop + embraceMarketingHeight) {
+                // Save the original position if not paused
+                if (!isPaused) {
+                    originalSpiderPosition = scrollPosition + 70;
+                }
+                // Spider pauses when it reaches the Embrace-Marketing section
+                isPaused = true;
+                return;
+            }
 
-    // Show the spider when scrolling
-    spiderimg.style.opacity = 0;
+            // Handle scrolling back
+            if (isPaused && scrollPosition <= originalSpiderPosition) {
+                // Reset the spider position to the original position
+                spider.style.transform = `translateY(${originalSpiderPosition}px)`;
+                spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
+                spider.style.left = '630px'; // Reset left offset when scrolling back
+                spider.style.width = '600px';
+                spider.style.height = '600px';
+                spider.style.position = 'absolute';
+                spider.style.top = '100px';
+                spider.style.transition = '5s ease-in-out';
 
-    // Show the text element when scrolling stops
-    svgEl.style.opacity = 1;
+                isPaused = false;
+                // Clear transition after a short delay to allow smooth scrolling
+                setTimeout(() => {
+                    spider.style.transition = '5s ease-in-out';
+                    // Adjust left position for mobile devices
+                    if (window.innerWidth < 414) {
+                        spider.style.left = '175px';
+                    } 
+                    else if (window.innerWidth < 375) {
+                        spider.style.left = '213px'; // Smaller screens
+                    } 
+                    else if (window.innerWidth >= 1366) {
+                        spider.style.left = '630px'; // larger screens
+                    }
+                    else if (window.innerWidth >= 768) {
+                        spider.style.left = '365px'; // Smaller screens
+                    }
+                    else {
+                        spider.style.left = '213px';
+                    }
 
-    const scrollPosition = window.scrollY;
+                }, 500); // Adjust the delay as needed
+            }
 
-    // Get the top position and height of the what-we-offer section
-    const whatWeOfferTop = whatWeOfferSection.offsetTop;
-    const whatWeOfferHeight = whatWeOfferSection.offsetHeight;
+            setTimeout(() => {
+                const newScrollPosition = window.scrollY;
+                spider.style.transform = `translateY(${newScrollPosition + 70}px)`;
 
-    // Check if the spider is in the what-we-offer section
-    if (!isPaused && scrollPosition > whatWeOfferTop && scrollPosition < whatWeOfferTop + whatWeOfferHeight) {
-        // Spider crawls from left to right in the what-we-offer section
-        spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
-        spider.style.transform = `translateY(${scrollPosition + 70}px)`;
-        // Add width and height to the spider
-        spider.style.width = '400px';
-        spider.style.height = '400px';
-        spider.style.left = '-50px';
+                setTimeout(() => {
+                    spiderimg.style.opacity = 1;
+                    svgEl.style.opacity = 0;
 
-        // Pause for 2 minutes
-        isPaused = true;
-        setTimeout(() => {
-            isPaused = false;
-            // Reset width and height after 2 minutes
-            spider.style.width = '400px';
-            spider.style.height = '400px';
-            spider.style.right = '-50px'
-            spiderimg.style.opacity = 1;
-            svgEl.style.opacity = 0;
-        }, 120000); // 2 minutes in milliseconds
+                }, 6000);
+            }, 1000);
 
-        return;
-    }
-
-    // Check if the spider is in the Embrace-Marketing section
-    const embraceMarketingTop = embraceMarketingSection.offsetTop;
-    const embraceMarketingBottom = embraceMarketingTop + embraceMarketingSection.offsetHeight;
-
-    if (!isPaused && scrollPosition > embraceMarketingTop && scrollPosition < embraceMarketingBottom) {
-        // Save the original position if not paused
-        if (!isPaused) {
-            originalSpiderPosition = scrollPosition + 70;
-        }
-
-        // Spider pauses when it reaches the Embrace-Marketing section
-        isPaused = true;
-        return;
-    }
-
-    // Handle scrolling back
-    if (isPaused && scrollPosition <= originalSpiderPosition) {
-        // Reset the spider position to the original position
-        spider.style.transform = `translateY(${originalSpiderPosition}px)`;
-        spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
-        spider.style.left = '630px'; // Reset left offset when scrolling back
-        spider.style.width='600px';
-        spider.style.height='600px';
-        spider.style.position='absolute';
-        spider.style.top='100px';
-        spider.style.transition='ease-in-out';
-
-        isPaused = false;
-        
-    }
-
-    setTimeout(() => {
-        const newScrollPosition = window.scrollY;
-        spider.style.transform = `translateY(${newScrollPosition + 70}px)`;
-
-        setTimeout(() => {
-            spiderimg.style.opacity = 1;
-            svgEl.style.opacity = 0;
-            
-        }, 6000);
-    }, 1000);
-
-    // Hide the spider image after some seconds
-    scrollTimeout = setTimeout(() => {
-        // Add any additional actions to be performed after the spider has stopped
-    }, 3000);
-});
-
-
+            // Hide the spider image after some seconds
+            scrollTimeout = setTimeout(() => {
+                // Add any additional actions to be performed after the spider has stopped
+            }, 3000);
+        });
     </script>
 </body>
 

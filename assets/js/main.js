@@ -169,6 +169,43 @@ window.addEventListener('resize', () => {
 
     renderer.setSize(sizes.width, sizes.height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    if (intersects.length > 0) {
+    const plane = intersects[0].object;
+    const index = planes.indexOf(plane);
+
+    // Adjust the zoom based on the mouse position
+    const zoomFactor = 1.5;
+    const zoomOutFactor = 5;
+    // const rotateY = Math.PI / 4;
+
+    // rotateAndZoom(plane, plane.position.x, plane.position.y, plane.position.z, zoomOutFactor);
+    // Perform zoom only if not already zoomed
+    if (!isZoomed) {
+      rotateAndZoom(plane, plane.position.x, plane.position.y, plane.position.z, zoomOutFactor);
+      isZoomed = true; // Set the zoomed status to true
+      rotateAroundGroup = false; // Reset the rotation flag
+      // Show the buttons during the zoom effect
+      document.querySelector('.buttons').style.display = 'block';
+    }
+    // Change the color of the active plane (optional)
+    // if (activePlane) {
+    //   activePlane.material.color.set(0xFFFFFF); // Set color to white (replace with your desired color)
+    // }
+    changePlaneColor(planesplate[currentIndex]);
+    // Set the current plane as the active plane
+    activePlane = plane;
+    currentIndex = index;
+    // Move the mouse circle to the mouse cursor position
+    mouseCircle.position.x = intersects[0].point.x;
+    mouseCircle.position.y = intersects[0].point.y;
+    mouseCircle.position.z = intersects[0].point.z + 0.1; // Move slightly above the plane
+  } else {
+    // If the mouse is not over any plane, hide the mouse circle
+    mouseCircle.position.set(0, 0, -10); // Move the circle out of the visible area
+    document.querySelector('.buttons').style.display = 'none';
+    // Reset the zoomed status
+    isZoomed = false;
+  }
     
     // renderer.render(scene, camera); // -> Not needed since it is called in animate()
 });

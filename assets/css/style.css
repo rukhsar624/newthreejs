@@ -1809,7 +1809,7 @@ ul {
     .spider {
         height: 400px !important;
         width: 400px !important;
-        top: 100px !important;
+        top: 175px !important;
         right: 3px !important;
     }
 
@@ -1840,7 +1840,7 @@ ul {
     .spider {
         height: 400px !important;
         width: 400px !important;
-        top: 100px !important;
+        top: 175px !important;
         right: 3px !important;
     }
 
@@ -1862,7 +1862,7 @@ ul {
     .spider {
         height: 400px !important;
         width: 400px !important;
-        top: 100px !important;
+        top: 175px !important;
         right: 3px !important;
     }
 }
@@ -2080,7 +2080,7 @@ ul {
     .spider {
         height: 230px !important;
         width: 200px !important;
-        top: 100px !important;
+        top: 80px !important;
         right: 0px !important;
     }
 
@@ -2180,7 +2180,7 @@ ul {
     }
     .left-box-btn {
         bottom: 5px;
-        left: 40px;
+        left: -17px;
         position: absolute;
         background-color: transparent;
         background-color: #00000038;
@@ -2188,7 +2188,7 @@ ul {
     
     .right-box-btn {
         bottom: 5px;
-        right: 40px;
+        right: -17px;
         position: absolute;
         background-color: transparent;
         background-color: #00000038;
@@ -2225,6 +2225,12 @@ ul {
 
     .border {
         border: 1px solid #000 !important;
+    }
+    .spider {
+        height: 230px !important;
+        width: 200px !important;
+        top: 100px !important;
+        right: 0px !important;
     }
 }
 
