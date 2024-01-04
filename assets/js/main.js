@@ -62,7 +62,7 @@ function onMouseMove(event) {
   if (intersects.length > 0) {
     const plane = intersects[0].object;
     const index = planes.indexOf(plane);
-    const zoomFactor = 1.5;
+    // const zoomFactor = 1.5;
     const zoomOutFactor = 5;
     if (!isZoomed) {
       // Pause animation
@@ -132,14 +132,8 @@ window.addEventListener('resize', () => {
     const zoomFactor = 1.5;
     const zoomOutFactor = 5;
     if (!isZoomed) {
-      // Save the original position for later use
-      const planes = plane.position.clone();
-      // Perform zoom
       rotateAndZoom(plane, plane.position.x, plane.position.y, plane.position.z, zoomOutFactor);
-      // Reset position to the original value
-      plane.position.copy(planes);
-      plane.scale.copy(planes)
-      isZoomed = true;
+      isZoomed = false;
       rotateAroundGroup = false;
       document.querySelector('.buttons').style.display = 'block';
     }
