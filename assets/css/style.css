@@ -1752,6 +1752,7 @@ ul {
     width: 100%;
     display: flex;
     justify-content: center;
+    padding-left: 0px;
 }
 
 .pd {
@@ -1789,20 +1790,22 @@ ul {
 }
 
 .position::after {
-    position: absolute;
     content: "";
-    top: 30px;
-    left: 30px;
-    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    width: 60%;
     height: 2px;
     background-color: #fff;
+    transform: translateY(-50% ,-21%);
 }
 
 .portfolio-overlay p {
     color: #FFA910;
     font-family: 'Aonthrax';
     font-size: 15px;
-    margin-top: 80px;
+    margin-top: 150px;
+    margin-bottom: 0px;
 
 }
 
