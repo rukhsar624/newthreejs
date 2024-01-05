@@ -39,7 +39,7 @@ body::-webkit-scrollbar {
     font-family: 'Montserrat-Light';
     src: url("../font/Montserrat/Montserrat-Light.ttf");
 }
-
+/* font */
 /* mouse cursor css */
 .cursor {
     position: fixed;
@@ -86,9 +86,47 @@ body::-webkit-scrollbar {
 }
 
 /* mouse cursor css */
-/* font  */
+/* inline css for home page */
+.spider {
+    position: absolute;
+    top: 100px;
+    right: 135px;
+    height: 600px;
+    width: 600px;
+    transition: 5s ease-in-out;
+    z-index: 2;
+}
+
+#spiderimg {
+    height: 100%;
+    width: 100%;
+    transform: scale(0.78);
+    position: absolute;
+    transition: 5s all ease-in-out;
+}
+
+#eeBJI2rPH0Y1 {
+    opacity: 0;
+    transition: 5s all ease-in-out;
+}
+
+.firefly {
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    background-color: #ecc45e;
+    box-shadow: 0px 0px 17px 2px wheat;
+    border-radius: 50%;
+}
+
+.containers {
+    margin: 0 auto;
+    position: relative;
+    z-index: 0;
+}
+/* inline css for home page  */
 /* star animation */
-.star1,
+/* .star1,
 .star2,
 .star3 {
     background: #32303B;
@@ -208,11 +246,11 @@ body::-webkit-scrollbar {
     100% {
         transform: rotate(-360deg)
     }
-}
+} */
 
 /* star css closed */
 /* another star animation css  */
-.bg-wrapper {
+/* .bg-wrapper {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -281,7 +319,7 @@ body::-webkit-scrollbar {
     100% {
         top: -100%;
     }
-}
+} */
 
 /* another star animation css  */
 /* Header Css */

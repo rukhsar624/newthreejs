@@ -2,7 +2,8 @@
   "dependencies": {
     "gsap": "^3.12.4",
     "jquery": "^3.7.1",
-    "three": "^0.159.0"
+    "three": "^0.159.0",
+    "tween.js": "^16.6.0"
   },
   "devDependencies": {
     "vite": "^5.0.6"

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <!-- wow css-->
     <link rel="stylesheet" href="./assets/css/animate.css">
+    <!-- butter css -->
+    <link rel="stylesheet" href="./assets/js/butter.js">
     <!-- swiper css -->
     <link rel="stylesheet" href="./assets/css/swiper-bundle.css">
     <!-- font awesome cdn -->
@@ -16,47 +18,10 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>BUG-HOME | Home</title>
 </head>
-<style>
-    .spider {
-        position: absolute;
-        top: 100px;
-        right: 135px;
-        height: 600px;
-        width: 600px;
-        transition: 5s ease-in-out;
-        z-index: 2;
-    }
-
-    #spiderimg {
-        height: 100%;
-        width: 100%;
-        transform: scale(0.78);
-        position: absolute;
-        transition: 5s all ease-in-out;
-    }
-
-    #eeBJI2rPH0Y1 {
-        opacity: 0;
-        transition: 5s all ease-in-out;
-    }
-
-    .firefly {
-        width: 4px;
-        height: 4px;
-        position: absolute;
-        background-color: #ecc45e;
-        box-shadow: 0px 0px 17px 2px wheat;
-        border-radius: 50%;
-    }
-
-    .containers {
-        margin: 0 auto;
-        position: relative;
-        z-index: 0;
-    }
-</style>
 
 <body>
+    <!-- =======================butter div Open============================ -->
+    <div id="butter">
     <div id="cursor" class="cursor">
         <div class="ring">
             <div></div>
@@ -66,7 +31,7 @@
         </div>
     </div>
     <!-- ===========================spider-div============================== -->
-    <!-- <div class="spider" id="spider">
+    <div class="spider" id="spider">
         <img src="./assets/images/SVG/spider-animated.svg" alt="" id="spiderimg">
         <svg id="eeBJI2rPH0Y1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 500 500" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
@@ -1449,7 +1414,7 @@
                 ]]>
             </script>
         </svg>
-    </div> -->
+    </div>
     <!-- ===========================spider-div============================== -->
     <!-- ===============================Header Open=================================== -->
     <header class="header" id="navbar-fixed-top">
@@ -1464,11 +1429,13 @@
             </div>
             <div id="box" class="">
                 <div id="items">
-                    <div class="imglogo"><a href="../index.html"><img src="./assets/images/2x/logo.png" alt=""></a></div>
+                    <div class="imglogo"><a href="../index.html"><img src="./assets/images/2x/logo.png" alt=""></a>
+                    </div>
                     <div class="item1"><a href="../index.html" class="header_links active-header">Home</a></div>
                     <div class="item1"><a href="./assets/pages/about.html" class="header_links">About US</a></div>
                     <div class="item1"><a href="./assets/pages/portfolio.html" class="header_links">Portfolio</a></div>
-                    <div class="item1"><a href="./assets/pages/contact-us.html" class="header_links">Contact Us</a></div>
+                    <div class="item1"><a href="./assets/pages/contact-us.html" class="header_links">Contact Us</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1886,12 +1853,16 @@
         </div>
     </section>
     <!-- ===============================footer Closed======================== -->
+</div>
+    <!-- =======================butter div closed============================ -->
     <!-- jquery  -->
     <script src="./assets/js/jquery.min.js"></script>
     <!-- bootstrap js  -->
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <!-- wow js -->
     <script src="./assets/js/wow.min.js"></script>
+    <!-- butter js -->
+    <script src="./assets/js/butter.js"></script>
     <!-- slider js -->
     <script src="./assets/js/swiper-bundle.min.js"></script>
     <!-- script  -->
@@ -1902,172 +1873,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
     <!-- custom js  -->
     <script type="module" src="./assets/js/main.js"></script>
-    <script>
-        const spider = document.getElementById('spider');
-        const spiderimg = document.getElementById('spiderimg');
-        const svgEl = document.getElementById('eeBJI2rPH0Y1');
-        const whatWeOfferSection = document.querySelector('.what-we-offer');
-        const embraceMarketingSection = document.querySelector('.Embrace-Marketing');
-        let scrollTimeout;
-        let isPaused = false;
-        let originalSpiderPosition = 0;
-        window.addEventListener('scroll', function () {
-            clearTimeout(scrollTimeout);
-            // Show the spider when scrolling
-            spiderimg.style.opacity = 0;
-            // Show the text element when scrolling stops
-            svgEl.style.opacity = 1;
-            const scrollPosition = window.scrollY;
-            // Get the top position and height of the what-we-offer section
-            const whatWeOfferTop = whatWeOfferSection.offsetTop;
-            const whatWeOfferHeight = whatWeOfferSection.offsetHeight;
-            // Check if the spider is in the what-we-offer section
-            if (!isPaused && scrollPosition > whatWeOfferTop && scrollPosition < whatWeOfferTop + whatWeOfferHeight) {
-                // Spider crawls from left to right in the what-we-offer section
-                spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
-                spider.style.transform = `translateY(${scrollPosition + 70}px)`;
-                // Add width and height to the spider
-                spider.style.width = '400px';
-                spider.style.height = '400px';
-                spider.style.left = '-50px';
-                // Set left position based on screen width
-                // const screenWidth = window.innerWidth;
-                // spider.style.left = `${Math.min(0, -(screenWidth / 2 - 200))}px`;
-                // Pause for 2 minutes
-                isPaused = true;
-                setTimeout(() => {
-                    isPaused = false;
-                    // Reset width and height after 2 minutes
-                    spider.style.width = '400px';
-                    spider.style.height = '400px';
-                    spider.style.right = '-50px'
-                    spiderimg.style.opacity = 1;
-                    svgEl.style.opacity = 0;
-                }, 120000); // 2 minutes in milliseconds
-                return;
-            }
-            const embraceMarketingTop = embraceMarketingSection.offsetTop;
-            const embraceMarketingHeight = embraceMarketingSection.offsetHeight;
-            if (!isPaused && scrollPosition > embraceMarketingTop && scrollPosition < embraceMarketingTop + embraceMarketingHeight) {
-                // Save the original position if not paused
-                if (!isPaused) {
-                    originalSpiderPosition = scrollPosition + 70;
-                }
-                // Spider pauses when it reaches the Embrace-Marketing section
-                isPaused = true;
-                return;
-            }
-            // Handle scrolling back
-            if (isPaused && scrollPosition <= originalSpiderPosition) {
-                // Reset the spider position to the original position
-                spider.style.transform = `translateY(${originalSpiderPosition}px)`;
-                spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
-                spider.style.left = '630px'; // Reset left offset when scrolling back
-                spider.style.width = '600px';
-                spider.style.height = '600px';
-                spider.style.position = 'absolute';
-                spider.style.top = '100px';
-                spider.style.transition = '5s ease-in-out';
-                isPaused = false;
-                // Clear transition after a short delay to allow smooth scrolling
-                setTimeout(() => {
-                    spider.style.transition = '5s ease-in-out';
-                    // Adjust left position for mobile devices
-                    if (window.innerWidth < 414) {
-                        spider.style.left = '175px';
-                    }
-                    else if (window.innerWidth < 375) {
-                        spider.style.left = '213px'; // Smaller screens
-                    }
-                    else if (window.innerWidth >= 1366) {
-                        spider.style.left = '630px'; // larger screens
-                    }
-                    else if (window.innerWidth >= 768) {
-                        spider.style.left = '365px'; // Smaller screens
-                    }
-                    else {
-                        spider.style.left = '213px';
-                    }
-
-                }, 500); // Adjust the delay as needed
-            }
-            setTimeout(() => {
-                const newScrollPosition = window.scrollY;
-                spider.style.transform = `translateY(${newScrollPosition + 70}px)`;
-
-                setTimeout(() => {
-                    spiderimg.style.opacity = 1;
-                    svgEl.style.opacity = 0;
-
-                }, 6000);
-            }, 1000);
-            // Hide the spider image after some seconds
-            scrollTimeout = setTimeout(() => {
-                // Add any additional actions to be performed after the spider has stopped
-            }, 3000);
-        });
-        // firsfiles
-        var fireflies = 50;
-        var $container = $(".containers");
-        var $containerWidth = $container.width();
-        var $containerHeight = $container.height();
-
-        for (var i = 0; i < fireflies; i++) {
-            var firefly = $('<div class="firefly"></div>');
-            TweenLite.set(firefly, {
-                x: Math.random() * $containerWidth,
-                y: Math.random() * $containerHeight
-            });
-            $container.append(firefly);
-            flyTheFirefly(firefly);
-        }
-
-        function flyTheFirefly(elm) {
-            var flyTl = new TimelineMax();
-            var fadeTl = new TimelineMax({
-                delay: Math.floor(Math.random() * 3) + 1,
-                repeatDelay: Math.floor(Math.random() * 6) + 1,
-                repeat: -1
-            });
-
-            fadeTl.to(
-                [elm],
-                0.25,
-                { opacity: 0.25, yoyo: true, repeat: 1, repeatDelay: 0.2, yoyo: true },
-                Math.floor(Math.random() * 6) + 1
-            );
-
-            // Add your custom movement function
-            customMovement(elm);
-
-            function customMovement(elm) {
-                flyTl.to(elm, Math.random() * 2 + 1, {
-                    x: "+=" + (Math.random() * 20 - 10), // Move a little bit on the x-axis
-                    y: "+=" + (Math.random() * 20 - 10), // Move a little bit on the y-axis
-                    onComplete: flyTheFirefly,
-                    onCompleteParams: [elm]
-                });
-            }
-        }
-        // Add mousemove zoom effect
-        $container.on("mousemove", function (event) {
-            var mouseX = event.clientX - $container.offset().left;
-            var mouseY = event.clientY - $container.offset().top;
-
-            var distance = Math.sqrt(Math.pow(mouseX - $containerWidth / 2, 2) + Math.pow(mouseY - $containerHeight / 2, 2));
-
-            var scale = 1 + (1 - distance / maxZoomDistance);
-            scale = Math.max(1, scale); // Ensure scale is not less than 1
-
-            TweenLite.to(".firefly", 0.5, { scale: scale });
-        });
-
-        // Add mouseout reset
-        $container.on("mouseout", function () {
-            TweenLite.to(".firefly", 0.5, { scale: 1 });
-        });
-        // firefiles
-    </script>
 </body>
 
 </html>

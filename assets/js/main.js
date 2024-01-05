@@ -1,5 +1,10 @@
 import * as THREE from 'three';
 import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.124.0/examples/jsm/controls/OrbitControls.js";
+// ===========================butter js========================//
+butter.init({
+  wrapperId: 'butter'
+});
+// ===========================butter js========================//
 // =================mouse cursor animations====================//
 $(window).mousemove(function (e) {
   $(".ring").css(
@@ -372,9 +377,80 @@ const animate = () => {
     // If the animation is disabled, just render the scene
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
-  }
+
+    // Define the duration of the transition
+    const transitionDuration = 1.5;
+
+    // Use gsap to tween the planes back to their original positions
+    gsap.to(plane1.position, { x: originalPosition1.x, y: originalPosition1.y, z: originalPosition1.z, duration: transitionDuration });
+    gsap.to(plane2.position, { x: originalPosition2.x, y: originalPosition2.y, z: originalPosition2.z, duration: transitionDuration });
+    gsap.to(plane3.position, { x: originalPosition3.x, y: originalPosition3.y, z: originalPosition3.z, duration: transitionDuration });
+    gsap.to(plane5.position, { x: originalPosition5.x, y: originalPosition5.y, z: originalPosition5.z, duration: transitionDuration });
+    gsap.to(plane7.position, { x: originalPosition7.x, y: originalPosition7.y, z: originalPosition7.z, duration: transitionDuration });
+
+    // Use gsap to tween the scales and rotations back to their original values
+    const originalScale = new THREE.Vector3(1, 1, 1);
+    const originalRotation = new THREE.Euler(0, 0, 0);
+
+    gsap.to(plane1.scale, { x: originalScale.x, y: originalScale.y, z: originalScale.z, duration: transitionDuration });
+    gsap.to(plane2.scale, { x: originalScale.x, y: originalScale.y, z: originalScale.z, duration: transitionDuration });
+    gsap.to(plane3.scale, { x: originalScale.x, y: originalScale.y, z: originalScale.z, duration: transitionDuration });
+    gsap.to(plane5.scale, { x: originalScale.x, y: originalScale.y, z: originalScale.z, duration: transitionDuration });
+    gsap.to(plane7.scale, { x: originalScale.x, y: originalScale.y, z: originalScale.z, duration: transitionDuration });
+
+    gsap.to(plane1.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
+    gsap.to(plane2.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
+    gsap.to(plane3.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
+    gsap.to(plane5.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
+    gsap.to(plane7.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
+}
 };
 animate();
+// firsfiles
+var fireflies = 50;
+var $container = $(".containers");
+var $containerWidth = $container.width();
+var $containerHeight = $container.height();
+
+for (var i = 0; i < fireflies; i++) {
+    var firefly = $('<div class="firefly"></div>');
+    TweenLite.set(firefly, {
+        x: Math.random() * $containerWidth,
+        y: Math.random() * $containerHeight
+    });
+    $container.append(firefly);
+    flyTheFirefly(firefly);
+}
+
+function flyTheFirefly(elm) {
+    var flyTl = new TimelineMax();
+    var fadeTl = new TimelineMax({
+        delay: Math.floor(Math.random() * 3) + 1,
+        repeatDelay: Math.floor(Math.random() * 6) + 1,
+        repeat: -1
+    });
+
+    fadeTl.to(
+        [elm],
+        0.25,
+        { opacity: 0.25, yoyo: true, repeat: 1, repeatDelay: 0.2, yoyo: true },
+        Math.floor(Math.random() * 6) + 1
+    );
+
+    // Add your custom movement function
+    customMovement(elm);
+
+    function customMovement(elm) {
+        flyTl.to(elm, Math.random() * 2 + 1, {
+            x: "+=" + (Math.random() * 20 - 10), // Move a little bit on the x-axis
+            y: "+=" + (Math.random() * 20 - 10), // Move a little bit on the y-axis
+            onComplete: flyTheFirefly,
+            onCompleteParams: [elm]
+        });
+    }
+}
+// firefiles
+
 // Swiper Slider
 var swiper = new Swiper(".mySwiper2", {
   slidesPerView: 3,
@@ -516,3 +592,109 @@ var swiper = new Swiper(".mySwiper1", {
 });
 // 
 
+
+// spider crawl animation
+const spider = document.getElementById('spider');
+const spiderimg = document.getElementById('spiderimg');
+const svgEl = document.getElementById('eeBJI2rPH0Y1');
+const whatWeOfferSection = document.querySelector('.what-we-offer');
+const embraceMarketingSection = document.querySelector('.Embrace-Marketing');
+let scrollTimeout;
+let isPaused = false;
+let originalSpiderPosition = 0;
+window.addEventListener('scroll', function () {
+    clearTimeout(scrollTimeout);
+    // Show the spider when scrolling
+    spiderimg.style.opacity = 0;
+    // Show the text element when scrolling stops
+    svgEl.style.opacity = 1;
+    const scrollPosition = window.scrollY;
+    // Get the top position and height of the what-we-offer section
+    const whatWeOfferTop = whatWeOfferSection.offsetTop;
+    const whatWeOfferHeight = whatWeOfferSection.offsetHeight;
+    // Check if the spider is in the what-we-offer section
+    if (!isPaused && scrollPosition > whatWeOfferTop && scrollPosition < whatWeOfferTop + whatWeOfferHeight) {
+        // Spider crawls from left to right in the what-we-offer section
+        spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
+        spider.style.transform = `translateY(${scrollPosition + 70}px)`;
+        // Add width and height to the spider
+        spider.style.width = '400px';
+        spider.style.height = '400px';
+        spider.style.left = '-50px';
+        // Set left position based on screen width
+        // const screenWidth = window.innerWidth;
+        // spider.style.left = `${Math.min(0, -(screenWidth / 2 - 200))}px`;
+        // Pause for 2 minutes
+        isPaused = true;
+        setTimeout(() => {
+            isPaused = false;
+            // Reset width and height after 2 minutes
+            spider.style.width = '400px';
+            spider.style.height = '400px';
+            spider.style.right = '-50px'
+            spiderimg.style.opacity = 1;
+            svgEl.style.opacity = 0;
+        }, 120000); // 2 minutes in milliseconds
+        return;
+    }
+    const embraceMarketingTop = embraceMarketingSection.offsetTop;
+    const embraceMarketingHeight = embraceMarketingSection.offsetHeight;
+    if (!isPaused && scrollPosition > embraceMarketingTop && scrollPosition < embraceMarketingTop + embraceMarketingHeight) {
+        // Save the original position if not paused
+        if (!isPaused) {
+            originalSpiderPosition = scrollPosition + 70;
+        }
+        // Spider pauses when it reaches the Embrace-Marketing section
+        isPaused = true;
+        return;
+    }
+    // Handle scrolling back
+    if (isPaused && scrollPosition <= originalSpiderPosition) {
+        // Reset the spider position to the original position
+        spider.style.transform = `translateY(${originalSpiderPosition}px)`;
+        spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
+        spider.style.left = '630px'; // Reset left offset when scrolling back
+        spider.style.width = '600px';
+        spider.style.height = '600px';
+        spider.style.position = 'absolute';
+        spider.style.top = '100px';
+        spider.style.transition = '5s ease-in-out';
+        isPaused = false;
+        // Clear transition after a short delay to allow smooth scrolling
+        setTimeout(() => {
+            spider.style.transition = '5s ease-in-out';
+            // Adjust left position for mobile devices
+            // if (window.innerWidth < 414) {
+            //     spider.style.left = '175px';
+            // }
+            // else if (window.innerWidth < 375) {
+            //     spider.style.left = '213px'; // Smaller screens
+            // }
+            // else if (window.innerWidth >= 1366) {
+            //     spider.style.left = '630px'; // larger screens
+            // }
+            // else if (window.innerWidth >= 768) {
+            //     spider.style.left = '365px'; // Smaller screens
+            // }
+            // else {
+            //     spider.style.left = '213px';
+            // }
+
+        }, 500); // Adjust the delay as needed
+    }
+    setTimeout(() => {
+        const newScrollPosition = window.scrollY;
+        spider.style.transform = `translateY(${newScrollPosition + 70}px)`;
+
+        setTimeout(() => {
+            spiderimg.style.opacity = 1;
+            svgEl.style.opacity = 0;
+
+        }, 6000);
+    }, 1000);
+    // Hide the spider image after some seconds
+    scrollTimeout = setTimeout(() => {
+        // Add any additional actions to be performed after the spider has stopped
+    }, 3000);
+});
+// spider crawl animation
