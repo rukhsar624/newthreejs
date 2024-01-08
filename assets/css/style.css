@@ -362,7 +362,8 @@ body::-webkit-scrollbar {
 }
 
 #btn.active {
-    right: 12px;
+    /* right: 12px; */
+    right: 95px;
     border-bottom: 1px solid transparent;
 }
 
@@ -784,7 +785,11 @@ body::-webkit-scrollbar {
     padding: 0.5rem 1rem;
     font-family: 'Gilroy-Light'
 }
-
+.csmt-btn-about:hover{
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #FFA910;
+}
 .csmt-btn-about .arrow {
     margin-right: 0rem;
     height: 0.1rem;
@@ -1018,18 +1023,18 @@ quote {
 }
 
 /* slider css */
-.docSecttion {
+.Slider-Section {
     background-color: #171717;
 }
 
-.docSecttion h3 {
+.Slider-Section h3 {
     color: #000;
     font-family: "Mont-Bold";
     padding-top: 4rem;
     text-align: center;
 }
 
-.docSecttion h1 {
+.Slider-Section h1 {
     color: #fff;
     text-align: center;
     font-family: 'Aonthrax';
@@ -1038,7 +1043,7 @@ quote {
     padding-bottom: 3.5rem;
 }
 
-.docSecttion p {
+.Slider-Section p {
     color: #000;
     font-family: "Mont-Light";
     text-align: center;
@@ -1107,19 +1112,19 @@ quote {
     border-radius: 10px;
 }
 
-.docSecttion h5 {
+.Slider-Section h5 {
     font-family: "Mont-Bold";
     padding-top: 10px;
 }
 
-.docSecttion h4 {
+.Slider-Section h4 {
     color: #fff;
     font-family: 'Montserrat-Bold';
     padding-left: 10px;
     font-size: 10px;
 }
 
-.docSecttion span {
+.Slider-Section span {
     color: #fff;
     padding-left: 10px;
     font-size: 10px;
@@ -1366,7 +1371,11 @@ button {
     padding: 0.5rem 1rem;
     font-family: 'Gilroy-Light'
 }
-
+.csmt-btn:hover{
+    background-color:transparent;
+    color: #fff;
+    border: 1px solid #FFA910;
+}
 .csmt-btn .arrow {
     margin-right: 0rem;
     height: 0.1rem;
@@ -1403,7 +1412,7 @@ button {
 }
 
 .csmt-btn:hover .arrow {
-    width: 2.5rem;
+    width: 2.2rem;
 }
 
 .footer a {
@@ -1610,7 +1619,11 @@ textarea {
     padding: 0.5rem 1rem;
     font-family: 'Gilroy-Light'
 }
-
+.csmt-btn-contact:hover{
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #FFA910;
+}
 .csmt-btn-contact .arrow {
     margin-right: 0rem;
     height: 0.1rem;

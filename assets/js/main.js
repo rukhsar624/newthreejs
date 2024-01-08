@@ -4,6 +4,8 @@ import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.124.0/exampl
 butter.init({
   wrapperId: 'butter'
 });
+//  WOW init
+new WOW().init();
 // ===========================butter js========================//
 // =================mouse cursor animations====================//
 $(window).mousemove(function (e) {
@@ -226,13 +228,13 @@ plane4.scale.set(0.5, 0.5, 1);
 scene.add(plane4);
 const material5 = new THREE.MeshBasicMaterial({ map: texture5, transparent: true, encoding: THREE.sRGBEncoding, magFilter: THREE.LinearFilter, minFilter: THREE.LinearMipmapLinearFilter, });
 const plane5 = new THREE.Mesh(planeGeometry, material5);
-plane5.position.set(-1, -2, 2);
+plane5.position.set(-1, -1, 2);
 plane5.scale.set(1.5, 1.5, 2);
 scene.add(plane5);
 const planeGeometry55 = new THREE.PlaneGeometry(1, 1);
 const material55 = new THREE.MeshBasicMaterial({ map: texture55, transparent: true, depthTest: false, depthWrite: false });
 const plane55 = new THREE.Mesh(planeGeometry55, material55);
-plane55.position.set(-1, -4, 2);
+plane55.position.set(-1, -3, 2);
 plane55.scale.set(3, 0.6, 1);
 plane55.rotation.x = Math.PI / 4;
 scene.add(plane55);
@@ -299,17 +301,27 @@ planesplate.forEach(plane => {
   originalColors.push(plane.material.color.clone());
 });
 leftZoomBtn.addEventListener("click", () => {
-  changePlaneColor(planesplate[currentIndex]);
-  rotateAndZoom(planes[currentIndex], planes[currentIndex].position.x, planes[currentIndex].position.y, planes[currentIndex].position.z, 5);
-  rotateAroundGroup = false;
-  currentIndex = (currentIndex - 1 + planes.length) % planes.length;
-  zoomOutDots();
+  const newIndex = (currentIndex - 1 + planes.length) % planes.length;
+
+  if (currentIndex !== newIndex) {
+    // Only change the plane if the index is different
+    changePlaneColor(planesplate[newIndex]);
+    rotateAndZoom(planes[newIndex], planes[newIndex].position.x, planes[newIndex].position.y, planes[newIndex].position.z, 5);
+    rotateAroundGroup = false;
+    currentIndex = newIndex;
+  }
 });
+
 rightZoomBtn.addEventListener("click", () => {
-  changePlaneColor(planesplate[currentIndex]);
-  rotateAndZoom(planes[currentIndex], planes[currentIndex].position.x, planes[currentIndex].position.y, planes[currentIndex].position.z, 5);
-  rotateAroundGroup = false;
-  currentIndex = (currentIndex + 1) % planes.length;
+  const newIndex = (currentIndex + 1) % planes.length;
+
+  if (currentIndex !== newIndex) {
+    // Only change the plane if the index is different
+    changePlaneColor(planesplate[newIndex]);
+    rotateAndZoom(planes[newIndex], planes[newIndex].position.x, planes[newIndex].position.y, planes[newIndex].position.z, 5);
+    rotateAroundGroup = false;
+    currentIndex = newIndex;
+  }
 });
 originalBtn.addEventListener("click", () => {
   planesplate.forEach((plane, index) => {
@@ -403,7 +415,7 @@ const animate = () => {
     gsap.to(plane3.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
     gsap.to(plane5.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
     gsap.to(plane7.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
-}
+  }
 };
 animate();
 // firsfiles
@@ -413,41 +425,41 @@ var $containerWidth = $container.width();
 var $containerHeight = $container.height();
 
 for (var i = 0; i < fireflies; i++) {
-    var firefly = $('<div class="firefly"></div>');
-    TweenLite.set(firefly, {
-        x: Math.random() * $containerWidth,
-        y: Math.random() * $containerHeight
-    });
-    $container.append(firefly);
-    flyTheFirefly(firefly);
+  var firefly = $('<div class="firefly"></div>');
+  TweenLite.set(firefly, {
+    x: Math.random() * $containerWidth,
+    y: Math.random() * $containerHeight
+  });
+  $container.append(firefly);
+  flyTheFirefly(firefly);
 }
 
 function flyTheFirefly(elm) {
-    var flyTl = new TimelineMax();
-    var fadeTl = new TimelineMax({
-        delay: Math.floor(Math.random() * 3) + 1,
-        repeatDelay: Math.floor(Math.random() * 6) + 1,
-        repeat: -1
+  var flyTl = new TimelineMax();
+  var fadeTl = new TimelineMax({
+    delay: Math.floor(Math.random() * 3) + 1,
+    repeatDelay: Math.floor(Math.random() * 6) + 1,
+    repeat: -1
+  });
+
+  fadeTl.to(
+    [elm],
+    0.25,
+    { opacity: 0.25, yoyo: true, repeat: 1, repeatDelay: 0.2, yoyo: true },
+    Math.floor(Math.random() * 6) + 1
+  );
+
+  // Add your custom movement function
+  customMovement(elm);
+
+  function customMovement(elm) {
+    flyTl.to(elm, Math.random() * 2 + 1, {
+      x: "+=" + (Math.random() * 20 - 10), // Move a little bit on the x-axis
+      y: "+=" + (Math.random() * 20 - 10), // Move a little bit on the y-axis
+      onComplete: flyTheFirefly,
+      onCompleteParams: [elm]
     });
-
-    fadeTl.to(
-        [elm],
-        0.25,
-        { opacity: 0.25, yoyo: true, repeat: 1, repeatDelay: 0.2, yoyo: true },
-        Math.floor(Math.random() * 6) + 1
-    );
-
-    // Add your custom movement function
-    customMovement(elm);
-
-    function customMovement(elm) {
-        flyTl.to(elm, Math.random() * 2 + 1, {
-            x: "+=" + (Math.random() * 20 - 10), // Move a little bit on the x-axis
-            y: "+=" + (Math.random() * 20 - 10), // Move a little bit on the y-axis
-            onComplete: flyTheFirefly,
-            onCompleteParams: [elm]
-        });
-    }
+  }
 }
 // firefiles
 
@@ -603,98 +615,96 @@ let scrollTimeout;
 let isPaused = false;
 let originalSpiderPosition = 0;
 window.addEventListener('scroll', function () {
-    clearTimeout(scrollTimeout);
-    // Show the spider when scrolling
-    spiderimg.style.opacity = 0;
-    // Show the text element when scrolling stops
-    svgEl.style.opacity = 1;
-    const scrollPosition = window.scrollY;
-    // Get the top position and height of the what-we-offer section
-    const whatWeOfferTop = whatWeOfferSection.offsetTop;
-    const whatWeOfferHeight = whatWeOfferSection.offsetHeight;
-    // Check if the spider is in the what-we-offer section
-    if (!isPaused && scrollPosition > whatWeOfferTop && scrollPosition < whatWeOfferTop + whatWeOfferHeight) {
-        // Spider crawls from left to right in the what-we-offer section
-        spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
-        spider.style.transform = `translateY(${scrollPosition + 70}px)`;
-        // Add width and height to the spider
-        spider.style.width = '400px';
-        spider.style.height = '400px';
-        spider.style.left = '-50px';
-        // Set left position based on screen width
-        // const screenWidth = window.innerWidth;
-        // spider.style.left = `${Math.min(0, -(screenWidth / 2 - 200))}px`;
-        // Pause for 2 minutes
-        isPaused = true;
-        setTimeout(() => {
-            isPaused = false;
-            // Reset width and height after 2 minutes
-            spider.style.width = '400px';
-            spider.style.height = '400px';
-            spider.style.right = '-50px'
-            spiderimg.style.opacity = 1;
-            svgEl.style.opacity = 0;
-        }, 120000); // 2 minutes in milliseconds
-        return;
-    }
-    const embraceMarketingTop = embraceMarketingSection.offsetTop;
-    const embraceMarketingHeight = embraceMarketingSection.offsetHeight;
-    if (!isPaused && scrollPosition > embraceMarketingTop && scrollPosition < embraceMarketingTop + embraceMarketingHeight) {
-        // Save the original position if not paused
-        if (!isPaused) {
-            originalSpiderPosition = scrollPosition + 70;
-        }
-        // Spider pauses when it reaches the Embrace-Marketing section
-        isPaused = true;
-        return;
-    }
-    // Handle scrolling back
-    if (isPaused && scrollPosition <= originalSpiderPosition) {
-        // Reset the spider position to the original position
-        spider.style.transform = `translateY(${originalSpiderPosition}px)`;
-        spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
-        spider.style.left = '630px'; // Reset left offset when scrolling back
-        spider.style.width = '600px';
-        spider.style.height = '600px';
-        spider.style.position = 'absolute';
-        spider.style.top = '100px';
-        spider.style.transition = '5s ease-in-out';
-        isPaused = false;
-        // Clear transition after a short delay to allow smooth scrolling
-        setTimeout(() => {
-            spider.style.transition = '5s ease-in-out';
-            // Adjust left position for mobile devices
-            // if (window.innerWidth < 414) {
-            //     spider.style.left = '175px';
-            // }
-            // else if (window.innerWidth < 375) {
-            //     spider.style.left = '213px'; // Smaller screens
-            // }
-            // else if (window.innerWidth >= 1366) {
-            //     spider.style.left = '630px'; // larger screens
-            // }
-            // else if (window.innerWidth >= 768) {
-            //     spider.style.left = '365px'; // Smaller screens
-            // }
-            // else {
-            //     spider.style.left = '213px';
-            // }
-
-        }, 500); // Adjust the delay as needed
-    }
+  clearTimeout(scrollTimeout);
+  // Show the spider when scrolling
+  spiderimg.style.opacity = 0;
+  // Show the text element when scrolling stops
+  svgEl.style.opacity = 1;
+  const scrollPosition = window.scrollY;
+  // Get the top position and height of the what-we-offer section
+  const whatWeOfferTop = whatWeOfferSection.offsetTop;
+  const whatWeOfferHeight = whatWeOfferSection.offsetHeight;
+  // Check if the spider is in the what-we-offer section
+  if (!isPaused && scrollPosition > whatWeOfferTop && scrollPosition < whatWeOfferTop + whatWeOfferHeight) {
+    // Spider crawls from left to right in the what-we-offer section
+    spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
+    spider.style.transform = `translateY(${scrollPosition + 70}px)`;
+    // Add width and height to the spider
+    spider.style.width = '400px';
+    spider.style.height = '400px';
+    spider.style.left = '-50px';
+    isPaused = true;
+    spider.style.transition = '5s ease-in-out';
     setTimeout(() => {
-        const newScrollPosition = window.scrollY;
-        spider.style.transform = `translateY(${newScrollPosition + 70}px)`;
+      isPaused = false;
+      // Reset width and height after 2 minutes
+      spider.style.width = '400px';
+      spider.style.height = '400px';
+      spider.style.right = '-50px'
+      spiderimg.style.opacity = 1;
+      svgEl.style.opacity = 0;
+      spider.style.transition = '5s ease-in-out';
+    }, 120000); // 2 minutes in milliseconds
+    return;
+  }
+  const embraceMarketingTop = embraceMarketingSection.offsetTop;
+  const embraceMarketingHeight = embraceMarketingSection.offsetHeight;
+  if (!isPaused && scrollPosition > embraceMarketingTop && scrollPosition < embraceMarketingTop + embraceMarketingHeight) {
+    // Save the original position if not paused
+    if (!isPaused) {
+      originalSpiderPosition = scrollPosition + 70;
+    }
+    // Spider pauses when it reaches the Embrace-Marketing section
+    isPaused = true;
+    return;
+  }
+  // Handle scrolling back
+  if (isPaused && scrollPosition <= originalSpiderPosition) {
+    // Reset the spider position to the original position
+    spider.style.transform = `translateY(${originalSpiderPosition}px)`;
+    spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
+    spider.style.left = '630px'; // Reset left offset when scrolling back
+    spider.style.width = '600px';
+    spider.style.height = '600px';
+    spider.style.position = 'absolute';
+    spider.style.top = '100px';
+    spider.style.transition = '5s ease-in-out';
+    isPaused = false;
+    // Clear transition after a short delay to allow smooth scrolling
+    setTimeout(() => {
+      spider.style.transition = '5s ease-in-out';
+      // Adjust left position for mobile devices
+      if (window.innerWidth < 414) {
+        spider.style.left = '175px';
+      }
+      else if (window.innerWidth < 375) {
+        spider.style.left = '213px'; // Smaller screens
+      }
+      else if (window.innerWidth >= 1366) {
+        spider.style.left = '630px'; // larger screens
+      }
+      else if (window.innerWidth >= 768) {
+        spider.style.left = '365px'; // Smaller screens
+      }
+      else {
+        spider.style.left = '213px';
+      }
 
-        setTimeout(() => {
-            spiderimg.style.opacity = 1;
-            svgEl.style.opacity = 0;
+    }, 500); // Adjust the delay as needed
+  }
+  setTimeout(() => {
+    const newScrollPosition = window.scrollY;
+    spider.style.transform = `translateY(${newScrollPosition + 70}px)`;
 
-        }, 6000);
-    }, 1000);
-    // Hide the spider image after some seconds
-    scrollTimeout = setTimeout(() => {
-        // Add any additional actions to be performed after the spider has stopped
-    }, 3000);
+    setTimeout(() => {
+      spiderimg.style.opacity = 1;
+      svgEl.style.opacity = 0;
+
+    }, 6000);
+  }, 1000);
+  // Hide the spider image after some seconds
+  scrollTimeout = setTimeout(() => {
+    // Add any additional actions to be performed after the spider has stopped
+  }, 3000);
 });
 // spider crawl animation
