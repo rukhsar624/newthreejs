@@ -176,13 +176,10 @@ const texture2 = textureLoader.load('./assets/images/2x/camera-roll.png');
 const texture22 = textureLoader.load('./assets/images/2x/non-active.png');
 const texture3 = textureLoader.load('./assets/images/2x/mobile11.png');
 const texture33 = textureLoader.load('./assets/images/2x/non-active.png');
-const texture4 = textureLoader.load('./assets/images/2x/speaker.png');
 const texture5 = textureLoader.load('./assets/images/2x/laptop.png');
 const texture55 = textureLoader.load('./assets/images/2x/non-active.png');
-const texture6 = textureLoader.load('./assets/images/2x/dollar.png');
 const texture7 = textureLoader.load('./assets/images/2x/remote11.png');
 const texture77 = textureLoader.load('./assets/images/2x/non-active.png');
-const texture8 = textureLoader.load('./assets/images/2x/stars.png');
 const planeGeometry = new THREE.PlaneGeometry(2, 2);
 const material1 = new THREE.MeshBasicMaterial({ map: texture1, transparent: true });
 const plane1 = new THREE.Mesh(planeGeometry, material1);
@@ -221,11 +218,6 @@ plane33.position.set(-7, -4, 1);
 plane33.scale.set(2.5, 0.6, 1);
 plane33.rotation.x = Math.PI / 4;
 scene.add(plane33);
-const material4 = new THREE.MeshBasicMaterial({ map: texture4, transparent: true, encoding: THREE.sRGBEncoding });
-const plane4 = new THREE.Mesh(planeGeometry, material4);
-plane4.position.set(-3.3, 1, 2);
-plane4.scale.set(0.5, 0.5, 1);
-scene.add(plane4);
 const material5 = new THREE.MeshBasicMaterial({ map: texture5, transparent: true, encoding: THREE.sRGBEncoding, magFilter: THREE.LinearFilter, minFilter: THREE.LinearMipmapLinearFilter, });
 const plane5 = new THREE.Mesh(planeGeometry, material5);
 plane5.position.set(-1, -1, 2);
@@ -238,11 +230,6 @@ plane55.position.set(-1, -3, 2);
 plane55.scale.set(3, 0.6, 1);
 plane55.rotation.x = Math.PI / 4;
 scene.add(plane55);
-const material6 = new THREE.MeshBasicMaterial({ map: texture6, transparent: true, encoding: THREE.sRGBEncoding });
-const plane6 = new THREE.Mesh(planeGeometry, material6);
-plane6.position.set(1, 1.5, 1);
-plane6.scale.set(1, 1, 1);
-scene.add(plane6);
 const material7 = new THREE.MeshBasicMaterial({ map: texture7, transparent: true, encoding: THREE.sRGBEncoding });
 const plane7 = new THREE.Mesh(planeGeometry, material7);
 plane7.position.set(7, -3.5, 1);
@@ -255,11 +242,6 @@ plane77.position.set(7, -5.1, 1);
 plane77.scale.set(2.5, 0.6, 1);
 plane77.rotation.x = Math.PI / 4;
 scene.add(plane77);
-const material8 = new THREE.MeshBasicMaterial({ map: texture8, transparent: true, encoding: THREE.sRGBEncoding });
-const plane8 = new THREE.Mesh(planeGeometry, material8);
-plane8.position.set(6, 2.9, 1);
-plane8.scale.set(0.5, 0.5, 1);
-scene.add(plane8);
 renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
@@ -355,31 +337,16 @@ const animate = () => {
     const elapsedTime = clock.getElapsedTime();
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
-    // Smooth left-right motion
-    plane1.position.x = originalPosition1.x + 0.1 * Math.sin(elapsedTime * 0.3);
-    plane2.position.x = originalPosition2.x + 0.1 * Math.sin(elapsedTime * 0.3);
-    plane3.position.x = originalPosition3.x + 0.1 * Math.sin(elapsedTime * 0.3);
-    plane5.position.x = originalPosition5.x + 0.1 * Math.sin(elapsedTime * 0.3);
-    plane7.position.x = originalPosition7.x + 0.1 * Math.sin(elapsedTime * 0.3);
-    // Smooth up-down motion
-    plane1.position.y = originalPosition1.y + 0.2 * Math.cos(elapsedTime * 0.3);
-    plane2.position.y = originalPosition2.y + 0.2 * Math.cos(elapsedTime * 0.3);
-    plane3.position.y = originalPosition3.y + 0.2 * Math.cos(elapsedTime * 0.3);
-    plane5.position.y = originalPosition5.y + 0.2 * Math.cos(elapsedTime * 0.3);
-    plane7.position.y = originalPosition7.y + 0.2 * Math.cos(elapsedTime * 0.3);
-    // Apply hithere animation
-    const scale = 1 + 0.2 * Math.sin(elapsedTime * 0.2);
-    const rotation = 20 + 30 * Math.sin(elapsedTime * 0.2);
-    plane1.scale.set(scale, scale, scale);
-    plane2.scale.set(scale, scale, scale);
-    plane3.scale.set(scale, scale, scale);
-    plane5.scale.set(scale, scale, scale);
-    plane7.scale.set(scale, scale, scale);
-    plane1.rotation.z = THREE.MathUtils.degToRad(rotation);
-    plane2.rotation.z = THREE.MathUtils.degToRad(rotation);
-    plane3.rotation.z = THREE.MathUtils.degToRad(rotation);
-    plane5.rotation.z = THREE.MathUtils.degToRad(rotation);
-    plane7.rotation.z = THREE.MathUtils.degToRad(rotation);
+
+    // Define rotation speeds for each plane
+    const rotationSpeeds = [0.3, 0.4, 0.2, 0.5, 0.1];
+
+    // Apply rotation for each plane based on its speed
+    plane1.rotation.z = THREE.MathUtils.degToRad(20 + 30 * Math.sin(elapsedTime * rotationSpeeds[0]));
+    plane2.rotation.z = THREE.MathUtils.degToRad(20 + 30 * Math.sin(elapsedTime * rotationSpeeds[1]));
+    plane3.rotation.z = THREE.MathUtils.degToRad(20 + 30 * Math.sin(elapsedTime * rotationSpeeds[2]));
+    plane5.rotation.z = THREE.MathUtils.degToRad(20 + 30 * Math.sin(elapsedTime * rotationSpeeds[3]));
+    plane7.rotation.z = THREE.MathUtils.degToRad(20 + 30 * Math.sin(elapsedTime * rotationSpeeds[4]));
 
     if (rotateAroundGroup) {
       group.rotation.y = Math.cos(elapsedTime) * 0.1;
@@ -417,13 +384,127 @@ const animate = () => {
     gsap.to(plane7.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
   }
 };
+
 animate();
+
+// const animate = () => {
+//   if (shouldRunAnimation) {
+//     const elapsedTime = clock.getElapsedTime();
+//     renderer.render(scene, camera);
+//     requestAnimationFrame(animate);
+//     // Smooth left-right motion
+//     plane1.position.x = originalPosition1.x + 0.1 * Math.sin(elapsedTime * 0.3);
+//     plane2.position.x = originalPosition2.x + 0.1 * Math.sin(elapsedTime * 0.3);
+//     plane3.position.x = originalPosition3.x + 0.1 * Math.sin(elapsedTime * 0.3);
+//     plane5.position.x = originalPosition5.x + 0.1 * Math.sin(elapsedTime * 0.3);
+//     plane7.position.x = originalPosition7.x + 0.1 * Math.sin(elapsedTime * 0.3);
+//     // Smooth up-down motion
+//     plane1.position.y = originalPosition1.y + 0.2 * Math.cos(elapsedTime * 0.3);
+//     plane2.position.y = originalPosition2.y + 0.2 * Math.cos(elapsedTime * 0.3);
+//     plane3.position.y = originalPosition3.y + 0.2 * Math.cos(elapsedTime * 0.3);
+//     plane5.position.y = originalPosition5.y + 0.2 * Math.cos(elapsedTime * 0.3);
+//     plane7.position.y = originalPosition7.y + 0.2 * Math.cos(elapsedTime * 0.3);
+//     // Apply hithere animation
+//     const scale = 1 + 0.2 * Math.sin(elapsedTime * 0.2);
+//     const rotation = 20 + 30 * Math.sin(elapsedTime * 0.2);
+//     plane1.scale.set(scale, scale, scale);
+//     plane2.scale.set(scale, scale, scale);
+//     plane3.scale.set(scale, scale, scale);
+//     plane5.scale.set(scale, scale, scale);
+//     plane7.scale.set(scale, scale, scale);
+//     plane1.rotation.z = THREE.MathUtils.degToRad(rotation);
+//     plane2.rotation.z = THREE.MathUtils.degToRad(rotation);
+//     plane3.rotation.z = THREE.MathUtils.degToRad(rotation);
+//     plane5.rotation.z = THREE.MathUtils.degToRad(rotation);
+//     plane7.rotation.z = THREE.MathUtils.degToRad(rotation);
+
+//     if (rotateAroundGroup) {
+//       group.rotation.y = Math.cos(elapsedTime) * 0.1;
+//       group.rotation.x = Math.sin(elapsedTime) * 0.05;
+//     }
+//   } else {
+//     // If the animation is disabled, just render the scene
+//     renderer.render(scene, camera);
+//     requestAnimationFrame(animate);
+
+//     // Define the duration of the transition
+//     const transitionDuration = 1.5;
+
+//     // Use gsap to tween the planes back to their original positions
+//     gsap.to(plane1.position, { x: originalPosition1.x, y: originalPosition1.y, z: originalPosition1.z, duration: transitionDuration });
+//     gsap.to(plane2.position, { x: originalPosition2.x, y: originalPosition2.y, z: originalPosition2.z, duration: transitionDuration });
+//     gsap.to(plane3.position, { x: originalPosition3.x, y: originalPosition3.y, z: originalPosition3.z, duration: transitionDuration });
+//     gsap.to(plane5.position, { x: originalPosition5.x, y: originalPosition5.y, z: originalPosition5.z, duration: transitionDuration });
+//     gsap.to(plane7.position, { x: originalPosition7.x, y: originalPosition7.y, z: originalPosition7.z, duration: transitionDuration });
+
+//     // Use gsap to tween the scales and rotations back to their original values
+//     const originalScale = new THREE.Vector3(1, 1, 1);
+//     const originalRotation = new THREE.Euler(0, 0, 0);
+
+//     gsap.to(plane1.scale, { x: originalScale.x, y: originalScale.y, z: originalScale.z, duration: transitionDuration });
+//     gsap.to(plane2.scale, { x: originalScale.x, y: originalScale.y, z: originalScale.z, duration: transitionDuration });
+//     gsap.to(plane3.scale, { x: originalScale.x, y: originalScale.y, z: originalScale.z, duration: transitionDuration });
+//     gsap.to(plane5.scale, { x: originalScale.x, y: originalScale.y, z: originalScale.z, duration: transitionDuration });
+//     gsap.to(plane7.scale, { x: originalScale.x, y: originalScale.y, z: originalScale.z, duration: transitionDuration });
+
+//     gsap.to(plane1.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
+//     gsap.to(plane2.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
+//     gsap.to(plane3.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
+//     gsap.to(plane5.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
+//     gsap.to(plane7.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
+//   }
+// };
+// animate();
 // firsfiles
-var fireflies = 50;
+// var fireflies = 50;
+// var $container = $(".containers");
+// var $containerWidth = $container.width();
+// var $containerHeight = $container.height();
+
+// for (var i = 0; i < fireflies; i++) {
+//   var firefly = $('<div class="firefly"></div>' );
+//   TweenLite.set(firefly, {
+//     x: Math.random() * $containerWidth,
+//     y: Math.random() * $containerHeight
+//   });
+//   $container.append(firefly);
+//   flyTheFirefly(firefly);
+// }
+
+// function flyTheFirefly(elm) {
+//   var flyTl = new TimelineMax();
+//   var fadeTl = new TimelineMax({
+//     delay: Math.floor(Math.random() * 3) + 1,
+//     repeatDelay: Math.floor(Math.random() * 6) + 1,
+//     repeat: -1
+//   });
+
+//   fadeTl.to(
+//     [elm],
+//     0.25,
+//     { opacity: 0.25, yoyo: true, repeat: 1, repeatDelay: 0.2, yoyo: true },
+//     Math.floor(Math.random() * 6) + 1
+//   );
+
+//   // Add your custom movement function
+//   customMovement(elm);
+
+//   function customMovement(elm) {
+//     flyTl.to(elm, Math.random() * 2 + 1, {
+//       x: "+=" + (Math.random() * 20 - 10), // Move a little bit on the x-axis
+//       y: "+=" + (Math.random() * 20 - 10), // Move a little bit on the y-axis
+//       onComplete: flyTheFirefly,
+//       onCompleteParams: [elm]
+//     });
+//   }
+// }
+var fireflies = 80; // Change the number of fireflies here
+var butterflies = 5; // Add the number of butterflies here
 var $container = $(".containers");
 var $containerWidth = $container.width();
 var $containerHeight = $container.height();
 
+// Create fireflies
 for (var i = 0; i < fireflies; i++) {
   var firefly = $('<div class="firefly"></div>');
   TweenLite.set(firefly, {
@@ -432,6 +513,17 @@ for (var i = 0; i < fireflies; i++) {
   });
   $container.append(firefly);
   flyTheFirefly(firefly);
+}
+
+// Create butterflies
+for (var j = 0; j < butterflies; j++) {
+  var butterfly = $('<div class="butterfly"></div>');
+  TweenLite.set(butterfly, {
+    x: Math.random() * $containerWidth,
+    y: Math.random() * $containerHeight
+  });
+  $container.append(butterfly);
+  flyTheButterfly(butterfly);
 }
 
 function flyTheFirefly(elm) {
@@ -461,6 +553,14 @@ function flyTheFirefly(elm) {
     });
   }
 }
+
+// Function for butterfly movement
+function flyTheButterfly(elm) {
+  var flyTl = new TimelineMax();
+  // Add your custom butterfly movement function here
+  // ...
+}
+
 // firefiles
 
 // Swiper Slider
@@ -707,4 +807,5 @@ window.addEventListener('scroll', function () {
     // Add any additional actions to be performed after the spider has stopped
   }, 3000);
 });
+
 // spider crawl animation
