@@ -779,22 +779,14 @@ window.addEventListener('scroll', function () {
     return;
   }
 
-  // Check if the spider has reached the banner section
+  /// Check if the spider has reached the banner section
   if (scrollPosition >= bannerTop) {
-    spider.style.transform = `translate3d(${-(scrollPosition + window.innerWidth + 10)}px, ${scrollPosition + 10}px, 0)`;
-
-    spider.style.transition = '5s ease-in-out';
-    spider.style.left = '50px';
-    setTimeout(() => {
-      isPaused = false;
-      // Reset width and height after 2 minutes
-      spider.style.width = '400px';
-      spider.style.height = '400px';
-      spider.style.right = '-50px';
-      spider.style.transition = '5s ease-in-out';
-    }, 120000); // 2 minutes in milliseconds
     // Stop further transformation when the spider reaches the banner
-    return;
+    const stopPosition = bannerTop + (bannerHeight / 2) - 70; // Adjust 70 to center the spider
+    if (scrollPosition >= stopPosition) {
+      spider.style.transform = `translate3d(0, ${stopPosition}px, 0)`;
+      return;
+    }
   }
 
   // Handle scrolling back
