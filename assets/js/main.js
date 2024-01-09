@@ -79,7 +79,7 @@ function onMouseMove(event) {
       rotateAroundGroup = false;
       document.querySelector('.buttons').style.display = 'block';
     }
-    changePlaneColor(planesplate[currentIndex]);
+    changePlaneColor(planesplate[index]);
     activePlane = plane;
     currentIndex = index;
     mouseCircle.position.x = intersects[0].point.x;
@@ -263,7 +263,8 @@ backgroundPlane.material.transparent = true;
 backgroundPlane.material.opacity = 0.9;
 const rotateAndZoom = (plane, x, y, z, zoomOutFactor = 0, rotateY = 0) => {
   let tl = gsap
-    .timeline({ defaults: { duration: 1.5, ease: "expo.out" } })
+    // .timeline({ defaults: { duration: 1.5, ease: "expo.out" } })
+    .timeline({ defaults: { duration: 1.5, ease: "none" } })
     .to(controls.target, { x, y, z })
     .to(camera.position, { x, y, z: z + zoomOutFactor }, 0);
   tl.to(plane.scale, { x: 1.5, y: 1.5, z: 1 }, 0);
@@ -282,10 +283,55 @@ const originalColors = [];
 planesplate.forEach(plane => {
   originalColors.push(plane.material.color.clone());
 });
+// leftZoomBtn.addEventListener("click", () => {
+//   const newIndex = (currentIndex - 1 + planes.length) % planes.length;
+
+//   if (currentIndex !== newIndex) {
+//     // Only change the plane if the index is different
+//     changePlaneColor(planesplate[newIndex]);
+//     rotateAndZoom(planes[newIndex], planes[newIndex].position.x, planes[newIndex].position.y, planes[newIndex].position.z, 5);
+//     rotateAroundGroup = false;
+//     currentIndex = newIndex;
+//   }
+// });
+
+// rightZoomBtn.addEventListener("click", () => {
+//   const newIndex = (currentIndex + 1) % planes.length;
+
+//   if (currentIndex !== newIndex) {
+//     // Only change the plane if the index is different
+//     changePlaneColor(planesplate[newIndex]);
+//     rotateAndZoom(planes[newIndex], planes[newIndex].position.x, planes[newIndex].position.y, planes[newIndex].position.z, 5);
+//     rotateAroundGroup = false;
+//     currentIndex = newIndex;
+//   }
+// });
+// originalBtn.addEventListener("click", () => {
+//   planesplate.forEach((plane, index) => {
+//     resetPlaneColor(plane, originalColors[index]);
+//   });
+//   rotateAroundGroup = true;
+//   rotateAndZoom(planes, 0, 0, 0, 15);
+// });
+// function changePlaneColor(plane) {
+//   if (activePlane) {
+//     resetPlaneColor(activePlane, originalColors[planes.indexOf(activePlane)]);
+//   }
+//   plane.material.color.set(0xFFA910);
+//   activePlane = plane;
+// }
+// function resetPlaneColor(plane, originalColor) {
+//   plane.material.color.copy(originalColor);
+// }
 leftZoomBtn.addEventListener("click", () => {
   const newIndex = (currentIndex - 1 + planes.length) % planes.length;
 
   if (currentIndex !== newIndex) {
+    // Reset the color of all planes
+    planesplate.forEach((plane, index) => {
+      resetPlaneColor(plane, originalColors[index]);
+    });
+
     // Only change the plane if the index is different
     changePlaneColor(planesplate[newIndex]);
     rotateAndZoom(planes[newIndex], planes[newIndex].position.x, planes[newIndex].position.y, planes[newIndex].position.z, 5);
@@ -298,6 +344,11 @@ rightZoomBtn.addEventListener("click", () => {
   const newIndex = (currentIndex + 1) % planes.length;
 
   if (currentIndex !== newIndex) {
+    // Reset the color of all planes
+    planesplate.forEach((plane, index) => {
+      resetPlaneColor(plane, originalColors[index]);
+    });
+
     // Only change the plane if the index is different
     changePlaneColor(planesplate[newIndex]);
     rotateAndZoom(planes[newIndex], planes[newIndex].position.x, planes[newIndex].position.y, planes[newIndex].position.z, 5);
@@ -305,6 +356,7 @@ rightZoomBtn.addEventListener("click", () => {
     currentIndex = newIndex;
   }
 });
+
 originalBtn.addEventListener("click", () => {
   planesplate.forEach((plane, index) => {
     resetPlaneColor(plane, originalColors[index]);
@@ -312,6 +364,7 @@ originalBtn.addEventListener("click", () => {
   rotateAroundGroup = true;
   rotateAndZoom(planes, 0, 0, 0, 15);
 });
+
 function changePlaneColor(plane) {
   if (activePlane) {
     resetPlaneColor(activePlane, originalColors[planes.indexOf(activePlane)]);
@@ -319,11 +372,14 @@ function changePlaneColor(plane) {
   plane.material.color.set(0xFFA910);
   activePlane = plane;
 }
+
 function resetPlaneColor(plane, originalColor) {
   plane.material.color.copy(originalColor);
 }
+
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableRotate = false;
+controls.enableZoom = false;
 const aspectRatio = window.innerWidth / window.innerHeight;
 const clock = new THREE.Clock();
 const originalPosition1 = plane1.position.clone();
@@ -387,117 +443,6 @@ const animate = () => {
 
 animate();
 
-// const animate = () => {
-//   if (shouldRunAnimation) {
-//     const elapsedTime = clock.getElapsedTime();
-//     renderer.render(scene, camera);
-//     requestAnimationFrame(animate);
-//     // Smooth left-right motion
-//     plane1.position.x = originalPosition1.x + 0.1 * Math.sin(elapsedTime * 0.3);
-//     plane2.position.x = originalPosition2.x + 0.1 * Math.sin(elapsedTime * 0.3);
-//     plane3.position.x = originalPosition3.x + 0.1 * Math.sin(elapsedTime * 0.3);
-//     plane5.position.x = originalPosition5.x + 0.1 * Math.sin(elapsedTime * 0.3);
-//     plane7.position.x = originalPosition7.x + 0.1 * Math.sin(elapsedTime * 0.3);
-//     // Smooth up-down motion
-//     plane1.position.y = originalPosition1.y + 0.2 * Math.cos(elapsedTime * 0.3);
-//     plane2.position.y = originalPosition2.y + 0.2 * Math.cos(elapsedTime * 0.3);
-//     plane3.position.y = originalPosition3.y + 0.2 * Math.cos(elapsedTime * 0.3);
-//     plane5.position.y = originalPosition5.y + 0.2 * Math.cos(elapsedTime * 0.3);
-//     plane7.position.y = originalPosition7.y + 0.2 * Math.cos(elapsedTime * 0.3);
-//     // Apply hithere animation
-//     const scale = 1 + 0.2 * Math.sin(elapsedTime * 0.2);
-//     const rotation = 20 + 30 * Math.sin(elapsedTime * 0.2);
-//     plane1.scale.set(scale, scale, scale);
-//     plane2.scale.set(scale, scale, scale);
-//     plane3.scale.set(scale, scale, scale);
-//     plane5.scale.set(scale, scale, scale);
-//     plane7.scale.set(scale, scale, scale);
-//     plane1.rotation.z = THREE.MathUtils.degToRad(rotation);
-//     plane2.rotation.z = THREE.MathUtils.degToRad(rotation);
-//     plane3.rotation.z = THREE.MathUtils.degToRad(rotation);
-//     plane5.rotation.z = THREE.MathUtils.degToRad(rotation);
-//     plane7.rotation.z = THREE.MathUtils.degToRad(rotation);
-
-//     if (rotateAroundGroup) {
-//       group.rotation.y = Math.cos(elapsedTime) * 0.1;
-//       group.rotation.x = Math.sin(elapsedTime) * 0.05;
-//     }
-//   } else {
-//     // If the animation is disabled, just render the scene
-//     renderer.render(scene, camera);
-//     requestAnimationFrame(animate);
-
-//     // Define the duration of the transition
-//     const transitionDuration = 1.5;
-
-//     // Use gsap to tween the planes back to their original positions
-//     gsap.to(plane1.position, { x: originalPosition1.x, y: originalPosition1.y, z: originalPosition1.z, duration: transitionDuration });
-//     gsap.to(plane2.position, { x: originalPosition2.x, y: originalPosition2.y, z: originalPosition2.z, duration: transitionDuration });
-//     gsap.to(plane3.position, { x: originalPosition3.x, y: originalPosition3.y, z: originalPosition3.z, duration: transitionDuration });
-//     gsap.to(plane5.position, { x: originalPosition5.x, y: originalPosition5.y, z: originalPosition5.z, duration: transitionDuration });
-//     gsap.to(plane7.position, { x: originalPosition7.x, y: originalPosition7.y, z: originalPosition7.z, duration: transitionDuration });
-
-//     // Use gsap to tween the scales and rotations back to their original values
-//     const originalScale = new THREE.Vector3(1, 1, 1);
-//     const originalRotation = new THREE.Euler(0, 0, 0);
-
-//     gsap.to(plane1.scale, { x: originalScale.x, y: originalScale.y, z: originalScale.z, duration: transitionDuration });
-//     gsap.to(plane2.scale, { x: originalScale.x, y: originalScale.y, z: originalScale.z, duration: transitionDuration });
-//     gsap.to(plane3.scale, { x: originalScale.x, y: originalScale.y, z: originalScale.z, duration: transitionDuration });
-//     gsap.to(plane5.scale, { x: originalScale.x, y: originalScale.y, z: originalScale.z, duration: transitionDuration });
-//     gsap.to(plane7.scale, { x: originalScale.x, y: originalScale.y, z: originalScale.z, duration: transitionDuration });
-
-//     gsap.to(plane1.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
-//     gsap.to(plane2.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
-//     gsap.to(plane3.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
-//     gsap.to(plane5.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
-//     gsap.to(plane7.rotation, { x: originalRotation.x, y: originalRotation.y, z: originalRotation.z, duration: transitionDuration });
-//   }
-// };
-// animate();
-// firsfiles
-// var fireflies = 50;
-// var $container = $(".containers");
-// var $containerWidth = $container.width();
-// var $containerHeight = $container.height();
-
-// for (var i = 0; i < fireflies; i++) {
-//   var firefly = $('<div class="firefly"></div>' );
-//   TweenLite.set(firefly, {
-//     x: Math.random() * $containerWidth,
-//     y: Math.random() * $containerHeight
-//   });
-//   $container.append(firefly);
-//   flyTheFirefly(firefly);
-// }
-
-// function flyTheFirefly(elm) {
-//   var flyTl = new TimelineMax();
-//   var fadeTl = new TimelineMax({
-//     delay: Math.floor(Math.random() * 3) + 1,
-//     repeatDelay: Math.floor(Math.random() * 6) + 1,
-//     repeat: -1
-//   });
-
-//   fadeTl.to(
-//     [elm],
-//     0.25,
-//     { opacity: 0.25, yoyo: true, repeat: 1, repeatDelay: 0.2, yoyo: true },
-//     Math.floor(Math.random() * 6) + 1
-//   );
-
-//   // Add your custom movement function
-//   customMovement(elm);
-
-//   function customMovement(elm) {
-//     flyTl.to(elm, Math.random() * 2 + 1, {
-//       x: "+=" + (Math.random() * 20 - 10), // Move a little bit on the x-axis
-//       y: "+=" + (Math.random() * 20 - 10), // Move a little bit on the y-axis
-//       onComplete: flyTheFirefly,
-//       onCompleteParams: [elm]
-//     });
-//   }
-// }
 var fireflies = 80; // Change the number of fireflies here
 var butterflies = 5; // Add the number of butterflies here
 var $container = $(".containers");
