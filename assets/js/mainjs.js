@@ -646,3 +646,43 @@ var swiper = new Swiper(".mySwiper1", {
 });
 // 
 
+// leftZoomBtn.addEventListener("click", () => {
+//   const newIndex = (currentIndex - 1 + planes.length) % planes.length;
+
+//   if (currentIndex !== newIndex) {
+//     // Only change the plane if the index is different
+//     changePlaneColor(planesplate[newIndex]);
+//     rotateAndZoom(planes[newIndex], planes[newIndex].position.x, planes[newIndex].position.y, planes[newIndex].position.z, 5);
+//     rotateAroundGroup = false;
+//     currentIndex = newIndex;
+//   }
+// });
+
+// rightZoomBtn.addEventListener("click", () => {
+//   const newIndex = (currentIndex + 1) % planes.length;
+
+//   if (currentIndex !== newIndex) {
+//     // Only change the plane if the index is different
+//     changePlaneColor(planesplate[newIndex]);
+//     rotateAndZoom(planes[newIndex], planes[newIndex].position.x, planes[newIndex].position.y, planes[newIndex].position.z, 5);
+//     rotateAroundGroup = false;
+//     currentIndex = newIndex;
+//   }
+// });
+// originalBtn.addEventListener("click", () => {
+//   planesplate.forEach((plane, index) => {
+//     resetPlaneColor(plane, originalColors[index]);
+//   });
+//   rotateAroundGroup = true;
+//   rotateAndZoom(planes, 0, 0, 0, 15);
+// });
+// function changePlaneColor(plane) {
+//   if (activePlane) {
+//     resetPlaneColor(activePlane, originalColors[planes.indexOf(activePlane)]);
+//   }
+//   plane.material.color.set(0xFFA910);
+//   activePlane = plane;
+// }
+// function resetPlaneColor(plane, originalColor) {
+//   plane.material.color.copy(originalColor);
+// }

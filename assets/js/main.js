@@ -1,9 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.124.0/examples/jsm/controls/OrbitControls.js";
 // ===========================butter js========================//
-butter.init({
-  wrapperId: 'butter'
-});
 //  WOW init
 new WOW().init();
 // ===========================butter js========================//
@@ -283,46 +280,6 @@ const originalColors = [];
 planesplate.forEach(plane => {
   originalColors.push(plane.material.color.clone());
 });
-// leftZoomBtn.addEventListener("click", () => {
-//   const newIndex = (currentIndex - 1 + planes.length) % planes.length;
-
-//   if (currentIndex !== newIndex) {
-//     // Only change the plane if the index is different
-//     changePlaneColor(planesplate[newIndex]);
-//     rotateAndZoom(planes[newIndex], planes[newIndex].position.x, planes[newIndex].position.y, planes[newIndex].position.z, 5);
-//     rotateAroundGroup = false;
-//     currentIndex = newIndex;
-//   }
-// });
-
-// rightZoomBtn.addEventListener("click", () => {
-//   const newIndex = (currentIndex + 1) % planes.length;
-
-//   if (currentIndex !== newIndex) {
-//     // Only change the plane if the index is different
-//     changePlaneColor(planesplate[newIndex]);
-//     rotateAndZoom(planes[newIndex], planes[newIndex].position.x, planes[newIndex].position.y, planes[newIndex].position.z, 5);
-//     rotateAroundGroup = false;
-//     currentIndex = newIndex;
-//   }
-// });
-// originalBtn.addEventListener("click", () => {
-//   planesplate.forEach((plane, index) => {
-//     resetPlaneColor(plane, originalColors[index]);
-//   });
-//   rotateAroundGroup = true;
-//   rotateAndZoom(planes, 0, 0, 0, 15);
-// });
-// function changePlaneColor(plane) {
-//   if (activePlane) {
-//     resetPlaneColor(activePlane, originalColors[planes.indexOf(activePlane)]);
-//   }
-//   plane.material.color.set(0xFFA910);
-//   activePlane = plane;
-// }
-// function resetPlaneColor(plane, originalColor) {
-//   plane.material.color.copy(originalColor);
-// }
 leftZoomBtn.addEventListener("click", () => {
   const newIndex = (currentIndex - 1 + planes.length) % planes.length;
 
@@ -651,49 +608,167 @@ var swiper = new Swiper(".mySwiper1", {
 
 
 // spider crawl animation
+// const spider = document.getElementById('spider');
+// const spiderimg = document.getElementById('spiderimg');
+// const svgEl = document.getElementById('eeBJI2rPH0Y1');
+// const whatWeOfferSection = document.querySelector('.what-we-offer');
+// const embraceMarketingSection = document.querySelector('.Embrace-Marketing');
+// let scrollTimeout;
+// let isPaused = false;
+// let originalSpiderPosition = 0;
+// window.addEventListener('scroll', function () {
+//   clearTimeout(scrollTimeout);
+//   // Show the spider when scrolling
+//   spiderimg.style.opacity = 0;
+//   // Show the text element when scrolling stops
+//   svgEl.style.opacity = 1;
+//   const scrollPosition = window.scrollY;
+//   // Get the top position and height of the what-we-offer section
+//   const whatWeOfferTop = whatWeOfferSection.offsetTop;
+//   const whatWeOfferHeight = whatWeOfferSection.offsetHeight;
+//   // Check if the spider is in the what-we-offer section
+//   if (!isPaused && scrollPosition > whatWeOfferTop && scrollPosition < whatWeOfferTop + whatWeOfferHeight) {
+//     // Spider crawls from left to right in the what-we-offer section
+//     spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
+//     spider.style.transform = `translateY(${scrollPosition + 70}px)`;
+//     // Add width and height to the spider
+//     spider.style.width = '400px';
+//     spider.style.height = '400px';
+//     spider.style.left = '-50px';
+//     isPaused = true;
+//     spider.style.transition = '5s ease-in-out';
+//     setTimeout(() => {
+//       isPaused = false;
+//       // Reset width and height after 2 minutes
+//       spider.style.width = '400px';
+//       spider.style.height = '400px';
+//       spider.style.right = '-50px'
+//       spiderimg.style.opacity = 1;
+//       svgEl.style.opacity = 0;
+//       spider.style.transition = '5s ease-in-out';
+//     }, 120000); // 2 minutes in milliseconds
+//     return;
+//   }
+//   const embraceMarketingTop = embraceMarketingSection.offsetTop;
+//   const embraceMarketingHeight = embraceMarketingSection.offsetHeight;
+//   if (!isPaused && scrollPosition > embraceMarketingTop && scrollPosition < embraceMarketingTop + embraceMarketingHeight) {
+//     // Save the original position if not paused
+//     if (!isPaused) {
+//       originalSpiderPosition = scrollPosition + 70;
+//     }
+//     // Spider pauses when it reaches the Embrace-Marketing section
+//     isPaused = true;
+//     return;
+//   }
+//   // Handle scrolling back
+//   if (isPaused && scrollPosition <= originalSpiderPosition) {
+//     // Reset the spider position to the original position
+//     spider.style.transform = `translateY(${originalSpiderPosition}px)`;
+//     spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
+//     spider.style.left = '630px'; // Reset left offset when scrolling back
+//     spider.style.width = '600px';
+//     spider.style.height = '600px';
+//     spider.style.position = 'absolute';
+//     spider.style.top = '100px';
+//     spider.style.transition = '5s ease-in-out';
+//     isPaused = false;
+//     // Clear transition after a short delay to allow smooth scrolling
+//     setTimeout(() => {
+//       spider.style.transition = '5s ease-in-out';
+//       // Adjust left position for mobile devices
+//       if (window.innerWidth < 414) {
+//         spider.style.left = '175px';
+//       }
+//       else if (window.innerWidth < 375) {
+//         spider.style.left = '213px'; // Smaller screens
+//       }
+//       else if (window.innerWidth >= 1366) {
+//         spider.style.left = '630px'; // larger screens
+//       }
+//       else if (window.innerWidth >= 768) {
+//         spider.style.left = '365px'; // Smaller screens
+//       }
+//       else {
+//         spider.style.left = '213px';
+//       }
+
+//     }, 500); // Adjust the delay as needed
+//   }
+//   setTimeout(() => {
+//     const newScrollPosition = window.scrollY;
+//     spider.style.transform = `translateY(${newScrollPosition + 70}px)`;
+
+//     setTimeout(() => {
+//       spiderimg.style.opacity = 1;
+//       svgEl.style.opacity = 0;
+
+//     }, 6000);
+//   }, 1000);
+//   // Hide the spider image after some seconds
+//   scrollTimeout = setTimeout(() => {
+//     // Add any additional actions to be performed after the spider has stopped
+//   }, 3000);
+// });
 const spider = document.getElementById('spider');
 const spiderimg = document.getElementById('spiderimg');
 const svgEl = document.getElementById('eeBJI2rPH0Y1');
 const whatWeOfferSection = document.querySelector('.what-we-offer');
 const embraceMarketingSection = document.querySelector('.Embrace-Marketing');
+const bannerSection = document.getElementById('banner');
 let scrollTimeout;
 let isPaused = false;
 let originalSpiderPosition = 0;
+
 window.addEventListener('scroll', function () {
   clearTimeout(scrollTimeout);
+
   // Show the spider when scrolling
   spiderimg.style.opacity = 0;
+
   // Show the text element when scrolling stops
   svgEl.style.opacity = 1;
+
   const scrollPosition = window.scrollY;
+
   // Get the top position and height of the what-we-offer section
   const whatWeOfferTop = whatWeOfferSection.offsetTop;
   const whatWeOfferHeight = whatWeOfferSection.offsetHeight;
+
+  // Get the top position and height of the embraceMarketing section
+  const embraceMarketingTop = embraceMarketingSection.offsetTop;
+  const embraceMarketingHeight = embraceMarketingSection.offsetHeight;
+
+  // Get the top position of the banner section
+  const bannerTop = bannerSection.offsetTop;
+
   // Check if the spider is in the what-we-offer section
   if (!isPaused && scrollPosition > whatWeOfferTop && scrollPosition < whatWeOfferTop + whatWeOfferHeight) {
     // Spider crawls from left to right in the what-we-offer section
-    spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
-    spider.style.transform = `translateY(${scrollPosition + 70}px)`;
+    spider.style.transform = `translate3d(${-(scrollPosition + window.innerWidth + 70)}px, ${scrollPosition + 70}px, 0)`;
+
     // Add width and height to the spider
     spider.style.width = '400px';
     spider.style.height = '400px';
     spider.style.left = '-50px';
+
     isPaused = true;
     spider.style.transition = '5s ease-in-out';
+
     setTimeout(() => {
       isPaused = false;
       // Reset width and height after 2 minutes
       spider.style.width = '400px';
       spider.style.height = '400px';
-      spider.style.right = '-50px'
+      spider.style.right = '-50px';
       spiderimg.style.opacity = 1;
       svgEl.style.opacity = 0;
       spider.style.transition = '5s ease-in-out';
     }, 120000); // 2 minutes in milliseconds
+
     return;
   }
-  const embraceMarketingTop = embraceMarketingSection.offsetTop;
-  const embraceMarketingHeight = embraceMarketingSection.offsetHeight;
+
+  // Check if the spider is in the embraceMarketing section
   if (!isPaused && scrollPosition > embraceMarketingTop && scrollPosition < embraceMarketingTop + embraceMarketingHeight) {
     // Save the original position if not paused
     if (!isPaused) {
@@ -703,11 +778,29 @@ window.addEventListener('scroll', function () {
     isPaused = true;
     return;
   }
+
+  // Check if the spider has reached the banner section
+  if (scrollPosition >= bannerTop) {
+    spider.style.transform = `translate3d(${-(scrollPosition + window.innerWidth + 10)}px, ${scrollPosition + 10}px, 0)`;
+
+    spider.style.transition = '5s ease-in-out';
+    spider.style.left = '50px';
+    setTimeout(() => {
+      isPaused = false;
+      // Reset width and height after 2 minutes
+      spider.style.width = '400px';
+      spider.style.height = '400px';
+      spider.style.right = '-50px';
+      spider.style.transition = '5s ease-in-out';
+    }, 120000); // 2 minutes in milliseconds
+    // Stop further transformation when the spider reaches the banner
+    return;
+  }
+
   // Handle scrolling back
   if (isPaused && scrollPosition <= originalSpiderPosition) {
     // Reset the spider position to the original position
-    spider.style.transform = `translateY(${originalSpiderPosition}px)`;
-    spider.style.transform = `translateX(${-(scrollPosition + window.innerWidth + 70)}px)`;
+    spider.style.transform = `translate3d(${-(scrollPosition + window.innerWidth + 70)}px, ${originalSpiderPosition}px, 0)`;
     spider.style.left = '630px'; // Reset left offset when scrolling back
     spider.style.width = '600px';
     spider.style.height = '600px';
@@ -721,32 +814,28 @@ window.addEventListener('scroll', function () {
       // Adjust left position for mobile devices
       if (window.innerWidth < 414) {
         spider.style.left = '175px';
-      }
-      else if (window.innerWidth < 375) {
+      } else if (window.innerWidth < 375) {
         spider.style.left = '213px'; // Smaller screens
-      }
-      else if (window.innerWidth >= 1366) {
+      } else if (window.innerWidth >= 1366) {
         spider.style.left = '630px'; // larger screens
-      }
-      else if (window.innerWidth >= 768) {
+      } else if (window.innerWidth >= 768) {
         spider.style.left = '365px'; // Smaller screens
-      }
-      else {
+      } else {
         spider.style.left = '213px';
       }
-
     }, 500); // Adjust the delay as needed
   }
+
   setTimeout(() => {
     const newScrollPosition = window.scrollY;
-    spider.style.transform = `translateY(${newScrollPosition + 70}px)`;
+    spider.style.transform = `translate3d(0, ${newScrollPosition + 70}px, 0)`;
 
     setTimeout(() => {
       spiderimg.style.opacity = 1;
       svgEl.style.opacity = 0;
-
     }, 6000);
   }, 1000);
+
   // Hide the spider image after some seconds
   scrollTimeout = setTimeout(() => {
     // Add any additional actions to be performed after the spider has stopped
