@@ -260,8 +260,8 @@ backgroundPlane.material.transparent = true;
 backgroundPlane.material.opacity = 0.9;
 const rotateAndZoom = (plane, x, y, z, zoomOutFactor = 0, rotateY = 0) => {
   let tl = gsap
-    // .timeline({ defaults: { duration: 1.5, ease: "expo.out" } })
-    .timeline({ defaults: { duration: 1.5, ease: "none" } })
+    .timeline({ defaults: { duration: 1.5, ease: "expo.out" } })
+    // .timeline({ defaults: { duration: 1.5, ease: "none" } })
     .to(controls.target, { x, y, z })
     .to(camera.position, { x, y, z: z + zoomOutFactor }, 0);
   tl.to(plane.scale, { x: 1.5, y: 1.5, z: 1 }, 0);
