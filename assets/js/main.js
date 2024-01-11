@@ -5,11 +5,55 @@ import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.124.0/exampl
 new WOW().init();
 // ===========================butter js========================//
 // =================mouse cursor animations====================//
-$(window).mousemove(function (e) {
-  $(".ring").css(
-    "transform",
-    `translateX(calc(${e.clientX}px - 1.25rem)) translateY(calc(${e.clientY}px - 1.25rem))`
-  );
+// $(window).mousemove(function (e) {
+//   $(".ring").css(
+//     "transform",
+//     `translateX(calc(${e.clientX}px - 1.25rem)) translateY(calc(${e.clientY}px - 1.25rem))`
+//   );
+// });
+var cursor = $(".cursor"),
+		follower = $(".cursor-follower");
+
+var posX = 0,
+		posY = 0;
+
+var mouseX = 0,
+		mouseY = 0;
+
+TweenMax.to({}, 0.016, {
+	repeat:-1,
+	onRepeat:function(){
+		posX += (mouseX - posX) / 9;
+		posY += (mouseY - posY) / 9;
+		
+		TweenMax.set(follower, {
+			css: {
+				left: posX - 12,
+				top: posY - 12
+			}
+		});
+		TweenMax.set(cursor, {
+			css: {
+				left: mouseX,
+				top: mouseY
+			}
+		});
+	}	
+});
+
+$(document).on("mousemove",function(e){
+	mouseX = e.pageX;
+	mouseY = e.pageY;
+});
+
+$("img").on("mouseenter",function(){
+	cursor.addClass("active");
+	follower.addClass("active");
+});
+
+$("img").on("mouseleave",function(){
+	cursor.removeClass("active");
+	follower.removeClass("active");
 });
 // =================mouse cursor animations====================//
 // =========================scroll navbar======================//

@@ -41,7 +41,7 @@ body::-webkit-scrollbar {
 }
 /* font */
 /* mouse cursor css */
-.cursor {
+/* .cursor {
     position: fixed;
     top: 0;
     left: 0;
@@ -83,7 +83,53 @@ body::-webkit-scrollbar {
     border-radius: 50%;
     width: 4px;
     height: 4px;
+} */
+/* .cursor {
+	position: absolute;
+	background:#fff;
+	width:6px; height:6px;
+	border-radius:100%;
+	z-index:10000;
+	transform:scale(1);
+	user-select: none;
+	pointer-events:none;
+	transition: 
+		0.3s ease-in-out transform,
+		0.2s ease-in-out opacity;
+	
+	&.active {
+		opacity:0.5;
+		transform:scale(0);
+	}
+	
+	&.hovered {
+		opacity:0.08;
+	}
+} */
+
+.cursor-follower {
+	position: absolute;
+	background-color:#FF9D00;
+	width:20px; height: 20px;
+	border-radius: 100%;
+	z-index:10000;
+	transform:translatex(5px, 5px);
+	user-select: none;
+    z-index: 1;
+	pointer-events:none;
+	transition: 
+		0.6s ease-in-out transform,
+		0.2s ease-in-out opacity;
+	
+	&.active {
+		opacity:0.7;
+		transform:scale(3);
+	}
+	&.hovered {
+		opacity:0.08;
+	}
 }
+
 /* mouse cursor css */
 /* inline css for home page */
 .spider {
