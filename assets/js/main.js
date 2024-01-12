@@ -720,7 +720,7 @@ window.addEventListener('scroll', function () {
     isPaused = true;
     return;
   }
-/// Check if the spider has reached the banner section
+// Check if the spider has reached the banner section
 if (scrollPosition >= bannerTop) {
   // Horizontal center of the window
   const stopPositionX = window.innerWidth / 2;
