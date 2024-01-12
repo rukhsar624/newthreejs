@@ -7,5 +7,12 @@
   },
   "devDependencies": {
     "vite": "^5.0.6"
+  },
+  "scripts": {
+    "start": "node ./dist/server.js",
+    "test": "echo tests",
+    "build": "vite build"
   }
+  
 }
+
