@@ -5,12 +5,6 @@ import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.124.0/exampl
 new WOW().init();
 // ===========================butter js========================//
 // =================mouse cursor animations====================//
-// $(window).mousemove(function (e) {
-//   $(".ring").css(
-//     "transform",
-//     `translateX(calc(${e.clientX}px - 1.25rem)) translateY(calc(${e.clientY}px - 1.25rem))`
-//   );
-// });
 var cursor = $(".cursor"),
 		follower = $(".cursor-follower");
 
@@ -97,10 +91,14 @@ window.addEventListener('keydown', function (event) {
   }
 });
 // ========================MOBILE SCREEN SIDE NAV==============//
+// zoom
+
+// zoom
 // =================mouse zoom Effect=========================//
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 let isZoomed = false;
+
 document.addEventListener('mousemove', onMouseMove);
 function onMouseMove(event) {
   mouse.x = (event.clientX / canvasWidth) * 2 - 1;
@@ -123,6 +121,8 @@ function onMouseMove(event) {
     changePlaneColor(planesplate[index]);
     activePlane = plane;
     currentIndex = index;
+    // Set the cursor style
+    // document.body.style.cursor = 'pointer';
     mouseCircle.position.x = intersects[0].point.x;
     mouseCircle.position.y = intersects[0].point.y;
     mouseCircle.position.z = intersects[0].point.z + 0.1;
@@ -396,7 +396,7 @@ const animate = () => {
     requestAnimationFrame(animate);
 
     // Define rotation speeds for each plane
-    const rotationSpeeds = [0.3, 0.4, 0.2, 0.5, 0.1];
+    const rotationSpeeds = [0.3, 0.4, 0.2, 0.5, 0.3];
 
     // Apply rotation for each plane based on its speed
     plane1.rotation.z = THREE.MathUtils.degToRad(20 + 30 * Math.sin(elapsedTime * rotationSpeeds[0]));
@@ -503,8 +503,6 @@ function flyTheFirefly(elm) {
 // Function for butterfly movement
 function flyTheButterfly(elm) {
   var flyTl = new TimelineMax();
-  // Add your custom butterfly movement function here
-  // ...
 }
 
 // firefiles
@@ -661,6 +659,7 @@ const bannerSection = document.getElementById('banner');
 let scrollTimeout;
 let isPaused = false;
 let originalSpiderPosition = 0;
+let isMouseWheelScrolling = false;
 
 window.addEventListener('scroll', function () {
   clearTimeout(scrollTimeout);
@@ -705,7 +704,7 @@ window.addEventListener('scroll', function () {
       spider.style.right = '-50px';
       spiderimg.style.opacity = 1;
       svgEl.style.opacity = 0;
-      spider.style.transition = '6s ease-in-out';
+      spider.style.transition = '5s ease-in-out';
     }, 120000); // 2 minutes in milliseconds
 
     return;
@@ -721,16 +720,6 @@ window.addEventListener('scroll', function () {
     isPaused = true;
     return;
   }
-
-  // /// Check if the spider has reached the banner section
-  // if (scrollPosition >= bannerTop) {
-  //   // Stop further transformation when the spider reaches the banner
-  //   const stopPosition = bannerTop + (bannerWidth / 2) - 70; // Adjust 70 to center the spider
-  //   if (scrollPosition >= stopPosition) {
-  //     spider.style.transform = `translate3d(0, ${stopPosition}px, 0)`;
-  //     return;
-  //   }
-  // }
 /// Check if the spider has reached the banner section
 if (scrollPosition >= bannerTop) {
   // Horizontal center of the window
@@ -763,13 +752,29 @@ if (scrollPosition >= bannerTop) {
       // Adjust left position for mobile devices
       if (window.innerWidth < 414) {
         spider.style.left = '175px';
-      } else if (window.innerWidth < 375) {
+      } 
+      else if (window.innerWidth < 375) {
         spider.style.left = '213px'; // Smaller screens
-      } else if (window.innerWidth >= 1366) {
+      } 
+      else if(this.window.innerWidth>=2560){
+        spider.style.left='1185px'
+      }
+      else if(this.window.innerWidth>=1920){
+        spider.style.left='1185px'
+      }
+      else if (window.innerWidth >= 1600) {
+        spider.style.left = '865px'; // larger screens
+      } 
+      else if (window.innerWidth >= 1440) {
+        spider.style.left = '705px'; // larger screens
+      } 
+      else if (window.innerWidth >= 1366) {
         spider.style.left = '630px'; // larger screens
-      } else if (window.innerWidth >= 768) {
+      } 
+      else if (window.innerWidth >= 768) {
         spider.style.left = '365px'; // Smaller screens
-      } else {
+      } 
+      else {
         spider.style.left = '213px';
       }
     }, 500); // Adjust the delay as needed
@@ -789,6 +794,19 @@ if (scrollPosition >= bannerTop) {
   scrollTimeout = setTimeout(() => {
     // Add any additional actions to be performed after the spider has stopped
   }, 3000);
+});
+// Add wheel event listener for smooth mouse wheel scrolling
+window.addEventListener('wheel', function (event) {
+  if (!isMouseWheelScrolling) {
+    isMouseWheelScrolling = true;
+
+    // Add your logic for smooth mouse wheel scrolling here
+    // For example, you can scroll a certain distance or trigger other animations
+
+    setTimeout(() => {
+      isMouseWheelScrolling = false;
+    }, 500); // Adjust the duration as needed
+  }
 });
 // spider Crawling
 
