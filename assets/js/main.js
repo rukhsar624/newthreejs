@@ -514,6 +514,148 @@ function flyTheButterfly(elm) {
 
 // firefiles
 
+// Swiper Slider
+var swiper = new Swiper(".mySwiper2", {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  autoplay: true,
+  loop: true,
+  autoplay: {
+    delay: 4000,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    // when window width is >= 320px
+    768: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    375: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    280: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    414: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    1920: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    1600: {
+      slidesPerView: 3,
+      spaceBetween: 20
+
+    },
+    1366: {
+      slidesPerView: 1,
+      spaceBetween: 10
+    },
+    1400: {
+      slidesPerView: 1,
+      spaceBetween: 10
+    },
+    1366: {
+      slidesPerView: 1,
+      spaceBetween: 10
+    },
+    1366: {
+      slidesPerView: 1,
+      spaceBetween: 10
+    },
+    2560: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    1024: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    }
+  },
+});
+var swiper = new Swiper(".mySwiper1", {
+  slidesPerView: 5,
+  spaceBetween: 30,
+  autoplay: true,
+  loop: true,
+  autoplay: {
+    delay: 4000,
+  },
+  breakpoints: {
+    // when window width is >= 320px
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 20
+    },
+    375: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    280: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    414: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    1920: {
+      slidesPerView: 5,
+      spaceBetween: 20
+    },
+    1600: {
+      slidesPerView: 3,
+      spaceBetween: 20
+
+    },
+    1366: {
+      slidesPerView: 3,
+      spaceBetween: 10
+    },
+    1400: {
+      slidesPerView: 5,
+      spaceBetween: 10
+    },
+    1366: {
+      slidesPerView: 5,
+      spaceBetween: 10
+    },
+    1366: {
+      slidesPerView: 5,
+      spaceBetween: 10
+    },
+    2560: {
+      slidesPerView: 5,
+      spaceBetween: 20
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 20
+    }
+  },
+});
+// 
+
+
 // spider Crawling 
 const spider = document.getElementById('spider');
 const spiderimg = document.getElementById('spiderimg');
@@ -612,37 +754,37 @@ if (scrollPosition >= bannerTop) {
     spider.style.transition = '5s ease-in-out';
     isPaused = false;
     // Clear transition after a short delay to allow smooth scrolling
-    // setTimeout(() => {
-    //   spider.style.transition = '5s ease-in-out';
-    //   // Adjust left position for mobile devices
-    //   if (window.innerWidth < 414) {
-    //     spider.style.left = '175px';
-    //   } 
-    //   else if (window.innerWidth < 375) {
-    //     spider.style.left = '213px'; // Smaller screens
-    //   } 
-    //   else if(this.window.innerWidth>=2560){
-    //     spider.style.left='1185px'
-    //   }
-    //   else if(this.window.innerWidth>=1920){
-    //     spider.style.left='1185px'
-    //   }
-    //   else if (window.innerWidth >= 1600) {
-    //     spider.style.left = '865px'; // larger screens
-    //   } 
-    //   else if (window.innerWidth >= 1440) {
-    //     spider.style.left = '705px'; // larger screens
-    //   } 
-    //   else if (window.innerWidth >= 1366) {
-    //     spider.style.left = '630px'; // larger screens
-    //   } 
-    //   else if (window.innerWidth >= 768) {
-    //     spider.style.left = '365px'; // Smaller screens
-    //   } 
-    //   else {
-    //     spider.style.left = '213px';
-    //   }
-    // }, 500); // Adjust the delay as needed
+    setTimeout(() => {
+      spider.style.transition = '5s ease-in-out';
+      // Adjust left position for mobile devices
+      if (window.innerWidth < 414) {
+        spider.style.left = '175px';
+      } 
+      else if (window.innerWidth < 375) {
+        spider.style.left = '213px'; // Smaller screens
+      } 
+      else if(this.window.innerWidth>=2560){
+        spider.style.left='1185px'
+      }
+      else if(this.window.innerWidth>=1920){
+        spider.style.left='1185px'
+      }
+      else if (window.innerWidth >= 1600) {
+        spider.style.left = '865px'; // larger screens
+      } 
+      else if (window.innerWidth >= 1440) {
+        spider.style.left = '705px'; // larger screens
+      } 
+      else if (window.innerWidth >= 1366) {
+        spider.style.left = '630px'; // larger screens
+      } 
+      else if (window.innerWidth >= 768) {
+        spider.style.left = '365px'; // Smaller screens
+      } 
+      else {
+        spider.style.left = '213px';
+      }
+    }, 500); // Adjust the delay as needed
   }
 
   setTimeout(() => {
