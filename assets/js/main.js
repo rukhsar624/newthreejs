@@ -612,37 +612,37 @@ if (scrollPosition >= bannerTop) {
     spider.style.transition = '5s ease-in-out';
     isPaused = false;
     // Clear transition after a short delay to allow smooth scrolling
-    setTimeout(() => {
-      spider.style.transition = '5s ease-in-out';
-      // Adjust left position for mobile devices
-      if (window.innerWidth < 414) {
-        spider.style.left = '175px';
-      } 
-      else if (window.innerWidth < 375) {
-        spider.style.left = '213px'; // Smaller screens
-      } 
-      else if(this.window.innerWidth>=2560){
-        spider.style.left='1185px'
-      }
-      else if(this.window.innerWidth>=1920){
-        spider.style.left='1185px'
-      }
-      else if (window.innerWidth >= 1600) {
-        spider.style.left = '865px'; // larger screens
-      } 
-      else if (window.innerWidth >= 1440) {
-        spider.style.left = '705px'; // larger screens
-      } 
-      else if (window.innerWidth >= 1366) {
-        spider.style.left = '630px'; // larger screens
-      } 
-      else if (window.innerWidth >= 768) {
-        spider.style.left = '365px'; // Smaller screens
-      } 
-      else {
-        spider.style.left = '213px';
-      }
-    }, 500); // Adjust the delay as needed
+    // setTimeout(() => {
+    //   spider.style.transition = '5s ease-in-out';
+    //   // Adjust left position for mobile devices
+    //   if (window.innerWidth < 414) {
+    //     spider.style.left = '175px';
+    //   } 
+    //   else if (window.innerWidth < 375) {
+    //     spider.style.left = '213px'; // Smaller screens
+    //   } 
+    //   else if(this.window.innerWidth>=2560){
+    //     spider.style.left='1185px'
+    //   }
+    //   else if(this.window.innerWidth>=1920){
+    //     spider.style.left='1185px'
+    //   }
+    //   else if (window.innerWidth >= 1600) {
+    //     spider.style.left = '865px'; // larger screens
+    //   } 
+    //   else if (window.innerWidth >= 1440) {
+    //     spider.style.left = '705px'; // larger screens
+    //   } 
+    //   else if (window.innerWidth >= 1366) {
+    //     spider.style.left = '630px'; // larger screens
+    //   } 
+    //   else if (window.innerWidth >= 768) {
+    //     spider.style.left = '365px'; // Smaller screens
+    //   } 
+    //   else {
+    //     spider.style.left = '213px';
+    //   }
+    // }, 500); // Adjust the delay as needed
   }
 
   setTimeout(() => {

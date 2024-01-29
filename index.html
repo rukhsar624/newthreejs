@@ -252,7 +252,7 @@
     <div class="cursor-follower"></div>
     <!-- ======================================mouse Cursor==================================== -->
     <!-- ======================================Spider Div==================================== -->
-    <!-- <div class="spider" id="spider">
+     <div class="spider" id="spider">
         <img src="./assets/images/SVG/spider-animated.svg" alt="" id="spiderimg">
         <svg id="eeBJI2rPH0Y1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 500 500" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
@@ -1635,7 +1635,7 @@
                 ]]>
             </script>
         </svg>
-    </div>     -->
+    </div>     
     <!-- ======================================Spider Div==================================== -->
     <!-- ===============================Header Open=================================== -->
     <header class="header" id="navbar-fixed-top">
@@ -1673,7 +1673,7 @@
     </header>
     <!-- ===============================Header Closed================================= -->
     <!-- =======================butter div Open============================ -->
-    <div id="butter">
+    <!-- <div id="butter"> -->
         <!-- ===============================Banner Open=================================== -->
         <section class="banner-section">
             <div class="straight-line">
@@ -1809,11 +1809,9 @@
             <div class="Embrace-Marketing-circle">
                 <div class="Embrace-Marketing-circle-inner-div">
                     <img src="./assets/images/2x/circle.png" alt="">
-                    <div class="middle">
-                        <div class="mouse">
-                      
-                        </div>
-                      </div>
+                    <div class="another-spider wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+                        <img src="./assets/images/SVG/spider.svg" alt="">
+                    </div>
                 </div>
             </div>
             <div class="Embrace-Marketing-line">
@@ -2322,7 +2320,7 @@
             </div>
         </section>
         <!-- ===============================footer Closed======================== -->
-    </div>
+    <!-- </div> -->
     <!-- =======================butter div closed============================ -->
     <!-- jquery  -->
     <script src="./assets/js/jquery.min.js"></script>
@@ -2372,6 +2370,10 @@
 
             loopedSlides: 4,
             breakpoints: {
+                414:{
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
                 640: {
                     slidesPerView: 1,
                     spaceBetween: 20,
@@ -2392,17 +2394,9 @@
         });
         galleryTop.controller.control = galleryThumbs;
         galleryThumbs.controller.control = galleryTop;
-
-
-
-
-
-
         const legLeft = document.querySelector('.leg-left');
         const legRight = document.querySelector('.leg-right');
-
         window.addEventListener('scroll', () => {
-
             positionElements();
             legLeft.style.animationName = "moveleft";
             legRight.style.animationName = "moveright";
@@ -2570,10 +2564,6 @@
                 });
             }
         });
-
-
-
-
         // slider  closed
     </script> 
 </body>
