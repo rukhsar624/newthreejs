@@ -62,6 +62,9 @@ body::-webkit-scrollbar-thumb {
     &.active {
         opacity: 0.7;
         transform: scale(3);
+        background-color: transparent;
+        border: 1px solid #ffffff;
+        
     }
 
     &.hovered {
@@ -154,7 +157,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 #btn:hover {
-    background-color: #FFA910;
+    background-color: #ffa910a6;
     border-radius: 50px;
 }
 
@@ -175,7 +178,7 @@ body::-webkit-scrollbar-thumb {
     /* right: 12px; */
     right: 95px;
     border-bottom: 1px solid transparent;
-    background-color: #FFA910;
+    background-color: #ffa910a6;
 }
 
 #btn.active div {
@@ -210,121 +213,103 @@ body::-webkit-scrollbar-thumb {
     overflow: auto;
     top: 0px;
     right: -275px;
-    width: 275px;
+    width: 400px;
     opacity: 0;
     padding: 20px 0px;
     height: 100%;
     color: #343838;
     background-color: #000;
+    /* background-color: #000000c7; */
     -webkit-transition: all 350ms cubic-bezier(0.6, 0.05, 0.28, 0.91);
     transition: all 350ms cubic-bezier(0.6, 0.05, 0.28, 0.91);
 }
 
 .first-animation-div {
-    width: 50px;
-    height: 50px;
+    width: 150px;
+    height: 150px;
     position: absolute;
-    bottom: 100px;
-    left: 10px;
-    animation: moveAnimationOne 8s infinite linear;
+    /* bottom: 400px;
+    left: 40px; */
+    animation: animations1 120s infinite;
 }
 
 .second-animation-div {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     position: absolute;
-    bottom: 200px;
-    left: 20px;
-    animation: moveAnimationTwo 8s infinite linear;
+    /* bottom: 200px;
+    left: 20px; */
+    animation: animations2 120s infinite;
 }
-
-.third-animation-div {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    bottom: 350px;
-    left: 40px;
-    animation: moveAnimationThree 8s infinite linear;
-}
-
 .first-ami-img,
-.second-ami-img,
-.third-ami-img {
+.second-ami-img{
     width: 100%;
     height: 100%;
 }
 
 .first-ami-img img,
-.second-ami-img img,
-.third-ami-img img {
+.second-ami-img img{
     width: 100%;
     height: 100%;
     object-fit: contain;
     filter: sepia(100%) saturate(500%);
 }
-@keyframes moveAnimationOne {
+@keyframes animations1 {
     0% {
-        transform: translate(0, 0);
+        transform: rotate(0);
+        bottom: 0%;
+        right: 0%;
     }
-
     25% {
-        transform: translate(100px, 0);
+        transform: rotate(-360);
+        bottom: 80%;
+        right: 50%;
     }
-
     50% {
-        transform: translate(100px, 100px);
+        transform: rotate(360);
+        bottom: 0%;
+        right: 80%;
     }
-
     75% {
-        transform: translate(0, 100px);
+        transform: rotate(-360);
+        bottom: 80%;
+        right: 50%;
     }
-
     100% {
-        transform: translate(0, 0);
+        transform: rotate(0);
+        bottom: 0%;
+        right: 0%;
+
     }
 }
- @keyframes moveAnimationTwo {
+ @keyframes animations2 {
     0% {
-        transform: translate(0, 0);
+        transform: rotate(0);
+        top: 0%;
+        left: 0%;
     }
-
     25% {
-        transform: translate(100px, 0);
+        transform: rotate(-360);
+        top: 70%;
+        left: 50%;
     }
-
     50% {
-        transform: translate(100px, 100px);
+        transform: rotate(360);
+        top: 0%;
+        left: 70%;
     }
-
     75% {
-        transform: translate(0, 100px);
+        transform: rotate(-360);
+        top: 70%;
+        left: 50%;
     }
-
     100% {
-        transform: translate(0, 0);
+        transform: rotate(0);
+        top: 0%;
+        left: 0%;
+
     }
 }
-@keyframes moveAnimationThree {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    25% {
-        transform: translate(100px, 0);
-    }
-
-    50% {
-        transform: translate(100px, 100px);
-    }
-
-    75% {
-        transform: translate(0, 100px);
-    }
-
-    100% {
-        transform: translate(0, 0);
-    }
-} 
 
 
 #box.active {
@@ -342,7 +327,7 @@ body::-webkit-scrollbar-thumb {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    font-family: 'Gilroy-Light';
+    font-family: 'Aonthrax';
 }
 
 #items .item1 {
@@ -1251,7 +1236,7 @@ button {
 }
 
 .footer-logo {
-    width: 20%;
+    width: 15%;
 }
 
 .footer-logo a img {

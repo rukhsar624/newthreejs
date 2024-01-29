@@ -221,6 +221,7 @@ const texture5 = textureLoader.load('./assets/images/2x/laptop.png');
 const texture55 = textureLoader.load('./assets/images/2x/non-active.png');
 const texture7 = textureLoader.load('./assets/images/2x/remote11.png');
 const texture77 = textureLoader.load('./assets/images/2x/non-active.png');
+const texture9 = textureLoader.load('./assets/images/SVG/spider.svg');
 const planeGeometry = new THREE.PlaneGeometry(2, 2);
 const material1 = new THREE.MeshBasicMaterial({ map: texture1, transparent: true });
 const plane1 = new THREE.Mesh(planeGeometry, material1);
@@ -283,6 +284,12 @@ plane77.position.set(7, -5.1, 1);
 plane77.scale.set(2.5, 0.6, 1);
 plane77.rotation.x = Math.PI / 4;
 scene.add(plane77);
+// Eight image
+const material9 = new THREE.MeshBasicMaterial({ map: texture9, transparent: true, encoding: THREE.sRGBEncoding });
+const plane9 = new THREE.Mesh(planeGeometry, material9);
+plane9.position.set(-1, 4, 1);
+plane9.scale.set(1.5, 1.5, 1); // Adjust the scale values as needed
+scene.add(plane9);
 renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
@@ -506,148 +513,6 @@ function flyTheButterfly(elm) {
 }
 
 // firefiles
-
-// Swiper Slider
-var swiper = new Swiper(".mySwiper2", {
-  slidesPerView: 3,
-  spaceBetween: 30,
-  autoplay: true,
-  loop: true,
-  autoplay: {
-    delay: 4000,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  breakpoints: {
-    // when window width is >= 320px
-    768: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    375: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    280: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    414: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    1920: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    1600: {
-      slidesPerView: 3,
-      spaceBetween: 20
-
-    },
-    1366: {
-      slidesPerView: 1,
-      spaceBetween: 10
-    },
-    1400: {
-      slidesPerView: 1,
-      spaceBetween: 10
-    },
-    1366: {
-      slidesPerView: 1,
-      spaceBetween: 10
-    },
-    1366: {
-      slidesPerView: 1,
-      spaceBetween: 10
-    },
-    2560: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    1024: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    }
-  },
-});
-var swiper = new Swiper(".mySwiper1", {
-  slidesPerView: 5,
-  spaceBetween: 30,
-  autoplay: true,
-  loop: true,
-  autoplay: {
-    delay: 4000,
-  },
-  breakpoints: {
-    // when window width is >= 320px
-    768: {
-      slidesPerView: 3,
-      spaceBetween: 20
-    },
-    375: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    280: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    414: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    1920: {
-      slidesPerView: 5,
-      spaceBetween: 20
-    },
-    1600: {
-      slidesPerView: 3,
-      spaceBetween: 20
-
-    },
-    1366: {
-      slidesPerView: 3,
-      spaceBetween: 10
-    },
-    1400: {
-      slidesPerView: 5,
-      spaceBetween: 10
-    },
-    1366: {
-      slidesPerView: 5,
-      spaceBetween: 10
-    },
-    1366: {
-      slidesPerView: 5,
-      spaceBetween: 10
-    },
-    2560: {
-      slidesPerView: 5,
-      spaceBetween: 20
-    },
-    1024: {
-      slidesPerView: 3,
-      spaceBetween: 20
-    }
-  },
-});
-// 
-
 
 // spider Crawling 
 const spider = document.getElementById('spider');

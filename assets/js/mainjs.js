@@ -224,7 +224,7 @@ const texture6 = textureLoader.load('./assets/images/2x/dollar.png');
 const texture7 = textureLoader.load('./assets/images/2x/remote11.png');
 const texture77 = textureLoader.load('./assets/images/2x/non-active.png');
 const texture8 = textureLoader.load('./assets/images/2x/stars.png');
-
+const texture9 = textureLoader.load('./assets/images/SVG/spider.svg');
 // Create planes with textures
 const planeGeometry = new THREE.PlaneGeometry(2, 2); // Adjust the size as needed
 const material1 = new THREE.MeshBasicMaterial({ map: texture1, transparent: true });
@@ -322,6 +322,12 @@ const plane8 = new THREE.Mesh(planeGeometry, material8);
 plane8.position.set(6, 2.9, 1);
 plane8.scale.set(0.5, 0.5, 1); // Adjust the scale values as needed
 scene.add(plane8);
+// Eight image
+const material9 = new THREE.MeshBasicMaterial({ map: texture9, transparent: true, encoding: THREE.sRGBEncoding });
+const plane9 = new THREE.Mesh(planeGeometry, material9);
+plane9.position.set(6, 2.9, 1);
+plane9.scale.set(0.5, 0.5, 1); // Adjust the scale values as needed
+scene.add(plane9);
 renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 renderer.setPixelRatio(window.devicePixelRatio);

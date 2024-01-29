@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <!-- Favicon -->
+    <link href="./assets/images/2x/logo.png" rel="icon">
     <!-- bootstrap css -->
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <!-- wow css-->
@@ -18,6 +22,229 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>BUG-HOME | Home</title>
 </head>
+<style>
+    /* Start Testimonials Css */
+
+    .testimonial {
+        width: 100%;
+        background-color: #171717;
+        position: relative;
+    }
+    .profile img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .content-testimonial {
+        padding: 4% 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .content-testimonial h1 {
+        color: #fff;
+        font-size: 40px;
+        font-family: 'Aonthrax';
+        text-align: center;
+        padding: 4% 0;
+        text-transform: capitalize;
+    }
+
+    .profiles {
+        position: relative;
+        width: 80%;
+        height: 150px;
+    }
+    .profiles div {
+        height: 110px;
+        width: 110px;
+        position: absolute;
+    }
+
+    .profile-1 {
+        top: 50%;
+        left: 0%;
+        transform: translate(0%, -50%);
+    }
+
+    .profile-2 {
+        top: 50%;
+        left: 15%;
+        transform: translate(0%, -50%);
+    }
+
+    .profile-3 {
+        top: 50%;
+        left: 30%;
+        transform: translate(0%, -50%);
+    }
+
+    .profile-4 {
+        top: 50%;
+        left: 70%;
+        transform: translate(0%, -50%);
+    }
+
+    .profile-5 {
+        top: 50%;
+        left: 85%;
+        transform: translate(0%, -50%);
+    }
+
+    .reviews div {
+        height: 250px;
+        width: 80%;
+        margin: 0 auto;
+        display: none;
+        opacity: 0;
+    }
+
+    .testimonial-content {
+        background-color: #818181;
+        border: 3px solid #fff;
+        border-top: 0px;
+        padding: 36px 60px;
+        width: 100%;
+        margin: 0px auto;
+        position: relative;
+    }
+
+    .testimonial-content p {
+        text-align: center;
+        color: #000000;
+        font-family: "gilroy-regular";
+        width: 70%;
+        font-size: 18px;
+        margin: auto;
+        padding: 16px 0px 40px 0px;
+    }
+
+    .testimonial-content::after {
+        content: "";
+        position: absolute;
+        bottom: -32px;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        height: 60px;
+        width: 60px;
+        background-color: #818181;
+        border: 3px solid #fff;
+        border-top: 0px;
+        border-left: 0px;
+    }
+
+    .quote-icon {
+        width: 75px;
+        height: 75px;
+        overflow: hidden;
+    }
+    .quote-icon img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .testimonial-profile {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .testimonial-profile .profile {
+        height: 110px;
+        width: 110px;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    .client-name {
+        display: none;
+        opacity: 0;
+        transition: all ease-in-out 0.5s;
+    }
+
+    .swiper-slide.swiper-slide-active .client-name {
+        opacity: 1;
+        display: inline-block;
+        transition: all ease-in-out 0.5s;
+        width: 140px;
+    }
+
+    .client-name h4 {
+        color: #fff;
+        font-family: 'gilroy-bold';
+        font-size: 20px;
+        text-align: left;
+        margin: 5px 0;
+    }
+
+    .client-name p {
+        color: #fff;
+        font-family: 'gilroy-light';
+        font-size: 15px;
+        text-align: left;
+        margin: 5px 0;
+    }
+
+    /* End Testimonials Css */
+
+    /* Start Swiper Slider Css */
+
+    .swiper-container {
+        width: 100%;
+        height: 300px;
+        margin: 0px auto;
+    }
+
+    .swiper-slide-container {
+        text-align: center;
+        font-size: 18px;
+        height: 90%;
+        max-width: 90%;
+        margin: 0px auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .gallery-top {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        padding-bottom: 60px;
+    }
+
+    .gallery-thumbs {
+        height: 200px;
+        box-sizing: border-box;
+        padding: 10px 0;
+        overflow: hidden;
+    }
+
+    .gallery-thumbs .swiper-slide {
+        width: 0%;
+        height: 100%;
+    }
+
+    .gallery-thumbs .swiper-slide-active .testimonial-profile .profile {
+        height: 140px;
+        width: 140px;
+    }
+
+    /* End Swiper Slider Css */
+</style>
 
 <body style="z-index:1;position: relative;">
     <!-- ======================================mouse Cursor==================================== -->
@@ -25,7 +252,7 @@
     <div class="cursor-follower"></div>
     <!-- ======================================mouse Cursor==================================== -->
     <!-- ======================================Spider Div==================================== -->
-     <div class="spider" id="spider">
+    <!-- <div class="spider" id="spider">
         <img src="./assets/images/SVG/spider-animated.svg" alt="" id="spiderimg">
         <svg id="eeBJI2rPH0Y1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 500 500" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
@@ -1408,7 +1635,7 @@
                 ]]>
             </script>
         </svg>
-    </div>    
+    </div>     -->
     <!-- ======================================Spider Div==================================== -->
     <!-- ===============================Header Open=================================== -->
     <header class="header" id="navbar-fixed-top">
@@ -1433,24 +1660,21 @@
                 </div>
                 <div class="first-animation-div">
                     <div class="first-ami-img">
-                        <img src="./assets/images/hexagon1.349b4df4.svg" alt="">
+                        <img src="./assets/images/2x/circle.png" alt="">
                     </div>
                 </div>
                 <div class="second-animation-div">
                     <div class="second-ami-img">
-                        <img src="./assets/images/hexagon3.ad6b50f4.svg" alt="">
-                    </div>
-                </div>
-                <div class="third-animation-div">
-                    <div class="third-ami-img">
-                        <img src="./assets/images/hexagon2.c1258f08.svg" alt="">
+                        <img src="./assets/images/2x/circle.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </header>
     <!-- ===============================Header Closed================================= -->
-    <!-- ===============================Banner Open=================================== -->
+    <!-- =======================butter div Open============================ -->
+    <div id="butter">
+        <!-- ===============================Banner Open=================================== -->
         <section class="banner-section">
             <div class="straight-line">
                 <div class="straight-line-img-div">
@@ -1459,42 +1683,58 @@
             </div>
             <div class="inner-div">
                 <div class="first-div">
-                    <div class="first-div-inner">
+                    <div class="first-div-inner wow animate__ animate__pulse animated animated" data-wow-duration="1.5s"
+                        data-wow-iteration="infinite"
+                        style="visibility: visible; animation-duration: 1.5s; animation-iteration-count: infinite; animation-name: pulse;">
                         <img src="./assets/images/2x/lines.png" alt="">
                     </div>
                 </div>
                 <div class="second-div">
-                    <div class="second-div-inner">
+                    <div class="second-div-inner wow animate__ animate__pulse animated animated"
+                        data-wow-duration="1.5s" data-wow-iteration="infinite"
+                        style="visibility: visible; animation-duration: 1.5s; animation-iteration-count: infinite; animation-name: pulse;">
                         <img src="./assets/images/2x/threeColor.png" alt="">
                     </div>
                 </div>
                 <div class="third-div">
-                    <div class="third-div-inner">
+                    <div class="third-div-inner wow animate__ animate__pulse animated animated" data-wow-duration="1.5s"
+                        data-wow-iteration="infinite"
+                        style="visibility: visible; animation-duration: 1.5s; animation-iteration-count: infinite; animation-name: pulse;">
                         <img src="./assets/images/2x/bags_1.png" alt="">
                     </div>
                 </div>
                 <div class="four-div">
-                    <div class="four-div-inner">
+                    <div class="four-div-inner wow animate__ animate__pulse animated animated" data-wow-duration="1.5s"
+                        data-wow-iteration="infinite"
+                        style="visibility: visible; animation-duration: 1.5s; animation-iteration-count: infinite; animation-name: pulse;">
                         <img src="./assets/images/2x/light.png" alt="">
                     </div>
                 </div>
                 <div class="five-div">
-                    <div class="five-div-inner">
+                    <div class="five-div-inner wow animate__ animate__pulse animated animated" data-wow-duration="1.5s"
+                        data-wow-iteration="infinite"
+                        style="visibility: visible; animation-duration: 1.5s; animation-iteration-count: infinite; animation-name: pulse;">
                         <img src="./assets/images/2x/setting.png" alt="">
                     </div>
                 </div>
                 <div class="six-div">
-                    <div class="six-div-inner">
+                    <div class="six-div-inner wow animate__ animate__pulse animated animated" data-wow-duration="1.5s"
+                        data-wow-iteration="infinite"
+                        style="visibility: visible; animation-duration: 1.5s; animation-iteration-count: infinite; animation-name: pulse;">
                         <img src="./assets/images/2x/roket_1.png" alt="">
                     </div>
                 </div>
                 <div class="seven-div">
-                    <div class="seven-div-inner">
+                    <div class="seven-div-inner wow animate__ animate__pulse animated animated" data-wow-duration="1.5s"
+                        data-wow-iteration="infinite"
+                        style="visibility: visible; animation-duration: 1.5s; animation-iteration-count: infinite; animation-name: pulse;">
                         <img src="./assets/images/2x/games.png" alt="">
                     </div>
                 </div>
                 <div class="eight-div">
-                    <div class="eight-div-inner">
+                    <div class="eight-div-inner wow animate__ animate__pulse animated animated" data-wow-duration="1.5s"
+                        data-wow-iteration="infinite"
+                        style="visibility: visible; animation-duration: 1.5s; animation-iteration-count: infinite; animation-name: pulse;">
                         <img src="./assets/images/2x/box.png" alt="">
                     </div>
                 </div>
@@ -1502,9 +1742,9 @@
             <div class="container banner-text">
                 <div class="row">
                     <div class="col-lg-12 position-relative">
-                        <h1 class="">The magic
+                        <h1 class="wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">The magic
                             of<br>Digital marketing</h1>
-                        <p class="" >Lorem ipsum
+                        <p class="wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">Lorem ipsum
                             dolor sit amet, consectetuer adipiscing elit, sed diam <br>nonummy nibh
                             euismod tin
                         </p>
@@ -1531,14 +1771,15 @@
             <div class="container what-we pt-5">
                 <div class="row pt-5">
                     <div class="col-lg-12">
-                        <h2 class="" >What We Offer</h2>
-                        <h3 class="" >Our solutions are
+                        <h2 class="wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">What We Offer</h2>
+                        <h3 class="wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">Our solutions are
                             <br>specific to your<br> issues, and we love<br> to create<br>
                             customized<br>
-                            methods.</h3>
+                            methods.
+                        </h3>
                     </div>
                     <div class="col-lg-6 offset-lg-6 circle-div-p">
-                        <p class="">Lorem ipsum
+                        <p class="wow animated fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">Lorem ipsum
                             dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
                             tincidunt
                             ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
@@ -1568,6 +1809,11 @@
             <div class="Embrace-Marketing-circle">
                 <div class="Embrace-Marketing-circle-inner-div">
                     <img src="./assets/images/2x/circle.png" alt="">
+                    <div class="middle">
+                        <div class="mouse">
+                      
+                        </div>
+                      </div>
                 </div>
             </div>
             <div class="Embrace-Marketing-line">
@@ -1575,9 +1821,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="">Embrace Marketing
-                            <br> for the Digital Era</h1>
-                        <p class="">Lorem ipsum dolor
+                        <h1 class="wow animated bounceIn" data-wow-duration="1s" data-wow-delay="0.5s">Embrace Marketing
+                            <br> for the Digital Era
+                        </h1>
+                        <p class="wow animated bounceIn" data-wow-duration="1s" data-wow-delay="0.5s">Lorem ipsum dolor
                             sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
                             tincidunt
                             ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
@@ -1604,206 +1851,424 @@
         </section>
         <!-- ===============================camera zoom effect Closed========================== -->
         <!-- ===============================Slider Open======================== -->
-        <section class="Slider-Section">
+        <section class="testimonial" id="section5">
             <div class="container">
-                <h1 class="">What Our Client Say</h1>
-                <div class="container text-center swiper mySwiper2">
-                    <div class="swiper-wrapper">
-                        <div class="slider__contents__img swiper-slide">
-                            <div class="quote-img">
-                                <div class="quote-img-div">
-                                    <img src="./assets/images/2x/quote.png" alt="">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="content-testimonial">
+                            <h1 class="wow animate__ animate__zoomIn  animated" data-wow-duration="1.5s"
+                                style="visibility: visible; animation-duration: 1.5s; animation-name: zoomIn;">what our
+                                client say</h1>
+                            <div class="swiper-container gallery-top   swiper-container-horizontal animated"
+                                data-wow-duration="1.5s"
+                                style="visibility: visible; animation-duration: 1.5s; animation-name: zoomIn;">
+                                <div class="swiper-wrapper"
+                                    style="transform: translate3d(-9142px, 0px, 0px); transition-duration: 0ms;">
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1"
+                                        style="width: 1296px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-content">
+                                                <div class="quote-icon"><img src="./assets/images/2x/quote.png" alt="">
+                                                </div>
+                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                                                    nonummy
+                                                    nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                                    volutpat. Ut
+                                                    wisi
+                                                    enim ad minim venulla facilisi.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev"
+                                        data-swiper-slide-index="2" style="width: 1296px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-content">
+                                                <div class="quote-icon"><img src="./assets/images/2x/quote.png" alt="">
+                                                </div>
+                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                                                    nonummy
+                                                    nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                                    volutpat. Ut
+                                                    wisi
+                                                    enim ad minim venulla facilisi.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
+                                        data-swiper-slide-index="3" style="width: 1296px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-content">
+                                                <div class="quote-icon"><img src="./assets/images/2x/quote.png" alt="">
+                                                </div>
+                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                                                    nonummy
+                                                    nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                                    volutpat. Ut
+                                                    wisi
+                                                    enim ad minim venulla facilisi.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next"
+                                        data-swiper-slide-index="4" style="width: 1296px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-content">
+                                                <div class="quote-icon"><img src="./assets/images/2x/quote.png" alt="">
+                                                </div>
+                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                                                    nonummy
+                                                    nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                                    volutpat. Ut
+                                                    wisi
+                                                    enim ad minim venulla facilisi.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" data-swiper-slide-index="0"
+                                        style="width: 1296px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-content">
+                                                <div class="quote-icon"><img src="./assets/images/2x/quote.png" alt="">
+                                                </div>
+                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                                                    nonummy
+                                                    nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                                    volutpat. Ut
+                                                    wisi
+                                                    enim ad minim venulla facilisi.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" data-swiper-slide-index="1"
+                                        style="width: 1296px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-content">
+                                                <div class="quote-icon"><img src="./assets/images/2x/quote.png" alt="">
+                                                </div>
+                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                                                    nonummy
+                                                    nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                                    volutpat. Ut
+                                                    wisi
+                                                    enim ad minim venulla facilisi.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="2"
+                                        style="width: 1296px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-content">
+                                                <div class="quote-icon"><img src="./assets/images/2x/quote.png" alt="">
+                                                </div>
+                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                                                    nonummy
+                                                    nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                                    volutpat. Ut
+                                                    wisi
+                                                    enim ad minim venulla facilisi.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="3"
+                                        style="width: 1296px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-content">
+                                                <div class="quote-icon"><img src="./assets/images/2x/quote.png" alt="">
+                                                </div>
+                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                                                    nonummy
+                                                    nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                                    volutpat. Ut
+                                                    wisi
+                                                    enim ad minim venulla facilisi.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="4"
+                                        style="width: 1296px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-content">
+                                                <div class="quote-icon"><img src="./assets/images/2x/quote.png" alt="">
+                                                </div>
+                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                                                    nonummy
+                                                    nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                                    volutpat. Ut
+                                                    wisi
+                                                    enim ad minim venulla facilisi.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0"
+                                        style="width: 1296px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-content">
+                                                <div class="quote-icon"><img src="./assets/images/2x/quote.png" alt="">
+                                                </div>
+                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                                                    nonummy
+                                                    nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                                    volutpat. Ut
+                                                    wisi
+                                                    enim ad minim venulla facilisi.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1"
+                                        style="width: 1296px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-content">
+                                                <div class="quote-icon"><img src="./assets/images/2x/quote.png" alt="">
+                                                </div>
+                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                                                    nonummy
+                                                    nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                                    volutpat. Ut
+                                                    wisi
+                                                    enim ad minim venulla facilisi.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev"
+                                        data-swiper-slide-index="2" style="width: 1296px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-content">
+                                                <div class="quote-icon"><img src="./assets/images/2x/quote.png" alt="">
+                                                </div>
+                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                                                    nonummy
+                                                    nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                                    volutpat. Ut
+                                                    wisi
+                                                    enim ad minim venulla facilisi.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
+                                        data-swiper-slide-index="3" style="width: 1296px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-content">
+                                                <div class="quote-icon"><img src="./assets/images/2x/quote.png" alt="">
+                                                </div>
+                                                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                                                    nonummy
+                                                    nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                                    volutpat. Ut
+                                                    wisi
+                                                    enim ad minim venulla facilisi.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                             </div>
-                            <p class="slider__txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                nonummy
-                                nibh euismod tincidunt ut laoreet dolore magna aliquam tincidunt is ut <br> tincidunt ut
-                                laoreet
-                                dolore magna aliquam erat volutpat.tincidunt ut laoreet dolore magna aliquam tincidunt
-                                ut
-                                laoreet dolore magna aliquam Ut wisi enim<br> ad minim venulla facilisi.</p>
-                        </div>
-                        <div class="slider__contents__img swiper-slide">
-                            <div class="quote-img">
-                                <div class="quote-img-div">
-                                    <img src="./assets/images/2x/quote.png" alt="">
+                            <div class="swiper-container gallery-thumbs wow animate__ animate__zoomIn  swiper-container-horizontal animated"
+                                data-wow-duration="1.5s"
+                                style="visibility: visible; animation-duration: 1.5s; animation-name: zoomIn;">
+                                <div class="swiper-wrapper"
+                                    style="transition-duration: 0ms; transform: translate3d(-1306px, 0px, 0px);">
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1"
+                                        style="width: 251.2px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-profile">
+                                                <div class="profile">
+                                                    <img src="./assets/images/2x/sliderimg1.png" alt="">
+                                                </div>
+                                                <div class="client-name">
+                                                    <h4>Julie Watson</h4>
+                                                    <p>Marketing Manager</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev"
+                                        data-swiper-slide-index="2" style="width: 251.2px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-profile">
+                                                <div class="profile">
+                                                    <img src="./assets/images/2x/sliderimg2_1.png" alt="">
+                                                </div>
+                                                <div class="client-name">
+                                                    <h4>Julie Watson</h4>
+                                                    <p>Marketing Manager</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
+                                        data-swiper-slide-index="3" style="width: 251.2px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-profile">
+                                                <div class="profile"><img src="./assets/images/2x/sliderimg3.png"
+                                                        alt="">
+                                                </div>
+                                                <div class="client-name">
+                                                    <h4>Julie Watson</h4>
+                                                    <p>Marketing Manager</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next"
+                                        data-swiper-slide-index="4" style="width: 251.2px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-profile">
+                                                <div class="profile"><img src="./assets/images/2x/sliderimg4.png"
+                                                        alt="">
+                                                </div>
+                                                <div class="client-name">
+                                                    <h4>Julie Watson</h4>
+                                                    <p>Marketing Manager</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" data-swiper-slide-index="0"
+                                        style="width: 251.2px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-profile">
+                                                <div class="profile"><img src="./assets/images/2x/sliderimg1.png"
+                                                        alt="">
+                                                </div>
+                                                <div class="client-name">
+                                                    <h4>Julie Watson</h4>
+                                                    <p>Marketing Manager</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" data-swiper-slide-index="1"
+                                        style="width: 251.2px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-profile">
+                                                <div class="profile"><img src="./assets/images/2x/sliderimg2_1.png"
+                                                        alt="">
+                                                </div>
+                                                <div class="client-name">
+                                                    <h4>Julie Watson</h4>
+                                                    <p>Marketing Manager</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="2"
+                                        style="width: 251.2px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-profile">
+                                                <div class="profile"><img src="./assets/images/2x/sliderimg3.png"
+                                                        alt="">
+                                                </div>
+                                                <div class="client-name">
+                                                    <h4>Julie Watson</h4>
+                                                    <p>Marketing Manager</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="3"
+                                        style="width: 251.2px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-profile">
+                                                <div class="profile"><img src="./assets/images/2x/sliderimg4.png"
+                                                        alt="">
+                                                </div>
+                                                <div class="client-name">
+                                                    <h4>Julie Watson</h4>
+                                                    <p>Marketing Manager</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="4"
+                                        style="width: 251.2px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-profile">
+                                                <div class="profile"><img src="./assets/images/2x/sliderimg4.png"
+                                                        alt="">
+                                                </div>
+                                                <div class="client-name">
+                                                    <h4>Julie Watson</h4>
+                                                    <p>Marketing Manager</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0"
+                                        style="width: 251.2px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-profile">
+                                                <div class="profile"><img src="./assets/images/2x/sliderimg1.png" alt="">
+                                                </div>
+                                                <div class="client-name">
+                                                    <h4>Julie Watson</h4>
+                                                    <p>Marketing Manager</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1"
+                                        style="width: 251.2px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-profile">
+                                                <div class="profile"><img src="./assets/images/2x/sliderimg3.png" alt="">
+                                                </div>
+                                                <div class="client-name">
+                                                    <h4>Julie Watson</h4>
+                                                    <p>Marketing Manager</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev"
+                                        data-swiper-slide-index="2" style="width: 251.2px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-profile">
+                                                <div class="profile"><img src="./assets/images/2x/sliderimg4.png" alt="">
+                                                </div>
+                                                <div class="client-name">
+                                                    <h4>Julie Watson</h4>
+                                                    <p>Marketing Manager</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
+                                        data-swiper-slide-index="3" style="width: 251.2px; margin-right: 10px;">
+                                        <div class="swiper-slide-container">
+                                            <div class="testimonial-profile">
+                                                <div class="profile"><img src="./assets/images/2x/sliderimg4.png" alt="">
+                                                </div>
+                                                <div class="client-name">
+                                                    <h4>Julie Watson</h4>
+                                                    <p>Marketing Manager</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                             </div>
-                            <p class="slider__txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                nonummy
-                                nibh euismod tincidunt ut laoreet dolore magna aliquam tincidunt is ut <br> tincidunt ut
-                                laoreet
-                                dolore magna aliquam erat volutpat.tincidunt ut laoreet dolore magna aliquam tincidunt
-                                ut
-                                laoreet dolore magna aliquam Ut wisi enim<br> ad minim venulla facilisi.</p>
-                        </div>
-                        <div class="slider__contents__img swiper-slide">
-                            <div class="quote-img">
-                                <div class="quote-img-div">
-                                    <img src="./assets/images/2x/quote.png" alt="">
-                                </div>
-                            </div>
-                            <p class="slider__txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                nonummy
-                                nibh euismod tincidunt ut laoreet dolore magna aliquam tincidunt is ut <br> tincidunt ut
-                                laoreet
-                                dolore magna aliquam erat volutpat.tincidunt ut laoreet dolore magna aliquam tincidunt
-                                ut
-                                laoreet dolore magna aliquam Ut wisi enim<br> ad minim venulla facilisi.</p>
-                        </div>
-                        <div class="slider__contents__img swiper-slide">
-                            <div class="quote-img">
-                                <div class="quote-img-div">
-                                    <img src="./assets/images/2x/quote.png" alt="">
-                                </div>
-                            </div>
-                            <p class="slider__txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                nonummy
-                                nibh euismod tincidunt ut laoreet dolore magna aliquam tincidunt is ut <br> tincidunt ut
-                                laoreet
-                                dolore magna aliquam erat volutpat.tincidunt ut laoreet dolore magna aliquam tincidunt
-                                ut
-                                laoreet dolore magna aliquam Ut wisi enim<br> ad minim venulla facilisi.</p>
-                        </div>
-                        <div class="slider__contents__img swiper-slide">
-                            <div class="quote-img">
-                                <div class="quote-img-div">
-                                    <img src="./assets/images/2x/quote.png" alt="">
-                                </div>
-                            </div>
-                            <p class="slider__txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                nonummy
-                                nibh euismod tincidunt ut laoreet dolore magna aliquam tincidunt is ut <br> tincidunt ut
-                                laoreet
-                                dolore magna aliquam erat volutpat.tincidunt ut laoreet dolore magna aliquam tincidunt
-                                ut
-                                laoreet dolore magna aliquam Ut wisi enim<br> ad minim venulla facilisi.</p>
+
                         </div>
 
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row  pt-5 pb-5">
-                        <div class="swiper mySwiper1">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="cardCstm">
-                                        <div class="cardDiv">
-                                            <div class="d-flex align-items-center" style="width: 220px;">
-                                                <div class="slider-text">
-                                                    <div class="cardDivImg">
-                                                        <img class="card-img-top"
-                                                            src="./assets/images/2x/sliderimg1.png" alt="">
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h4>John Smith</h4>
-                                                    <span>Marketing Manager</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="swiper-slide">
-                                        <div class="cardCstm">
-                                            <div class="cardDiv">
-                                                <div class="d-flex align-items-center" style="width: 220px;">
-                                                    <div class="slider-text">
-                                                        <div class="cardDivImg">
-                                                            <img class="card-img-top"
-                                                                src="./assets/images/2x/sliderimg4.png" alt="">
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <h4>John Smith</h4>
-                                                        <span>Marketing Manager</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="swiper-slide">
-                                        <div class="cardCstm">
-                                            <div class="cardDiv">
-                                                <div class="d-flex align-items-center" style="width: 220px;">
-                                                    <div class="slider-text">
-                                                        <div class="cardDivImg">
-                                                            <img class="card-img-top"
-                                                                src="./assets/images/2x/sliderimg3.png" alt="">
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <h4>John Smith</h4>
-                                                        <span>Marketing Manager</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="cardCstm">
-                                        <div class="cardDiv">
-                                            <div class="d-flex align-items-center" style="width: 220px;">
-                                                <div class="slider-text">
-                                                    <div class="cardDivImg">
-                                                        <img class="card-img-top"
-                                                            src="./assets/images/2x/sliderimg1.png" alt="">
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h4>John Smith</h4>
-                                                    <span>Marketing Manager</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="swiper-slide">
-                                        <div class="cardCstm">
-                                            <div class="cardDiv">
-                                                <div class="d-flex align-items-center" style="width: 220px;">
-                                                    <div class="slider-text">
-                                                        <div class="cardDivImg">
-                                                            <img class="card-img-top"
-                                                                src="./assets/images/2x/sliderimg4.png" alt="">
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <h4>John Smith</h4>
-                                                        <span>Marketing Manager</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="swiper-slide">
-                                        <div class="cardCstm">
-                                            <div class="cardDiv">
-                                                <div class="d-flex align-items-center" style="width: 220px;">
-                                                    <div class="slider-text">
-                                                        <div class="cardDivImg">
-                                                            <img class="card-img-top"
-                                                                src="./assets/images/2x/sliderimg3.png" alt="">
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <h4>John Smith</h4>
-                                                        <span>Marketing Manager</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1826,12 +2291,12 @@
                         </div>
                     </nav>
                     <div class="col-lg-6 mt-5">
-                        <h2>
+                        <h2 class="wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
                             Lift your business to new
                             heights with our digital
                             marketing services
                         </h2>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+                        <p class="wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
                             tincidunt
                             ut laoreet dolore</p>
                     </div>
@@ -1850,13 +2315,15 @@
                     </div>
                     <div class="col-lg-6  col-md-6 d-flex justify-content-end footer-icons">
                         <a href="">
-                            <p>Copyrightsby@BugDigit.com</p>
+                            <p class="wow animated fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">Copyrightsby@BugDigit.com</p>
                         </a>
                     </div>
                 </div>
             </div>
         </section>
         <!-- ===============================footer Closed======================== -->
+    </div>
+    <!-- =======================butter div closed============================ -->
     <!-- jquery  -->
     <script src="./assets/js/jquery.min.js"></script>
     <!-- bootstrap js  -->
@@ -1875,6 +2342,240 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
     <!-- custom js  -->
     <script type="module" src="./assets/js/main.js"></script>
+     <script>
+        butter.init({
+            wrapperId: 'butter'
+        });
+        // slider open 
+        // testimonial slider
+        var galleryTop = new Swiper('.gallery-top', {
+            spaceBetween: 10,
+
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            loop: true,
+            loopedSlides: 4
+        });
+        var galleryThumbs = new Swiper('.gallery-thumbs', {
+            spaceBetween: 10,
+            centeredSlides: true,
+            slidesPerView: 5,
+            touchRatio: 0.1,
+            slideToClickedSlide: true,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+
+            loopedSlides: 4,
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 40,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 50,
+                },
+                1440: {
+                    slidesPerView: 5,
+                    spaceBetween: 50,
+                },
+            }
+        });
+        galleryTop.controller.control = galleryThumbs;
+        galleryThumbs.controller.control = galleryTop;
+
+
+
+
+
+
+        const legLeft = document.querySelector('.leg-left');
+        const legRight = document.querySelector('.leg-right');
+
+        window.addEventListener('scroll', () => {
+
+            positionElements();
+            legLeft.style.animationName = "moveleft";
+            legRight.style.animationName = "moveright";
+            gsap.to("legLeft", { duration: 0.5, ease: "power2.out" });
+            gsap.to("legRight", { duration: 0.5, ease: "power2.out" });
+
+            if (window.scrollY >= 750) {
+
+                legLeft.style.animationName = "moveleft-off";
+                legRight.style.animationName = "moveright-off";
+                gsap.to("legLeft", { duration: 0.5, ease: "power2.out" });
+                gsap.to("legRight", { duration: 0.5, ease: "power2.out" });
+
+            } else if (window.scrollY === 0) {
+
+                legLeft.style.animationName = "moveleft-off";
+                legRight.style.animationName = "moveright-off";
+                gsap.to("legLeft", { duration: 0.5, ease: "power2.out" });
+                gsap.to("legRight", { duration: 0.5, ease: "power2.out" });
+
+            } else {
+
+                legLeft.style.animationName = "moveleft";
+                legRight.style.animationName = "moveright";
+                gsap.to("legLeft", { duration: 0.5, ease: "power2.out" });
+                gsap.to("legRight", { duration: 0.5, ease: "power2.out" });
+            }
+
+        })
+
+        window.addEventListener('resize', () => {
+            pathPosition = path.getBoundingClientRect();
+            documentPosition = document.body.getBoundingClientRect();
+
+            positionElements();
+        });
+
+        positionElements();
+
+        window.onscroll = function (e) {
+            console.log(window.scrollY);
+        };
+
+
+
+        let mouseCursor = document.querySelector(".cursor");
+
+        window.addEventListener('DOMContentLoaded', cursor);
+        window.addEventListener('mousemove', cursor);
+        document.addEventListener('mouseenter', () => mouseCursor.style.display = 'block');
+        document.addEventListener('mouseleave', () => mouseCursor.style.display = 'none');
+
+
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent)) {
+            jQuery('.cursor').remove();
+        } else {
+            mouseCursor.style.display = 'block';
+        }
+
+        function cursor(e) {
+
+            mouseCursor.style.top = "calc(" + e.clientY + "px - 10px)";
+            mouseCursor.style.left = "calc(" + e.clientX + "px - 10px)";
+        }
+
+
+        var scroller = {
+            target: document.querySelector("#scroll-container"),
+            ease: 2, // <= scroll speed
+            endY: 0,
+            y: 0,
+            resizeRequest: 1,
+            scrollRequest: 0,
+        };
+
+
+
+        const navLogo = document.querySelector("#nav-logo");
+        const toggle = document.querySelector("#toggle");
+        const homeHeaderButton = document.querySelector(".home-header-button");
+        const offerButton = document.querySelector(".offer-button");
+        const footerButton = document.querySelector(".footer-button");
+        const footerIcons = document.querySelectorAll(".footer-icons a");
+        const facebookIcon = footerIcons[0];
+        const instaIcon = footerIcons[1];
+        const linkedinIcon = footerIcons[2];
+        const pagesNames = document.querySelectorAll(".pages-names ul li a");
+        const pageabout = pagesNames[0];
+        const pageportfolio = pagesNames[1];
+        const pagecontact = pagesNames[2];
+        const arrowsButton = document.querySelectorAll(".arrows button");
+        const arrowButtonOne = arrowsButton[0];
+        const arrowButtonTwo = arrowsButton[1];
+        const footerLogo = document.querySelector(".footer-logo");
+        const navOverlayMenus = document.querySelectorAll('nav.overlay-menu ul li a');
+        const firstNavLink = navOverlayMenus[0];
+        const secondNavLink = navOverlayMenus[1];
+        const thirdNavLink = navOverlayMenus[2];
+        const fourthNavLink = navOverlayMenus[3];
+
+        const cursorChangeElements = [facebookIcon, arrowButtonOne, arrowButtonTwo, originalBtn, instaIcon, linkedinIcon, pageabout, pageportfolio, pagecontact, navLogo, firstNavLink,
+            secondNavLink, thirdNavLink, fourthNavLink, homeHeaderButton, offerButton, footerButton,
+            footerLogo, toggle, footerIcons, pagesNames];
+
+
+
+        cursorChangeElements.forEach(element => {
+            if (element && typeof element.addEventListener === 'function') {
+
+                element.addEventListener('mouseover', function () {
+                    window.addEventListener('DOMContentLoaded', cursor);
+                    window.addEventListener('mousemove', cursor);
+                    document.addEventListener('mouseenter', () => mouseCursor.style.display = 'block');
+                    document.addEventListener('mouseleave', () => mouseCursor.style.display = 'none');
+
+
+                    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent)) {
+                        jQuery('.cursor').remove();
+                    } else {
+                        mouseCursor.style.display = 'block';
+                    }
+                    function cursor(e) {
+
+                        mouseCursor.style.top = "calc(" + e.clientY + "px - 18px)";
+                        mouseCursor.style.left = "calc(" + e.clientX + "px - 18px)";
+                        mouseCursor.classList.add("div-cursor-two");
+                        TweenMax.to(mouseCursor, 0.1, { ease: Power2.easeInOut });
+                    }
+                    var scroller = {
+                        target: document.querySelector("#scroll-container"),
+                        ease: 2, // <= scroll speed
+                        endY: 0,
+                        y: 0,
+                        resizeRequest: 1,
+                        scrollRequest: 0,
+                    };
+                });
+                element.addEventListener('mouseleave', function () {
+                    window.addEventListener('DOMContentLoaded', cursor);
+                    window.addEventListener('mousemove', cursor);
+                    document.addEventListener('mouseenter', () => mouseCursor.style.display = 'block');
+                    document.addEventListener('mouseleave', () => mouseCursor.style.display = 'none');
+
+
+                    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent)) {
+                        jQuery('.cursor').remove();
+                    } else {
+                        mouseCursor.style.display = 'block';
+                    }
+                    function cursor(e) {
+
+                        mouseCursor.style.top = "calc(" + e.clientY + "px - 10px)";
+                        mouseCursor.style.left = "calc(" + e.clientX + "px - 10px)";
+                        mouseCursor.classList.remove("div-cursor-two");
+                        TweenMax.to(mouseCursor, 0.1, { ease: Power2.easeInOut });
+                    }
+                    var scroller = {
+                        target: document.querySelector("#scroll-container"),
+                        ease: 2, // <= scroll speed
+                        endY: 0,
+                        y: 0,
+                        resizeRequest: 1,
+                        scrollRequest: 0,
+                    };
+                });
+            }
+        });
+
+
+
+
+        // slider  closed
+    </script> 
 </body>
 
 </html>
