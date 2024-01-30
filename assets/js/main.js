@@ -513,307 +513,247 @@ function flyTheButterfly(elm) {
 
 // firefiles
 
-// Swiper Slider
-var swiper = new Swiper(".mySwiper2", {
-  slidesPerView: 3,
-  spaceBetween: 30,
-  autoplay: true,
-  loop: true,
-  autoplay: {
-    delay: 4000,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  breakpoints: {
-    // when window width is >= 320px
-    768: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    375: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    280: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    414: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    1920: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    1600: {
-      slidesPerView: 3,
-      spaceBetween: 20
-
-    },
-    1366: {
-      slidesPerView: 1,
-      spaceBetween: 10
-    },
-    1400: {
-      slidesPerView: 1,
-      spaceBetween: 10
-    },
-    1366: {
-      slidesPerView: 1,
-      spaceBetween: 10
-    },
-    1366: {
-      slidesPerView: 1,
-      spaceBetween: 10
-    },
-    2560: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    1024: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    }
-  },
-});
-var swiper = new Swiper(".mySwiper1", {
-  slidesPerView: 5,
-  spaceBetween: 30,
-  autoplay: true,
-  loop: true,
-  autoplay: {
-    delay: 4000,
-  },
-  breakpoints: {
-    // when window width is >= 320px
-    768: {
-      slidesPerView: 3,
-      spaceBetween: 20
-    },
-    375: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    280: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    414: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    1920: {
-      slidesPerView: 5,
-      spaceBetween: 20
-    },
-    1600: {
-      slidesPerView: 3,
-      spaceBetween: 20
-
-    },
-    1366: {
-      slidesPerView: 3,
-      spaceBetween: 10
-    },
-    1400: {
-      slidesPerView: 5,
-      spaceBetween: 10
-    },
-    1366: {
-      slidesPerView: 5,
-      spaceBetween: 10
-    },
-    1366: {
-      slidesPerView: 5,
-      spaceBetween: 10
-    },
-    2560: {
-      slidesPerView: 5,
-      spaceBetween: 20
-    },
-    1024: {
-      slidesPerView: 3,
-      spaceBetween: 20
-    }
-  },
-});
-// 
-
 
 // spider Crawling 
+// const spider = document.getElementById('spider');
+// const spiderimg = document.getElementById('spiderimg');
+// const svgEl = document.getElementById('eeBJI2rPH0Y1');
+// const whatWeOfferSection = document.querySelector('.what-we-offer');
+// const embraceMarketingSection = document.querySelector('.Embrace-Marketing');
+// const bannerSection = document.getElementById('banner');
+// let scrollTimeout;
+// let isPaused = false;
+// let originalSpiderPosition = 0;
+// let isMouseWheelScrolling = false;
+
+// window.addEventListener('scroll', function () {
+//   clearTimeout(scrollTimeout);
+
+//   // Show the spider when scrolling
+//   spiderimg.style.opacity = 0;
+
+//   // Show the text element when scrolling stops
+//   svgEl.style.opacity = 1;
+
+//   const scrollPosition = window.scrollY;
+
+//   // Get the top position and height of the what-we-offer section
+//   const whatWeOfferTop = whatWeOfferSection.offsetTop;
+//   const whatWeOfferHeight = whatWeOfferSection.offsetHeight;
+
+//   // Get the top position and height of the embraceMarketing section
+//   const embraceMarketingTop = embraceMarketingSection.offsetTop;
+//   const embraceMarketingHeight = embraceMarketingSection.offsetHeight;
+
+//   // Get the top position of the banner section
+//   const bannerTop = bannerSection.offsetTop;
+
+//   // Check if the spider is in the what-we-offer section
+//   if (!isPaused && scrollPosition > whatWeOfferTop && scrollPosition < whatWeOfferTop + whatWeOfferHeight) {
+//     // Spider crawls from left to right in the what-we-offer section
+//     spider.style.transform = `translate3d(${-(scrollPosition + window.innerWidth + 70)}px, ${scrollPosition + 70}px, 0)`;
+
+//     // Add width and height to the spider
+//     spider.style.width = '400px';
+//     spider.style.height = '400px';
+//     spider.style.left = '-50px';
+
+//     isPaused = true;
+//     spider.style.transition = '6s ease-in-out';
+
+//     setTimeout(() => {
+//       isPaused = false;
+//       // Reset width and height after 2 minutes
+//       spider.style.width = '400px';
+//       spider.style.height = '400px';
+//       spider.style.right = '-50px';
+//       spiderimg.style.opacity = 1;
+//       svgEl.style.opacity = 0;
+//       spider.style.transition = '5s ease-in-out';
+//     }, 120000); // 2 minutes in milliseconds
+
+//     return;
+//   }
+
+//   // Check if the spider is in the embraceMarketing section
+//   if (!isPaused && scrollPosition > embraceMarketingTop && scrollPosition < embraceMarketingTop + embraceMarketingHeight) {
+//     // Save the original position if not paused
+//     if (!isPaused) {
+//       originalSpiderPosition = scrollPosition + 70;
+//     }
+//     // Spider pauses when it reaches the Embrace-Marketing section
+//     isPaused = true;
+//     return;
+//   }
+// // Check if the spider has reached the banner section
+// if (scrollPosition >= bannerTop) {
+//   // Horizontal center of the window
+//   const stopPositionX = window.innerWidth / 2;
+  
+//   // Vertical center of the banner section
+//   const stopPositionY = bannerTop + (bannerHeight / 2) - 70; // Adjust 70 to center the spider
+
+//   // Stop further transformation when the spider reaches the banner
+//   if (scrollPosition >= stopPositionY) {
+//     spider.style.transition = 'transform 2s ease';
+//     spider.style.transform = `translate3d(${stopPositionX}px, ${stopPositionY}px, 0)`;
+//     return;
+//   }
+// }
+//   // Handle scrolling back
+//   if (isPaused && scrollPosition <= originalSpiderPosition) {
+//     // Reset the spider position to the original position
+//     spider.style.transform = `translate3d(${-(scrollPosition + window.innerWidth + 70)}px, ${originalSpiderPosition}px, 0)`;
+//     spider.style.left = '630px'; // Reset left offset when scrolling back
+//     spider.style.width = '600px';
+//     spider.style.height = '600px';
+//     spider.style.position = 'absolute';
+//     spider.style.top = '100px';
+//     spider.style.transition = '5s ease-in-out';
+//     isPaused = false;
+//     // Clear transition after a short delay to allow smooth scrolling
+//     setTimeout(() => {
+//       spider.style.transition = '5s ease-in-out';
+//       // Adjust left position for mobile devices
+//       if (window.innerWidth < 414) {
+//         spider.style.left = '175px';
+//       } 
+//       else if (window.innerWidth < 375) {
+//         spider.style.left = '213px'; // Smaller screens
+//       } 
+//       else if(this.window.innerWidth>=2560){
+//         spider.style.left='1185px'
+//       }
+//       else if(this.window.innerWidth>=1920){
+//         spider.style.left='1185px'
+//       }
+//       else if (window.innerWidth >= 1600) {
+//         spider.style.left = '865px'; // larger screens
+//       } 
+//       else if (window.innerWidth >= 1440) {
+//         spider.style.left = '705px'; // larger screens
+//       } 
+//       else if (window.innerWidth >= 1366) {
+//         spider.style.left = '630px'; // larger screens
+//       } 
+//       else if (window.innerWidth >= 768) {
+//         spider.style.left = '365px'; // Smaller screens
+//       } 
+//       else {
+//         spider.style.left = '213px';
+//       }
+//     }, 500); // Adjust the delay as needed
+//   }
+
+//   setTimeout(() => {
+//     const newScrollPosition = window.scrollY;
+//     spider.style.transform = `translate3d(0, ${newScrollPosition + 70}px, 0)`;
+
+//     setTimeout(() => {
+//       spiderimg.style.opacity = 1;
+//       svgEl.style.opacity = 0;
+//     }, 6000);
+//   }, 1000);
+
+//   // Hide the spider image after some seconds
+//   scrollTimeout = setTimeout(() => {
+//     // Add any additional actions to be performed after the spider has stopped
+//   }, 3000);
+// });
+// // Add wheel event listener for smooth mouse wheel scrolling
+// window.addEventListener('wheel', function (event) {
+//   if (!isMouseWheelScrolling) {
+//     isMouseWheelScrolling = true;
+
+//     // Add your logic for smooth mouse wheel scrolling here
+//     // For example, you can scroll a certain distance or trigger other animations
+
+//     setTimeout(() => {
+//       isMouseWheelScrolling = false;
+//     }, 500); // Adjust the duration as needed
+//   }
+// });
 const spider = document.getElementById('spider');
 const spiderimg = document.getElementById('spiderimg');
 const svgEl = document.getElementById('eeBJI2rPH0Y1');
-const whatWeOfferSection = document.querySelector('.what-we-offer');
-const embraceMarketingSection = document.querySelector('.Embrace-Marketing');
-const bannerSection = document.getElementById('banner');
 let scrollTimeout;
-let isPaused = false;
-let originalSpiderPosition = 0;
-let isMouseWheelScrolling = false;
 
 window.addEventListener('scroll', function () {
-  clearTimeout(scrollTimeout);
+    clearTimeout(scrollTimeout);
 
-  // Show the spider when scrolling
-  spiderimg.style.opacity = 0;
+    // Show the spider when scrolling
+    spiderimg.style.opacity = 0;
 
-  // Show the text element when scrolling stops
-  svgEl.style.opacity = 1;
+    // Show the text element when scrolling stops
+    svgEl.style.opacity = 1;
 
-  const scrollPosition = window.scrollY;
+    const scrollPosition = window.scrollY;
 
-  // Get the top position and height of the what-we-offer section
-  const whatWeOfferTop = whatWeOfferSection.offsetTop;
-  const whatWeOfferHeight = whatWeOfferSection.offsetHeight;
+    // Get the top position and height of the what-we-offer section
+    const whatWeOfferSection = document.querySelector('.what-we-offer');
+    const whatWeOfferTop = whatWeOfferSection.offsetTop;
+    const whatWeOfferHeight = whatWeOfferSection.offsetHeight;
 
-  // Get the top position and height of the embraceMarketing section
-  const embraceMarketingTop = embraceMarketingSection.offsetTop;
-  const embraceMarketingHeight = embraceMarketingSection.offsetHeight;
+    // Get the top position and height of the circle-div
+    const circleDiv = document.querySelector('.circle-div');
+    const circleDivTop = circleDiv.offsetTop;
 
-  // Get the top position of the banner section
-  const bannerTop = bannerSection.offsetTop;
-
-  // Check if the spider is in the what-we-offer section
-  if (!isPaused && scrollPosition > whatWeOfferTop && scrollPosition < whatWeOfferTop + whatWeOfferHeight) {
-    // Spider crawls from left to right in the what-we-offer section
-    spider.style.transform = `translate3d(${-(scrollPosition + window.innerWidth + 70)}px, ${scrollPosition + 70}px, 0)`;
-
-    // Add width and height to the spider
-    spider.style.width = '400px';
-    spider.style.height = '400px';
-    spider.style.left = '-50px';
-
-    isPaused = true;
-    spider.style.transition = '6s ease-in-out';
-
-    setTimeout(() => {
-      isPaused = false;
-      // Reset width and height after 2 minutes
-      spider.style.width = '400px';
-      spider.style.height = '400px';
-      spider.style.right = '-50px';
-      spiderimg.style.opacity = 1;
-      svgEl.style.opacity = 0;
-      spider.style.transition = '5s ease-in-out';
-    }, 120000); // 2 minutes in milliseconds
-
-    return;
-  }
-
-  // Check if the spider is in the embraceMarketing section
-  if (!isPaused && scrollPosition > embraceMarketingTop && scrollPosition < embraceMarketingTop + embraceMarketingHeight) {
-    // Save the original position if not paused
-    if (!isPaused) {
-      originalSpiderPosition = scrollPosition + 70;
+    // Check if the spider is in the what-we-offer section
+    if (scrollPosition > whatWeOfferTop && scrollPosition < whatWeOfferTop + whatWeOfferHeight) {
+        // Stop the spider
+        spider.style.transition = 'none';
+        spider.style.transform = `translateY(${whatWeOfferTop + 70}px)`;
+        return;
     }
-    // Spider pauses when it reaches the Embrace-Marketing section
-    isPaused = true;
-    return;
-  }
-// Check if the spider has reached the banner section
-if (scrollPosition >= bannerTop) {
-  // Horizontal center of the window
-  const stopPositionX = window.innerWidth / 2;
-  
-  // Vertical center of the banner section
-  const stopPositionY = bannerTop + (bannerHeight / 2) - 70; // Adjust 70 to center the spider
 
-  // Stop further transformation when the spider reaches the banner
-  if (scrollPosition >= stopPositionY) {
-    spider.style.transition = 'transform 2s ease';
-    spider.style.transform = `translate3d(${stopPositionX}px, ${stopPositionY}px, 0)`;
-    return;
-  }
-}
-  // Handle scrolling back
-  if (isPaused && scrollPosition <= originalSpiderPosition) {
-    // Reset the spider position to the original position
-    spider.style.transform = `translate3d(${-(scrollPosition + window.innerWidth + 70)}px, ${originalSpiderPosition}px, 0)`;
-    spider.style.left = '630px'; // Reset left offset when scrolling back
-    spider.style.width = '600px';
-    spider.style.height = '600px';
-    spider.style.position = 'absolute';
-    spider.style.top = '100px';
-    spider.style.transition = '5s ease-in-out';
-    isPaused = false;
-    // Clear transition after a short delay to allow smooth scrolling
-    setTimeout(() => {
-      spider.style.transition = '5s ease-in-out';
-      // Adjust left position for mobile devices
-      if (window.innerWidth < 414) {
-        spider.style.left = '175px';
-      } 
-      else if (window.innerWidth < 375) {
-        spider.style.left = '213px'; // Smaller screens
-      } 
-      else if(this.window.innerWidth>=2560){
-        spider.style.left='1185px'
-      }
-      else if(this.window.innerWidth>=1920){
-        spider.style.left='1185px'
-      }
-      else if (window.innerWidth >= 1600) {
-        spider.style.left = '865px'; // larger screens
-      } 
-      else if (window.innerWidth >= 1440) {
-        spider.style.left = '705px'; // larger screens
-      } 
-      else if (window.innerWidth >= 1366) {
-        spider.style.left = '630px'; // larger screens
-      } 
-      else if (window.innerWidth >= 768) {
-        spider.style.left = '365px'; // Smaller screens
-      } 
-      else {
-        spider.style.left = '213px';
-      }
-    }, 500); // Adjust the delay as needed
-  }
+    // Continue scrolling animation if not in the what-we-offer section
+    spider.style.transition = 'none';
 
-  setTimeout(() => {
-    const newScrollPosition = window.scrollY;
-    spider.style.transform = `translate3d(0, ${newScrollPosition + 70}px, 0)`;
+    // Move the spider based on scroll position with smoothness
+    const targetY = Math.min(scrollPosition + 70, whatWeOfferTop);
+    smoothScroll(spider, targetY);
 
     setTimeout(() => {
-      spiderimg.style.opacity = 1;
-      svgEl.style.opacity = 0;
+        spiderimg.style.opacity = 1;
+        svgEl.style.opacity = 0;
     }, 6000);
-  }, 1000);
 
-  // Hide the spider image after some seconds
-  scrollTimeout = setTimeout(() => {
-    // Add any additional actions to be performed after the spider has stopped
-  }, 3000);
+    // Hide the spider image after some seconds
+    scrollTimeout = setTimeout(() => {
+        // Add any additional actions to be performed after the spider has stopped
+    }, 3000);
 });
-// Add wheel event listener for smooth mouse wheel scrolling
-window.addEventListener('wheel', function (event) {
-  if (!isMouseWheelScrolling) {
-    isMouseWheelScrolling = true;
 
-    // Add your logic for smooth mouse wheel scrolling here
-    // For example, you can scroll a certain distance or trigger other animations
+function smoothScroll(element, targetY) {
+    let currentY = parseFloat(getComputedStyle(element).transform.split(',')[5]);
+    if (isNaN(currentY)) {
+        currentY = 0;
+    }
 
-    setTimeout(() => {
-      isMouseWheelScrolling = false;
-    }, 500); // Adjust the duration as needed
-  }
-});
+    const distance = targetY - currentY;
+    const duration = 1000; // Adjust the duration as needed
+    const startTime = performance.now();
+
+    function step() {
+        const currentTime = performance.now();
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const easeProgress = easeInOutQuad(progress);
+        element.style.transform = `translateY(${currentY + distance * easeProgress}px)`;
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        }
+    }
+
+    requestAnimationFrame(step);
+}
+
+function easeInOutQuad(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+}
+
+
+
 // spider Crawling
 
 
