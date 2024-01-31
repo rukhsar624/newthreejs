@@ -1,0 +1,2385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/images/fav-icon.png">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://rawcdn.githack.com/SochavaAG/example-mycode/master/_common/css/reset.css">
+    <link rel="stylesheet" href="https://raw.githack.com/SochavaAG/example-mycode/master/pens/1_plugins/fancybox-3.1.25/jquery.fancybox.min.css">
+    <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://rawgit.com/nathco/jQuery.scrollSpeed/master/jQuery.scrollSpeed.js"></script>
+    <script src="https://raw.githack.com/SochavaAG/example-mycode/master/pens/1_plugins/fancybox-3.1.25/jquery.fancybox.min.js"></script>
+</head>
+<style>
+/* Start Web Animation Css */
+
+#canvas {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 0;
+}
+
+.web-section {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    /* background: url("../images/web-section-bg.png"); */
+    /* background: url("../images/bg.jpg"); */
+    background: rgb(253,187,45);
+    background: linear-gradient(0deg, rgb(157 107 0) 0%, rgb(44 33 16) 21%, rgba(13,17,17,1) 43%);
+    background-size: cover, cover;
+    background-position: center center, center center;
+    background-repeat: no-repeat, no-repeat;
+    z-index: 9;
+}
+
+canvas {
+    outline: none;
+}
+
+.buttons,
+.arrows {
+    position: absolute;
+    margin: 0px;
+    top: 94%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.left,
+.right {
+    /* cursor: pointer; */
+    /* padding: 10px 14px; */
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid rgb(129, 90, 18);
+    background-color: orange;
+    transition: all ease-in-out .3s;
+    outline: none;
+    font-family: "gilroy-medium";
+    font-size: 15px;
+    color: #000000;
+    margin: 3px;
+}
+
+.original-btn {
+    /* cursor: pointer; */
+    /* padding: 8px 16px; */
+    border-radius: 50%;
+    border: 2px solid orange;
+    background-color: orange;
+    transition: all ease-in-out .3s;
+    outline: none;
+    font-family: "gilroy-medium";
+    font-size: 18px;
+    color: #000000;
+    position: absolute;
+    top: 8%;
+    left: 93.5%;
+    transform: translate(-50%, -50%);
+    display: none;
+    opacity: 0;
+    height: 50px;
+    width: 50px;
+}
+
+.original-btn:hover {
+    background-color: transparent;
+    color: #fff;
+} 
+
+
+.left:hover,
+.right:hover {
+    border: 2px solid orange;
+    background-color: rgb(129, 90, 18);
+    color: #fff;
+}
+
+#con1 h2,
+#con2 h2,
+#con3 h2,
+#con4 h2,
+#con5 h2 {
+    color: #fff;
+    font-family: "conthrax-regular";
+    font-weight: 700;
+    font-size: 35px;
+}
+
+#con1 p,
+#con2 p,
+#con3 p,
+#con4 p,
+#con5 p {
+    color: #fff;
+    font-family: "gilroy-medium";
+    font-weight: 500;
+    font-size: 15px;
+}
+
+#con1,
+#con2,
+#con3,
+#con4,
+#con5 {
+    display: none;
+    transition: all ease-in-out .5s;
+}
+
+#con1 {
+    position: absolute;
+    top: 50%;
+    left: 79%;
+    transform: translate(-305%, -70%);
+}
+
+#con2 {
+    position: absolute;
+    top: 40%;
+    left: 72%;
+    transform: translate(-35%, -70%);
+}
+
+#con3 {
+    position: absolute;
+    top: 40%;
+    left: 79%;
+    transform: translate(-310%, -70%);
+}
+
+#con4 {
+    position: absolute;
+    top: 70%;
+    left: 74%;
+    transform: translate(-35%, -70%);
+}
+
+#con5 {
+    position: absolute;
+    top: 75%;
+    left: 70%;
+    transform: translate(-200%, -70%);
+}
+
+#out-1,
+#out-2,
+#out-3,
+#out-4,
+#out-5 {
+    position: absolute;
+    animation: laptop 4s infinite linear;
+    transform: translate(-50%, -50%);
+}
+
+#out-1 {
+    top: 81%;
+    left: 41%;
+}
+
+#out-2 {
+    top: 73%;
+    left: 15%;
+}
+
+#out-3 {
+    top: 38%;
+    left: 20%;
+}
+
+#out-4 {
+    top: 88%;
+    left: 70%;
+}
+
+#out-5 {
+    top: 38%;
+    left: 64%;
+}
+
+@keyframes laptop {
+    0% {
+        transform: rotate(0deg);
+        margin-top: 0px;
+    }
+
+    25% {
+        transform: rotate(0deg);
+        /* margin-top: -6px;
+        margin-bottom: 6px; */
+    }
+
+    50% {
+        transform: rotate(0deg);
+        /* margin-top: 0px;
+        margin-bottom: 0px; */
+    }
+
+    75% {
+        transform: rotate(0deg);
+        /* margin-top: -6px;
+        margin-bottom: 6px; */
+    }
+
+    100% {
+        transform: rotate(0deg);
+        margin-top: 0px;
+    }
+}
+
+.inner-box {
+    background-color: #7c7c7c;
+    height: 40px;
+    width: 200px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.shade {
+    background-color: #505050;
+    height: 20px;
+    width: 110px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px -12px 20px 14px #303030, inset 0px 0px 30px 0px #444444;
+    animation: lab 8s infinite linear;
+}
+
+@keyframes lab {
+    0% {
+        box-shadow: 0px -12px 20px 14px #303030, inset 0px 0px 30px 0px #525252;
+    }
+
+    50% {
+        box-shadow: 0px 0px 10px 2px #303030, inset 0px 0px 30px 0px #525252;
+    }
+
+    100% {
+        box-shadow: 0px -12px 20px 14px #303030, inset 0px 0px 30px 0px #525252;
+    }
+}
+
+
+#out-1 .inner-box {
+    background-color: orange;
+    height: 50px;
+    width: 260px;
+}
+
+#out-1 .inner-box .shade {
+    background-color: rgb(129, 90, 18);
+    height: 26px;
+    width: 140px;
+    box-shadow: 0px -8px 20px 12px #815A12, inset 0px 0px 30px 0px rgb(170, 113, 6);
+    animation: lab2 8s infinite linear;
+}
+
+
+@keyframes lab2 {
+    0% {
+        box-shadow: 0px -8px 20px 12px #815A12, inset 0px 0px 30px 0px rgb(170, 113, 6);
+    }
+
+    50% {
+        box-shadow: 0px 0px 10px 2px #815A12, inset 0px 0px 30px 0px rgb(170, 113, 6);
+    }
+
+    100% {
+        box-shadow: 0px -8px 20px 12px #815A12, inset 0px 0px 30px 0px rgb(170, 113, 6);
+    }
+}
+
+@keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@-webkit-keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@-moz-keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@-ms-keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+@keyframes move-clouds-back {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+@-webkit-keyframes move-clouds-back {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+@-moz-keyframes move-clouds-back {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+@-ms-keyframes move-clouds-back {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+.stars,
+.twinkle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: -1;
+
+}
+
+div#particles-js {
+    height: 100vh;
+    width: 100vw;
+}
+
+.stars {
+    background: url(http://sylvaingarnot.fr/media/stars.png);
+    background-size: cover, cover, cover;
+    background-position: center, center, center;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    z-index: -1;
+    -moz-animation: move-twink-back 200s linear infinite;
+    -ms-animation: move-twink-back 200s linear infinite;
+    -o-animation: move-twink-back 200s linear infinite;
+    -webkit-animation: move-twink-back 200s linear infinite;
+    animation: move-twink-back 200s linear infinite;
+}
+
+.twinkle {
+    background: transparent url(http://sylvaingarnot.fr/media/twinkling.png) repeat top center;
+    z-index: -1;
+    -moz-animation: move-twink-back 200s linear infinite;
+    -ms-animation: move-twink-back 200s linear infinite;
+    -o-animation: move-twink-back 200s linear infinite;
+    -webkit-animation: move-twink-back 200s linear infinite;
+    animation: move-twink-back 200s linear infinite;
+}
+
+.object1,
+.object2,
+.object3,
+.object4,
+.object5 {
+    position: absolute;
+}
+
+/* .div-cursor {
+    position: absolute;
+    border: 10px solid #FFA910;
+    box-shadow: 0px 0px 20px #FFA910, inset 0px 0px 0px 5px #ca7900;
+    border-radius: 50%; 
+    z-index: 100;
+    display: block;
+    opacity: 1;
+    z-index: 99999999;
+    pointer-events: none;
+  } */
+
+  .cursor{
+    display:none;
+    width: 20px;
+    height: 20px;
+    border: 10px solid #FFA910;
+    box-shadow: 0px 0px 20px #FFA910, inset 0px 0px 0px 5px #ca7900;
+    border-radius: 50%; 
+    position: fixed;
+    transition: all 0.3s ease;
+    transition-property: background, transform;
+    transform-origin: center center;
+    z-index: 99999999;
+    pointer-events: none;
+}
+
+.div-cursor-two {
+    /* position: absolute; */
+    width: 36px; 
+    height: 36px;
+    background-color: #0000; 
+    border: 3px solid #fff;
+    box-shadow: none;
+    /* border-radius: 50%; 
+    z-index: 100;
+    display: none;
+    opacity: 0;
+    z-index: 99999999;
+    pointer-events: none; */
+  }
+
+a:hover .div-cursor {
+    display: none !important;
+}
+
+a:hover .divCursorTwo {
+    display: block !important;
+}
+
+/* .fixed-section {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  } */
+
+/* .box32 {
+    filter: drop-shadow(0 0 10px white);
+} */
+
+/* End Web Animation Css */
+</style>
+<body>
+    <section class="web-section" id="section4">
+
+        <div id="canvas" style="cursor: default;"><canvas width="1440" height="900" style="display: block; width: 1440px; height: 900px;"></canvas></div>
+        <!-- <div id="particles-js"></div>
+
+        <div class="stars"></div>
+        <div class="twinkle"></div> -->
+
+        <!-- NUM 1 LAPTOP -->
+        <div class="content-1" id="con1" style="display: none; opacity: 0;">
+            <h2>AR/VR</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s,</p>
+        </div>
+        <div class="outer-box" id="out-1" style="opacity: 0; display: none;">
+            <div class="inner-box">
+                <div class="shade"></div>
+            </div>
+        </div>
+
+        <!-- NUM 2 MOBILE -->
+        <div class="content-2" id="con2" style="display: none; opacity: 0;">
+            <h2>Mobile App Development</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s,</p>
+        </div>
+        <div class="outer-box" id="out-2" style="opacity: 0; display: none;">
+            <div class="inner-box">
+                <div class="shade"></div>
+            </div>
+        </div>
+
+        <!-- NUM 3 ARROW -->
+        <div class="content-3" id="con3" style="display: none; opacity: 0;">
+            <h2>Game Development</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s,</p>
+        </div>
+        <div class="outer-box" id="out-3" style="opacity: 0; display: none;">
+            <div class="inner-box">
+                <div class="shade"></div>
+            </div>
+        </div>
+
+        <!-- NUM 4 GAME -->
+        <div class="content-4" id="con4" style="display: none; opacity: 0;">
+            <h2>Web Design and Development</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s,</p>
+        </div>
+        <div class="outer-box" id="out-4" style="opacity: 0; display: none;">
+            <div class="inner-box">
+                <div class="shade"></div>
+            </div>
+        </div>
+
+        <!-- NUM 5 THING -->
+        <div class="content-5" id="con5" style="display: block; opacity: 1;">
+            <h2>Blockchain Development</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s,</p>
+        </div>
+        <div class="outer-box" id="out-5" style="opacity: 0; display: none;">
+            <div class="inner-box">
+                <div class="shade"></div>
+            </div>
+        </div>
+
+
+        <div class="arrows">
+            <button type="button" class="left"><i class="fas fa-arrow-left"></i></button>
+            <button type="button" class="right"><i class="fas fa-arrow-right"></i></button>
+        </div>
+
+        <button type="button" class="original-btn" style="opacity: 1; display: block;"><i class="fas fa-times"></i></button>
+
+        <div id="circle"></div>
+
+    </section>
+    <!-- Start Script -->
+
+<script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r133/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
+<script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://unpkg.com/gsap@3.9.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/ScrollTrigger.min.js"></script>
+    <!-- End Script -->
+
+    <script src="">
+        
+// portfolio gallery
+(function ($) {
+    $(function () {
+    });
+})(jQuery);
+
+const body = document.querySelector("body");
+
+// toggle button
+$('#toggle').click(function () {
+    $(this).toggleClass('active');
+    $('#overlay').toggleClass('open');
+    $('#main-navbar').removeClass('mainNavbarClass');
+
+});
+
+$(document).ready(function() {
+    $("#toggle").click(function() {
+        $(body).toggleClass("stopscroll");
+    });
+});
+
+// nav background color
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 10) {
+        $('#main-navbar').addClass('mainNavbarClass');
+    } else {
+        $('#main-navbar').removeClass('mainNavbarClass');
+    }
+});
+
+// animated web-section
+import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.124.0/examples/jsm/controls/OrbitControls.js";
+
+const canvas = document.querySelector("#canvas");
+const part = document.querySelector("#particles-js");
+const originalBtn = document.querySelector(".original-btn");
+const buttonLeft = document.querySelector("button.left");
+const buttonRight = document.querySelector("button.right");
+const contentOne = document.querySelector(".content-1");
+const contentTwo = document.querySelector(".content-2");
+const contentThree = document.querySelector(".content-3");
+const contentFour = document.querySelector(".content-4");
+const contentFive = document.querySelector(".content-5");
+const outOne = document.querySelector("#out-1");
+const outTwo = document.querySelector("#out-2");
+const outThree = document.querySelector("#out-3");
+const outFour = document.querySelector("#out-4");
+const outFive = document.querySelector("#out-5");
+const one = document.querySelector(".one");
+const two = document.querySelector(".two");
+const three = document.querySelector(".three");
+var webSection = document.querySelector(".web-section");
+var circle = document.getElementById("circle");
+const divCursor = document.querySelector(".div-cursor");
+const divCursorTwo = document.querySelector(".div-cursor-two");
+// var myCursor = document.getElementById("my-cursor");
+// const follower = document.getElementById("follower");
+// var marketing = document.querySelector(".marketing");
+
+canvas.allowTouchScrolling = true;
+let scene, camera, renderer;
+let rotateAroundGroup = false;
+
+scene = new THREE.Scene();
+camera = new THREE.PerspectiveCamera(
+45, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
+camera.position.set(0, 0, 5);
+const light = new THREE.HemisphereLight(0xffffff, "cornflowerblue", 1);
+scene.add(light);
+const group = new THREE.Group();
+const geometry = new THREE.PlaneBufferGeometry(1, 1, 1);
+const textureLoader = new THREE.TextureLoader();
+
+
+const texture11 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture12 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture13 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture14 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture15 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture16 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture17 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture18 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture19 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture20 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture21 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture22 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture23 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture24 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture25 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture26 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture27 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture28 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture29 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture30 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture31 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture32 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture33 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture34 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture35 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture36 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture37 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture38 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture39 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture40 = textureLoader.load('./assets/images/2x/star-small.png');
+const texture1 = textureLoader.load('./assets/images/2x/media.png');
+texture1.encoding = THREE.sRGBEncoding;
+const texture2 = textureLoader.load('./assets/images/2x/media.png');
+texture2.encoding = THREE.sRGBEncoding;
+const texture3 = textureLoader.load('./assets/images/2x/media.png');
+texture3.encoding = THREE.sRGBEncoding;
+const texture4 = textureLoader.load('./assets/images/2x/media.png');
+texture4.encoding = THREE.sRGBEncoding;
+const texture5 = textureLoader.load('./assets/images/2x/media.png');
+texture5.encoding = THREE.sRGBEncoding;
+const texture9 = textureLoader.load('./assets/images/2x/media.png');
+// texture9.encoding = THREE.sRGBEncoding;
+const texture10 = textureLoader.load('./assets/images/2x/media.png');
+texture10.encoding = THREE.sRGBEncoding;
+
+
+const material1 = new THREE.MeshBasicMaterial({ map: texture1, transparent: true, alphaTest: 0.8 });
+const material2 = new THREE.MeshBasicMaterial({ map: texture2, transparent: true, alphaTest: 0.6 });
+const material3 = new THREE.MeshBasicMaterial({ map: texture3, transparent: true, alphaTest: 0.8 });
+const material4 = new THREE.MeshBasicMaterial({ map: texture4, transparent: true, alphaTest: 0.5 });
+const material5 = new THREE.MeshBasicMaterial({ map: texture5, transparent: true, alphaTest: 0.8 });
+const material9 = new THREE.MeshBasicMaterial({ map: texture9, transparent: true, alphaTest: 0.9 });
+const material10 = new THREE.MeshBasicMaterial({ map: texture10, transparent: true, alphaTest: -1 });
+const material11 = new THREE.MeshBasicMaterial({ map: texture11, transparent: true, alphaTest: 0 });
+const material12 = new THREE.MeshBasicMaterial({ map: texture12, transparent: true, alphaTest: 0 });
+const material13 = new THREE.MeshBasicMaterial({ map: texture13, transparent: true, alphaTest: 0 });
+const material14 = new THREE.MeshBasicMaterial({ map: texture14, transparent: true, alphaTest: 0 });
+const material15 = new THREE.MeshBasicMaterial({ map: texture15, transparent: true, alphaTest: 0 });
+const material16 = new THREE.MeshBasicMaterial({ map: texture16, transparent: true, alphaTest: 0 });
+const material17 = new THREE.MeshBasicMaterial({ map: texture17, transparent: true, alphaTest: 0 });
+const material18 = new THREE.MeshBasicMaterial({ map: texture18, transparent: true, alphaTest: 0 });
+const material19 = new THREE.MeshBasicMaterial({ map: texture19, transparent: true, alphaTest: 0 });
+const material20 = new THREE.MeshBasicMaterial({ map: texture20, transparent: true, alphaTest: 0 });
+const material21 = new THREE.MeshBasicMaterial({ map: texture21, transparent: true, alphaTest: 0 });
+const material22 = new THREE.MeshBasicMaterial({ map: texture22, transparent: true, alphaTest: 0 });
+const material23 = new THREE.MeshBasicMaterial({ map: texture23, transparent: true, alphaTest: 0 });
+const material24 = new THREE.MeshBasicMaterial({ map: texture24, transparent: true, alphaTest: 0 });
+const material25 = new THREE.MeshBasicMaterial({ map: texture25, transparent: true, alphaTest: 0 });
+const material26 = new THREE.MeshBasicMaterial({ map: texture26, transparent: true, alphaTest: 0 });
+const material27 = new THREE.MeshBasicMaterial({ map: texture27, transparent: true, alphaTest: 0 });
+const material28 = new THREE.MeshBasicMaterial({ map: texture28, transparent: true, alphaTest: 0 });
+const material29 = new THREE.MeshBasicMaterial({ map: texture29, transparent: true, alphaTest: 0 });
+const material30 = new THREE.MeshBasicMaterial({ map: texture30, transparent: true, alphaTest: 0 });
+const material31 = new THREE.MeshBasicMaterial({ map: texture31, transparent: true, alphaTest: 0 });
+const material32 = new THREE.MeshBasicMaterial({ map: texture32, transparent: true, alphaTest: 0 });
+const material33 = new THREE.MeshBasicMaterial({ map: texture33, transparent: true, alphaTest: 0 });
+const material34 = new THREE.MeshBasicMaterial({ map: texture34, transparent: true, alphaTest: 0 });
+const material35 = new THREE.MeshBasicMaterial({ map: texture35, transparent: true, alphaTest: 0 });
+const material36 = new THREE.MeshBasicMaterial({ map: texture36, transparent: true, alphaTest: 0 });
+const material37 = new THREE.MeshBasicMaterial({ map: texture37, transparent: true, alphaTest: 0 });
+const material38 = new THREE.MeshBasicMaterial({ map: texture38, transparent: true, alphaTest: 0 });
+const material39 = new THREE.MeshBasicMaterial({ map: texture39, transparent: true, alphaTest: 0 });
+const material40 = new THREE.MeshBasicMaterial({ map: texture40, transparent: true, alphaTest: 0 });
+
+
+const box = new THREE.Mesh(geometry, material1);
+group.add(box);
+const box2 = new THREE.Mesh(geometry, material2);
+group.add(box2);
+const box3 = new THREE.Mesh(geometry, material3);
+group.add(box3);
+const box4 = new THREE.Mesh(geometry, material4);
+group.add(box4);
+const box5 = new THREE.Mesh(geometry, material5);
+group.add(box5);
+const box9 = new THREE.Mesh(geometry, material9);
+group.add(box9);
+const box10 = new THREE.Mesh(geometry, material10);
+group.add(box10);
+const box11 = new THREE.Mesh(geometry, material11);
+group.add(box11);
+const box12 = new THREE.Mesh(geometry, material12);
+group.add(box12);
+const box13 = new THREE.Mesh(geometry, material13);
+group.add(box13);
+const box14 = new THREE.Mesh(geometry, material14);
+group.add(box14);
+const box15 = new THREE.Mesh(geometry, material15);
+group.add(box15);
+const box16 = new THREE.Mesh(geometry, material16);
+group.add(box16);
+const box17 = new THREE.Mesh(geometry, material17);
+group.add(box17);
+const box18 = new THREE.Mesh(geometry, material18);
+group.add(box18);
+const box19 = new THREE.Mesh(geometry, material19);
+group.add(box19);
+const box20 = new THREE.Mesh(geometry, material20);
+group.add(box20);
+const box21 = new THREE.Mesh(geometry, material21);
+group.add(box21);
+const box22 = new THREE.Mesh(geometry, material22);
+group.add(box22);
+const box23 = new THREE.Mesh(geometry, material23);
+group.add(box23);
+const box24 = new THREE.Mesh(geometry, material24);
+group.add(box24);
+const box25 = new THREE.Mesh(geometry, material25);
+group.add(box25);
+const box26 = new THREE.Mesh(geometry, material26);
+group.add(box26);
+const box27 = new THREE.Mesh(geometry, material27);
+group.add(box27);
+const box28 = new THREE.Mesh(geometry, material28);
+group.add(box28);
+const box29 = new THREE.Mesh(geometry, material29);
+group.add(box29);
+const box30 = new THREE.Mesh(geometry, material30);
+group.add(box30);
+const box31 = new THREE.Mesh(geometry, material31);
+group.add(box31);
+const box32 = new THREE.Mesh(geometry, material32);
+group.add(box32);
+const box33 = new THREE.Mesh(geometry, material33);
+group.add(box33);
+const box34 = new THREE.Mesh(geometry, material34);
+group.add(box34);
+const box35 = new THREE.Mesh(geometry, material35);
+group.add(box35);
+const box36 = new THREE.Mesh(geometry, material36);
+group.add(box36);
+const box37 = new THREE.Mesh(geometry, material37);
+group.add(box37);
+const box38 = new THREE.Mesh(geometry, material38);
+group.add(box38);
+const box39 = new THREE.Mesh(geometry, material39);
+group.add(box39);
+const box40 = new THREE.Mesh(geometry, material40);
+group.add(box40);
+
+
+// Function to adjust box positions based on screen width
+function adjustBoxPositions() {
+    if (window.innerWidth <= 375) {
+
+        box.position.set(0, -2.2, -5);
+        box.scale.set(1.5, 1.5, 1.5);
+        box2.position.set(1.4, -1.1, -7);
+        box3.position.set(1.1, 0.9, -7);
+        box4.position.set(-1.1, 0.9, -7);
+        box5.position.set(-1.6, -1.1, -7);
+        // box6.position.set(0, 1.4, -6);
+        // box6.scale.set(0.6, 0.6, 0.6);
+        // box7.position.set(1.7, 2, -6);
+        // box7.scale.set(0.6, 0.6, 0.6);
+        // box8.position.set(0.3, -0.7, -5);
+        // box8.scale.set(0.5, 0.5, 0.5);
+        box9.position.set(0, 1.2, 0.7);
+        box10.position.set(0.5, 0, -9);
+        box10.scale.set(8, 8, 8);
+
+        box11.position.set(-0.2, 1, -7);
+        box11.scale.set(0.1, 0.1, 0.1);
+
+        box12.position.set(-2.8, 4, -7);
+        box12.scale.set(0.1, 0.1, 0.1);
+
+        box13.position.set(-2.8, -0.6, -7);
+        box13.scale.set(0.1, 0.1, 0.1);
+
+        box14.position.set(-10.2, -1.5, -7);
+        box14.scale.set(0.1, 0.1, 0.1);
+
+        box15.position.set(-9, 4, -7);
+        box15.scale.set(0.1, 0.1, 0.1);
+
+        box16.position.set(-5.8, 3, -7);
+        box16.scale.set(0.1, 0.1, 0.1);
+
+        box17.position.set(-6.8, -1.3, -7);
+        box17.scale.set(0.1, 0.1, 0.1);
+
+        box18.position.set(-8.5, 0.8, -7);
+        box18.scale.set(0.1, 0.1, 0.1);
+
+        box19.position.set(-8, -4.4, -7);
+        box19.scale.set(0.1, 0.1, 0.1);
+
+        box20.position.set(-4, -3.1, -7);
+        box20.scale.set(0.1, 0.1, 0.1);
+
+        box21.position.set(2.6, -1, -7);
+        box21.scale.set(0.1, 0.1, 0.1);
+
+        box22.position.set(4.2, -3, -7);
+        box22.scale.set(0.1, 0.1, 0.1);
+
+        box23.position.set(2.5, -4.4, -7);
+        box23.scale.set(0.1, 0.1, 0.1);
+
+        box24.position.set(9, -3.1, -7);
+        box24.scale.set(0.1, 0.1, 0.1);
+
+        box25.position.set(6.8, -1.5, -7);
+        box25.scale.set(0.1, 0.1, 0.1);
+
+        box26.position.set(0.9, 4.1, -7);
+        box26.scale.set(0.1, 0.1, 0.1);
+
+        box27.position.set(2.9, 2.6, -7);
+        box27.scale.set(0.1, 0.1, 0.1);
+
+        box28.position.set(4.7, 0.4, -7);
+        box28.scale.set(0.1, 0.1, 0.1);
+
+        box29.position.set(7, 1.2, -7);
+        box29.scale.set(0.1, 0.1, 0.1);
+
+        box30.position.set(9.5, -0.6, -7);
+        box30.scale.set(0.1, 0.1, 0.1);
+
+        box31.position.set(5.6, 4, -7);
+        box31.scale.set(0.1, 0.1, 0.1);
+
+        box32.position.set(8.5, 4.1, -7);
+        box32.scale.set(0.1, 0.1, 0.1);
+
+        box33.position.set(-7.6, 2.4, -7);
+        box33.scale.set(0.3, 0.3, 0.3);
+
+        box34.position.set(-2, 2, -7);
+        box34.scale.set(0.1, 0.1, 0.1);
+
+        box35.position.set(-6, 4.7, -7);
+        box35.scale.set(0.3, 0.3, 0.3);
+
+        box36.position.set(-1.5, -4, -7);
+        box36.scale.set(0.2, 0.2, 0.2);
+
+        box37.position.set(-9, -2, -7);
+        box37.scale.set(0.1, 0.1, 0.1);
+
+        box38.position.set(1.6, 1.1, -7);
+        box38.scale.set(0.1, 0.1, 0.1);
+
+        box39.position.set(7, 2.9, -7);
+        box39.scale.set(0.1, 0.1, 0.1);
+
+        box40.position.set(3.5, 4.6, -7);
+        box40.scale.set(0.1, 0.1, 0.1);
+
+    } else if (window.innerWidth <= 576) {
+
+        box.position.set(0, -2.1, -5);
+        box.scale.set(1.7, 1.7, 1.7);
+        box2.position.set(1.8, -1.3, -7);
+        box3.position.set(1.4, 0.8, -7);
+        box4.position.set(-1.4, 0.9, -7);
+        box5.position.set(-1.8, -1.3, -7);
+        // box6.position.set(-0.3, 1.6, -7);
+        // box6.scale.set(0.7, 0.7, 0.7);
+        // box7.position.set(2.1, 1.9, -7);
+        // box7.scale.set(0.6, 0.6, 0.6);
+        // box8.position.set(0.3, -0.2, -7);
+        // box8.scale.set(0.6, 0.6, 0.6);
+        box9.position.set(0, 1.2, 0.8);
+        box10.position.set(0.5, 0, -9);
+        box10.scale.set(9, 9, 9);
+
+        box11.position.set(-0.2, 1, -7);
+        box11.scale.set(0.1, 0.1, 0.1);
+
+        box12.position.set(-2.8, 4, -7);
+        box12.scale.set(0.1, 0.1, 0.1);
+
+        box13.position.set(-2.8, -0.6, -7);
+        box13.scale.set(0.1, 0.1, 0.1);
+
+        box14.position.set(-10.2, -1.5, -7);
+        box14.scale.set(0.1, 0.1, 0.1);
+
+        box15.position.set(-9, 4, -7);
+        box15.scale.set(0.1, 0.1, 0.1);
+
+        box16.position.set(-5.8, 3, -7);
+        box16.scale.set(0.1, 0.1, 0.1);
+
+        box17.position.set(-6.8, -1.3, -7);
+        box17.scale.set(0.1, 0.1, 0.1);
+
+        box18.position.set(-8.5, 0.8, -7);
+        box18.scale.set(0.1, 0.1, 0.1);
+
+        box19.position.set(-8, -4.4, -7);
+        box19.scale.set(0.1, 0.1, 0.1);
+
+        box20.position.set(-4, -3.1, -7);
+        box20.scale.set(0.1, 0.1, 0.1);
+
+        box21.position.set(2.6, -1, -7);
+        box21.scale.set(0.1, 0.1, 0.1);
+
+        box22.position.set(4.2, -3, -7);
+        box22.scale.set(0.1, 0.1, 0.1);
+
+        box23.position.set(2.5, -4.4, -7);
+        box23.scale.set(0.1, 0.1, 0.1);
+
+        box24.position.set(9, -3.1, -7);
+        box24.scale.set(0.1, 0.1, 0.1);
+
+        box25.position.set(6.8, -1.5, -7);
+        box25.scale.set(0.1, 0.1, 0.1);
+
+        box26.position.set(0.9, 4.1, -7);
+        box26.scale.set(0.1, 0.1, 0.1);
+
+        box27.position.set(2.9, 2.6, -7);
+        box27.scale.set(0.1, 0.1, 0.1);
+
+        box28.position.set(4.7, 0.4, -7);
+        box28.scale.set(0.1, 0.1, 0.1);
+
+        box29.position.set(7, 1.2, -7);
+        box29.scale.set(0.1, 0.1, 0.1);
+
+        box30.position.set(9.5, -0.6, -7);
+        box30.scale.set(0.1, 0.1, 0.1);
+
+        box31.position.set(5.6, 4, -7);
+        box31.scale.set(0.1, 0.1, 0.1);
+
+        box32.position.set(8.5, 4.1, -7);
+        box32.scale.set(0.1, 0.1, 0.1);
+
+        box33.position.set(-7.6, 2.4, -7);
+        box33.scale.set(0.3, 0.3, 0.3);
+
+        box34.position.set(-2, 2, -7);
+        box34.scale.set(0.1, 0.1, 0.1);
+
+        box35.position.set(-6, 4.7, -7);
+        box35.scale.set(0.3, 0.3, 0.3);
+
+        box36.position.set(-1.5, -4, -7);
+        box36.scale.set(0.2, 0.2, 0.2);
+
+        box37.position.set(-9, -2, -7);
+        box37.scale.set(0.1, 0.1, 0.1);
+
+        box38.position.set(1.6, 1.1, -7);
+        box38.scale.set(0.1, 0.1, 0.1);
+
+        box39.position.set(7, 2.9, -7);
+        box39.scale.set(0.1, 0.1, 0.1);
+
+        box40.position.set(3.5, 4.6, -7);
+        box40.scale.set(0.1, 0.1, 0.1);
+
+    } else if (window.innerWidth <= 768) {
+
+        box.position.set(0, -1.1, -2);
+        box.scale.set(1.6, 1.6, 1.6);
+        box2.position.set(-1.8, -1.1, -4);
+        box3.position.set(-1.5, 1.3, -4);
+        box4.position.set(1.6, 0.3, -4);
+        box5.position.set(1.8, -2.2, -4);
+        // box6.position.set(1.4, 1.1, -4);
+        // box6.scale.set(0.6, 0.6, 0.6);
+        // box7.position.set(3.2, 1.6, -4);
+        // box7.scale.set(0.6, 0.6, 0.6);
+        // box8.position.set(-0.6, 0.4, -4);
+        // box8.scale.set(0.6, 0.6, 0.6);
+        box9.position.set(0, 1, 1.2);
+        box10.position.set(0.5, 0, -5);
+        box10.scale.set(9, 9, 9);
+
+        box11.position.set(-0.2, 1, -7);
+        box11.scale.set(0.1, 0.1, 0.1);
+
+        box12.position.set(-2.8, 4, -7);
+        box12.scale.set(0.1, 0.1, 0.1);
+
+        box13.position.set(-2.8, -0.6, -7);
+        box13.scale.set(0.1, 0.1, 0.1);
+
+        box14.position.set(-10.2, -1.5, -7);
+        box14.scale.set(0.1, 0.1, 0.1);
+
+        box15.position.set(-9, 4, -7);
+        box15.scale.set(0.1, 0.1, 0.1);
+
+        box16.position.set(-5.8, 3, -7);
+        box16.scale.set(0.1, 0.1, 0.1);
+
+        box17.position.set(-6.8, -1.3, -7);
+        box17.scale.set(0.1, 0.1, 0.1);
+
+        box18.position.set(-8.5, 0.8, -7);
+        box18.scale.set(0.1, 0.1, 0.1);
+
+        box19.position.set(-8, -4.4, -7);
+        box19.scale.set(0.1, 0.1, 0.1);
+
+        box20.position.set(-4, -3.1, -7);
+        box20.scale.set(0.1, 0.1, 0.1);
+
+        box21.position.set(2.6, -1, -7);
+        box21.scale.set(0.1, 0.1, 0.1);
+
+        box22.position.set(4.2, -3, -7);
+        box22.scale.set(0.1, 0.1, 0.1);
+
+        box23.position.set(2.5, -4.4, -7);
+        box23.scale.set(0.1, 0.1, 0.1);
+
+        box24.position.set(9, -3.1, -7);
+        box24.scale.set(0.1, 0.1, 0.1);
+
+        box25.position.set(6.8, -1.5, -7);
+        box25.scale.set(0.1, 0.1, 0.1);
+
+        box26.position.set(0.9, 4.1, -7);
+        box26.scale.set(0.1, 0.1, 0.1);
+
+        box27.position.set(2.9, 2.6, -7);
+        box27.scale.set(0.1, 0.1, 0.1);
+
+        box28.position.set(4.7, 0.4, -7);
+        box28.scale.set(0.1, 0.1, 0.1);
+
+        box29.position.set(7, 1.2, -7);
+        box29.scale.set(0.1, 0.1, 0.1);
+
+        box30.position.set(9.5, -0.6, -7);
+        box30.scale.set(0.1, 0.1, 0.1);
+
+        box31.position.set(5.6, 4, -7);
+        box31.scale.set(0.1, 0.1, 0.1);
+
+        box32.position.set(8.5, 4.1, -7);
+        box32.scale.set(0.1, 0.1, 0.1);
+
+        box33.position.set(-7.6, 2.4, -7);
+        box33.scale.set(0.3, 0.3, 0.3);
+
+        box34.position.set(-2, 2, -7);
+        box34.scale.set(0.1, 0.1, 0.1);
+
+        box35.position.set(-6, 4.7, -7);
+        box35.scale.set(0.3, 0.3, 0.3);
+
+        box36.position.set(-1.5, -4, -7);
+        box36.scale.set(0.2, 0.2, 0.2);
+
+        box37.position.set(-9, -2, -7);
+        box37.scale.set(0.1, 0.1, 0.1);
+
+        box38.position.set(1.6, 1.1, -7);
+        box38.scale.set(0.1, 0.1, 0.1);
+
+        box39.position.set(7, 2.9, -7);
+        box39.scale.set(0.1, 0.1, 0.1);
+
+        box40.position.set(3.5, 4.6, -7);
+        box40.scale.set(0.1, 0.1, 0.1);
+
+    } else if (window.innerWidth <= 820) {
+
+        box.position.set(0, -1.1, -2);
+        box.scale.set(1.6, 1.6, 1.6);
+        box2.position.set(-1.8, -1.1, -4);
+        box3.position.set(-1.5, 1.3, -4);
+        box4.position.set(1.6, 0.3, -4);
+        box5.position.set(1.8, -2.2, -4);
+        // box6.position.set(1.4, 1.1, -4);
+        // box6.scale.set(0.6, 0.6, 0.6);
+        // box7.position.set(3.2, 1.6, -4);
+        // box7.scale.set(0.6, 0.6, 0.6);
+        // box8.position.set(-0.6, 0.4, -4);
+        // box8.scale.set(0.6, 0.6, 0.6);
+        box9.position.set(0, 1, 1.2);
+        box10.position.set(0.5, 0, -5);
+        box10.scale.set(9, 9, 9);
+
+        box11.position.set(-0.2, 1, -7);
+        box11.scale.set(0.1, 0.1, 0.1);
+
+        box12.position.set(-2.8, 4, -7);
+        box12.scale.set(0.1, 0.1, 0.1);
+
+        box13.position.set(-2.8, -0.6, -7);
+        box13.scale.set(0.1, 0.1, 0.1);
+
+        box14.position.set(-10.2, -1.5, -7);
+        box14.scale.set(0.1, 0.1, 0.1);
+
+        box15.position.set(-9, 4, -7);
+        box15.scale.set(0.1, 0.1, 0.1);
+
+        box16.position.set(-5.8, 3, -7);
+        box16.scale.set(0.1, 0.1, 0.1);
+
+        box17.position.set(-6.8, -1.3, -7);
+        box17.scale.set(0.1, 0.1, 0.1);
+
+        box18.position.set(-8.5, 0.8, -7);
+        box18.scale.set(0.1, 0.1, 0.1);
+
+        box19.position.set(-8, -4.4, -7);
+        box19.scale.set(0.1, 0.1, 0.1);
+
+        box20.position.set(-4, -3.1, -7);
+        box20.scale.set(0.1, 0.1, 0.1);
+
+        box21.position.set(2.6, -1, -7);
+        box21.scale.set(0.1, 0.1, 0.1);
+
+        box22.position.set(4.2, -3, -7);
+        box22.scale.set(0.1, 0.1, 0.1);
+
+        box23.position.set(2.5, -4.4, -7);
+        box23.scale.set(0.1, 0.1, 0.1);
+
+        box24.position.set(9, -3.1, -7);
+        box24.scale.set(0.1, 0.1, 0.1);
+
+        box25.position.set(6.8, -1.5, -7);
+        box25.scale.set(0.1, 0.1, 0.1);
+
+        box26.position.set(0.9, 4.1, -7);
+        box26.scale.set(0.1, 0.1, 0.1);
+
+        box27.position.set(2.9, 2.6, -7);
+        box27.scale.set(0.1, 0.1, 0.1);
+
+        box28.position.set(4.7, 0.4, -7);
+        box28.scale.set(0.1, 0.1, 0.1);
+
+        box29.position.set(7, 1.2, -7);
+        box29.scale.set(0.1, 0.1, 0.1);
+
+        box30.position.set(9.5, -0.6, -7);
+        box30.scale.set(0.1, 0.1, 0.1);
+
+        box31.position.set(5.6, 4, -7);
+        box31.scale.set(0.1, 0.1, 0.1);
+
+        box32.position.set(8.5, 4.1, -7);
+        box32.scale.set(0.1, 0.1, 0.1);
+
+        box33.position.set(-7.6, 2.4, -7);
+        box33.scale.set(0.3, 0.3, 0.3);
+
+        box34.position.set(-2, 2, -7);
+        box34.scale.set(0.1, 0.1, 0.1);
+
+        box35.position.set(-6, 4.7, -7);
+        box35.scale.set(0.3, 0.3, 0.3);
+
+        box36.position.set(-1.5, -4, -7);
+        box36.scale.set(0.2, 0.2, 0.2);
+
+        box37.position.set(-9, -2, -7);
+        box37.scale.set(0.1, 0.1, 0.1);
+
+        box38.position.set(1.6, 1.1, -7);
+        box38.scale.set(0.1, 0.1, 0.1);
+
+        box39.position.set(7, 2.9, -7);
+        box39.scale.set(0.1, 0.1, 0.1);
+
+        box40.position.set(3.5, 4.6, -7);
+        box40.scale.set(0.1, 0.1, 0.1);
+
+    } else if (window.innerWidth <= 1024) {
+
+        box.position.set(0, -1.1, -2);
+        box.scale.set(1.6, 1.6, 1.6);
+        box2.position.set(-1.8, -1.1, -4);
+        box3.position.set(-1.5, 1.3, -4);
+        box4.position.set(1.6, 0.3, -4);
+        box5.position.set(1.8, -2.2, -4);
+
+        box9.position.set(0, 1, 1.2);
+        box10.position.set(0.5, 0, -5);
+        box10.scale.set(9, 9, 9);
+
+        box11.position.set(-0.2, 1, -7);
+        box11.scale.set(0.1, 0.1, 0.1);
+
+        box12.position.set(-2.8, 4, -7);
+        box12.scale.set(0.1, 0.1, 0.1);
+
+        box13.position.set(-2.8, -0.6, -7);
+        box13.scale.set(0.1, 0.1, 0.1);
+
+        box14.position.set(-10.2, -1.5, -7);
+        box14.scale.set(0.1, 0.1, 0.1);
+
+        box15.position.set(-9, 4, -7);
+        box15.scale.set(0.1, 0.1, 0.1);
+
+        box16.position.set(-5.8, 3, -7);
+        box16.scale.set(0.1, 0.1, 0.1);
+
+        box17.position.set(-6.8, -1.3, -7);
+        box17.scale.set(0.1, 0.1, 0.1);
+
+        box18.position.set(-8.5, 0.8, -7);
+        box18.scale.set(0.1, 0.1, 0.1);
+
+        box19.position.set(-8, -4.4, -7);
+        box19.scale.set(0.1, 0.1, 0.1);
+
+        box20.position.set(-4, -3.1, -7);
+        box20.scale.set(0.1, 0.1, 0.1);
+
+        box21.position.set(2.6, -1, -7);
+        box21.scale.set(0.1, 0.1, 0.1);
+
+        box22.position.set(4.2, -3, -7);
+        box22.scale.set(0.1, 0.1, 0.1);
+
+        box23.position.set(2.5, -4.4, -7);
+        box23.scale.set(0.1, 0.1, 0.1);
+
+        box24.position.set(9, -3.1, -7);
+        box24.scale.set(0.1, 0.1, 0.1);
+
+        box25.position.set(6.8, -1.5, -7);
+        box25.scale.set(0.1, 0.1, 0.1);
+
+        box26.position.set(0.9, 4.1, -7);
+        box26.scale.set(0.1, 0.1, 0.1);
+
+        box27.position.set(2.9, 2.6, -7);
+        box27.scale.set(0.1, 0.1, 0.1);
+
+        box28.position.set(4.7, 0.4, -7);
+        box28.scale.set(0.1, 0.1, 0.1);
+
+        box29.position.set(7, 1.2, -7);
+        box29.scale.set(0.1, 0.1, 0.1);
+
+        box30.position.set(9.5, -0.6, -7);
+        box30.scale.set(0.1, 0.1, 0.1);
+
+        box31.position.set(5.6, 4, -7);
+        box31.scale.set(0.1, 0.1, 0.1);
+
+        box32.position.set(8.5, 4.1, -7);
+        box32.scale.set(0.1, 0.1, 0.1);
+
+        box33.position.set(-7.6, 2.4, -7);
+        box33.scale.set(0.3, 0.3, 0.3);
+
+        box34.position.set(-2, 2, -7);
+        box34.scale.set(0.1, 0.1, 0.1);
+
+        box35.position.set(-6, 4.7, -7);
+        box35.scale.set(0.3, 0.3, 0.3);
+
+        box36.position.set(-1.5, -4, -7);
+        box36.scale.set(0.2, 0.2, 0.2);
+
+        box37.position.set(-9, -2, -7);
+        box37.scale.set(0.1, 0.1, 0.1);
+
+        box38.position.set(1.6, 1.1, -7);
+        box38.scale.set(0.1, 0.1, 0.1);
+
+        box39.position.set(7, 2.9, -7);
+        box39.scale.set(0.1, 0.1, 0.1);
+
+        box40.position.set(3.5, 4.6, -7);
+        box40.scale.set(0.1, 0.1, 0.1);
+
+    } else if (window.innerWidth <= 1500) {
+
+        box.position.set(0, -0.8, -1.6);
+        box.scale.set(1.5, 1.5, 1.5);
+        box2.position.set(-4.1, -1.1, -4);
+        box2.scale.set(0.9, 0.9, 0.9);
+        box3.position.set(-3.4, 1.5, -4);
+        box3.scale.set(0.9, 0.9, 0.9);
+        box4.position.set(3, 1.6, -4);
+        box4.scale.set(0.9, 0.9, 0.9);
+        box5.position.set(3.9, -2.2, -4);
+        box5.scale.set(0.9, 0.9, 0.9);
+
+        box9.position.set(0, 1, 1.2);
+        box10.position.set(0.5, 0, -5);
+        box10.scale.set(10, 10, 10);
+        box11.position.set(-0.2, 1, -7);
+        box11.scale.set(0.3, 0.3, 0.3);
+        box12.position.set(-2.8, 4, -7);
+        box12.scale.set(0.2, 0.2, 0.2);
+        box13.position.set(-2.8, -0.6, -7);
+        box13.scale.set(0.1, 0.1, 0.1);
+        box14.position.set(-10.2, -1.5, -7);
+        box14.scale.set(0.3, 0.3, 0.3);
+        box15.position.set(-9, 4, -7);
+        box15.scale.set(0.2, 0.2, 0.2);
+        box16.position.set(-5.8, 3, -7);
+        box16.scale.set(0.1, 0.1, 0.1);
+        box17.position.set(-6.8, -1.3, -7);
+        box17.scale.set(0.2, 0.2, 0.2);
+        box18.position.set(-8.5, 0.8, -7);
+        box18.scale.set(0.2, 0.2, 0.2);
+        box19.position.set(-8, -4.4, -7);
+        box19.scale.set(0.3, 0.3, 0.3);
+        box20.position.set(-4, -3.1, -7);
+        box20.scale.set(0.2, 0.2, 0.2);
+        box21.position.set(2.6, -1, -7);
+        box21.scale.set(0.3, 0.3, 0.3);
+        box22.position.set(4.2, -3, -7);
+        box22.scale.set(0.2, 0.2, 0.2);
+        box23.position.set(2.5, -4.4, -7);
+        box23.scale.set(0.3, 0.3, 0.3);
+        box24.position.set(9, -3.1, -7);
+        box24.scale.set(0.1, 0.1, 0.1);
+        box25.position.set(6.8, -1.5, -7);
+        box25.scale.set(0.3, 0.3, 0.3);
+        box26.position.set(0.9, 4.1, -7);
+        box26.scale.set(0.2, 0.2, 0.2);
+        box27.position.set(2.9, 2.6, -7);
+        box27.scale.set(0.3, 0.3, 0.3);
+        box28.position.set(4.7, 0.4, -7);
+        box28.scale.set(0.1, 0.1, 0.1);
+        box29.position.set(7, 1.2, -7);
+        box29.scale.set(0.2, 0.2, 0.2);
+        box30.position.set(9.5, -0.6, -7);
+        box30.scale.set(0.2, 0.2, 0.2);
+        box31.position.set(5.6, 4, -7);
+        box31.scale.set(0.2, 0.2, 0.2);
+        box32.position.set(8.5, 4.1, -7);
+        box32.scale.set(0.2, 0.2, 0.2);
+        box33.position.set(-7.6, 2.4, -7);
+        box33.scale.set(0.3, 0.3, 0.3);
+        box34.position.set(-2, 2, -7);
+        box34.scale.set(0.1, 0.1, 0.1);
+        box35.position.set(-6, 4.7, -7);
+        box35.scale.set(0.3, 0.3, 0.3);
+        box36.position.set(-1.5, -4, -7);
+        box36.scale.set(0.2, 0.2, 0.2);
+        box37.position.set(-9, -2, -7);
+        box37.scale.set(0.1, 0.1, 0.1);
+        box38.position.set(1.6, 1.1, -7);
+        box38.scale.set(0.1, 0.1, 0.1);
+        box39.position.set(7, 2.9, -7);
+        box39.scale.set(0.1, 0.1, 0.1);
+        box40.position.set(3.5, 4.6, -7);
+        box40.scale.set(0.1, 0.1, 0.1);
+
+    }else if (window.innerWidth <= 1600) {
+
+        box.position.set(0, -0.8, -1.6);
+        box.scale.set(1.5, 1.5, 1.5);
+
+        box2.position.set(-3.8, -1.1, -4);
+        box2.scale.set(0.9, 0.9, 0.9);
+
+        box3.position.set(-3.1, 1.5, -4);
+        box3.scale.set(0.9, 0.9, 0.9);
+
+        box4.position.set(2.7, 1.6, -4);
+        box4.scale.set(0.9, 0.9, 0.9);
+
+        box5.position.set(3.5, -2.2, -4);
+        box5.scale.set(0.9, 0.9, 0.9);
+
+        box9.position.set(0, 1, 1.2);
+        box10.position.set(0.5, 0, -5);
+        box10.scale.set(10, 10, 10);
+        box11.position.set(-0.2, 1, -7);
+        box11.scale.set(0.3, 0.3, 0.3);
+        box12.position.set(-2.8, 4, -7);
+        box12.scale.set(0.2, 0.2, 0.2);
+        box13.position.set(-2.8, -0.6, -7);
+        box13.scale.set(0.1, 0.1, 0.1);
+        box14.position.set(-10.2, -1.5, -7);
+        box14.scale.set(0.3, 0.3, 0.3);
+        box15.position.set(-9, 4, -7);
+        box15.scale.set(0.2, 0.2, 0.2);
+        box16.position.set(-5.8, 3, -7);
+        box16.scale.set(0.1, 0.1, 0.1);
+        box17.position.set(-6.8, -1.3, -7);
+        box17.scale.set(0.2, 0.2, 0.2);
+        box18.position.set(-8.5, 0.8, -7);
+        box18.scale.set(0.2, 0.2, 0.2);
+        box19.position.set(-8, -4.4, -7);
+        box19.scale.set(0.3, 0.3, 0.3);
+        box20.position.set(-4, -3.1, -7);
+        box20.scale.set(0.2, 0.2, 0.2);
+        box21.position.set(2.6, -1, -7);
+        box21.scale.set(0.3, 0.3, 0.3);
+        box22.position.set(4.2, -3, -7);
+        box22.scale.set(0.2, 0.2, 0.2);
+        box23.position.set(2.5, -4.4, -7);
+        box23.scale.set(0.3, 0.3, 0.3);
+        box24.position.set(9, -3.1, -7);
+        box24.scale.set(0.1, 0.1, 0.1);
+        box25.position.set(6.8, -1.5, -7);
+        box25.scale.set(0.3, 0.3, 0.3);
+        box26.position.set(0.9, 4.1, -7);
+        box26.scale.set(0.2, 0.2, 0.2);
+        box27.position.set(2.9, 2.6, -7);
+        box27.scale.set(0.3, 0.3, 0.3);
+        box28.position.set(4.7, 0.4, -7);
+        box28.scale.set(0.1, 0.1, 0.1);
+        box29.position.set(7, 1.2, -7);
+        box29.scale.set(0.2, 0.2, 0.2);
+        box30.position.set(9.5, -0.6, -7);
+        box30.scale.set(0.2, 0.2, 0.2);
+        box31.position.set(5.6, 4, -7);
+        box31.scale.set(0.2, 0.2, 0.2);
+        box32.position.set(8.5, 4.1, -7);
+        box32.scale.set(0.2, 0.2, 0.2);
+        box33.position.set(-7.6, 2.4, -7);
+        box33.scale.set(0.3, 0.3, 0.3);
+        box34.position.set(-2, 2, -7);
+        box34.scale.set(0.1, 0.1, 0.1);
+        box35.position.set(-6, 4.7, -7);
+        box35.scale.set(0.3, 0.3, 0.3);
+        box36.position.set(-1.5, -4, -7);
+        box36.scale.set(0.2, 0.2, 0.2);
+        box37.position.set(-9, -2, -7);
+        box37.scale.set(0.1, 0.1, 0.1);
+        box38.position.set(1.6, 1.1, -7);
+        box38.scale.set(0.1, 0.1, 0.1);
+        box39.position.set(7, 2.9, -7);
+        box39.scale.set(0.1, 0.1, 0.1);
+        box40.position.set(3.5, 4.6, -7);
+        box40.scale.set(0.1, 0.1, 0.1);
+
+    }else if (window.innerWidth <= 1920) {
+
+        box.position.set(0, -0.8, -1.6);
+        box.scale.set(1.5, 1.5, 1.5);
+
+        box2.position.set(-3.9, -1.1, -4);
+        box2.scale.set(0.9, 0.9, 0.9);
+
+        box3.position.set(-3.3, 1.5, -4);
+        box3.scale.set(0.9, 0.9, 0.9);
+
+        box4.position.set(3.1, 1.6, -4);
+        box4.scale.set(0.9, 0.9, 0.9);
+
+        box5.position.set(3.7, -2.2, -4);
+        box5.scale.set(0.9, 0.9, 0.9);
+
+        box9.position.set(0, 1, 1.2);
+        box10.position.set(0.5, 0, -5);
+        box10.scale.set(10, 10, 10);
+        box11.position.set(-0.2, 1, -7);
+        box11.scale.set(0.3, 0.3, 0.3);
+        box12.position.set(-2.8, 4, -7);
+        box12.scale.set(0.2, 0.2, 0.2);
+        box13.position.set(-2.8, -0.6, -7);
+        box13.scale.set(0.1, 0.1, 0.1);
+        box14.position.set(-10.2, -1.5, -7);
+        box14.scale.set(0.3, 0.3, 0.3);
+        box15.position.set(-9, 4, -7);
+        box15.scale.set(0.2, 0.2, 0.2);
+        box16.position.set(-5.8, 3, -7);
+        box16.scale.set(0.1, 0.1, 0.1);
+        box17.position.set(-6.8, -1.3, -7);
+        box17.scale.set(0.2, 0.2, 0.2);
+        box18.position.set(-8.5, 0.8, -7);
+        box18.scale.set(0.2, 0.2, 0.2);
+        box19.position.set(-8, -4.4, -7);
+        box19.scale.set(0.3, 0.3, 0.3);
+        box20.position.set(-4, -3.1, -7);
+        box20.scale.set(0.2, 0.2, 0.2);
+        box21.position.set(2.6, -1, -7);
+        box21.scale.set(0.3, 0.3, 0.3);
+        box22.position.set(4.2, -3, -7);
+        box22.scale.set(0.2, 0.2, 0.2);
+        box23.position.set(2.5, -4.4, -7);
+        box23.scale.set(0.3, 0.3, 0.3);
+        box24.position.set(9, -3.1, -7);
+        box24.scale.set(0.1, 0.1, 0.1);
+        box25.position.set(6.8, -1.5, -7);
+        box25.scale.set(0.3, 0.3, 0.3);
+        box26.position.set(0.9, 4.1, -7);
+        box26.scale.set(0.2, 0.2, 0.2);
+        box27.position.set(2.9, 2.6, -7);
+        box27.scale.set(0.3, 0.3, 0.3);
+        box28.position.set(4.7, 0.4, -7);
+        box28.scale.set(0.1, 0.1, 0.1);
+        box29.position.set(7, 1.2, -7);
+        box29.scale.set(0.2, 0.2, 0.2);
+        box30.position.set(9.5, -0.6, -7);
+        box30.scale.set(0.2, 0.2, 0.2);
+        box31.position.set(5.6, 4, -7);
+        box31.scale.set(0.2, 0.2, 0.2);
+        box32.position.set(8.5, 4.1, -7);
+        box32.scale.set(0.2, 0.2, 0.2);
+        box33.position.set(-7.6, 2.4, -7);
+        box33.scale.set(0.3, 0.3, 0.3);
+        box34.position.set(-2, 2, -7);
+        box34.scale.set(0.1, 0.1, 0.1);
+        box35.position.set(-6, 4.7, -7);
+        box35.scale.set(0.3, 0.3, 0.3);
+        box36.position.set(-1.5, -4, -7);
+        box36.scale.set(0.2, 0.2, 0.2);
+        box37.position.set(-9, -2, -7);
+        box37.scale.set(0.1, 0.1, 0.1);
+        box38.position.set(1.6, 1.1, -7);
+        box38.scale.set(0.1, 0.1, 0.1);
+        box39.position.set(7, 2.9, -7);
+        box39.scale.set(0.1, 0.1, 0.1);
+        box40.position.set(3.5, 4.6, -7);
+        box40.scale.set(0.1, 0.1, 0.1);
+
+    }else if (window.innerWidth <= 2560) {
+
+        box.position.set(0, -0.8, -1.6);
+        box.scale.set(1.5, 1.5, 1.5);
+
+        box2.position.set(-3.9, -1.1, -4);
+        box2.scale.set(0.9, 0.9, 0.9);
+
+        box3.position.set(-3.1, 1.5, -4);
+        box3.scale.set(0.9, 0.9, 0.9);
+
+        box4.position.set(3.1, 1.6, -4);
+        box4.scale.set(0.9, 0.9, 0.9);
+
+        box5.position.set(3.8, -2.2, -4);
+        box5.scale.set(0.9, 0.9, 0.9);
+
+        box9.position.set(0, 1, 1.2);
+        box10.position.set(0.5, 0, -5);
+        box10.scale.set(10, 10, 10);
+        box11.position.set(-0.2, 1, -7);
+        box11.scale.set(0.3, 0.3, 0.3);
+        box12.position.set(-2.8, 4, -7);
+        box12.scale.set(0.2, 0.2, 0.2);
+        box13.position.set(-2.8, -0.6, -7);
+        box13.scale.set(0.1, 0.1, 0.1);
+        box14.position.set(-10.2, -1.5, -7);
+        box14.scale.set(0.3, 0.3, 0.3);
+        box15.position.set(-9, 4, -7);
+        box15.scale.set(0.2, 0.2, 0.2);
+        box16.position.set(-5.8, 3, -7);
+        box16.scale.set(0.1, 0.1, 0.1);
+        box17.position.set(-6.8, -1.3, -7);
+        box17.scale.set(0.2, 0.2, 0.2);
+        box18.position.set(-8.5, 0.8, -7);
+        box18.scale.set(0.2, 0.2, 0.2);
+        box19.position.set(-8, -4.4, -7);
+        box19.scale.set(0.3, 0.3, 0.3);
+        box20.position.set(-4, -3.1, -7);
+        box20.scale.set(0.2, 0.2, 0.2);
+        box21.position.set(2.6, -1, -7);
+        box21.scale.set(0.3, 0.3, 0.3);
+        box22.position.set(4.2, -3, -7);
+        box22.scale.set(0.2, 0.2, 0.2);
+        box23.position.set(2.5, -4.4, -7);
+        box23.scale.set(0.3, 0.3, 0.3);
+        box24.position.set(9, -3.1, -7);
+        box24.scale.set(0.1, 0.1, 0.1);
+        box25.position.set(6.8, -1.5, -7);
+        box25.scale.set(0.3, 0.3, 0.3);
+        box26.position.set(0.9, 4.1, -7);
+        box26.scale.set(0.2, 0.2, 0.2);
+        box27.position.set(2.9, 2.6, -7);
+        box27.scale.set(0.3, 0.3, 0.3);
+        box28.position.set(4.7, 0.4, -7);
+        box28.scale.set(0.1, 0.1, 0.1);
+        box29.position.set(7, 1.2, -7);
+        box29.scale.set(0.2, 0.2, 0.2);
+        box30.position.set(9.5, -0.6, -7);
+        box30.scale.set(0.2, 0.2, 0.2);
+        box31.position.set(5.6, 4, -7);
+        box31.scale.set(0.2, 0.2, 0.2);
+        box32.position.set(8.5, 4.1, -7);
+        box32.scale.set(0.2, 0.2, 0.2);
+        box33.position.set(-7.6, 2.4, -7);
+        box33.scale.set(0.3, 0.3, 0.3);
+        box34.position.set(-2, 2, -7);
+        box34.scale.set(0.1, 0.1, 0.1);
+        box35.position.set(-6, 4.7, -7);
+        box35.scale.set(0.3, 0.3, 0.3);
+        box36.position.set(-1.5, -4, -7);
+        box36.scale.set(0.2, 0.2, 0.2);
+        box37.position.set(-9, -2, -7);
+        box37.scale.set(0.1, 0.1, 0.1);
+        box38.position.set(1.6, 1.1, -7);
+        box38.scale.set(0.1, 0.1, 0.1);
+        box39.position.set(7, 2.9, -7);
+        box39.scale.set(0.1, 0.1, 0.1);
+        box40.position.set(3.5, 4.6, -7);
+        box40.scale.set(0.1, 0.1, 0.1);
+
+    }
+}
+
+adjustBoxPositions();
+window.addEventListener('resize', adjustBoxPositions);
+
+scene.add(group);
+
+renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+// renderer.outputEncoding = THREE.sRGBEncoding;
+canvas.appendChild(renderer.domElement);
+
+const zoomInTimeline = (x, y, z, zoomOutFactor = 0) => {
+    let tl = gsap
+        .timeline({ defaults: { duration: 2, ease: "expo.out" } })
+        .to(controls.target, { x, y, z })
+        .to(camera.position, { x, y, z: z + zoomOutFactor }, 0)
+        .to(group.rotation, { x: 0, y: 0 }, 0);
+};
+
+originalBtn.addEventListener("click", () => {
+
+    if (window.innerWidth <= 600){
+        zoomInTimeline(0, 0, 0, 5);
+    // rotateAroundGroup = true;
+    contentOne.style.display = "none";
+    contentOne.style.opacity = "0";
+    contentTwo.style.display = "none";
+    contentTwo.style.opacity = "0";
+    contentThree.style.display = "none";
+    contentThree.style.opacity = "0";
+    contentFour.style.display = "none";
+    contentFour.style.opacity = "0";
+    contentFive.style.display = "none";
+    contentFive.style.opacity = "0";
+
+    // gsap.to(outOne, { display: "block", opacity: 1, duration: 0.5 });
+    // gsap.to(outTwo, { display: "block", opacity: 1, duration: 0.5 });
+    // gsap.to(outThree, { display: "block", opacity: 1, duration: 0.5 });
+    // gsap.to(outFour, { display: "block", opacity: 1, duration: 0.5 });
+    // gsap.to(outFive, { display: "block", opacity: 1, duration: 0.5 });
+    gsap.to(originalBtn, { opacity: 0, display: "none", duration: 0.5 });
+    gsap.to(one, { display: "block", opacity: 1, duration: 0.5 });
+    gsap.to(two, { display: "block", opacity: 1, duration: 0.5 });
+    gsap.to(three, { display: "block", opacity: 1, duration: 0.5 });
+    }
+    else{
+        zoomInTimeline(0, 0, 0, 5);
+    // rotateAroundGroup = true;
+    contentOne.style.display = "none";
+    contentOne.style.opacity = "0";
+    contentTwo.style.display = "none";
+    contentTwo.style.opacity = "0";
+    contentThree.style.display = "none";
+    contentThree.style.opacity = "0";
+    contentFour.style.display = "none";
+    contentFour.style.opacity = "0";
+    contentFive.style.display = "none";
+    contentFive.style.opacity = "0";
+
+    gsap.to(outOne, { display: "block", opacity: 1, duration: 0.5 });
+    gsap.to(outTwo, { display: "block", opacity: 1, duration: 0.5 });
+    gsap.to(outThree, { display: "block", opacity: 1, duration: 0.5 });
+    gsap.to(outFour, { display: "block", opacity: 1, duration: 0.5 });
+    gsap.to(outFive, { display: "block", opacity: 1, duration: 0.5 });
+    gsap.to(originalBtn, { opacity: 0, display: "none", duration: 0.5 });
+    gsap.to(one, { display: "block", opacity: 1, duration: 0.5 });
+    gsap.to(two, { display: "block", opacity: 1, duration: 0.5 });
+    gsap.to(three, { display: "block", opacity: 1, duration: 0.5 });
+    }
+    
+
+});
+
+
+// var Y = 0, X = 0;
+// var moveY = 0, moveX = 0;
+   
+// $(document).mousemove(function(event){
+//     Y = event.pageY - 10; 
+//     X = event.pageX - 10;
+//   });
+    
+// setInterval(function(){
+//     moveY += ((Y - moveY)/15);
+//     moveX += ((X - moveX)/15);
+//     $(".div-cursor").css({ top: moveY +'px', left: moveX +'px'});
+//     $(".div-cursor-two").css({ top: moveY +'px', left: moveX +'px'});
+//   }, 0);
+
+//   divCursor.style.pointerEvents = "none";
+//   divCursorTwo.style.pointerEvents = "none";
+
+
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+const interactiveObjects = [box, box2, box3, box4, box5];
+
+
+
+canvas.addEventListener('mousemove', (event) => {
+
+    const boundingRect = canvas.getBoundingClientRect();
+    const offsetX = boundingRect.left;
+    const offsetY = boundingRect.top;
+    mouse.x = ((event.clientX - offsetX) / canvas.clientWidth) * 2 - 1;
+    mouse.y = -((event.clientY - offsetY) / canvas.clientHeight) * 2 + 1;
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(interactiveObjects, true);
+
+
+    if (intersects.length > 0) {
+
+        canvas.style.cursor = 'pointer';
+        const x = event.clientX;
+        const y = event.clientY;
+
+        // $(document).mousemove(function(event){
+        //   Y = event.pageY - 18; 
+        //   X = event.pageX - 18;
+        //   });
+        //   TweenMax.to(divCursor, 0.1, { display: "none", scale: 0, opacity: 0, ease: Power2.easeInOut });
+        //   TweenMax.to(divCursorTwo, 0.1, { display: "block", scale: 1, opacity: 1, ease: Power2.easeInOut });
+
+        window.addEventListener('DOMContentLoaded', cursor);
+        window.addEventListener('mousemove', cursor);
+        document.addEventListener('mouseenter', () => mouseCursor.style.display = 'block');
+        document.addEventListener('mouseleave', () => mouseCursor.style.display = 'none');
+        
+        
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent)) {
+              jQuery('.cursor').remove();
+            } else {
+              mouseCursor.style.display = 'block';
+            }
+                    function cursor(e){
+        
+                        mouseCursor.style.top = "calc(" +e.clientY + "px - 18px)";
+                        mouseCursor.style.left = "calc(" +e.clientX + "px - 18px)";
+                        mouseCursor.classList.add("div-cursor-two");
+                    }
+                    var scroller = {
+                        target: document.querySelector("#scroll-container"),
+                        ease: 2, // <= scroll speed
+                        endY: 0,
+                        y: 0,
+                        resizeRequest: 1,
+                        scrollRequest: 0,
+                      };
+
+    } else {
+
+        canvas.style.cursor = 'default';
+        const x = event.clientX;
+        const y = event.clientY;
+
+        // $(document).mousemove(function(event){
+        //   Y = event.pageY - 10; 
+        //   X = event.pageX - 10;
+        //   });
+        //   TweenMax.to(divCursor, 0.1, { display: "block", scale: 1, opacity: 1, ease: Power2.easeInOut });
+        //   TweenMax.to(divCursorTwo, 0.1, { display: "none", scale: 0, opacity: 0, ease: Power2.easeInOut });
+
+        window.addEventListener('DOMContentLoaded', cursor);
+        window.addEventListener('mousemove', cursor);
+        document.addEventListener('mouseenter', () => mouseCursor.style.display = 'block');
+        document.addEventListener('mouseleave', () => mouseCursor.style.display = 'none');
+        
+        
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent)) {
+              jQuery('.cursor').remove();
+            } else {
+              mouseCursor.style.display = 'block';
+            }
+                    function cursor(e){
+        
+                        mouseCursor.style.top = "calc(" +e.clientY + "px - 10px)";
+                        mouseCursor.style.left = "calc(" +e.clientX + "px - 10px)";
+                        mouseCursor.classList.remove("div-cursor-two");
+                    }
+                    var scroller = {
+                        target: document.querySelector("#scroll-container"),
+                        ease: 2, // <= scroll speed
+                        endY: 0,
+                        y: 0,
+                        resizeRequest: 1,
+                        scrollRequest: 0,
+                      };
+
+    }
+
+});
+
+
+
+
+canvas.addEventListener('click', () => {
+
+    raycaster.setFromCamera(mouse, camera);
+
+    const intersects = raycaster.intersectObjects(scene.children, true);
+
+    if (intersects.length > 0) {
+        const clickedObject = intersects[0].object;
+
+        handleBoxClick(clickedObject);
+    }
+});
+
+function handleBoxClick(clickedBox) {
+    if (![box, box2, box3, box4, box5].includes(clickedBox)) {
+        return;
+    }
+    contentOne.style.display = "none";
+    contentOne.style.opacity = "0";
+    contentTwo.style.display = "none";
+    contentTwo.style.opacity = "0";
+    contentThree.style.display = "none";
+    contentThree.style.opacity = "0";
+    contentFour.style.display = "none";
+    contentFour.style.opacity = "0";
+    contentFive.style.display = "none";
+    contentFive.style.opacity = "0";
+
+    gsap.to(outOne, { display: "none", opacity: 0, duration: 0.5 });
+    gsap.to(outTwo, { display: "none", opacity: 0, duration: 0.5 });
+    gsap.to(outThree, { display: "none", opacity: 0, duration: 0.5 });
+    gsap.to(outFour, { display: "none", opacity: 0, duration: 0.5 });
+    gsap.to(outFive, { display: "none", opacity: 0, duration: 0.5 });
+    gsap.to(originalBtn, { display: "block", opacity: 1, duration: 0.5 });
+    gsap.to(one, { opacity: 0, duration: 0.2 });
+    gsap.to(two, { opacity: 0, duration: 0.2 });
+    gsap.to(three, { opacity: 0, duration: 0.2 });
+
+    let zoomOutFactor = 2.6;
+
+    if (window.innerWidth <= 576) {
+        zoomOutFactor = 3.6;
+        box.position.y = -1.8;
+        box2.position.y = -1;
+        box3.position.y = 1;
+        box4.position.y = 1.2;
+        box5.position.y = -1;
+
+    } else if (window.innerWidth <= 992) {
+        zoomOutFactor = 3.3;
+
+    } else if (window.innerWidth <= 1400) {
+        zoomOutFactor = 3.3;
+    }
+
+    if (clickedBox === box) {
+
+        zoomInTimeline(box.position.x, box.position.y, box.position.z, zoomOutFactor,);
+        gsap.to(contentOne, { display: "block", opacity: 1, duration: 0.3 });
+
+    } else if (clickedBox === box2) {
+        zoomInTimeline(box2.position.x, box2.position.y, box2.position.z, zoomOutFactor);
+        gsap.to(contentTwo, { display: "block", opacity: 1, duration: 0.3 });
+
+    } else if (clickedBox === box3) {
+        zoomInTimeline(box3.position.x, box3.position.y, box3.position.z, zoomOutFactor);
+        gsap.to(contentThree, { display: "block", opacity: 1, duration: 0.3 });
+
+    } else if (clickedBox === box4) {
+        zoomInTimeline(box4.position.x, box4.position.y, box4.position.z, zoomOutFactor);
+        gsap.to(contentFour, { display: "block", opacity: 1, duration: 0.3 });
+
+    } else if (clickedBox === box5) {
+        zoomInTimeline(box5.position.x, box5.position.y, box5.position.z, zoomOutFactor);
+        gsap.to(contentFive, { display: "block", opacity: 1, duration: 0.3 });
+
+    }
+}
+
+let currentBoxIndex = 0;
+
+document.addEventListener('DOMContentLoaded', function () {
+    const leftArrow = document.querySelector('.left');
+    const rightArrow = document.querySelector('.right');
+
+    if (leftArrow && rightArrow) {
+        leftArrow.addEventListener('click', () => navigateBoxes(-1));
+        rightArrow.addEventListener('click', () => navigateBoxes(1));
+    }
+});
+
+function navigateBoxes(direction) {
+    // Find the next clickable box
+    do {
+        currentBoxIndex = (currentBoxIndex + direction) % group.children.length;
+        if (currentBoxIndex < 0) {
+            currentBoxIndex = group.children.length - 1;
+        }
+        var nextBox = group.children[currentBoxIndex];
+    } while (![box, box2, box3, box4, box5].includes(nextBox));
+
+    handleBoxClick(nextBox);
+}
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableRotate = false;
+
+controls.enableZoom = false;
+
+controls.enableRotate = false;
+
+controls.enablePan = false;
+
+const onWindowResize = () => {
+    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+};
+
+window.addEventListener("resize", onWindowResize, false);
+
+const clock = new THREE.Clock();
+
+
+const animate = () => {
+    const elapsedTime = clock.getElapsedTime();
+
+// Rotation animation
+gsap.to(box.rotation, { x: Math.sin(elapsedTime + 38) * -0.2, y: Math.cos(elapsedTime + 38) * -0.2 });
+gsap.to(box2.rotation, { x: Math.sin(elapsedTime + 30) * -0.2, y: Math.cos(elapsedTime + 30) * -0.2 });
+gsap.to(box3.rotation, { x: Math.sin(elapsedTime + 30) * -0.2, y: Math.cos(elapsedTime + 30) * -0.2 });
+gsap.to(box4.rotation, { x: Math.sin(elapsedTime + 30) * -0.2, y: Math.cos(elapsedTime + 30) * -0.2 });
+gsap.to(box5.rotation, { x: Math.sin(elapsedTime + 30) * -0.2, y: Math.cos(elapsedTime + 30) * -0.2 });
+
+// Margin animation
+gsap.to(box.position, { y: box.position.y + Math.sin(elapsedTime + 38) * 0.01 });
+gsap.to(box2.position, { y: box2.position.y + Math.sin(elapsedTime + 30) * 0.01 });
+gsap.to(box3.position, { y: box3.position.y + Math.sin(elapsedTime + 30) * 0.01 });
+gsap.to(box4.position, { y: box4.position.y + Math.sin(elapsedTime + 30) * 0.01 });
+gsap.to(box5.position, { y: box5.position.y + Math.sin(elapsedTime + 30) * 0.01 });
+
+
+    // elapsedTime += 0.01; // Adjust the speed of the animation
+
+    // Update the position of box5
+    const progress11 = (elapsedTime % 90) / 90;
+    const progress16 = (elapsedTime % 140) / 140;
+    const progress21 = (elapsedTime % 100) / 100;
+    const progress26 = (elapsedTime % 120) / 120;
+    const progress32 = (elapsedTime % 85) / 85;
+    const progress40 = (elapsedTime % 85) / 85;
+
+    // Calculate the target positions
+    var targetX11 = Math.sin(progress11 * Math.PI * 2) * 10;
+    var targetX16 = Math.sin(progress16 * Math.PI * 2) * -10;
+    var targetX21 = Math.sin(progress21 * Math.PI * 2) * 10;
+    var targetX26 = Math.sin(progress26 * Math.PI * 2) * -10;
+    var targetY32 = Math.cos(progress32 * Math.PI * 2) * 10;
+    var targetY40 = Math.cos(progress40 * Math.PI * 2) * 10;
+
+    var targetX32 = Math.sin(progress32 * Math.PI * 2) * 0;
+    var targetX40 = Math.sin(progress40 * Math.PI * 2) * 0;
+
+    // Smoothly interpolate the current positions towards the target positions
+    box11.position.x = -0.2 + (targetX11 - box11.position.x) * 0.5;
+    box12.position.x = -2.8 + (targetX11 - box12.position.x) * 0.5;
+    box13.position.x = -2.8 + (targetX11 - box13.position.x) * 0.5;
+    box14.position.x = -10.2 + (targetX11 - box14.position.x) * 0.5;
+    box15.position.x = -9 + (targetX11 - box15.position.x) * 0.5;
+
+    box16.position.x = -5.8 + (targetX16 - box16.position.x) * 0.5;
+    box17.position.x = -6.8 + (targetX16 - box17.position.x) * 0.5;
+    box18.position.x = -8.5 + (targetX16 - box18.position.x) * 0.5;
+    box19.position.x = -8 + (targetX16 - box19.position.x) * 0.5;
+    box20.position.x = -4 + (targetX16 - box20.position.x) * 0.5;
+
+    box21.position.x = 2.6 + (targetX21 - box21.position.x) * 0.5;
+    box22.position.x = 4.2 + (targetX21 - box22.position.x) * 0.5;
+    box23.position.x = 2.5 + (targetX21 - box23.position.x) * 0.5;
+    box24.position.x = 9 + (targetX21 - box24.position.x) * 0.5;
+    box25.position.x = 6.8 + (targetX21 - box25.position.x) * 0.5;
+
+    box26.position.x = 0.9 + (targetX26 - box26.position.x) * 0.5;
+    box27.position.x = 2.9 + (targetX26 - box27.position.x) * 0.5;
+    box28.position.x = 4.7 + (targetX26 - box28.position.x) * 0.5;
+    box29.position.x = 7 + (targetX26 - box29.position.x) * 0.5;
+    box30.position.x = 9.5 + (targetX26 - box30.position.x) * 0.5;
+    box31.position.x = 5.6 + (targetX26 - box31.position.x) * 0.5;
+    box32.position.x = 8.5 + (targetX26 - box32.position.x) * 0.5;
+
+    box33.position.x = -7.6 + (targetX32 - box33.position.x) * 0.5;
+    box34.position.x = -2 + (targetX40 - box34.position.x) * 0.5;
+    box35.position.x = -6 + (targetX32 - box35.position.x) * 0.5;
+    box36.position.x = -1.5 + (targetX40 - box36.position.x) * 0.5;
+    box37.position.x = -9 + (targetX32 - box37.position.x) * 0.5;
+    box38.position.x = 1.6 + (targetX40 - box38.position.x) * 0.5;
+    box39.position.x = 7 + (targetX32 - box39.position.x) * 0.5;
+    box40.position.x = 3.5 + (targetX40 - box40.position.x) * 0.5;
+
+    box33.position.y = -2.4 + (targetY32 - box33.position.y) * 0.5;
+    box34.position.y = 2 + (targetY40 - box34.position.y) * 0.5;
+    box35.position.y = 4.7 + (targetY32 - box35.position.y) * 0.5;
+    box36.position.y = -4 + (targetY40 - box36.position.y) * 0.5;
+    box37.position.y = -2 + (targetY32 - box37.position.y) * 0.5;
+    box38.position.y = 1.1 + (targetY40 - box38.position.y) * 0.5;
+    box39.position.y = 2.9 + (targetY32 - box39.position.y) * 0.5;
+    box40.position.y = 4.6 + (targetY40 - box40.position.y) * 0.5;
+
+    gsap.to(box9.rotation, { x: Math.sin(elapsedTime) * 0, y: Math.cos(elapsedTime) * 0 });
+    gsap.to(box10.rotation, { x: Math.sin(elapsedTime) * 0, y: Math.cos(elapsedTime) * 0 });
+
+    // Rotate inner box
+    // innerBox.rotation.z += 0.01;
+    renderer.render(scene, camera);
+    requestAnimationFrame(animate);
+};
+
+animate();
+
+
+
+// testimonial slider
+var galleryTop = new Swiper('.gallery-top', {
+    spaceBetween: 10,
+
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    loop: true,
+    loopedSlides: 4
+});
+var galleryThumbs = new Swiper('.gallery-thumbs', {
+    spaceBetween: 10,
+    centeredSlides: true,
+    slidesPerView: 5,
+    touchRatio: 0.1,
+    slideToClickedSlide: true,
+    loop: true,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+
+    loopedSlides: 4,
+    breakpoints: {
+        640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+        },
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+        },
+    }
+});
+galleryTop.controller.control = galleryThumbs;
+galleryThumbs.controller.control = galleryTop;
+
+
+
+
+
+
+const legLeft = document.querySelector('.leg-left');
+const legRight = document.querySelector('.leg-right');
+
+window.addEventListener('scroll', () => {
+
+	positionElements();
+    legLeft.style.animationName = "moveleft";
+    legRight.style.animationName = "moveright";
+    gsap.to("legLeft", { duration: 0.5, ease: "power2.out" });
+    gsap.to("legRight", { duration: 0.5, ease: "power2.out" });
+
+    if (window.scrollY >= 750) {
+
+        legLeft.style.animationName = "moveleft-off";
+        legRight.style.animationName = "moveright-off";
+        gsap.to("legLeft", { duration: 0.5, ease: "power2.out" });
+        gsap.to("legRight", { duration: 0.5, ease: "power2.out" });
+
+    } else if (window.scrollY === 0) {
+
+        legLeft.style.animationName = "moveleft-off";
+        legRight.style.animationName = "moveright-off";
+        gsap.to("legLeft", { duration: 0.5, ease: "power2.out" });
+        gsap.to("legRight", { duration: 0.5, ease: "power2.out" });
+
+    } else {
+
+        legLeft.style.animationName = "moveleft";
+        legRight.style.animationName = "moveright";
+        gsap.to("legLeft", { duration: 0.5, ease: "power2.out" });
+        gsap.to("legRight", { duration: 0.5, ease: "power2.out" });
+    }
+    
+})
+
+
+// const onScrollStop = callback => {
+//   let isScrolling;
+//   window.addEventListener(
+//     'scroll',
+//     e => {
+//       clearTimeout(isScrolling);
+//       isScrolling = setTimeout(() => {
+//         callback();
+//       }, 150);
+//     },
+//     false
+//   );
+// };
+
+// onScrollStop(() => {
+//   console.log('The user has stopped scrolling');
+//   legLeft.style.animationName = "moveleft-off";
+// legRight.style.animationName = "moveright-off";
+// });
+
+
+window.addEventListener('resize', () => {
+	pathPosition = path.getBoundingClientRect();
+	documentPosition = document.body.getBoundingClientRect();
+	
+	positionElements();
+});
+
+    positionElements();
+
+    window.onscroll = function (e) {
+    console.log(window.scrollY); 
+};
+
+
+
+let mouseCursor = document.querySelector(".cursor");
+
+window.addEventListener('DOMContentLoaded', cursor);
+window.addEventListener('mousemove', cursor);
+document.addEventListener('mouseenter', () => mouseCursor.style.display = 'block');
+document.addEventListener('mouseleave', () => mouseCursor.style.display = 'none');
+
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent)) {
+      jQuery('.cursor').remove();
+    } else {
+      mouseCursor.style.display = 'block';
+    }
+
+function cursor(e){
+
+    mouseCursor.style.top = "calc(" +e.clientY + "px - 10px)";
+    mouseCursor.style.left = "calc(" +e.clientX + "px - 10px)";
+}
+
+// var html = document.documentElement;
+// var body = document.body;
+
+var scroller = {
+  target: document.querySelector("#scroll-container"),
+  ease: 2, // <= scroll speed
+  endY: 0,
+  y: 0,
+  resizeRequest: 1,
+  scrollRequest: 0,
+};
+
+
+
+const navLogo = document.querySelector("#nav-logo");
+const toggle = document.querySelector("#toggle");
+const homeHeaderButton = document.querySelector(".home-header-button");
+const offerButton = document.querySelector(".offer-button");
+const footerButton = document.querySelector(".footer-button");
+const footerIcons = document.querySelectorAll(".footer-icons a");
+const facebookIcon = footerIcons[0];
+const instaIcon = footerIcons[1];
+const linkedinIcon = footerIcons[2];
+const pagesNames = document.querySelectorAll(".pages-names ul li a");
+const pageabout = pagesNames[0];
+const pageportfolio = pagesNames[1];
+const pagecontact = pagesNames[2];
+const arrowsButton = document.querySelectorAll(".arrows button");
+const arrowButtonOne = arrowsButton[0];
+const arrowButtonTwo = arrowsButton[1];
+const footerLogo = document.querySelector(".footer-logo");
+const navOverlayMenus = document.querySelectorAll('nav.overlay-menu ul li a');
+const firstNavLink = navOverlayMenus[0];
+const secondNavLink = navOverlayMenus[1];
+const thirdNavLink = navOverlayMenus[2];
+const fourthNavLink = navOverlayMenus[3];
+
+const cursorChangeElements = [ facebookIcon,arrowButtonOne, arrowButtonTwo, originalBtn, instaIcon, linkedinIcon, pageabout, pageportfolio, pagecontact, navLogo, firstNavLink,
+  secondNavLink, thirdNavLink, fourthNavLink, homeHeaderButton, offerButton, footerButton,
+  footerLogo, toggle, footerIcons, pagesNames];
+
+  
+
+  cursorChangeElements.forEach(element => {
+    if (element && typeof element.addEventListener === 'function') {
+
+        element.addEventListener('mouseover', function(){
+            // $(document).mousemove(function(event){
+            //     Y = event.pageY - 18; 
+            //     X = event.pageX - 18;
+            // });
+            // TweenMax.to(divCursor, 0.1, { display: "none", scale: 0, opacity: 0, ease: Power2.easeInOut });
+            // TweenMax.to(divCursorTwo, 0.1, { display: "block", scale: 1, opacity: 1, ease: Power2.easeInOut });
+            // divCursor.style.pointerEvents = "none";
+            // divCursorTwo.style.pointerEvents = "none";
+            window.addEventListener('DOMContentLoaded', cursor);
+window.addEventListener('mousemove', cursor);
+document.addEventListener('mouseenter', () => mouseCursor.style.display = 'block');
+document.addEventListener('mouseleave', () => mouseCursor.style.display = 'none');
+
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent)) {
+      jQuery('.cursor').remove();
+    } else {
+      mouseCursor.style.display = 'block';
+    }
+            function cursor(e){
+
+                mouseCursor.style.top = "calc(" +e.clientY + "px - 18px)";
+                mouseCursor.style.left = "calc(" +e.clientX + "px - 18px)";
+                mouseCursor.classList.add("div-cursor-two");
+                TweenMax.to(mouseCursor, 0.1, { ease: Power2.easeInOut });
+            }
+            var scroller = {
+                target: document.querySelector("#scroll-container"),
+                ease: 2, // <= scroll speed
+                endY: 0,
+                y: 0,
+                resizeRequest: 1,
+                scrollRequest: 0,
+              };
+        });
+        element.addEventListener('mouseleave', function(){
+            // $(document).mousemove(function(event){
+            //     Y = event.pageY - 10; 
+            //     X = event.pageX - 10;
+            // });
+            // TweenMax.to(divCursor, 0.1, { display: "block", scale: 1, opacity: 1, ease: Power2.easeInOut });
+            // TweenMax.to(divCursorTwo, 0.1, { display: "none", scale: 0, opacity: 0, ease: Power2.easeInOut });
+            // divCursor.style.pointerEvents = "none";
+            // divCursorTwo.style.pointerEvents = "none";
+            window.addEventListener('DOMContentLoaded', cursor);
+window.addEventListener('mousemove', cursor);
+document.addEventListener('mouseenter', () => mouseCursor.style.display = 'block');
+document.addEventListener('mouseleave', () => mouseCursor.style.display = 'none');
+
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent)) {
+      jQuery('.cursor').remove();
+    } else {
+      mouseCursor.style.display = 'block';
+    }
+            function cursor(e){
+
+                mouseCursor.style.top = "calc(" +e.clientY + "px - 10px)";
+                mouseCursor.style.left = "calc(" +e.clientX + "px - 10px)";
+                mouseCursor.classList.remove("div-cursor-two");
+                TweenMax.to(mouseCursor, 0.1, { ease: Power2.easeInOut });
+            }
+            var scroller = {
+                target: document.querySelector("#scroll-container"),
+                ease: 2, // <= scroll speed
+                endY: 0,
+                y: 0,
+                resizeRequest: 1,
+                scrollRequest: 0,
+              };
+        });
+    }
+});
+
+
+
+
+    </script>
+</body>
+</html>

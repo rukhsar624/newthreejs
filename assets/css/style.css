@@ -7,12 +7,13 @@
 body::-webkit-scrollbar {
     width: 8px;
     height: 5px;
-    background-color: #b1a9a9;
+    background-color: #000;
     border-radius: 10px;
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: #FF9D00;
+    /* background-color: #FF9D00; */
+    background: linear-gradient(10deg, #FF9D00 11.2%, rgb(8 8 8) 100.2%);
     border-radius: 10px;
 }
 
@@ -134,7 +135,15 @@ body::-webkit-scrollbar-thumb {
     position: absolute;
     top: 0px;
 }
-
+.title-img{
+    width: 100%;
+    height: 100%;
+}
+.title-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 #title img {
     width: 70%;
 }
@@ -146,7 +155,6 @@ body::-webkit-scrollbar-thumb {
     right: 100px;
     width: 60px;
     height: 60px;
-    /* background-color: #ecc45e; */
     cursor: pointer;
     border-radius: 60px;
     transition: left 500ms cubic-bezier(0.6, 0.05, 0.28, 0.91), background-color 0.3s ease, border-radius 0.3s ease;
@@ -157,7 +165,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 #btn:hover {
-    /* background-color: #ffa910a6; */
     border-radius: 50px;
 }
 
@@ -175,10 +182,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 #btn.active {
-    /* right: 12px; */
     right: 95px;
     border-bottom: 1px solid transparent;
-    /* background-color: #ffa910a6; */
 }
 
 #btn.active div {
@@ -212,12 +217,11 @@ body::-webkit-scrollbar-thumb {
     z-index: 4;
     overflow: auto;
     top: 0px;
-    right: -275px;
+    right: -415px;
     width: 400px;
     opacity: 0;
     padding: 20px 0px;
     height: 100%;
-    /* background-color: #000; */
     background: linear-gradient(54deg, #FF9D00 11.2%, rgb(8 8 8) 100.2%);
     -webkit-transition: all 350ms cubic-bezier(0.6, 0.05, 0.28, 0.91);
     transition: all 350ms cubic-bezier(0.6, 0.05, 0.28, 0.91);
@@ -227,30 +231,42 @@ body::-webkit-scrollbar-thumb {
     width: 150px;
     height: 150px;
     position: absolute;
-    /* bottom: 400px;
-    left: 40px; */
     animation: animations1 120s infinite;
     z-index: -16;
+    background-color: #ffc10740;
+    border-radius: 150px;
 }
 
 .second-animation-div {
     width: 70px;
     height: 70px;
     position: absolute;
-    /* bottom: 200px;
-    left: 20px; */
     animation: animations2 120s infinite;
+    background-color: #ffc10740;
+    border-radius: 70px;
+    z-index: -16;
+}
+
+.third-animation-div {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    animation: animations3 120s infinite;
+    background-color: #ffc10740;
+    border-radius: 100px;
     z-index: -16;
 }
 
 .first-ami-img,
-.second-ami-img {
+.second-ami-img,
+.third-ami-img {
     width: 100%;
     height: 100%;
 }
 
 .first-ami-img img,
-.second-ami-img img {
+.second-ami-img img,
+.third-ami-img img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -323,6 +339,39 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
+@keyframes animations3 {
+    0% {
+        transform: rotate(0);
+        top: 1%;
+        left: 10%;
+    }
+
+    25% {
+        transform: rotate(-360);
+        top: 70%;
+        left: 50%;
+    }
+
+    50% {
+        transform: rotate(360);
+        top: 0%;
+        left: 70%;
+    }
+
+    75% {
+        transform: rotate(-360);
+        top: 70%;
+        left: 50%;
+    }
+
+    100% {
+        transform: rotate(0);
+        top: 0%;
+        left: 0%;
+
+    }
+}
+
 
 #box.active {
     right: 0px;
@@ -332,7 +381,11 @@ body::-webkit-scrollbar-thumb {
 
 #items {
     position: relative;
-    top: 30px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 #items a {
@@ -637,21 +690,6 @@ body::-webkit-scrollbar-thumb {
     z-index: -1;
 }
 
-/* .circle-div {
-    position: absolute;
-    content: "";
-    width: 250px;
-    height: 250px;
-    top: 130px;
-    right: 320px;
-    background-color: #fba81a1a;
-    background-image: url('../images/2x/circle.png');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 130px;
-    z-index: -1;
-} */
 .circle-div {
     position: absolute;
     content: "";
@@ -667,6 +705,7 @@ body::-webkit-scrollbar-thumb {
     border-radius: 160px;
     z-index: -1;
 }
+
 .straight-line-we {
     z-index: 1;
     position: absolute;
@@ -731,7 +770,7 @@ body::-webkit-scrollbar-thumb {
     height: 70px;
     width: 300px;
     top: 79.5%;
-    left:0px;
+    left: 0px;
     border: 1px solid #fff;
     border-radius: 50%;
 }
@@ -1197,7 +1236,8 @@ quote {
 .particle {
     width: 20px;
     height: 20px;
-    background: #ff9d0066;
+    /* background: #ff9d0066; */
+    background-color: #000000;
     border-radius: 50%;
 }
 
@@ -1317,7 +1357,8 @@ quote {
 .particle1 {
     width: 20px;
     height: 20px;
-    background: #ff9d0066;
+    /* background: #ff9d0066; */
+    background-color: #000000;
     border-radius: 50%;
 }
 
@@ -1421,7 +1462,6 @@ quote {
     height: 100%;
     bottom: 0px;
     right: 0px;
-    /* background-image: url('../images/2x/embrace-overlay.png'); */
     background-image: url('../images/2x/Asset3.png');
     background-position: center;
     background-size: cover;
@@ -1671,7 +1711,6 @@ button {
 }
 
 /* footer css closed */
-
 /* about page css open  */
 .about-banner {
     width: 100%;
@@ -1773,7 +1812,6 @@ button {
 }
 
 /* about page css closed */
-
 /* contact page css closed */
 .get-in-touch {
     background-color: #000;
@@ -2055,7 +2093,6 @@ ul {
     display: none;
     cursor: pointer;
     box-sizing: border-box;
-    /* Include padding in the element's total width and height */
     border: 15px solid transparent;
     opacity: 0.9;
 }
@@ -2138,30 +2175,33 @@ ul {
 
     #btn {
         top: 9px;
-    right: 60px;
+        right: 60px;
     }
 }
 
 @media only screen and (max-width:820px) {
     #atom {
         bottom: 0px;
-    left: 390px;
-    width: 70px;
-    height: 200px;
+        left: 390px;
+        width: 70px;
+        height: 200px;
     }
+
     #atom1 {
         top: 70px;
-    right: 210px;
-    width: 70px;
-    height: 200px;
+        right: 210px;
+        width: 70px;
+        height: 200px;
     }
+
     .hor-line {
         position: absolute;
-    width: 160px;
-    top: 125px;
-    left: 40px;
-    height: 4px;
+        width: 160px;
+        top: 125px;
+        left: 40px;
+        height: 4px;
     }
+
     #canvas {
         height: 100vh !important;
         width: 100vw !important;
@@ -2188,23 +2228,25 @@ ul {
 
     #btn {
         top: 0px;
-    right: 27px 
+        right: 27px
     }
 }
 
 @media only screen and (max-width:768px) {
     #atom {
         bottom: 0px;
-    left: 390px;
-    width: 70px;
-    height: 200px;
+        left: 390px;
+        width: 70px;
+        height: 200px;
     }
+
     #atom1 {
         top: 70px;
-    right: 210px;
-    width: 70px;
-    height: 200px;
+        right: 210px;
+        width: 70px;
+        height: 200px;
     }
+
     #canvas {
         height: 100vh !important;
         width: 100vw !important;
@@ -2216,12 +2258,13 @@ ul {
         top: 175px !important;
         right: 3px !important;
     }
+
     .hor-line {
         position: absolute;
-    width: 160px;
-    top: 125px;
-    left: 40px;
-    height: 4px;
+        width: 160px;
+        top: 125px;
+        left: 40px;
+        height: 4px;
     }
 }
 
@@ -2250,16 +2293,18 @@ ul {
 @media only screen and (max-width:430px) {
     #atom {
         bottom: 0px;
-        left:30%;
+        left: 30%;
         width: 70px;
-    height: 200px;
+        height: 200px;
     }
+
     #atom1 {
         top: 70px;
-    left: 130px;
-    width: 70px;
-    height: 200px;
+        left: 130px;
+        width: 70px;
+        height: 200px;
     }
+
     #canvas {
         height: 100vh !important;
         width: 100vw !important;
@@ -2409,12 +2454,14 @@ ul {
         bottom: 0px;
         left: 30%;
     }
+
     #atom1 {
         top: 70px;
-    left: 130px;
-    width: 70px;
-    height: 200px;
+        left: 130px;
+        width: 70px;
+        height: 200px;
     }
+
     .ring-one {
         z-index: -1;
     }
@@ -2679,16 +2726,18 @@ ul {
 @media only screen and (max-width:390px) {
     #atom {
         bottom: 0px;
-        left:30%;
+        left: 30%;
         width: 70px;
-    height: 200px;
+        height: 200px;
     }
+
     #atom1 {
         top: 70px;
-    left: 130px;
-    width: 70px;
-    height: 200px;
+        left: 130px;
+        width: 70px;
+        height: 200px;
     }
+
     .ring-one {
         z-index: -1;
     }
@@ -2722,16 +2771,18 @@ ul {
 @media only screen and (max-width:375px) {
     #atom {
         bottom: 0px;
-        left:30%;
+        left: 30%;
         width: 70px;
-    height: 200px;
+        height: 200px;
     }
+
     #atom1 {
         top: 70px;
-    left: 130px;
-    width: 70px;
-    height: 200px;
+        left: 130px;
+        width: 70px;
+        height: 200px;
     }
+
     .ring-one {
         z-index: -1;
     }

@@ -54,7 +54,7 @@ $("img").on("mouseleave",function(){
 $(window).scroll(function () {
   var scroll = $(window).scrollTop();
   if (scroll > 90) {
-    $("#navbar-fixed-top").css("background", "#000");
+    $("#navbar-fixed-top").css("background", "linear-gradient(166deg, #000000 28%, #ffc107 88.2%)");
     $("#navbar-fixed-top").css("box-shadow", "rgb(0 0 0 / 46%) 8px 8px 33px")
   }
   else {
@@ -751,11 +751,8 @@ function smoothScroll(element, targetY) {
 function easeInOutQuad(t) {
     return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 }
-
-
-
 // spider Crawling
 
-
-
+// text show when camera zoom on object 
+// text show when camera zoom on object 
 
