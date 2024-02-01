@@ -753,6 +753,4 @@ function easeInOutQuad(t) {
 }
 // spider Crawling
 
-// text show when camera zoom on object 
-// text show when camera zoom on object 
 
