@@ -331,6 +331,7 @@ planesplate.forEach(plane => {
   originalColors.push(plane.material.color.clone());
 });
 leftZoomBtn.addEventListener("click", () => {
+  console.log("Left button clicked");
   const newIndex = (currentIndex - 1 + planes.length) % planes.length;
 
   if (currentIndex !== newIndex) {
@@ -348,6 +349,7 @@ leftZoomBtn.addEventListener("click", () => {
 });
 
 rightZoomBtn.addEventListener("click", () => {
+  console.log("Right button clicked");
   const newIndex = (currentIndex + 1) % planes.length;
 
   if (currentIndex !== newIndex) {
