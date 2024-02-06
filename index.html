@@ -23,6 +23,27 @@
     <title>BUG-HOME | Home</title>
 </head>
 <style>
+    
+.viewport {
+    overflow: hidden;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .scroll-container {  
+    /* position: absolute;   */
+    overflow: hidden;
+    z-index: 10;
+    /* display: flex;
+    justify-content: center;   */
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
     /* Start Testimonials Css */
     .testimonial {
         width: 100%;
@@ -251,6 +272,8 @@
 </style>
 
 <body style="z-index:1;position: relative;">
+    <div class="viewport">
+        <div class="scroll-container" id="scroll-container">
         <!-- ======================================mouse Cursor==================================== -->
         <div class="cursor"></div>
         <div class="cursor-follower"></div>
@@ -2401,7 +2424,8 @@
             </div>
         </section>
         <!-- ===============================footer Closed======================== -->
-    <!-- </div> -->
+    </div>
+    </div>
     <!-- =======================butter div closed============================ -->
     <!-- jquery  -->
     <script src="./assets/js/jquery.min.js"></script>
@@ -2422,7 +2446,85 @@
     <!-- custom js  -->
     <script type="module" src="./assets/js/main.js"></script>
     <script>
-        
+        var html = document.documentElement;
+var body = document.body;
+
+if (window.innerWidth <= 600){
+    var scroller = {
+  target: document.querySelector("#scroll-container"),
+  ease: 0.09, // <= scroll speed
+  endY: 0,
+  y: 0,
+  resizeRequest: 1,
+  scrollRequest: 0,
+};}
+else{
+    var scroller = {
+  target: document.querySelector("#scroll-container"),
+  ease: 0.09, // <= scroll speed
+  endY: 0,
+  y: 0,
+  resizeRequest: 1,
+  scrollRequest: 0,
+};}
+
+
+var requestId = null;
+
+TweenLite.set(scroller.target, {
+  rotation: 0.01,
+  force3D: true
+});
+
+window.addEventListener("load", onLoad);
+
+function onLoad() {    
+  updateScroller();  
+  window.focus();
+  window.addEventListener("resize", onResize);
+  document.addEventListener("scroll", onScroll); 
+}
+
+function updateScroller() {
+  
+  var resized = scroller.resizeRequest > 0;
+    
+  if (resized) {    
+    var height = scroller.target.clientHeight;
+    body.style.height = height + "px";
+    scroller.resizeRequest = 0;
+  }
+      
+  var scrollY = window.pageYOffset || html.scrollTop || body.scrollTop || 0;
+
+  scroller.endY = scrollY;
+  scroller.y += (scrollY - scroller.y) * scroller.ease;
+
+  if (Math.abs(scrollY - scroller.y) < 0.05 || resized) {
+    scroller.y = scrollY;
+    scroller.scrollRequest = 0;
+  }
+  
+  TweenLite.set(scroller.target, { 
+    y: -scroller.y 
+  });
+  
+  requestId = scroller.scrollRequest > 0 ? requestAnimationFrame(updateScroller) : null;
+}
+
+function onScroll() {
+  scroller.scrollRequest++;
+  if (!requestId) {
+    requestId = requestAnimationFrame(updateScroller);
+  }
+}
+
+function onResize() {
+  scroller.resizeRequest++;
+  if (!requestId) {
+    requestId = requestAnimationFrame(updateScroller);
+  }
+}
         // butter.init({
         //     wrapperId: 'butter'
         // });

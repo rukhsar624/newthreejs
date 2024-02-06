@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Document</title>
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+    *,
+    *:before,
+    *:after {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        font-family: "poppins", serif;
+    }
+
+    .header {
+        background: linear-gradient(166deg, rgb(0, 0, 0) 28%, rgb(255, 193, 7) 88.2%);
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        align-items: center;
+    }
+
+    .hambergur {
+        width: 1.6rem;
+
+        div {
+            width: 1.6rem;
+            height: 2px;
+            border: 1px solid #fff;
+            margin-bottom: 5px;
+            border-radius: 5px;
+
+            &:nth-child(2) {
+                width: 1.3rem;
+                background: #fff;
+            }
+        }
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* .container {
+        padding: 1rem;
+
+        @media (min-width: 720px) {
+            padding: 0.5rem 2rem;
+        }
+    } */
+
+    .fullscreen {
+        clip-path: circle(0% at 96.5% 4%);
+        position: fixed;
+        background: linear-gradient(225deg, #FF9D00 -6.8%, #000000 69.2%);
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        transition: all 0.5s cubic-bezier(0.23, 0.93, 0.23, 0.93);
+
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+
+            li {
+                padding: 0.5rem 1rem;
+
+                a {
+                    font-size: 1.5rem;
+                    background: -webkit-linear-gradient(45deg,
+                            rgba(182, 143, 213, 1) 0%,
+                            rgba(255, 174, 174, 0.68531162464986) 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+        }
+
+        .close {
+            position: absolute;
+            top: 1.3rem;
+            right: 2.355rem;
+            width: 2rem;
+            height: 2rem;
+            transform: rotate(45deg);
+
+            div {
+                width: 32px;
+                height: 32px;
+                overflow: hidden;
+
+                &:before,
+                &:after {
+                    content: "";
+                    width: 2rem;
+                    height: 2px;
+                    border: 1px solid #ffffff;
+                    position: absolute;
+                    border-radius: 5px;
+                }
+
+                &:after {
+                    transform: rotate(90deg);
+                    background: #ffffff;
+                }
+            }
+        }
+
+        &.active {
+            clip-path: circle(140% at 96.5% 4%);
+            transition: all 0.7s cubic-bezier(0.23, 0.93, 0.23, 0.93);
+
+            ul>li {
+                animation: animateIn 360ms ease-in-out calc(var(--animation-order) * 100ms) both;
+            }
+        }
+
+        &.reverse_anim {
+            clip-path: circle(0% at 96.5% 4%);
+            opacity: 0.6;
+            transition: all 0.4s cubic-bezier(0.23, 0.93, 0.23, 0.93);
+        }
+    }
+
+    @keyframes animateIn {
+        0% {
+            opacity: 0;
+            transform: translateX(10px) rotate(2deg);
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .logo a {
+        color: #fff;
+        font-size: 1.2rem;
+    }
+</style>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="d-flex justify-content-between  align-items-center">
+                <div>
+                    <div id="title">
+                        <a href="../index.html">
+                            <div class="title-img">
+                                <img src="./assets/images/2x/logo.png" alt="logo-img">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <div class="hambergur">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <nav class="navbar fullscreen d-flex justify-content-center">
+                        <div id="items">
+                            <div class="item1 n-ppost"><a href="../index.html" class="header_links">Home</a></div>
+                            <div class="item1 n-ppost"><a href="./assets/pages/about.html" class="header_links">About
+                                    US</a></div>
+                            <div class="item1 n-ppost"><a href="./assets/pages/portfolio.html"
+                                    class="header_links">Portfolio</a></div>
+                            <div class="item1 n-ppost n-ppost4"><a href="./assets/pages/contact-us.html"
+                                    class="header_links">Contact Us</a></div>
+                            <div class="n-ppost-name black-half-circle">
+                                <div class="black-hlaf-circle-img-div">
+                                    <img src="./assets/images/2x/circle-offer.png" alt="">
+                                </div>
+                            </div>
+                            <div class="n-ppost-name header-circle">
+                                <div class="header-circle-img-div">
+                                    <img src="./assets/images/2x/circle-offer.png" alt="">
+                                </div>
+                            </div>
+                            <div class="n-ppost-name black-circle">
+                                <div class="black-circle-img-div">
+                                    <img src="./assets/images/2x/circle-offer.png" alt="">
+                                </div>
+                            </div>
+                            <div class="n-ppost-name black-small">
+                                <div class="black-small-div">
+                                    <img src="./assets/images/2x/circle-offer.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="close">
+                            <div></div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <p>Numquam explicabo nulla maiores dui pellentesque eos earum vulputate montes, primis nam! Cumque, ad,
+                debitis minima? Nam interdum, aperiam possimus nostrud erat. Vulputate porta eu inventore! Ea tellus
+                nostrum magna! Phasellus dolore irure venenatis cupiditate labore! Purus molestias? Accumsan consequat.
+                Sint ex. Accumsan pellentesque, at, pulvinar convallis? Dolorem, sapiente ut beatae magni. Similique
+                irure magnis quisquam, aliqua omnis suspendisse cubilia porro voluptate, leo habitasse mollit et a
+                viverra est fames? Rhoncus sunt autem! Nisi occaecati adipisicing, ultrices auctor fugit incididunt
+                maiores luctus, placeat tortor elit adipisci urna, ea nostra irure adipisicing in! Quibusdam praesentium
+                beatae accusantium, voluptate class do, reiciendis maiores.</p>
+            <p>Architecto do non at officiis aliquid labore quos montes, metus facilisis sodales? Dapibus unde alias!
+                Sunt? Libero nulla. Repellat, natus id esse suscipit purus, eaque, aliquip dolorem adipisicing, lectus
+                commodi, modi voluptate lectus diam! Natoque ultrices convallis duis nostra dapibus montes enim, sodales
+                elit optio mollitia porta perferendis ac, reiciendis similique, adipisicing, reprehenderit facilis
+                cillum, excepturi aliquip laboriosam. Auctor asperiores volutpat ab quos consequatur cupiditate, quae
+                vulputate molestie, ea corrupti imperdiet habitant, voluptatem corporis fames molestie exercitation in
+                cillum nemo? Suscipit accusantium sapiente dignissim? Ex reprehenderit arcu laboris litora aspernatur
+                lorem lobortis ligula hendrerit consectetur atque! Tempore aspernatur autem potenti? Exercitationem.</p>
+            <p>Wisi maxime mollit aenean lacus officia at quis molestie molestie anim ullamcorper! Dictum tellus, orci
+                est dapibus laborum ipsa placeat, maecenas mi, diam exercitation perspiciatis. Nibh aliquip, ullamco sit
+                ullamcorper, in earum suspendisse potenti? Placeat repellat. Occaecat habitant laboriosam nostrum,
+                laboris malesuada urna metus pharetra, vivamus inceptos quisquam. Venenatis feugiat, autem augue
+                hendrerit interdum? Autem cubilia erat, adipisci pede corporis, labore aperiam id maiores! Excepturi
+                minus earum ultricies, metus bibendum sociis integer, condimentum inceptos, error adipisci venenatis
+                morbi, sapien enim! Mollitia purus vel? Pharetra necessitatibus rhoncus? Quo, arcu aptent consequatur
+                pharetra habitant nobis nam habitasse dapibus, congue placeat? Malesuada. Rhoncus pede nostrud nisl
+                tristique cupiditate! Incidunt adipisci lacinia! Dapibus rerum pretium minus? In itaque nunc donec.
+                Ullam aliquid sapien, sociis. Quos nibh doloribus lectus taciti varius nunc culpa vehicula odit
+                excepturi iste, rhoncus magna fermentum aperiam? Fugiat porttitor minim velit, doloribus perferendis
+                fugiat, cumque exercitation urna nunc illo asperiores maiores torquent tempore numquam, inceptos!
+                Tenetur malesuada facilisi fames quo? Netus, quam sem. Nascetur cum irure aenean aptent provident, urna
+                tenetur aperiam tempus voluptatibus? Sed massa, eleifend aliquam, earum, natoque placerat. Eros quaerat
+                leo? Nullam lacinia condimentum ante sem lobortis consequat placerat vivamus platea volutpat libero
+                diamlorem! Aptent proin eiusmod fugit, delectus.</p>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(".hambergur").on("click", () => {
+            $(".fullscreen").toggleClass("active").removeClass("reverse_anim");
+        });
+
+        $(".close").on("click", () => {
+            $(".fullscreen").toggleClass("reverse_anim");
+        });
+
+    </script>
+</body>
+
+</html>
